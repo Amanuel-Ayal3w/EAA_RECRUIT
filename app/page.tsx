@@ -6,11 +6,7 @@ import Features from "@/components/Features";
 import HowItWorks from "@/components/HowItWorks";
 import Stats from "@/components/Stats";
 import Testimonials from "@/components/Testimonials";
-import Bento from "@/components/Bento";
-import Comparison from "@/components/Comparison";
-import Showcase from "@/components/Showcase";
 import FAQ from "@/components/FAQ";
-import Pricing from "@/components/Pricing";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
 
@@ -25,11 +21,7 @@ export default function Home() {
       <HowItWorks />
       <Stats />
       <Testimonials />
-      <Bento />
-      <Comparison />
-      <Showcase />
       <FAQ />
-      <Pricing />
       <FinalCTA />
       <Footer />
     </main>

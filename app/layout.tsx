@@ -15,9 +15,9 @@ const ibmPlexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "PixelCraft — Build Without Limits",
+  title: "EAA Recruit — The Future of Aviation Recruitment",
   description:
-    "The industrial-grade design system for builders who don't compromise.",
+    "An AI-powered recruitment platform for Ethiopian Airlines and the Ethiopian Aviation Academy. Transparent, fair, and fast-track hiring in under 4 weeks.",
 };
 
 export default function RootLayout({

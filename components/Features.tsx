@@ -1,44 +1,51 @@
 import SectionHeader from "./SectionHeader";
 
 interface FeatureCardProps {
-  iconColor: string;
+  accentColor: string;
+  tag: string;
   title: string;
   description: string;
-  tag: string;
-  tagColor: string;
   bgColor?: string;
   borderColor?: string;
+  icon: React.ReactNode;
 }
 
 function FeatureCard({
-  iconColor,
+  accentColor,
+  tag,
   title,
   description,
-  tag,
-  tagColor,
   bgColor = "#111111",
   borderColor = "#2D2D2D",
+  icon,
 }: FeatureCardProps) {
   return (
     <div
-      className="flex flex-col gap-5 p-8 md:p-[32px] border w-full md:flex-1 md:h-[320px]"
+      className="flex flex-col gap-5 p-8 md:p-[32px] border w-full md:flex-1 md:min-h-[340px]"
       style={{ backgroundColor: bgColor, borderColor }}
     >
-      <div className="w-[40px] h-[40px] shrink-0" style={{ backgroundColor: iconColor }} />
-      <h3 className="font-grotesk text-[18px] font-bold text-[#F5F5F0] tracking-[1px] leading-[1.2] whitespace-pre-line">
-        {title}
-      </h3>
-      <p className="font-ibm-mono text-[12px] text-[#666666] tracking-[1px] leading-[1.6]">
-        {description}
-      </p>
+      {/* Icon area */}
       <div
-        className="flex items-center justify-center h-[28px] px-[12px] bg-[#1A1A1A] border w-fit"
-        style={{ borderColor: tagColor }}
+        className="flex items-center justify-center w-[48px] h-[48px] shrink-0"
+        style={{ backgroundColor: `${accentColor}22`, border: `1px solid ${accentColor}44` }}
       >
-        <span className="font-ibm-mono text-[11px] tracking-[2px]" style={{ color: tagColor }}>
+        {icon}
+      </div>
+      {/* Tag */}
+      <div
+        className="flex items-center justify-center h-[26px] px-[10px] w-fit border"
+        style={{ borderColor: accentColor, background: `${accentColor}11` }}
+      >
+        <span className="font-ibm-mono text-[10px] tracking-[2px]" style={{ color: accentColor }}>
           {tag}
         </span>
       </div>
+      <h3 className="font-grotesk text-[18px] font-bold text-[#F5F5F0] tracking-[0.5px] leading-[1.2]">
+        {title}
+      </h3>
+      <p className="font-ibm-mono text-[12px] text-[#666666] tracking-[0.5px] leading-[1.6]">
+        {description}
+      </p>
     </div>
   );
 }
@@ -50,36 +57,56 @@ export default function Features() {
       className="flex flex-col w-full bg-[#0A0A0A] py-16 px-6 md:py-[100px] md:px-[120px] gap-12 md:gap-[64px]"
     >
       <SectionHeader
-        label="[01] // FEATURES"
-        title={"EVERYTHING YOU NEED.\nNOTHING YOU DON'T."}
-        subtitle="ENGINEERED FOR SPEED. BUILT FOR SCALE. DESIGNED FOR BUILDERS."
+        label="[01] // VALUE PROPOSITIONS"
+        title={"WHY EAA RECRUIT\nIS DIFFERENT."}
+        subtitle="THREE PILLARS THAT SEPARATE OBJECTIVE HIRING FROM SUBJECTIVE GUESSWORK."
       />
 
       <div className="flex flex-col md:flex-row w-full gap-[2px]">
         <FeatureCard
-          iconColor="#FFD600"
-          title={"PIXEL-ACCURATE\nDESIGN SYSTEM"}
-          description="EVERY COMPONENT BUILT TO A 4PX GRID. NO EXCEPTIONS. NO COMPROMISE."
-          tag="CORE"
-          tagColor="#FFD600"
+          accentColor="#FFD600"
+          tag="AI CV PARSING"
+          title="Automated Skill Extraction"
+          description="Our AI engine reads PDFs, DOCXs, and even scanned images — extracting qualifications, experience, and education without human bias. Every candidate is evaluated on merit."
+          bgColor="#111111"
           borderColor="#FFD600"
+          icon={
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+              <rect x="3" y="2" width="10" height="13" rx="1" stroke="#FFD600" strokeWidth="1.5" />
+              <path d="M6 7h4M6 10h4M6 13h2" stroke="#FFD600" strokeWidth="1.2" strokeLinecap="round" />
+              <circle cx="16" cy="15" r="4" stroke="#FFD600" strokeWidth="1.5" />
+              <path d="M14.5 15h3M16 13.5v3" stroke="#FFD600" strokeWidth="1.2" strokeLinecap="round" />
+            </svg>
+          }
         />
         <FeatureCard
-          iconColor="#FF6B35"
-          title={"ZERO-DEPENDENCY\nCOMPONENTS"}
-          description="PURE VANILLA. NO BLOAT. SHIP EXACTLY WHAT YOUR USERS NEED, NOTHING MORE."
-          tag="VANILLA"
-          tagColor="#FF6B35"
+          accentColor="#4ADE80"
+          tag="ADAPTIVE EXAMS"
+          title="Role-Specific Technical Assessments"
+          description="Candidates sit automated examinations tailored to their applied role — Flight Operations, Maintenance, or In-Flight Services. Questions adapt based on prior answers for precise skill measurement."
           bgColor="#0F0F0F"
-          borderColor="#FF6B35"
+          borderColor="#2D2D2D"
+          icon={
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+              <rect x="2" y="4" width="18" height="14" rx="1" stroke="#4ADE80" strokeWidth="1.5" />
+              <path d="M7 9l3 3 5-5" stroke="#4ADE80" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          }
         />
         <FeatureCard
-          iconColor="#F5F5F0"
-          title={"DARK MODE\nFIRST."}
-          description="BUILT FOR THE TERMINAL GENERATION. EVERY COLOR CALIBRATED FOR LOW-LIGHT PRECISION."
-          tag="DARK"
-          tagColor="#888888"
-          borderColor="#555555"
+          accentColor="#60A5FA"
+          tag="XAI REPORTS"
+          title="Explainable AI Scoring"
+          description="Transparency at every step. Recruiters see exactly why a candidate received their score. Candidates receive clear feedback they can act on. No black boxes — just fair, auditable decisions."
+          bgColor="#111111"
+          borderColor="#2D2D2D"
+          icon={
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+              <circle cx="11" cy="11" r="8" stroke="#60A5FA" strokeWidth="1.5" />
+              <path d="M11 7v4l3 2" stroke="#60A5FA" strokeWidth="1.5" strokeLinecap="round" />
+              <circle cx="11" cy="11" r="1.5" fill="#60A5FA" />
+            </svg>
+          }
         />
       </div>
     </section>

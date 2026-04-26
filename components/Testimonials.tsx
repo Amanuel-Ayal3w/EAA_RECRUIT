@@ -1,71 +1,124 @@
 import SectionHeader from "./SectionHeader";
 
-interface TestimonialCardProps {
-  quote: string;
-  name: string;
-  role: string;
-  bgColor?: string;
+interface JobCategoryCardProps {
   accentColor: string;
+  title: string;
+  openings: number;
+  roles: string[];
+  note: string;
 }
 
-function TestimonialCard({
-  quote,
-  name,
-  role,
-  bgColor = "#111111",
+function JobCategoryCard({
   accentColor,
-}: TestimonialCardProps) {
+  title,
+  openings,
+  roles,
+  note,
+}: JobCategoryCardProps) {
   return (
     <div
-      className="flex flex-col gap-6 p-8 md:p-[40px] border-l-4 w-full md:flex-1"
-      style={{ backgroundColor: bgColor, borderLeftColor: accentColor }}
+      className="flex flex-col gap-5 p-8 md:p-[40px] border-l-4 w-full md:flex-1 bg-[#111111]"
+      style={{ borderLeftColor: accentColor }}
     >
-      <p className="font-ibm-mono text-[13px] text-[#CCCCCC] tracking-[1px] leading-[1.6]">
-        &ldquo;{quote}&rdquo;
-      </p>
-      <div className="flex items-center gap-[12px]">
-        <div className="w-[36px] h-[36px] rounded-full bg-[#333333] shrink-0" />
-        <div className="flex flex-col gap-[2px]">
-          <span className="font-grotesk text-[13px] font-bold text-[#F5F5F0] tracking-[1px]">
-            {name}
-          </span>
-          <span className="font-ibm-mono text-[11px] text-[#555555] tracking-[1px]">
-            {role}
+      <div className="flex items-start justify-between gap-4">
+        <h3 className="font-grotesk text-[18px] font-bold text-[#F5F5F0] tracking-[0.5px] leading-[1.2]">
+          {title}
+        </h3>
+        <div
+          className="flex items-center justify-center shrink-0 h-[28px] px-[10px] border"
+          style={{ borderColor: accentColor, background: `${accentColor}18` }}
+        >
+          <span className="font-ibm-mono text-[10px] font-bold tracking-[1.5px]" style={{ color: accentColor }}>
+            {openings} OPEN
           </span>
         </div>
       </div>
+      <div className="flex flex-col gap-[8px]">
+        {roles.map((role) => (
+          <div key={role} className="flex items-center gap-[8px]">
+            <div className="w-[4px] h-[4px] rounded-full shrink-0" style={{ background: accentColor }} />
+            <span className="font-ibm-mono text-[11px] text-[#888888] tracking-[0.5px]">{role}</span>
+          </div>
+        ))}
+      </div>
+      <p className="font-ibm-mono text-[10px] text-[#555555] tracking-[0.5px] leading-[1.5] mt-auto">
+        {note}
+      </p>
+      <a
+        href="#"
+        className="flex items-center justify-center h-[40px] border transition-colors"
+        style={{ borderColor: accentColor }}
+        onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = `${accentColor}18`)}
+        onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "transparent")}
+      >
+        <span className="font-grotesk text-[11px] font-bold tracking-[1.5px]" style={{ color: accentColor }}>
+          BROWSE POSITIONS &gt;
+        </span>
+      </a>
     </div>
   );
 }
 
 export default function Testimonials() {
   return (
-    <section className="flex flex-col w-full bg-[#0A0A0A] py-16 px-6 md:py-[100px] md:px-[120px] gap-12 md:gap-[64px]">
-      <SectionHeader
-        label="[04] // WHAT BUILDERS SAY"
-        title={"REAL BUILDERS.\nREAL RESULTS."}
-      />
+    <section id="jobs" className="flex flex-col w-full bg-[#0A0A0A] py-16 px-6 md:py-[100px] md:px-[120px] gap-12 md:gap-[64px]">
+      <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+        <SectionHeader
+          label="[04] // JOB DISCOVERY"
+          title={"FIND YOUR\nROLE IN AVIATION."}
+          subtitle="BROWSE OPENINGS ACROSS THREE CORE AVIATION DOMAINS."
+        />
+        <div className="flex items-center gap-2 shrink-0">
+          <div className="flex items-center h-[40px] border border-[#2D2D2D] bg-[#111111] px-4 flex-1 md:w-[240px]">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="shrink-0 mr-2">
+              <circle cx="6" cy="6" r="4.5" stroke="#555" strokeWidth="1.2" />
+              <path d="M9.5 9.5l2.5 2.5" stroke="#555" strokeWidth="1.2" strokeLinecap="round" />
+            </svg>
+            <span className="font-ibm-mono text-[11px] text-[#444444] tracking-[1px]">
+              SEARCH JOBS...
+            </span>
+          </div>
+          <button className="flex items-center justify-center h-[40px] w-[40px] bg-[#FFD600] shrink-0">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <circle cx="6" cy="6" r="4.5" stroke="#0A0A0A" strokeWidth="1.5" />
+              <path d="M9.5 9.5l2.5 2.5" stroke="#0A0A0A" strokeWidth="1.5" strokeLinecap="round" />
+            </svg>
+          </button>
+        </div>
+      </div>
 
       <div className="flex flex-col md:flex-row w-full gap-[2px]">
-        <TestimonialCard
-          quote="PIXELCRAFT IS THE FIRST TOOL THAT ACTUALLY RESPECTS MY WORKFLOW. SHIPPED 3 PRODUCTS IN 6 WEEKS."
-          name="SARAH L."
-          role="FOUNDER, FORGE LAB"
+        <JobCategoryCard
           accentColor="#FFD600"
+          title="Flight Operations"
+          openings={12}
+          roles={["Pilot Cadet (CPL Track)", "Flight Dispatcher", "Aviation Safety Officer", "Air Traffic Controller"]}
+          note="REQUIRES VALID MEDICAL CERTIFICATE. AI EXAM COVERS METEOROLOGY, NAVIGATION, AND REGULATIONS."
         />
-        <TestimonialCard
-          quote="FINALLY A SYSTEM THAT DOESN'T FIGHT ME. THE DARK MODE IS FLAWLESS. ZERO CONFIG."
-          name="ALEX KIM"
-          role="CTO, AXIOM INC"
-          bgColor="#0D0D0D"
-          accentColor="#FF6B35"
+        <JobCategoryCard
+          accentColor="#4ADE80"
+          title="In-Flight Services"
+          openings={28}
+          roles={["Cabin Crew", "Purser", "In-Flight Safety Supervisor", "Catering Coordinator"]}
+          note="MULTI-LANGUAGE CANDIDATES ENCOURAGED. EXAM ASSESSES SAFETY PROTOCOLS AND PASSENGER HANDLING."
         />
-        <TestimonialCard
-          quote="WE REPLACED 4 TOOLS WITH PIXELCRAFT. TEAM ONBOARDING DROPPED FROM 2 WEEKS TO 2 DAYS."
-          name="MORGAN HAYES"
-          role="VP DESIGN, NEXUS CO."
-          accentColor="#F5F5F0"
+        <JobCategoryCard
+          accentColor="#60A5FA"
+          title="Maintenance & Engineering"
+          openings={9}
+          roles={["Aircraft Maintenance Technician", "Avionics Engineer", "Quality Assurance Inspector", "Ground Equipment Mechanic"]}
+          note="EASA/FAA LICENSE HOLDERS PREFERRED. TECHNICAL EXAM COVERS SYSTEMS, NDT, AND AIRWORTHINESS."
         />
+      </div>
+
+      <div className="flex items-center gap-[10px] py-4 px-5 border border-[#1E2A1E] bg-[#0F0F0F]">
+        <div className="w-[6px] h-[6px] rounded-full bg-[#4ADE80] shrink-0" />
+        <span className="font-ibm-mono text-[11px] text-[#666666] tracking-[1px]">
+          ALL POSITIONS FOLLOW A FAST-TRACK CYCLE — RESULTS WITHIN
+        </span>
+        <span className="font-ibm-mono text-[11px] font-bold text-[#FFD600] tracking-[1px]">
+          4 WEEKS OF APPLICATION.
+        </span>
       </div>
     </section>
   );
