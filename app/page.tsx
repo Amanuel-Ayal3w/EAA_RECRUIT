@@ -12,7 +12,7 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className="flex flex-col w-full bg-[#0A0A0A] pt-[60px]">
+    <main className="flex flex-col w-full bg-[var(--c-bg)] pt-[60px]">
       <Navbar />
       <Hero />
       <PixelDivider />

@@ -7,8 +7,8 @@ import {
 
 // ─── Mock data ────────────────────────────────────────────────────────────────
 const funnelData = [
-  { name: "APPLIED",    value: 500, fill: "#FFD600" },
-  { name: "AI SCREENED",value: 100, fill: "#E6C200" },
+  { name: "APPLIED",    value: 500, fill: "var(--c-accent)" },
+  { name: "AI SCREENED",value: 100, fill: "var(--c-accent-hover)" },
   { name: "EXAMINED",   value: 20,  fill: "#B39900" },
   { name: "INTERVIEWED",value: 5,   fill: "#805E00" },
 ];
@@ -65,22 +65,22 @@ const activeJobs = [
 ];
 
 const TooltipStyle: React.CSSProperties = {
-  background: "#111",
-  border: "1px solid #2D2D2D",
+  background: "var(--c-bg)",
+  border: "1px solid var(--c-border)",
   borderRadius: 0,
   padding: "8px 12px",
   fontFamily: "var(--font-ibm-plex-mono), monospace",
   fontSize: "9px",
-  color: "#F5F5F0",
+  color: "var(--c-text)",
   letterSpacing: "1px",
 };
 
 function SectionLabel({ index, children }: { index: string; children: string }) {
   return (
     <div className="flex items-center gap-3 mb-5">
-      <span className="font-ibm-mono text-[9px] text-[#444] tracking-[2px]">[{index}]</span>
-      <div className="w-[3px] h-[14px] bg-[#FFD600] shrink-0" />
-      <span className="font-ibm-mono text-[9px] text-[#888] tracking-[2px]">{children}</span>
+      <span className="font-ibm-mono text-[9px] text-[var(--c-text-dim)] tracking-[2px]">[{index}]</span>
+      <div className="w-[3px] h-[14px] bg-[var(--c-accent)] shrink-0" />
+      <span className="font-ibm-mono text-[9px] text-[var(--c-text-sub)] tracking-[2px]">{children}</span>
     </div>
   );
 }
@@ -88,17 +88,17 @@ function SectionLabel({ index, children }: { index: string; children: string }) 
 function KPICard({ label, value, sub, accent = false }: { label: string; value: string; sub: string; accent?: boolean }) {
   return (
     <div
-      className="flex flex-col gap-3 p-5 border border-[#1D1D1D] bg-[#0D0D0D]"
-      style={accent ? { borderColor: "#FFD600", background: "rgba(255,214,0,0.03)" } : {}}
+      className="flex flex-col gap-3 p-5 border border-[var(--c-border-soft)] bg-[var(--c-bg-elev)]"
+      style={accent ? { borderColor: "var(--c-accent)", background: "rgba(255,214,0,0.03)" } : {}}
     >
-      <span className="font-ibm-mono text-[9px] text-[#555] tracking-[1.5px]">{label}</span>
+      <span className="font-ibm-mono text-[9px] text-[var(--c-text-muted)] tracking-[1.5px]">{label}</span>
       <span
         className="font-grotesk text-[32px] font-bold leading-none tracking-[-1px]"
-        style={{ color: accent ? "#FFD600" : "#F5F5F0" }}
+        style={{ color: accent ? "var(--c-accent)" : "var(--c-text)" }}
       >
         {value}
       </span>
-      <span className="font-ibm-mono text-[8px] text-[#444] tracking-[0.5px]">{sub}</span>
+      <span className="font-ibm-mono text-[8px] text-[var(--c-text-dim)] tracking-[0.5px]">{sub}</span>
     </div>
   );
 }
@@ -108,17 +108,17 @@ export default function RecruiterDashboard() {
     <div className="p-6 md:p-8 max-w-[1400px] mx-auto">
       {/* Page header */}
       <div className="flex flex-col gap-1 mb-8">
-        <span className="font-ibm-mono text-[9px] text-[#444] tracking-[2px]">[01] // PIPELINE OVERVIEW</span>
-        <h1 className="font-grotesk text-[24px] md:text-[32px] font-bold text-[#F5F5F0] tracking-[-1px]">
+        <span className="font-ibm-mono text-[9px] text-[var(--c-text-dim)] tracking-[2px]">[01] // PIPELINE OVERVIEW</span>
+        <h1 className="font-grotesk text-[24px] md:text-[32px] font-bold text-[var(--c-text)] tracking-[-1px]">
           Recruitment Dashboard
         </h1>
-        <p className="font-ibm-mono text-[10px] text-[#555] tracking-[0.5px]">
+        <p className="font-ibm-mono text-[10px] text-[var(--c-text-muted)] tracking-[0.5px]">
           Live funnel metrics across all active roles — EAA Recruit
         </p>
       </div>
 
       {/* KPI strip */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-[1px] bg-[#1D1D1D] mb-8">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-[1px] bg-[var(--c-border-soft)] mb-8">
         <KPICard label="ACTIVE CYCLES" value="4" sub="Open recruitment pipelines" accent />
         <KPICard label="TOTAL APPLICANTS" value="500" sub="Across all active postings" />
         <KPICard label="AVG. TIME-TO-FILL" value="12d" sub="Target: under 28 days" />
@@ -128,7 +128,7 @@ export default function RecruiterDashboard() {
       {/* Funnel + TTF */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
         {/* Funnel */}
-        <div className="p-5 border border-[#1D1D1D] bg-[#0D0D0D]">
+        <div className="p-5 border border-[var(--c-border-soft)] bg-[var(--c-bg-elev)]">
           <SectionLabel index="02">ACTIVE RECRUITMENT FUNNEL</SectionLabel>
           <ResponsiveContainer width="100%" height={240}>
             <FunnelChart>
@@ -136,14 +136,14 @@ export default function RecruiterDashboard() {
               <Funnel dataKey="value" data={funnelData} isAnimationActive lastShapeType="rectangle">
                 <LabelList
                   position="right"
-                  fill="#888"
+                  fill="var(--c-text-sub)"
                   stroke="none"
                   dataKey="name"
                   style={{ fontFamily: "var(--font-ibm-plex-mono)", fontSize: 9, letterSpacing: "1px" }}
                 />
                 <LabelList
                   position="center"
-                  fill="#0A0A0A"
+                  fill="var(--c-text)"
                   stroke="none"
                   dataKey="value"
                   style={{ fontFamily: "var(--font-ibm-plex-mono)", fontSize: 11, fontWeight: "bold", letterSpacing: "1px" }}
@@ -152,33 +152,33 @@ export default function RecruiterDashboard() {
             </FunnelChart>
           </ResponsiveContainer>
           {/* Conversion rates */}
-          <div className="flex gap-[1px] mt-4 bg-[#1D1D1D]">
+          <div className="flex gap-[1px] mt-4 bg-[var(--c-border-soft)]">
             {[
               { label: "SCREEN RATE", value: "20%" },
               { label: "EXAM RATE",   value: "20%" },
               { label: "HIRE RATE",   value: "25%" },
             ].map((item) => (
-              <div key={item.label} className="flex-1 flex flex-col items-center py-3 bg-[#0D0D0D] gap-1">
-                <span className="font-grotesk text-[18px] font-bold text-[#FFD600]">{item.value}</span>
-                <span className="font-ibm-mono text-[7px] text-[#444] tracking-[1px]">{item.label}</span>
+              <div key={item.label} className="flex-1 flex flex-col items-center py-3 bg-[var(--c-bg-elev)] gap-1">
+                <span className="font-grotesk text-[18px] font-bold text-[var(--c-accent)]">{item.value}</span>
+                <span className="font-ibm-mono text-[7px] text-[var(--c-text-dim)] tracking-[1px]">{item.label}</span>
               </div>
             ))}
           </div>
         </div>
 
         {/* Time-to-Fill */}
-        <div className="p-5 border border-[#1D1D1D] bg-[#0D0D0D]">
+        <div className="p-5 border border-[var(--c-border-soft)] bg-[var(--c-bg-elev)]">
           <SectionLabel index="03">TIME-TO-FILL (DAYS PER WEEK)</SectionLabel>
           <ResponsiveContainer width="100%" height={200}>
             <BarChart data={ttfData} barSize={28}>
               <XAxis
                 dataKey="week"
-                tick={{ fill: "#444", fontSize: 8, fontFamily: "var(--font-ibm-plex-mono)", letterSpacing: "1px" }}
-                axisLine={{ stroke: "#1D1D1D" }}
+                tick={{ fill: "var(--c-text-dim)", fontSize: 8, fontFamily: "var(--font-ibm-plex-mono)", letterSpacing: "1px" }}
+                axisLine={{ stroke: "var(--c-border-soft)" }}
                 tickLine={false}
               />
               <YAxis
-                tick={{ fill: "#444", fontSize: 8, fontFamily: "var(--font-ibm-plex-mono)" }}
+                tick={{ fill: "var(--c-text-dim)", fontSize: 8, fontFamily: "var(--font-ibm-plex-mono)" }}
                 axisLine={false}
                 tickLine={false}
                 width={24}
@@ -187,19 +187,19 @@ export default function RecruiterDashboard() {
               <Tooltip contentStyle={TooltipStyle} cursor={{ fill: "rgba(255,214,0,0.04)" }} />
               <Bar dataKey="days" radius={0}>
                 {ttfData.map((entry, i) => (
-                  <Cell key={i} fill={entry.days <= 4 ? "#FFD600" : "#FF6B35"} />
+                  <Cell key={i} fill={entry.days <= 4 ? "var(--c-accent)" : "var(--c-warn)"} />
                 ))}
               </Bar>
             </BarChart>
           </ResponsiveContainer>
           <div className="flex items-center gap-4 mt-3">
             <div className="flex items-center gap-[6px]">
-              <div className="w-[8px] h-[8px] bg-[#FFD600]" />
-              <span className="font-ibm-mono text-[8px] text-[#555]">ON TRACK (≤4d)</span>
+              <div className="w-[8px] h-[8px] bg-[var(--c-accent)]" />
+              <span className="font-ibm-mono text-[8px] text-[var(--c-text-muted)]">ON TRACK (≤4d)</span>
             </div>
             <div className="flex items-center gap-[6px]">
-              <div className="w-[8px] h-[8px] bg-[#FF6B35]" />
-              <span className="font-ibm-mono text-[8px] text-[#555]">DELAYED (&gt;4d)</span>
+              <div className="w-[8px] h-[8px] bg-[var(--c-warn)]" />
+              <span className="font-ibm-mono text-[8px] text-[var(--c-text-muted)]">DELAYED (&gt;4d)</span>
             </div>
           </div>
         </div>
@@ -208,11 +208,11 @@ export default function RecruiterDashboard() {
       {/* Urgent Actions + Active Jobs */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Urgent Actions */}
-        <div className="p-5 border border-[#1D1D1D] bg-[#0D0D0D]">
+        <div className="p-5 border border-[var(--c-border-soft)] bg-[var(--c-bg-elev)]">
           <SectionLabel index="04">URGENT ACTIONS</SectionLabel>
-          <div className="flex flex-col gap-[1px] bg-[#1D1D1D]">
+          <div className="flex flex-col gap-[1px] bg-[var(--c-border-soft)]">
             {urgentActions.map((action) => (
-              <div key={action.id} className="flex items-start gap-4 p-4 bg-[#0D0D0D]">
+              <div key={action.id} className="flex items-start gap-4 p-4 bg-[var(--c-bg-elev)]">
                 <div
                   className="flex items-center justify-center px-2 py-[3px] shrink-0 mt-[1px]"
                   style={{
@@ -223,7 +223,7 @@ export default function RecruiterDashboard() {
                         ? "rgba(255,214,0,0.08)"
                         : "rgba(255,255,255,0.04)",
                     borderLeft: `2px solid ${
-                      action.priority === "high" ? "#FF6B35" : action.priority === "medium" ? "#FFD600" : "#2D2D2D"
+                      action.priority === "high" ? "var(--c-warn)" : action.priority === "medium" ? "var(--c-accent)" : "var(--c-border)"
                     }`,
                   }}
                 >
@@ -231,21 +231,21 @@ export default function RecruiterDashboard() {
                     className="font-ibm-mono text-[7px] tracking-[1px]"
                     style={{
                       color:
-                        action.priority === "high" ? "#FF6B35" : action.priority === "medium" ? "#FFD600" : "#555",
+                        action.priority === "high" ? "var(--c-warn)" : action.priority === "medium" ? "var(--c-accent)" : "var(--c-text-muted)",
                     }}
                   >
                     {action.type}
                   </span>
                 </div>
                 <div className="flex flex-col gap-[3px] flex-1 min-w-0">
-                  <span className="font-ibm-mono text-[9px] text-[#F5F5F0] leading-relaxed">{action.message}</span>
+                  <span className="font-ibm-mono text-[9px] text-[var(--c-text)] leading-relaxed">{action.message}</span>
                   <div className="flex items-center gap-2">
-                    <span className="font-ibm-mono text-[7px] text-[#FFD600]/70 tracking-[1px]">{action.role}</span>
-                    <span className="font-ibm-mono text-[7px] text-[#333]">//</span>
-                    <span className="font-ibm-mono text-[7px] text-[#444]">{action.time}</span>
+                    <span className="font-ibm-mono text-[7px] text-[var(--c-accent)]/70 tracking-[1px]">{action.role}</span>
+                    <span className="font-ibm-mono text-[7px] text-[var(--c-text-faint)]">//</span>
+                    <span className="font-ibm-mono text-[7px] text-[var(--c-text-dim)]">{action.time}</span>
                   </div>
                 </div>
-                <button className="font-ibm-mono text-[7px] text-[#444] hover:text-[#FFD600] tracking-[1px] transition-colors shrink-0">
+                <button className="font-ibm-mono text-[7px] text-[var(--c-text-dim)] hover:text-[var(--c-accent)] tracking-[1px] transition-colors shrink-0">
                   VIEW /
                 </button>
               </div>
@@ -254,30 +254,30 @@ export default function RecruiterDashboard() {
         </div>
 
         {/* Active job postings mini-table */}
-        <div className="p-5 border border-[#1D1D1D] bg-[#0D0D0D]">
+        <div className="p-5 border border-[var(--c-border-soft)] bg-[var(--c-bg-elev)]">
           <SectionLabel index="05">ACTIVE JOB CYCLES</SectionLabel>
-          <div className="flex flex-col gap-[1px] bg-[#1D1D1D]">
+          <div className="flex flex-col gap-[1px] bg-[var(--c-border-soft)]">
             {/* Header */}
-            <div className="grid grid-cols-[1fr_auto_auto_auto] gap-4 px-4 py-2 bg-[#111] items-center">
+            <div className="grid grid-cols-[1fr_auto_auto_auto] gap-4 px-4 py-2 bg-[var(--c-bg)] items-center">
               {["ROLE", "APPLIED", "SCREENED", "TTF"].map((h) => (
-                <span key={h} className="font-ibm-mono text-[7px] text-[#444] tracking-[1.5px]">{h}</span>
+                <span key={h} className="font-ibm-mono text-[7px] text-[var(--c-text-dim)] tracking-[1.5px]">{h}</span>
               ))}
             </div>
             {activeJobs.map((job) => (
               <div
                 key={job.id}
-                className="grid grid-cols-[1fr_auto_auto_auto] gap-4 px-4 py-3 bg-[#0D0D0D] items-center hover:bg-[#141414] transition-colors group"
+                className="grid grid-cols-[1fr_auto_auto_auto] gap-4 px-4 py-3 bg-[var(--c-bg-elev)] items-center hover:bg-[var(--c-bg)] transition-colors group"
               >
                 <div className="flex flex-col gap-[2px] min-w-0">
-                  <span className="font-ibm-mono text-[9px] text-[#F5F5F0] truncate">{job.title}</span>
-                  <span className="font-ibm-mono text-[7px] text-[#444] tracking-[0.5px]">{job.id}</span>
+                  <span className="font-ibm-mono text-[9px] text-[var(--c-text)] truncate">{job.title}</span>
+                  <span className="font-ibm-mono text-[7px] text-[var(--c-text-dim)] tracking-[0.5px]">{job.id}</span>
                 </div>
-                <span className="font-grotesk text-[13px] font-bold text-[#F5F5F0]">{job.applied}</span>
-                <span className="font-grotesk text-[13px] font-bold text-[#FFD600]">{job.screened}</span>
+                <span className="font-grotesk text-[13px] font-bold text-[var(--c-text)]">{job.applied}</span>
+                <span className="font-grotesk text-[13px] font-bold text-[var(--c-accent)]">{job.screened}</span>
                 <div className="flex items-center gap-[4px]">
                   <span
                     className="font-ibm-mono text-[9px]"
-                    style={{ color: job.ttf <= 7 ? "#FFD600" : "#FF6B35" }}
+                    style={{ color: job.ttf <= 7 ? "var(--c-accent)" : "var(--c-warn)" }}
                   >
                     {job.ttf}d
                   </span>
@@ -286,10 +286,10 @@ export default function RecruiterDashboard() {
             ))}
           </div>
           <div className="mt-4 flex items-center justify-between">
-            <span className="font-ibm-mono text-[8px] text-[#333] tracking-[0.5px]">
+            <span className="font-ibm-mono text-[8px] text-[var(--c-text-faint)] tracking-[0.5px]">
               Showing 4 of 11 active postings
             </span>
-            <a href="/dashboard/jobs" className="font-ibm-mono text-[8px] text-[#FFD600] hover:underline tracking-[1px]">
+            <a href="/dashboard/jobs" className="font-ibm-mono text-[8px] text-[var(--c-accent)] hover:underline tracking-[1px]">
               VIEW ALL /
             </a>
           </div>

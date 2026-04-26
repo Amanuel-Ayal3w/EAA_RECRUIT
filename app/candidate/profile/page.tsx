@@ -16,9 +16,9 @@ const initialSkills = [
 ];
 
 function categoryColor(cat: string) {
-  if (cat === "Certification") return "#FFD600";
-  if (cat === "Technical") return "#E6C200";
-  return "#888";
+  if (cat === "Certification") return "var(--c-accent)";
+  if (cat === "Technical") return "var(--c-accent-hover)";
+  return "var(--c-text-sub)";
 }
 
 const CATEGORIES = ["Certification", "Technical", "Soft Skill"] as const;
@@ -62,50 +62,50 @@ export default function ProfilePage() {
       {/* Header */}
       <div className="flex items-start justify-between gap-4 flex-wrap">
         <div className="flex flex-col gap-1">
-          <span className="font-ibm-mono text-[9px] text-[#444] tracking-[2px]">[06] // MY PROFILE</span>
-          <h1 className="font-grotesk text-[24px] md:text-[32px] font-bold text-[#F5F5F0] tracking-[-1px]">My Profile</h1>
-          <p className="font-ibm-mono text-[10px] text-[#555] tracking-[0.5px]">
+          <span className="font-ibm-mono text-[9px] text-[var(--c-text-dim)] tracking-[2px]">[06] // MY PROFILE</span>
+          <h1 className="font-grotesk text-[24px] md:text-[32px] font-bold text-[var(--c-text)] tracking-[-1px]">My Profile</h1>
+          <p className="font-ibm-mono text-[10px] text-[var(--c-text-muted)] tracking-[0.5px]">
             Manage personal information and your AI-visible Skills Cloud.
           </p>
         </div>
         <button
           onClick={handleSave}
           className="px-6 h-[44px] font-ibm-mono text-[8px] font-bold tracking-[1.5px] transition-all"
-          style={{ background: saved ? "#E6C200" : "#FFD600", color: "#0A0A0A" }}
+          style={{ background: saved ? "var(--c-accent-hover)" : "var(--c-accent)", color: "var(--c-text)" }}
         >
           {saved ? "SAVED /" : "SAVE CHANGES /"}
         </button>
       </div>
 
       {/* Avatar + summary strip */}
-      <div className="flex items-center gap-5 bg-[#0D0D0D] border border-[#1D1D1D] p-5">
-        <div className="flex items-center justify-center w-[60px] h-[60px] bg-[#FFD600] shrink-0">
-          <span className="font-grotesk text-[22px] font-bold text-[#0A0A0A]">AT</span>
+      <div className="flex items-center gap-5 bg-[var(--c-bg-elev)] border border-[var(--c-border-soft)] p-5">
+        <div className="flex items-center justify-center w-[60px] h-[60px] bg-[var(--c-accent)] shrink-0">
+          <span className="font-grotesk text-[22px] font-bold text-[var(--c-text)]">AT</span>
         </div>
         <div className="flex flex-col gap-[3px]">
-          <span className="font-grotesk text-[18px] font-bold text-[#F5F5F0]">{personalInfo.name}</span>
+          <span className="font-grotesk text-[18px] font-bold text-[var(--c-text)]">{personalInfo.name}</span>
           <div className="flex items-center gap-3 flex-wrap">
-            <span className="font-ibm-mono text-[8px] text-[#555] tracking-[0.5px]">{personalInfo.email}</span>
-            <div className="w-[1px] h-[10px] bg-[#2D2D2D]" />
-            <span className="font-ibm-mono text-[8px] text-[#555] tracking-[0.5px]">{personalInfo.location}</span>
-            <div className="w-[1px] h-[10px] bg-[#2D2D2D]" />
-            <span className="font-ibm-mono text-[8px] text-[#555] tracking-[0.5px]">{personalInfo.experience} YRS EXPERIENCE</span>
+            <span className="font-ibm-mono text-[8px] text-[var(--c-text-muted)] tracking-[0.5px]">{personalInfo.email}</span>
+            <div className="w-[1px] h-[10px] bg-[var(--c-border)]" />
+            <span className="font-ibm-mono text-[8px] text-[var(--c-text-muted)] tracking-[0.5px]">{personalInfo.location}</span>
+            <div className="w-[1px] h-[10px] bg-[var(--c-border)]" />
+            <span className="font-ibm-mono text-[8px] text-[var(--c-text-muted)] tracking-[0.5px]">{personalInfo.experience} YRS EXPERIENCE</span>
           </div>
         </div>
-        <div className="ml-auto flex items-center gap-2 px-3 py-[5px] bg-[#FFD600]/08 border border-[#FFD600]/20 shrink-0">
-          <div className="w-[5px] h-[5px] rounded-full bg-[#FFD600]" />
-          <span className="font-ibm-mono text-[7px] text-[#FFD600] tracking-[1px]">PROFILE COMPLETE</span>
+        <div className="ml-auto flex items-center gap-2 px-3 py-[5px] bg-[var(--c-accent)]/08 border border-[var(--c-accent)]/20 shrink-0">
+          <div className="w-[5px] h-[5px] rounded-full bg-[var(--c-accent)]" />
+          <span className="font-ibm-mono text-[7px] text-[var(--c-accent)] tracking-[1px]">PROFILE COMPLETE</span>
         </div>
       </div>
 
       {/* Tabs */}
-      <div className="flex items-center gap-[1px] bg-[#1D1D1D]">
+      <div className="flex items-center gap-[1px] bg-[var(--c-border-soft)]">
         {(["info", "skills"] as const).map((tab) => (
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
             className="px-6 py-3 font-ibm-mono text-[8px] tracking-[1.5px] transition-all"
-            style={{ background: activeTab === tab ? "#FFD60012" : "#0D0D0D", color: activeTab === tab ? "#FFD600" : "#555", borderBottom: activeTab === tab ? "2px solid #FFD600" : "2px solid transparent" }}
+            style={{ background: activeTab === tab ? "var(--c-accent)12" : "var(--c-bg-elev)", color: activeTab === tab ? "var(--c-accent)" : "var(--c-text-muted)", borderBottom: activeTab === tab ? "2px solid var(--c-accent)" : "2px solid transparent" }}
           >
             {tab === "info" ? "PERSONAL INFO" : "SKILLS CLOUD"}
           </button>
@@ -114,7 +114,7 @@ export default function ProfilePage() {
 
       {/* Personal Info Tab */}
       {activeTab === "info" && (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-[1px] bg-[#1D1D1D]">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-[1px] bg-[var(--c-border-soft)]">
           {[
             { label: "FULL NAME",          key: "name",       type: "text" },
             { label: "EMAIL ADDRESS",      key: "email",      type: "email" },
@@ -122,25 +122,25 @@ export default function ProfilePage() {
             { label: "LOCATION / CITY",    key: "location",   type: "text" },
             { label: "YEARS OF EXPERIENCE",key: "experience", type: "number" },
           ].map((field) => (
-            <div key={field.key} className="flex flex-col gap-2 bg-[#0D0D0D] p-5">
-              <label className="font-ibm-mono text-[7px] text-[#444] tracking-[1.5px]">{field.label}</label>
+            <div key={field.key} className="flex flex-col gap-2 bg-[var(--c-bg-elev)] p-5">
+              <label className="font-ibm-mono text-[7px] text-[var(--c-text-dim)] tracking-[1.5px]">{field.label}</label>
               <input
                 type={field.type}
                 value={personalInfo[field.key as keyof typeof personalInfo]}
                 onChange={(e) => setPersonalInfo((prev) => ({ ...prev, [field.key]: e.target.value }))}
-                className="bg-[#111] border border-[#2D2D2D] text-[#F5F5F0] font-ibm-mono text-[10px] px-4 py-3 focus:outline-none focus:border-[#FFD600] transition-colors tracking-[0.5px]"
+                className="bg-[var(--c-bg)] border border-[var(--c-border)] text-[var(--c-text)] font-ibm-mono text-[10px] px-4 py-3 focus:outline-none focus:border-[var(--c-accent)] transition-colors tracking-[0.5px]"
               />
             </div>
           ))}
 
-          <div className="flex flex-col gap-3 bg-[#0D0D0D] p-5">
-            <label className="font-ibm-mono text-[7px] text-[#444] tracking-[1.5px]">LANGUAGE PREFERENCE</label>
-            <div className="flex items-center gap-[1px] bg-[#1D1D1D]">
+          <div className="flex flex-col gap-3 bg-[var(--c-bg-elev)] p-5">
+            <label className="font-ibm-mono text-[7px] text-[var(--c-text-dim)] tracking-[1.5px]">LANGUAGE PREFERENCE</label>
+            <div className="flex items-center gap-[1px] bg-[var(--c-border-soft)]">
               {["ENGLISH", "AMHARIC"].map((lang) => (
                 <button
                   key={lang}
                   className="flex-1 py-3 font-ibm-mono text-[8px] tracking-[1px] transition-all"
-                  style={{ background: lang === "ENGLISH" ? "#FFD600" : "#0D0D0D", color: lang === "ENGLISH" ? "#0A0A0A" : "#555" }}
+                  style={{ background: lang === "ENGLISH" ? "var(--c-accent)" : "var(--c-bg-elev)", color: lang === "ENGLISH" ? "var(--c-text)" : "var(--c-text-muted)" }}
                 >
                   {lang}
                 </button>
@@ -154,12 +154,12 @@ export default function ProfilePage() {
       {activeTab === "skills" && (
         <div className="flex flex-col gap-6">
           {/* Visual cloud */}
-          <div className="bg-[#0D0D0D] border border-[#1D1D1D] p-6 flex flex-col gap-5">
+          <div className="bg-[var(--c-bg-elev)] border border-[var(--c-border-soft)] p-6 flex flex-col gap-5">
             <div className="flex items-center gap-3">
-              <div className="w-[3px] h-[14px] bg-[#FFD600] shrink-0" />
+              <div className="w-[3px] h-[14px] bg-[var(--c-accent)] shrink-0" />
               <div className="flex flex-col gap-[2px]">
-                <span className="font-ibm-mono text-[9px] text-[#888] tracking-[2px]">AI SKILLS CLOUD</span>
-                <span className="font-ibm-mono text-[7px] text-[#333] tracking-[1px]">SIZE = RELEVANCE WEIGHT // COLOR = CATEGORY</span>
+                <span className="font-ibm-mono text-[9px] text-[var(--c-text-sub)] tracking-[2px]">AI SKILLS CLOUD</span>
+                <span className="font-ibm-mono text-[7px] text-[var(--c-text-faint)] tracking-[1px]">SIZE = RELEVANCE WEIGHT // COLOR = CATEGORY</span>
               </div>
             </div>
 
@@ -180,11 +180,11 @@ export default function ProfilePage() {
                       {skill.term}
                     </span>
                     {skill.manual && (
-                      <span className="font-ibm-mono text-[7px] text-[#444]">(+)</span>
+                      <span className="font-ibm-mono text-[7px] text-[var(--c-text-dim)]">(+)</span>
                     )}
                     <button
                       onClick={() => removeSkill(skill.id)}
-                      className="hidden group-hover:flex items-center justify-center w-[14px] h-[14px] text-[#FF6B35] bg-[#0A0A0A] border border-[#FF6B35]/30 absolute -top-[6px] -right-[6px]"
+                      className="hidden group-hover:flex items-center justify-center w-[14px] h-[14px] text-[var(--c-warn)] bg-[var(--c-bg)] border border-[var(--c-warn)]/30 absolute -top-[6px] -right-[6px]"
                       aria-label={`Remove ${skill.term}`}
                     >
                       <svg width="6" height="6" viewBox="0 0 6 6" fill="none">
@@ -201,17 +201,17 @@ export default function ProfilePage() {
               {CATEGORIES.map((cat) => (
                 <div key={cat} className="flex items-center gap-[5px]">
                   <div className="w-[6px] h-[6px] rounded-full" style={{ background: categoryColor(cat) }} />
-                  <span className="font-ibm-mono text-[7px] text-[#444]">{cat.toUpperCase()}</span>
+                  <span className="font-ibm-mono text-[7px] text-[var(--c-text-dim)]">{cat.toUpperCase()}</span>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Add new skill */}
-          <div className="bg-[#0D0D0D] border border-[#1D1D1D] p-5 flex flex-col gap-4">
+          <div className="bg-[var(--c-bg-elev)] border border-[var(--c-border-soft)] p-5 flex flex-col gap-4">
             <div className="flex items-center gap-3">
-              <div className="w-[3px] h-[14px] bg-[#FFD600] shrink-0" />
-              <span className="font-ibm-mono text-[9px] text-[#888] tracking-[2px]">ADD SKILL MANUALLY</span>
+              <div className="w-[3px] h-[14px] bg-[var(--c-accent)] shrink-0" />
+              <span className="font-ibm-mono text-[9px] text-[var(--c-text-sub)] tracking-[2px]">ADD SKILL MANUALLY</span>
             </div>
             <div className="flex flex-col md:flex-row gap-3">
               <input
@@ -220,15 +220,15 @@ export default function ProfilePage() {
                 value={newTerm}
                 onChange={(e) => setNewTerm(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && addSkill()}
-                className="flex-1 bg-[#111] border border-[#2D2D2D] text-[#F5F5F0] font-ibm-mono text-[10px] px-4 py-3 focus:outline-none focus:border-[#FFD600] placeholder:text-[#222] transition-colors tracking-[0.5px]"
+                className="flex-1 bg-[var(--c-bg)] border border-[var(--c-border)] text-[var(--c-text)] font-ibm-mono text-[10px] px-4 py-3 focus:outline-none focus:border-[var(--c-accent)] placeholder:text-[#222] transition-colors tracking-[0.5px]"
               />
-              <div className="flex items-center gap-[1px] bg-[#1D1D1D] shrink-0">
+              <div className="flex items-center gap-[1px] bg-[var(--c-border-soft)] shrink-0">
                 {CATEGORIES.map((cat) => (
                   <button
                     key={cat}
                     onClick={() => setNewCat(cat)}
                     className="px-3 py-3 font-ibm-mono text-[7px] tracking-[1px] transition-all whitespace-nowrap"
-                    style={{ background: newCat === cat ? "#FFD600" : "#0D0D0D", color: newCat === cat ? "#0A0A0A" : "#555" }}
+                    style={{ background: newCat === cat ? "var(--c-accent)" : "var(--c-bg-elev)", color: newCat === cat ? "var(--c-text)" : "var(--c-text-muted)" }}
                   >
                     {cat.toUpperCase()}
                   </button>
@@ -236,7 +236,7 @@ export default function ProfilePage() {
               </div>
               <button
                 onClick={addSkill}
-                className="px-5 py-3 bg-[#FFD600] font-ibm-mono text-[8px] font-bold text-[#0A0A0A] tracking-[1.5px] hover:bg-[#E6C200] transition-colors shrink-0"
+                className="px-5 py-3 bg-[var(--c-accent)] font-ibm-mono text-[8px] font-bold text-[var(--c-text)] tracking-[1.5px] hover:bg-[var(--c-accent-hover)] transition-colors shrink-0"
               >
                 ADD /
               </button>
@@ -244,18 +244,18 @@ export default function ProfilePage() {
           </div>
 
           {/* Skills list table */}
-          <div className="border border-[#1D1D1D] bg-[#0D0D0D]">
-            <div className="grid grid-cols-[1fr_auto_auto_auto] gap-4 px-5 py-3 bg-[#111] border-b border-[#1D1D1D]">
+          <div className="border border-[var(--c-border-soft)] bg-[var(--c-bg-elev)]">
+            <div className="grid grid-cols-[1fr_auto_auto_auto] gap-4 px-5 py-3 bg-[var(--c-bg)] border-b border-[var(--c-border-soft)]">
               {["SKILL TERM", "CATEGORY", "WEIGHT", ""].map((h) => (
-                <span key={h} className="font-ibm-mono text-[7px] text-[#444] tracking-[1.5px]">{h}</span>
+                <span key={h} className="font-ibm-mono text-[7px] text-[var(--c-text-dim)] tracking-[1.5px]">{h}</span>
               ))}
             </div>
             {skills.map((skill) => (
-              <div key={skill.id} className="grid grid-cols-[1fr_auto_auto_auto] gap-4 px-5 py-3 border-b border-[#111] items-center hover:bg-[#111] transition-colors">
+              <div key={skill.id} className="grid grid-cols-[1fr_auto_auto_auto] gap-4 px-5 py-3 border-b border-[#111] items-center hover:bg-[var(--c-bg)] transition-colors">
                 <div className="flex items-center gap-2 min-w-0">
-                  <span className="font-ibm-mono text-[9px] text-[#F5F5F0] truncate">{skill.term}</span>
+                  <span className="font-ibm-mono text-[9px] text-[var(--c-text)] truncate">{skill.term}</span>
                   {skill.manual && (
-                    <span className="font-ibm-mono text-[6px] text-[#444] px-1 py-[1px] border border-[#2D2D2D] shrink-0">MANUAL</span>
+                    <span className="font-ibm-mono text-[6px] text-[var(--c-text-dim)] px-1 py-[1px] border border-[var(--c-border)] shrink-0">MANUAL</span>
                   )}
                 </div>
                 <span
@@ -265,14 +265,14 @@ export default function ProfilePage() {
                   {skill.category.toUpperCase()}
                 </span>
                 <div className="flex items-center gap-2 w-[100px]">
-                  <div className="flex-1 h-[3px] bg-[#1A1A1A]">
+                  <div className="flex-1 h-[3px] bg-[var(--c-bg-muted)]">
                     <div className="h-full" style={{ width: `${skill.weight}%`, background: categoryColor(skill.category) }} />
                   </div>
-                  <span className="font-ibm-mono text-[8px] text-[#888] shrink-0">{skill.weight}</span>
+                  <span className="font-ibm-mono text-[8px] text-[var(--c-text-sub)] shrink-0">{skill.weight}</span>
                 </div>
                 <button
                   onClick={() => removeSkill(skill.id)}
-                  className="font-ibm-mono text-[7px] text-[#333] hover:text-[#FF6B35] tracking-[0.5px] transition-colors"
+                  className="font-ibm-mono text-[7px] text-[var(--c-text-faint)] hover:text-[var(--c-warn)] tracking-[0.5px] transition-colors"
                 >
                   REMOVE /
                 </button>
@@ -280,7 +280,7 @@ export default function ProfilePage() {
             ))}
           </div>
 
-          <span className="font-ibm-mono text-[7px] text-[#333] tracking-[0.5px]">
+          <span className="font-ibm-mono text-[7px] text-[var(--c-text-faint)] tracking-[0.5px]">
             Skills extracted by AI are read-only by default. Manually added skills are marked and will be re-verified on your next CV upload.
           </span>
         </div>

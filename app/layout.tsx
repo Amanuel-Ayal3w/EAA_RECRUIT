@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, IBM_Plex_Mono } from "next/font/google";
+import ThemeToggle from "@/components/ThemeToggle";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -25,12 +26,29 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const initThemeScript = `
+    (() => {
+      try {
+        const stored = localStorage.getItem("theme");
+        const system = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        const theme = stored === "dark" || stored === "light" ? stored : system;
+        document.documentElement.setAttribute("data-theme", theme);
+      } catch {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    })();
+  `;
+
   return (
-    <html lang="en" className="h-full">
+    <html lang="en" className="h-full" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: initThemeScript }} />
+      </head>
       <body
-        className={`${spaceGrotesk.variable} ${ibmPlexMono.variable} h-full bg-[#0A0A0A] overflow-x-hidden`}
+        className={`${spaceGrotesk.variable} ${ibmPlexMono.variable} h-full bg-[var(--c-bg)] overflow-x-hidden`}
       >
         {children}
+        <ThemeToggle />
       </body>
     </html>
   );

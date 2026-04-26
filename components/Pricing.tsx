@@ -22,22 +22,22 @@ interface PricingCardProps {
 
 function PricingCard({
   tier,
-  tierColor = "#888888",
+  tierColor = "var(--c-text-sub)",
   name,
-  nameColor = "#F5F5F0",
+  nameColor = "var(--c-text)",
   price,
-  priceColor = "#F5F5F0",
+  priceColor = "var(--c-text)",
   btnLabel,
-  btnLabelColor = "#888888",
+  btnLabelColor = "var(--c-text-sub)",
   bgColor = "#0F0F0F",
-  borderColor = "#2D2D2D",
+  borderColor = "var(--c-border)",
   borderWidth = 1,
-  btnBg = "#1A1A1A",
+  btnBg = "var(--c-bg-muted)",
   btnBorderColor = "#3D3D3D",
-  tierBg = "#1A1A1A",
+  tierBg = "var(--c-bg-muted)",
   tierBorderColor = "#3D3D3D",
   features,
-  accentColor = "#555555",
+  accentColor = "var(--c-text-muted)",
 }: PricingCardProps) {
   return (
     <div
@@ -59,17 +59,17 @@ function PricingCard({
         <span className="font-grotesk text-[48px] font-bold tracking-[-2px] leading-none" style={{ color: priceColor }}>
           {price}
         </span>
-        <span className="font-ibm-mono text-[13px] text-[#555555] tracking-[1px] mb-[6px]">/MO</span>
+        <span className="font-ibm-mono text-[13px] text-[var(--c-text-muted)] tracking-[1px] mb-[6px]">/MO</span>
       </div>
 
       {/* Feature list */}
-      <div className="flex flex-col gap-[10px]" style={{ borderTop: `1px solid ${borderColor === "#0F0F0F" ? "#2D2D2D" : borderColor}` }}>
+      <div className="flex flex-col gap-[10px]" style={{ borderTop: `1px solid ${borderColor === "#0F0F0F" ? "var(--c-border)" : borderColor}` }}>
         <div className="pt-6 flex flex-col gap-[10px]">
           {features.map((f, i) => (
             <div key={i} className="flex items-center gap-3">
               <span
                 className="font-ibm-mono text-[14px] leading-none shrink-0"
-                style={{ color: f.included ? accentColor : "#333333" }}
+                style={{ color: f.included ? accentColor : "var(--c-text-faint)" }}
               >
                 {f.included ? "+" : "—"}
               </span>
@@ -144,38 +144,38 @@ export default function Pricing() {
           price="$0"
           btnLabel="GET STARTED FREE"
           features={BUILDER_FEATURES}
-          accentColor="#555555"
+          accentColor="var(--c-text-muted)"
         />
         <PricingCard
           tier="MOST POPULAR"
-          tierColor="#0A0A0A"
-          tierBg="#FFD600"
-          tierBorderColor="#FFD600"
+          tierColor="var(--c-text)"
+          tierBg="var(--c-accent)"
+          tierBorderColor="var(--c-accent)"
           name="ARCHITECT"
-          nameColor="#FFD600"
+          nameColor="var(--c-accent)"
           price="$49"
-          priceColor="#FFD600"
+          priceColor="var(--c-accent)"
           btnLabel="START BUILDING"
-          btnLabelColor="#0A0A0A"
-          bgColor="#111111"
-          borderColor="#FFD600"
+          btnLabelColor="var(--c-text)"
+          bgColor="var(--c-bg-soft)"
+          borderColor="var(--c-accent)"
           borderWidth={2}
-          btnBg="#FFD600"
+          btnBg="var(--c-accent)"
           btnBorderColor="transparent"
           features={ARCHITECT_FEATURES}
-          accentColor="#FFD600"
+          accentColor="var(--c-accent)"
         />
         <PricingCard
           tier="ENTERPRISE"
-          tierColor="#FF6B35"
-          tierBorderColor="#FF6B35"
+          tierColor="var(--c-warn)"
+          tierBorderColor="var(--c-warn)"
           name="SYSTEM"
           price="$149"
           btnLabel="CONTACT SALES"
-          btnLabelColor="#FF6B35"
-          btnBorderColor="#FF6B35"
+          btnLabelColor="var(--c-warn)"
+          btnBorderColor="var(--c-warn)"
           features={SYSTEM_FEATURES}
-          accentColor="#FF6B35"
+          accentColor="var(--c-warn)"
         />
       </div>
     </section>

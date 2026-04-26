@@ -3,8 +3,8 @@
 const CURSORS = [
   {
     name: "ALEX_K",
-    color: "#FFD600",
-    textColor: "#0A0A0A",
+    color: "var(--c-accent)",
+    textColor: "var(--c-text)",
     animName: "cursor-alex",
     duration: "18s",
     keyframes: `@keyframes cursor-alex {
@@ -19,8 +19,8 @@ const CURSORS = [
   },
   {
     name: "SARA_M",
-    color: "#FF6B35",
-    textColor: "#FFFFFF",
+    color: "var(--c-warn)",
+    textColor: "var(--c-bg)",
     animName: "cursor-sara",
     duration: "22s",
     keyframes: `@keyframes cursor-sara {
@@ -36,7 +36,7 @@ const CURSORS = [
   {
     name: "JIN_L",
     color: "#4ADE80",
-    textColor: "#0A0A0A",
+    textColor: "var(--c-text)",
     animName: "cursor-jin",
     duration: "26s",
     keyframes: `@keyframes cursor-jin {
@@ -52,7 +52,7 @@ const CURSORS = [
   {
     name: "MILA_V",
     color: "#60A5FA",
-    textColor: "#0A0A0A",
+    textColor: "var(--c-text)",
     animName: "cursor-mila",
     duration: "30s",
     keyframes: `@keyframes cursor-mila {
@@ -97,7 +97,7 @@ export default function CollabCursors() {
             <path
               d="M2 2L18 10L10 12L6 20L2 2Z"
               fill={cursor.color}
-              stroke="#0A0A0A"
+              stroke="var(--c-text)"
               strokeWidth="1.5"
               strokeLinejoin="round"
             />

@@ -35,14 +35,14 @@ const regionData = [
   { name: "OTHER",       value: 9  },
 ];
 
-const REGION_COLORS = ["#FFD600", "#E6C200", "#CCB000", "#B39900", "#444"];
+const REGION_COLORS = ["var(--c-accent)", "var(--c-accent-hover)", "#CCB000", "#B39900", "var(--c-text-dim)"];
 
 const genderData = [
   { name: "MALE",   value: 58 },
   { name: "FEMALE", value: 42 },
 ];
 
-const GENDER_COLORS = ["#FFD600", "#2D2D2D"];
+const GENDER_COLORS = ["var(--c-accent)", "var(--c-border)"];
 
 // ─── Sub-components ───────────────────────────────────────────────────────────
 function KPICard({
@@ -60,16 +60,16 @@ function KPICard({
 }) {
   return (
     <div
-      className="flex flex-col gap-3 p-5 border border-[#1D1D1D] bg-[#0D0D0D]"
-      style={accent ? { borderColor: "#FFD600", background: "rgba(255,214,0,0.03)" } : {}}
+      className="flex flex-col gap-3 p-5 border border-[var(--c-border-soft)] bg-[var(--c-bg-elev)]"
+      style={accent ? { borderColor: "var(--c-accent)", background: "rgba(255,214,0,0.03)" } : {}}
     >
       <div className="flex items-center justify-between">
-        <span className="font-ibm-mono text-[9px] text-[#555] tracking-[1.5px]">{label}</span>
+        <span className="font-ibm-mono text-[9px] text-[var(--c-text-muted)] tracking-[1.5px]">{label}</span>
         {trend && (
           <span
             className="font-ibm-mono text-[8px] px-[6px] py-[2px] tracking-[1px]"
             style={{
-              color: trend.startsWith("+") ? "#FFD600" : "#FF6B35",
+              color: trend.startsWith("+") ? "var(--c-accent)" : "var(--c-warn)",
               background: trend.startsWith("+") ? "rgba(255,214,0,0.08)" : "rgba(255,107,53,0.08)",
             }}
           >
@@ -79,11 +79,11 @@ function KPICard({
       </div>
       <span
         className="font-grotesk text-[36px] font-bold leading-none tracking-[-1px]"
-        style={{ color: accent ? "#FFD600" : "#F5F5F0" }}
+        style={{ color: accent ? "var(--c-accent)" : "var(--c-text)" }}
       >
         {value}
       </span>
-      <span className="font-ibm-mono text-[8px] text-[#444] tracking-[0.5px]">{sub}</span>
+      <span className="font-ibm-mono text-[8px] text-[var(--c-text-dim)] tracking-[0.5px]">{sub}</span>
     </div>
   );
 }
@@ -91,20 +91,20 @@ function KPICard({
 function SectionLabel({ children }: { children: string }) {
   return (
     <div className="flex items-center gap-3 mb-4">
-      <div className="w-[3px] h-[14px] bg-[#FFD600] shrink-0" />
-      <span className="font-ibm-mono text-[9px] text-[#888] tracking-[2px]">{children}</span>
+      <div className="w-[3px] h-[14px] bg-[var(--c-accent)] shrink-0" />
+      <span className="font-ibm-mono text-[9px] text-[var(--c-text-sub)] tracking-[2px]">{children}</span>
     </div>
   );
 }
 
 const CustomTooltipStyle: React.CSSProperties = {
-  background: "#111",
-  border: "1px solid #2D2D2D",
+  background: "var(--c-bg)",
+  border: "1px solid var(--c-border)",
   borderRadius: 0,
   padding: "8px 12px",
   fontFamily: "var(--font-ibm-plex-mono), monospace",
   fontSize: "9px",
-  color: "#F5F5F0",
+  color: "var(--c-text)",
   letterSpacing: "1px",
 };
 
@@ -114,17 +114,17 @@ export default function AdminDashboard() {
     <div className="p-6 md:p-8 max-w-[1400px] mx-auto">
       {/* Page header */}
       <div className="flex flex-col gap-1 mb-8">
-        <span className="font-ibm-mono text-[9px] text-[#444] tracking-[2px]">[01] // DASHBOARD</span>
-        <h1 className="font-grotesk text-[24px] md:text-[32px] font-bold text-[#F5F5F0] tracking-[-1px]">
+        <span className="font-ibm-mono text-[9px] text-[var(--c-text-dim)] tracking-[2px]">[01] // DASHBOARD</span>
+        <h1 className="font-grotesk text-[24px] md:text-[32px] font-bold text-[var(--c-text)] tracking-[-1px]">
           System Overview
         </h1>
-        <p className="font-ibm-mono text-[10px] text-[#555] tracking-[0.5px]">
+        <p className="font-ibm-mono text-[10px] text-[var(--c-text-muted)] tracking-[0.5px]">
           Real-time recruitment pulse — EAA Recruit platform
         </p>
       </div>
 
       {/* KPI Cards */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-[1px] bg-[#1D1D1D] mb-8">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-[1px] bg-[var(--c-border-soft)] mb-8">
         <KPICard
           label="TOTAL APPLICATIONS"
           value="1,284"
@@ -154,62 +154,62 @@ export default function AdminDashboard() {
       {/* Charts row 1 */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
         {/* Application Volume */}
-        <div className="p-5 border border-[#1D1D1D] bg-[#0D0D0D]">
+        <div className="p-5 border border-[var(--c-border-soft)] bg-[var(--c-bg-elev)]">
           <SectionLabel>APPLICATION VOLUME — WEEKLY</SectionLabel>
           <ResponsiveContainer width="100%" height={200}>
             <LineChart data={applicationVolume}>
               <XAxis
                 dataKey="day"
-                tick={{ fill: "#444", fontSize: 8, fontFamily: "var(--font-ibm-plex-mono)", letterSpacing: "1px" }}
-                axisLine={{ stroke: "#1D1D1D" }}
+                tick={{ fill: "var(--c-text-dim)", fontSize: 8, fontFamily: "var(--font-ibm-plex-mono)", letterSpacing: "1px" }}
+                axisLine={{ stroke: "var(--c-border-soft)" }}
                 tickLine={false}
               />
               <YAxis
-                tick={{ fill: "#444", fontSize: 8, fontFamily: "var(--font-ibm-plex-mono)" }}
+                tick={{ fill: "var(--c-text-dim)", fontSize: 8, fontFamily: "var(--font-ibm-plex-mono)" }}
                 axisLine={false}
                 tickLine={false}
                 width={28}
               />
               <Tooltip
                 contentStyle={CustomTooltipStyle}
-                cursor={{ stroke: "#2D2D2D", strokeWidth: 1 }}
-                labelStyle={{ color: "#888", marginBottom: 4 }}
+                cursor={{ stroke: "var(--c-border)", strokeWidth: 1 }}
+                labelStyle={{ color: "var(--c-text-sub)", marginBottom: 4 }}
               />
               <Line
                 type="monotone"
                 dataKey="count"
-                stroke="#FFD600"
+                stroke="var(--c-accent)"
                 strokeWidth={1.5}
-                dot={{ r: 3, fill: "#FFD600", strokeWidth: 0 }}
-                activeDot={{ r: 4, fill: "#FFD600" }}
+                dot={{ r: 3, fill: "var(--c-accent)", strokeWidth: 0 }}
+                activeDot={{ r: 4, fill: "var(--c-accent)" }}
               />
             </LineChart>
           </ResponsiveContainer>
         </div>
 
         {/* Resource Usage */}
-        <div className="p-5 border border-[#1D1D1D] bg-[#0D0D0D]">
+        <div className="p-5 border border-[var(--c-border-soft)] bg-[var(--c-bg-elev)]">
           <SectionLabel>SERVER RESOURCE USAGE</SectionLabel>
           <div className="flex items-center gap-4 mb-3">
             <div className="flex items-center gap-[6px]">
-              <div className="w-[8px] h-[2px] bg-[#FFD600]" />
-              <span className="font-ibm-mono text-[8px] text-[#555]">CPU %</span>
+              <div className="w-[8px] h-[2px] bg-[var(--c-accent)]" />
+              <span className="font-ibm-mono text-[8px] text-[var(--c-text-muted)]">CPU %</span>
             </div>
             <div className="flex items-center gap-[6px]">
-              <div className="w-[8px] h-[2px] bg-[#FF6B35]" />
-              <span className="font-ibm-mono text-[8px] text-[#555]">RAM %</span>
+              <div className="w-[8px] h-[2px] bg-[var(--c-warn)]" />
+              <span className="font-ibm-mono text-[8px] text-[var(--c-text-muted)]">RAM %</span>
             </div>
           </div>
           <ResponsiveContainer width="100%" height={180}>
             <LineChart data={resourceUsage}>
               <XAxis
                 dataKey="time"
-                tick={{ fill: "#444", fontSize: 8, fontFamily: "var(--font-ibm-plex-mono)", letterSpacing: "1px" }}
-                axisLine={{ stroke: "#1D1D1D" }}
+                tick={{ fill: "var(--c-text-dim)", fontSize: 8, fontFamily: "var(--font-ibm-plex-mono)", letterSpacing: "1px" }}
+                axisLine={{ stroke: "var(--c-border-soft)" }}
                 tickLine={false}
               />
               <YAxis
-                tick={{ fill: "#444", fontSize: 8, fontFamily: "var(--font-ibm-plex-mono)" }}
+                tick={{ fill: "var(--c-text-dim)", fontSize: 8, fontFamily: "var(--font-ibm-plex-mono)" }}
                 axisLine={false}
                 tickLine={false}
                 width={28}
@@ -218,11 +218,11 @@ export default function AdminDashboard() {
               />
               <Tooltip
                 contentStyle={CustomTooltipStyle}
-                cursor={{ stroke: "#2D2D2D", strokeWidth: 1 }}
-                labelStyle={{ color: "#888", marginBottom: 4 }}
+                cursor={{ stroke: "var(--c-border)", strokeWidth: 1 }}
+                labelStyle={{ color: "var(--c-text-sub)", marginBottom: 4 }}
               />
-              <Line type="monotone" dataKey="cpu" stroke="#FFD600" strokeWidth={1.5} dot={false} />
-              <Line type="monotone" dataKey="ram" stroke="#FF6B35" strokeWidth={1.5} dot={false} />
+              <Line type="monotone" dataKey="cpu" stroke="var(--c-accent)" strokeWidth={1.5} dot={false} />
+              <Line type="monotone" dataKey="ram" stroke="var(--c-warn)" strokeWidth={1.5} dot={false} />
             </LineChart>
           </ResponsiveContainer>
         </div>
@@ -231,7 +231,7 @@ export default function AdminDashboard() {
       {/* Charts row 2 — Demographics */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Region breakdown */}
-        <div className="p-5 border border-[#1D1D1D] bg-[#0D0D0D]">
+        <div className="p-5 border border-[var(--c-border-soft)] bg-[var(--c-bg-elev)]">
           <SectionLabel>CANDIDATE GEOGRAPHY (REGION)</SectionLabel>
           <div className="flex items-center gap-6">
             <PieChart width={130} height={130}>
@@ -254,9 +254,9 @@ export default function AdminDashboard() {
                 <div key={item.name} className="flex items-center justify-between">
                   <div className="flex items-center gap-[8px]">
                     <div className="w-[6px] h-[6px] shrink-0" style={{ background: REGION_COLORS[i] }} />
-                    <span className="font-ibm-mono text-[8px] text-[#555] tracking-[1px]">{item.name}</span>
+                    <span className="font-ibm-mono text-[8px] text-[var(--c-text-muted)] tracking-[1px]">{item.name}</span>
                   </div>
-                  <span className="font-ibm-mono text-[8px] text-[#F5F5F0]">{item.value}%</span>
+                  <span className="font-ibm-mono text-[8px] text-[var(--c-text)]">{item.value}%</span>
                 </div>
               ))}
             </div>
@@ -264,7 +264,7 @@ export default function AdminDashboard() {
         </div>
 
         {/* Gender + Bar */}
-        <div className="p-5 border border-[#1D1D1D] bg-[#0D0D0D]">
+        <div className="p-5 border border-[var(--c-border-soft)] bg-[var(--c-bg-elev)]">
           <SectionLabel>CANDIDATE DEMOGRAPHICS (GENDER)</SectionLabel>
           <div className="flex items-center gap-6 mb-4">
             <PieChart width={130} height={130}>
@@ -286,10 +286,10 @@ export default function AdminDashboard() {
               {genderData.map((item, i) => (
                 <div key={item.name} className="flex flex-col gap-[4px]">
                   <div className="flex items-center justify-between">
-                    <span className="font-ibm-mono text-[8px] text-[#555] tracking-[1px]">{item.name}</span>
-                    <span className="font-ibm-mono text-[8px] text-[#F5F5F0]">{item.value}%</span>
+                    <span className="font-ibm-mono text-[8px] text-[var(--c-text-muted)] tracking-[1px]">{item.name}</span>
+                    <span className="font-ibm-mono text-[8px] text-[var(--c-text)]">{item.value}%</span>
                   </div>
-                  <div className="w-full h-[3px] bg-[#1A1A1A]">
+                  <div className="w-full h-[3px] bg-[var(--c-bg-muted)]">
                     <div
                       className="h-full transition-all"
                       style={{ width: `${item.value}%`, background: GENDER_COLORS[i] }}
@@ -297,7 +297,7 @@ export default function AdminDashboard() {
                   </div>
                 </div>
               ))}
-              <p className="font-ibm-mono text-[7px] text-[#333] tracking-[0.5px] mt-2">
+              <p className="font-ibm-mono text-[7px] text-[var(--c-text-faint)] tracking-[0.5px] mt-2">
                 Monitored for fairness compliance per EEO mandate
               </p>
             </div>
@@ -315,13 +315,13 @@ export default function AdminDashboard() {
             ]} barSize={18}>
               <XAxis
                 dataKey="range"
-                tick={{ fill: "#444", fontSize: 8, fontFamily: "var(--font-ibm-plex-mono)" }}
+                tick={{ fill: "var(--c-text-dim)", fontSize: 8, fontFamily: "var(--font-ibm-plex-mono)" }}
                 axisLine={false}
                 tickLine={false}
               />
               <YAxis hide />
               <Tooltip contentStyle={CustomTooltipStyle} cursor={{ fill: "rgba(255,214,0,0.04)" }} />
-              <Bar dataKey="count" fill="#FFD600" radius={0} />
+              <Bar dataKey="count" fill="var(--c-accent)" radius={0} />
             </BarChart>
           </ResponsiveContainer>
         </div>

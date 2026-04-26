@@ -17,11 +17,11 @@ interface Candidate {
 const STAGES: Stage[] = ["APPLIED", "SCREENED", "EXAM PENDING", "INTERVIEWED", "REJECTED"];
 
 const STAGE_CONFIG: Record<Stage, { color: string; count: number }> = {
-  "APPLIED":      { color: "#555",    count: 5 },
-  "SCREENED":     { color: "#FFD600", count: 4 },
-  "EXAM PENDING": { color: "#E6C200", count: 3 },
-  "INTERVIEWED":  { color: "#FF6B35", count: 2 },
-  "REJECTED":     { color: "#333",    count: 2 },
+  "APPLIED":      { color: "var(--c-text-muted)",    count: 5 },
+  "SCREENED":     { color: "var(--c-accent)", count: 4 },
+  "EXAM PENDING": { color: "var(--c-accent-hover)", count: 3 },
+  "INTERVIEWED":  { color: "var(--c-warn)", count: 2 },
+  "REJECTED":     { color: "var(--c-text-faint)",    count: 2 },
 };
 
 const initialCandidates: Candidate[] = [
@@ -44,10 +44,10 @@ const initialCandidates: Candidate[] = [
 ];
 
 function matchColor(score: number) {
-  if (score >= 85) return "#FFD600";
-  if (score >= 65) return "#E6C200";
-  if (score >= 45) return "#888";
-  return "#FF6B35";
+  if (score >= 85) return "var(--c-accent)";
+  if (score >= 65) return "var(--c-accent-hover)";
+  if (score >= 45) return "var(--c-text-sub)";
+  return "var(--c-warn)";
 }
 
 function CandidateCard({
@@ -60,20 +60,20 @@ function CandidateCard({
   const stageIndex = STAGES.indexOf(candidate.stage);
 
   return (
-    <div className="flex flex-col gap-3 p-3 bg-[#111] border border-[#1D1D1D] hover:border-[#2D2D2D] transition-colors group">
+    <div className="flex flex-col gap-3 p-3 bg-[var(--c-bg)] border border-[var(--c-border-soft)] hover:border-[var(--c-border)] transition-colors group">
       {candidate.flag && (
         <div
           className="flex items-center gap-[5px] px-2 py-[3px] w-fit"
-          style={{ background: "rgba(255,214,0,0.08)", borderLeft: "2px solid #FFD600" }}
+          style={{ background: "rgba(255,214,0,0.08)", borderLeft: "2px solid var(--c-accent)" }}
         >
-          <span className="font-ibm-mono text-[7px] text-[#FFD600] tracking-[1px]">{candidate.flag}</span>
+          <span className="font-ibm-mono text-[7px] text-[var(--c-accent)] tracking-[1px]">{candidate.flag}</span>
         </div>
       )}
       <div className="flex items-start justify-between gap-2">
         <div className="flex flex-col gap-[2px]">
-          <span className="font-ibm-mono text-[9px] text-[#F5F5F0] leading-tight">{candidate.name}</span>
-          <span className="font-ibm-mono text-[7px] text-[#444] tracking-[0.5px]">{candidate.role}</span>
-          <span className="font-ibm-mono text-[7px] text-[#333] tracking-[0.5px]">{candidate.id}</span>
+          <span className="font-ibm-mono text-[9px] text-[var(--c-text)] leading-tight">{candidate.name}</span>
+          <span className="font-ibm-mono text-[7px] text-[var(--c-text-dim)] tracking-[0.5px]">{candidate.role}</span>
+          <span className="font-ibm-mono text-[7px] text-[var(--c-text-faint)] tracking-[0.5px]">{candidate.id}</span>
         </div>
         {/* Match score */}
         <div
@@ -83,7 +83,7 @@ function CandidateCard({
           <span className="font-grotesk text-[14px] font-bold leading-none" style={{ color: matchColor(candidate.match) }}>
             {candidate.match}
           </span>
-          <span className="font-ibm-mono text-[6px] text-[#444]">%</span>
+          <span className="font-ibm-mono text-[6px] text-[var(--c-text-dim)]">%</span>
         </div>
       </div>
 
@@ -103,7 +103,7 @@ function CandidateCard({
           <button
             onClick={() => onMove(candidate.id, "left")}
             disabled={stageIndex === 0}
-            className="w-[20px] h-[20px] flex items-center justify-center text-[#444] hover:text-[#FFD600] disabled:opacity-20 transition-colors"
+            className="w-[20px] h-[20px] flex items-center justify-center text-[var(--c-text-dim)] hover:text-[var(--c-accent)] disabled:opacity-20 transition-colors"
             aria-label="Move left"
           >
             <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
@@ -113,7 +113,7 @@ function CandidateCard({
           <button
             onClick={() => onMove(candidate.id, "right")}
             disabled={stageIndex === STAGES.length - 1}
-            className="w-[20px] h-[20px] flex items-center justify-center text-[#444] hover:text-[#FFD600] disabled:opacity-20 transition-colors"
+            className="w-[20px] h-[20px] flex items-center justify-center text-[var(--c-text-dim)] hover:text-[var(--c-accent)] disabled:opacity-20 transition-colors"
             aria-label="Move right"
           >
             <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
@@ -150,25 +150,25 @@ export default function PipelinePage() {
     <div className="p-6 md:p-8 max-w-[1600px] mx-auto">
       {/* Header */}
       <div className="flex flex-col gap-1 mb-6">
-        <span className="font-ibm-mono text-[9px] text-[#444] tracking-[2px]">[04] // CANDIDATE PIPELINE</span>
-        <h1 className="font-grotesk text-[24px] md:text-[32px] font-bold text-[#F5F5F0] tracking-[-1px]">
+        <span className="font-ibm-mono text-[9px] text-[var(--c-text-dim)] tracking-[2px]">[04] // CANDIDATE PIPELINE</span>
+        <h1 className="font-grotesk text-[24px] md:text-[32px] font-bold text-[var(--c-text)] tracking-[-1px]">
           Kanban Pipeline
         </h1>
-        <p className="font-ibm-mono text-[10px] text-[#555] tracking-[0.5px]">
+        <p className="font-ibm-mono text-[10px] text-[var(--c-text-muted)] tracking-[0.5px]">
           Move candidates through stages using the arrow controls on each card
         </p>
       </div>
 
       {/* Role filter */}
-      <div className="flex items-center gap-[1px] bg-[#1D1D1D] mb-6 w-fit">
+      <div className="flex items-center gap-[1px] bg-[var(--c-border-soft)] mb-6 w-fit">
         {roles.map((role) => (
           <button
             key={role}
             onClick={() => setRoleFilter(role)}
             className="px-4 py-2 font-ibm-mono text-[8px] tracking-[1px] transition-colors"
             style={{
-              background: roleFilter === role ? "#FFD600" : "#0D0D0D",
-              color: roleFilter === role ? "#0A0A0A" : "#555",
+              background: roleFilter === role ? "var(--c-accent)" : "var(--c-bg-elev)",
+              color: roleFilter === role ? "var(--c-text)" : "var(--c-text-muted)",
             }}
           >
             {role}
@@ -177,13 +177,13 @@ export default function PipelinePage() {
       </div>
 
       {/* Kanban board */}
-      <div className="flex gap-[1px] bg-[#1D1D1D] overflow-x-auto pb-2">
+      <div className="flex gap-[1px] bg-[var(--c-border-soft)] overflow-x-auto pb-2">
         {STAGES.map((stage) => {
           const stageCandidates = filtered.filter((c) => c.stage === stage);
           return (
-            <div key={stage} className="flex flex-col min-w-[220px] flex-1 bg-[#0A0A0A]">
+            <div key={stage} className="flex flex-col min-w-[220px] flex-1 bg-[var(--c-bg)]">
               {/* Column header */}
-              <div className="flex items-center justify-between px-3 py-3 border-b border-[#1D1D1D] bg-[#0D0D0D] sticky top-0">
+              <div className="flex items-center justify-between px-3 py-3 border-b border-[var(--c-border-soft)] bg-[var(--c-bg-elev)] sticky top-0">
                 <div className="flex items-center gap-2">
                   <div className="w-[6px] h-[6px]" style={{ background: STAGE_CONFIG[stage].color }} />
                   <span
@@ -193,14 +193,14 @@ export default function PipelinePage() {
                     {stage}
                   </span>
                 </div>
-                <span className="font-ibm-mono text-[8px] text-[#444]">{stageCandidates.length}</span>
+                <span className="font-ibm-mono text-[8px] text-[var(--c-text-dim)]">{stageCandidates.length}</span>
               </div>
 
               {/* Cards */}
-              <div className="flex flex-col gap-[1px] p-2 bg-[#1D1D1D] flex-1 min-h-[400px]">
+              <div className="flex flex-col gap-[1px] p-2 bg-[var(--c-border-soft)] flex-1 min-h-[400px]">
                 {stageCandidates.length === 0 ? (
-                  <div className="flex items-center justify-center flex-1 bg-[#0A0A0A] min-h-[80px]">
-                    <span className="font-ibm-mono text-[8px] text-[#2D2D2D] tracking-[1px]">EMPTY</span>
+                  <div className="flex items-center justify-center flex-1 bg-[var(--c-bg)] min-h-[80px]">
+                    <span className="font-ibm-mono text-[8px] text-[var(--c-border)] tracking-[1px]">EMPTY</span>
                   </div>
                 ) : (
                   stageCandidates.map((c) => (
@@ -215,16 +215,16 @@ export default function PipelinePage() {
 
       {/* Legend */}
       <div className="flex items-center gap-6 mt-4 flex-wrap">
-        <span className="font-ibm-mono text-[8px] text-[#333] tracking-[1px]">MATCH SCORE:</span>
+        <span className="font-ibm-mono text-[8px] text-[var(--c-text-faint)] tracking-[1px]">MATCH SCORE:</span>
         {[
-          { label: "85–100% EXCELLENT", color: "#FFD600" },
-          { label: "65–84% GOOD",        color: "#E6C200" },
-          { label: "45–64% FAIR",         color: "#888" },
-          { label: "&lt;45% LOW",             color: "#FF6B35" },
+          { label: "85–100% EXCELLENT", color: "var(--c-accent)" },
+          { label: "65–84% GOOD",        color: "var(--c-accent-hover)" },
+          { label: "45–64% FAIR",         color: "var(--c-text-sub)" },
+          { label: "&lt;45% LOW",             color: "var(--c-warn)" },
         ].map((l) => (
           <div key={l.label} className="flex items-center gap-[6px]">
             <div className="w-[6px] h-[6px]" style={{ background: l.color }} />
-            <span className="font-ibm-mono text-[7px] text-[#444]">{l.label}</span>
+            <span className="font-ibm-mono text-[7px] text-[var(--c-text-dim)]">{l.label}</span>
           </div>
         ))}
       </div>

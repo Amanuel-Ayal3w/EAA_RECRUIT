@@ -58,24 +58,24 @@ export default function FAQ() {
         {faqs.map((faq, i) => {
           const isOpen = openIndex === i;
           return (
-            <div key={i} className="flex flex-col w-full border-t border-t-[#1D1D1D]">
+            <div key={i} className="flex flex-col w-full border-t border-t-[var(--c-border-soft)]">
               <button
                 className="flex items-center justify-between w-full py-5 md:h-[72px] text-left gap-4"
                 onClick={() => setOpenIndex(isOpen ? -1 : i)}
               >
-                <span className="font-grotesk text-[14px] md:text-[16px] font-bold text-[#F5F5F0] tracking-[0.5px]">
+                <span className="font-grotesk text-[14px] md:text-[16px] font-bold text-[var(--c-text)] tracking-[0.5px]">
                   {faq.question}
                 </span>
                 <div
                   className="flex items-center justify-center w-[32px] h-[32px] shrink-0"
                   style={{
-                    backgroundColor: isOpen ? "#FFD600" : "#1A1A1A",
+                    backgroundColor: isOpen ? "var(--c-accent)" : "var(--c-bg-muted)",
                     border: isOpen ? "none" : "1px solid #3D3D3D",
                   }}
                 >
                   <span
                     className="font-ibm-mono text-[14px] font-bold"
-                    style={{ color: isOpen ? "#0A0A0A" : "#888888" }}
+                    style={{ color: isOpen ? "var(--c-text)" : "var(--c-text-sub)" }}
                   >
                     {isOpen ? "—" : "+"}
                   </span>
@@ -83,7 +83,7 @@ export default function FAQ() {
               </button>
               {isOpen && faq.answer && (
                 <div className="pb-8">
-                  <p className="font-ibm-mono text-[12px] md:text-[13px] text-[#888888] tracking-[0.5px] leading-[1.7]">
+                  <p className="font-ibm-mono text-[12px] md:text-[13px] text-[var(--c-text-sub)] tracking-[0.5px] leading-[1.7]">
                     {faq.answer}
                   </p>
                 </div>
@@ -91,16 +91,16 @@ export default function FAQ() {
             </div>
           );
         })}
-        <div className="border-t border-t-[#1D1D1D]" />
+        <div className="border-t border-t-[var(--c-border-soft)]" />
       </div>
 
       <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-[16px] pt-10 md:pt-[48px]">
-        <span className="font-ibm-mono text-[13px] text-[#555555] tracking-[1px]">
+        <span className="font-ibm-mono text-[13px] text-[var(--c-text-muted)] tracking-[1px]">
           STILL HAVE QUESTIONS?
         </span>
         <a
           href="mailto:support@eaarecruit.et"
-          className="font-ibm-mono text-[13px] font-bold text-[#FFD600] tracking-[1px] hover:underline"
+          className="font-ibm-mono text-[13px] font-bold text-[var(--c-accent)] tracking-[1px] hover:underline"
         >
           CONTACT SUPPORT &gt;
         </a>

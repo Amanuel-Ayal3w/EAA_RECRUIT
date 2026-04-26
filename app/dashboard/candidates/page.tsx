@@ -82,16 +82,16 @@ const candidates: Candidate[] = [
 ];
 
 const TooltipStyle: React.CSSProperties = {
-  background: "#111", border: "1px solid #2D2D2D", borderRadius: 0,
+  background: "var(--c-bg)", border: "1px solid var(--c-border)", borderRadius: 0,
   padding: "8px 12px", fontFamily: "var(--font-ibm-plex-mono), monospace",
-  fontSize: "9px", color: "#F5F5F0", letterSpacing: "1px",
+  fontSize: "9px", color: "var(--c-text)", letterSpacing: "1px",
 };
 
 function matchColor(score: number) {
-  if (score >= 85) return "#FFD600";
-  if (score >= 65) return "#E6C200";
-  if (score >= 45) return "#888";
-  return "#FF6B35";
+  if (score >= 85) return "var(--c-accent)";
+  if (score >= 65) return "var(--c-accent-hover)";
+  if (score >= 45) return "var(--c-text-sub)";
+  return "var(--c-warn)";
 }
 
 // ─── XAI Modal ────────────────────────────────────────────────────────────────
@@ -100,22 +100,22 @@ function XAIModal({ candidate, onClose }: { candidate: Candidate; onClose: () =>
 
   return (
     <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
-      <div className="bg-[#0D0D0D] border border-[#2D2D2D] w-full max-w-[760px] max-h-[90vh] overflow-y-auto">
+      <div className="bg-[var(--c-bg-elev)] border border-[var(--c-border)] w-full max-w-[760px] max-h-[90vh] overflow-y-auto">
         {/* Modal header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-[#1D1D1D] sticky top-0 bg-[#0D0D0D] z-10">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-[var(--c-border-soft)] sticky top-0 bg-[var(--c-bg-elev)] z-10">
           <div className="flex flex-col gap-[2px]">
             <div className="flex items-center gap-3">
-              <div className="w-[3px] h-[14px] bg-[#FFD600]" />
-              <span className="font-ibm-mono text-[9px] text-[#888] tracking-[2px]">XAI DECISION REPORT</span>
+              <div className="w-[3px] h-[14px] bg-[var(--c-accent)]" />
+              <span className="font-ibm-mono text-[9px] text-[var(--c-text-sub)] tracking-[2px]">XAI DECISION REPORT</span>
             </div>
-            <span className="font-grotesk text-[18px] font-bold text-[#F5F5F0] pl-[18px]">
+            <span className="font-grotesk text-[18px] font-bold text-[var(--c-text)] pl-[18px]">
               {candidate.name}
             </span>
-            <span className="font-ibm-mono text-[8px] text-[#444] pl-[18px]">{candidate.role} // {candidate.id}</span>
+            <span className="font-ibm-mono text-[8px] text-[var(--c-text-dim)] pl-[18px]">{candidate.role} // {candidate.id}</span>
           </div>
           <button
             onClick={onClose}
-            className="w-[32px] h-[32px] flex items-center justify-center text-[#444] hover:text-[#F5F5F0] transition-colors border border-[#2D2D2D]"
+            className="w-[32px] h-[32px] flex items-center justify-center text-[var(--c-text-dim)] hover:text-[var(--c-text)] transition-colors border border-[var(--c-border)]"
             aria-label="Close modal"
           >
             <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
@@ -128,11 +128,11 @@ function XAIModal({ candidate, onClose }: { candidate: Candidate; onClose: () =>
           {/* Score gauge + sub-scores */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="flex flex-col items-center gap-2">
-              <span className="font-ibm-mono text-[9px] text-[#555] tracking-[2px] mb-1">OVERALL AI MATCH SCORE</span>
+              <span className="font-ibm-mono text-[9px] text-[var(--c-text-muted)] tracking-[2px] mb-1">OVERALL AI MATCH SCORE</span>
               <div className="relative">
                 <ResponsiveContainer width={180} height={180}>
                   <RadialBarChart cx={90} cy={90} innerRadius={55} outerRadius={80} data={gaugeData} startAngle={220} endAngle={-40}>
-                    <RadialBar dataKey="value" cornerRadius={0} background={{ fill: "#1A1A1A" }}>
+                    <RadialBar dataKey="value" cornerRadius={0} background={{ fill: "var(--c-bg-muted)" }}>
                       <Cell fill={matchColor(candidate.match)} />
                     </RadialBar>
                   </RadialBarChart>
@@ -141,7 +141,7 @@ function XAIModal({ candidate, onClose }: { candidate: Candidate; onClose: () =>
                   <span className="font-grotesk text-[36px] font-bold leading-none" style={{ color: matchColor(candidate.match) }}>
                     {candidate.match}
                   </span>
-                  <span className="font-ibm-mono text-[9px] text-[#444]">%</span>
+                  <span className="font-ibm-mono text-[9px] text-[var(--c-text-dim)]">%</span>
                 </div>
               </div>
             </div>
@@ -154,14 +154,14 @@ function XAIModal({ candidate, onClose }: { candidate: Candidate; onClose: () =>
                 <div key={item.label} className="flex flex-col gap-2">
                   <div className="flex items-center justify-between">
                     <div className="flex flex-col gap-[1px]">
-                      <span className="font-ibm-mono text-[8px] text-[#888] tracking-[1px]">{item.label}</span>
-                      <span className="font-ibm-mono text-[7px] text-[#333]">WEIGHT: {item.weight}</span>
+                      <span className="font-ibm-mono text-[8px] text-[var(--c-text-sub)] tracking-[1px]">{item.label}</span>
+                      <span className="font-ibm-mono text-[7px] text-[var(--c-text-faint)]">WEIGHT: {item.weight}</span>
                     </div>
                     <span className="font-grotesk text-[18px] font-bold" style={{ color: matchColor(item.value) }}>
                       {item.value}%
                     </span>
                   </div>
-                  <div className="w-full h-[3px] bg-[#1A1A1A]">
+                  <div className="w-full h-[3px] bg-[var(--c-bg-muted)]">
                     <div className="h-full transition-all" style={{ width: `${item.value}%`, background: matchColor(item.value) }} />
                   </div>
                 </div>
@@ -172,17 +172,17 @@ function XAIModal({ candidate, onClose }: { candidate: Candidate; onClose: () =>
           {/* Semantic alignment map */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-[3px] h-[14px] bg-[#FFD600] shrink-0" />
-              <span className="font-ibm-mono text-[9px] text-[#888] tracking-[2px]">SEMANTIC ALIGNMENT MAP</span>
+              <div className="w-[3px] h-[14px] bg-[var(--c-accent)] shrink-0" />
+              <span className="font-ibm-mono text-[9px] text-[var(--c-text-sub)] tracking-[2px]">SEMANTIC ALIGNMENT MAP</span>
             </div>
-            <div className="flex flex-col gap-[1px] bg-[#1D1D1D]">
+            <div className="flex flex-col gap-[1px] bg-[var(--c-border-soft)]">
               {candidate.semanticMatches.map((match, i) => (
-                <div key={i} className="flex items-center gap-4 px-4 py-3 bg-[#0D0D0D]">
+                <div key={i} className="flex items-center gap-4 px-4 py-3 bg-[var(--c-bg-elev)]">
                   <div className="flex flex-col gap-[3px] flex-1 min-w-0">
-                    <span className="font-ibm-mono text-[8px] text-[#F5F5F0]">{match.candidate}</span>
+                    <span className="font-ibm-mono text-[8px] text-[var(--c-text)]">{match.candidate}</span>
                     <div className="flex items-center gap-2">
-                      <svg width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M1 4h6M4 1l3 3-3 3" stroke="#444" strokeWidth="1.2" strokeLinecap="square" /></svg>
-                      <span className="font-ibm-mono text-[7px] text-[#444]">{match.requirement}</span>
+                      <svg width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M1 4h6M4 1l3 3-3 3" stroke="var(--c-text-dim)" strokeWidth="1.2" strokeLinecap="square" /></svg>
+                      <span className="font-ibm-mono text-[7px] text-[var(--c-text-dim)]">{match.requirement}</span>
                     </div>
                   </div>
                   <div
@@ -201,12 +201,12 @@ function XAIModal({ candidate, onClose }: { candidate: Candidate; onClose: () =>
           {/* Top contributing terms */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-[3px] h-[14px] bg-[#FFD600] shrink-0" />
-              <span className="font-ibm-mono text-[9px] text-[#888] tracking-[2px]">TOP CONTRIBUTING TERMS</span>
+              <div className="w-[3px] h-[14px] bg-[var(--c-accent)] shrink-0" />
+              <span className="font-ibm-mono text-[9px] text-[var(--c-text-sub)] tracking-[2px]">TOP CONTRIBUTING TERMS</span>
             </div>
-            <div className="flex flex-wrap gap-[1px] bg-[#1D1D1D]">
+            <div className="flex flex-wrap gap-[1px] bg-[var(--c-border-soft)]">
               {candidate.topTerms.map((term) => (
-                <span key={term} className="font-ibm-mono text-[8px] text-[#FFD600] bg-[#0D0D0D] px-3 py-2 tracking-[0.5px]">
+                <span key={term} className="font-ibm-mono text-[8px] text-[var(--c-accent)] bg-[var(--c-bg-elev)] px-3 py-2 tracking-[0.5px]">
                   {term}
                 </span>
               ))}
@@ -216,38 +216,38 @@ function XAIModal({ candidate, onClose }: { candidate: Candidate; onClose: () =>
           {/* Exam performance */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-[3px] h-[14px] bg-[#FFD600] shrink-0" />
-              <span className="font-ibm-mono text-[9px] text-[#888] tracking-[2px]">EXAM PERFORMANCE vs. IDEAL VECTOR</span>
+              <div className="w-[3px] h-[14px] bg-[var(--c-accent)] shrink-0" />
+              <span className="font-ibm-mono text-[9px] text-[var(--c-text-sub)] tracking-[2px]">EXAM PERFORMANCE vs. IDEAL VECTOR</span>
             </div>
             <ResponsiveContainer width="100%" height={160}>
               <BarChart data={candidate.examComparison} barGap={2} barSize={16}>
                 <XAxis
                   dataKey="question"
-                  tick={{ fill: "#444", fontSize: 8, fontFamily: "var(--font-ibm-plex-mono)", letterSpacing: "1px" }}
+                  tick={{ fill: "var(--c-text-dim)", fontSize: 8, fontFamily: "var(--font-ibm-plex-mono)", letterSpacing: "1px" }}
                   axisLine={false} tickLine={false}
                 />
                 <YAxis hide domain={[0, 100]} />
                 <Tooltip contentStyle={TooltipStyle} cursor={{ fill: "rgba(255,214,0,0.04)" }} />
-                <Bar dataKey="idealScore" fill="#1A1A1A" name="Ideal" />
-                <Bar dataKey="candidateScore" fill="#FFD600" name="Candidate" />
+                <Bar dataKey="idealScore" fill="var(--c-bg-muted)" name="Ideal" />
+                <Bar dataKey="candidateScore" fill="var(--c-accent)" name="Candidate" />
               </BarChart>
             </ResponsiveContainer>
             <div className="flex items-center gap-4 mt-2">
-              <div className="flex items-center gap-[6px]"><div className="w-[8px] h-[8px] bg-[#FFD600]" /><span className="font-ibm-mono text-[7px] text-[#555]">CANDIDATE</span></div>
-              <div className="flex items-center gap-[6px]"><div className="w-[8px] h-[8px] bg-[#1A1A1A] border border-[#2D2D2D]" /><span className="font-ibm-mono text-[7px] text-[#555]">IDEAL ANSWER VECTOR</span></div>
+              <div className="flex items-center gap-[6px]"><div className="w-[8px] h-[8px] bg-[var(--c-accent)]" /><span className="font-ibm-mono text-[7px] text-[var(--c-text-muted)]">CANDIDATE</span></div>
+              <div className="flex items-center gap-[6px]"><div className="w-[8px] h-[8px] bg-[var(--c-bg-muted)] border border-[var(--c-border)]" /><span className="font-ibm-mono text-[7px] text-[var(--c-text-muted)]">IDEAL ANSWER VECTOR</span></div>
             </div>
           </div>
 
           {/* Actions */}
-          <div className="flex items-center justify-between pt-4 border-t border-[#1D1D1D]">
-            <span className="font-ibm-mono text-[8px] text-[#333] tracking-[0.5px]">
+          <div className="flex items-center justify-between pt-4 border-t border-[var(--c-border-soft)]">
+            <span className="font-ibm-mono text-[8px] text-[var(--c-text-faint)] tracking-[0.5px]">
               Generated by EAA XAI Engine v2.1 — Proclamation 1329/2023 compliant
             </span>
             <div className="flex items-center gap-3">
-              <button className="px-4 py-2 border border-[#2D2D2D] font-ibm-mono text-[8px] text-[#555] hover:text-[#F5F5F0] hover:border-[#555] transition-colors tracking-[1px]">
+              <button className="px-4 py-2 border border-[var(--c-border)] font-ibm-mono text-[8px] text-[var(--c-text-muted)] hover:text-[var(--c-text)] hover:border-[var(--c-text-muted)] transition-colors tracking-[1px]">
                 EXPORT PDF /
               </button>
-              <button className="px-4 py-2 bg-[#FFD600] font-ibm-mono text-[8px] font-bold text-[#0A0A0A] tracking-[1px] hover:bg-[#E6C200] transition-colors">
+              <button className="px-4 py-2 bg-[var(--c-accent)] font-ibm-mono text-[8px] font-bold text-[var(--c-text)] tracking-[1px] hover:bg-[var(--c-accent-hover)] transition-colors">
                 SHORTLIST /
               </button>
             </div>
@@ -281,11 +281,11 @@ export default function CandidatesPage() {
 
       {/* Header */}
       <div className="flex flex-col gap-1 mb-6">
-        <span className="font-ibm-mono text-[9px] text-[#444] tracking-[2px]">[03] // CANDIDATE POOL</span>
-        <h1 className="font-grotesk text-[24px] md:text-[32px] font-bold text-[#F5F5F0] tracking-[-1px]">
+        <span className="font-ibm-mono text-[9px] text-[var(--c-text-dim)] tracking-[2px]">[03] // CANDIDATE POOL</span>
+        <h1 className="font-grotesk text-[24px] md:text-[32px] font-bold text-[var(--c-text)] tracking-[-1px]">
           Candidate Pool
         </h1>
-        <p className="font-ibm-mono text-[10px] text-[#555] tracking-[0.5px]">
+        <p className="font-ibm-mono text-[10px] text-[var(--c-text-muted)] tracking-[0.5px]">
           Search candidates and open the XAI Decision Report for any profile
         </p>
       </div>
@@ -293,7 +293,7 @@ export default function CandidatesPage() {
       {/* Search + Filter bar */}
       <div className="flex flex-col md:flex-row gap-3 mb-6">
         <div className="relative flex-1">
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="absolute left-3 top-1/2 -translate-y-1/2 text-[#444]">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="absolute left-3 top-1/2 -translate-y-1/2 text-[var(--c-text-dim)]">
             <circle cx="5" cy="5" r="3.5" stroke="currentColor" strokeWidth="1.2" />
             <path d="M8 8l2.5 2.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="square" />
           </svg>
@@ -302,16 +302,16 @@ export default function CandidatesPage() {
             placeholder="Search by name, role, or ID..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full bg-[#0D0D0D] border border-[#2D2D2D] text-[#F5F5F0] font-ibm-mono text-[10px] pl-8 pr-4 py-3 focus:outline-none focus:border-[#FFD600] placeholder:text-[#333] transition-colors tracking-[0.5px]"
+            className="w-full bg-[var(--c-bg-elev)] border border-[var(--c-border)] text-[var(--c-text)] font-ibm-mono text-[10px] pl-8 pr-4 py-3 focus:outline-none focus:border-[var(--c-accent)] placeholder:text-[var(--c-text-faint)] transition-colors tracking-[0.5px]"
           />
         </div>
-        <div className="flex items-center gap-[1px] bg-[#1D1D1D]">
+        <div className="flex items-center gap-[1px] bg-[var(--c-border-soft)]">
           {roles.map((role) => (
             <button
               key={role}
               onClick={() => setRoleFilter(role)}
               className="px-4 py-3 font-ibm-mono text-[8px] tracking-[1px] transition-colors whitespace-nowrap"
-              style={{ background: roleFilter === role ? "#FFD600" : "#0D0D0D", color: roleFilter === role ? "#0A0A0A" : "#555" }}
+              style={{ background: roleFilter === role ? "var(--c-accent)" : "var(--c-bg-elev)", color: roleFilter === role ? "var(--c-text)" : "var(--c-text-muted)" }}
             >
               {role}
             </button>
@@ -320,40 +320,40 @@ export default function CandidatesPage() {
       </div>
 
       {/* Table */}
-      <div className="border border-[#1D1D1D] bg-[#0D0D0D]">
+      <div className="border border-[var(--c-border-soft)] bg-[var(--c-bg-elev)]">
         {/* Header row */}
-        <div className="grid grid-cols-[auto_1fr_auto_auto_auto_auto_auto] gap-4 px-5 py-3 bg-[#111] border-b border-[#1D1D1D] items-center">
+        <div className="grid grid-cols-[auto_1fr_auto_auto_auto_auto_auto] gap-4 px-5 py-3 bg-[var(--c-bg)] border-b border-[var(--c-border-soft)] items-center">
           {["ID", "NAME / ROLE", "MATCH", "CV", "EXAM", "STAGE", "ACTIONS"].map((h) => (
-            <span key={h} className="font-ibm-mono text-[7px] text-[#444] tracking-[1.5px]">{h}</span>
+            <span key={h} className="font-ibm-mono text-[7px] text-[var(--c-text-dim)] tracking-[1.5px]">{h}</span>
           ))}
         </div>
         {filtered.length === 0 && (
           <div className="flex items-center justify-center py-12">
-            <span className="font-ibm-mono text-[9px] text-[#333] tracking-[1px]">NO CANDIDATES FOUND</span>
+            <span className="font-ibm-mono text-[9px] text-[var(--c-text-faint)] tracking-[1px]">NO CANDIDATES FOUND</span>
           </div>
         )}
         {filtered.map((c) => (
           <div
             key={c.id}
-            className="grid grid-cols-[auto_1fr_auto_auto_auto_auto_auto] gap-4 px-5 py-4 border-b border-[#111] items-center hover:bg-[#111] transition-colors"
+            className="grid grid-cols-[auto_1fr_auto_auto_auto_auto_auto] gap-4 px-5 py-4 border-b border-[#111] items-center hover:bg-[var(--c-bg)] transition-colors"
           >
-            <span className="font-ibm-mono text-[8px] text-[#444] tracking-[1px]">{c.id}</span>
+            <span className="font-ibm-mono text-[8px] text-[var(--c-text-dim)] tracking-[1px]">{c.id}</span>
             <div className="flex flex-col gap-[2px] min-w-0">
-              <span className="font-ibm-mono text-[9px] text-[#F5F5F0] truncate">{c.name}</span>
-              <span className="font-ibm-mono text-[7px] text-[#444]">{c.role}</span>
+              <span className="font-ibm-mono text-[9px] text-[var(--c-text)] truncate">{c.name}</span>
+              <span className="font-ibm-mono text-[7px] text-[var(--c-text-dim)]">{c.role}</span>
             </div>
             <span className="font-grotesk text-[15px] font-bold" style={{ color: matchColor(c.match) }}>{c.match}%</span>
-            <span className="font-ibm-mono text-[9px] text-[#888]">{c.cvScore}%</span>
-            <span className="font-ibm-mono text-[9px] text-[#888]">{c.examScore}%</span>
+            <span className="font-ibm-mono text-[9px] text-[var(--c-text-sub)]">{c.cvScore}%</span>
+            <span className="font-ibm-mono text-[9px] text-[var(--c-text-sub)]">{c.examScore}%</span>
             <span
               className="font-ibm-mono text-[7px] px-2 py-[2px] tracking-[1px] whitespace-nowrap"
-              style={{ color: c.stage === "INTERVIEWED" ? "#FFD600" : c.stage === "REJECTED" ? "#FF6B35" : "#888", background: c.stage === "INTERVIEWED" ? "#FFD60014" : c.stage === "REJECTED" ? "#FF6B3514" : "#88888814" }}
+              style={{ color: c.stage === "INTERVIEWED" ? "var(--c-accent)" : c.stage === "REJECTED" ? "var(--c-warn)" : "var(--c-text-sub)", background: c.stage === "INTERVIEWED" ? "var(--c-accent)14" : c.stage === "REJECTED" ? "var(--c-warn)14" : "var(--c-text-sub)14" }}
             >
               {c.stage}
             </span>
             <button
               onClick={() => setSelected(c)}
-              className="font-ibm-mono text-[7px] text-[#444] hover:text-[#FFD600] tracking-[1px] transition-colors whitespace-nowrap"
+              className="font-ibm-mono text-[7px] text-[var(--c-text-dim)] hover:text-[var(--c-accent)] tracking-[1px] transition-colors whitespace-nowrap"
             >
               XAI REPORT /
             </button>
@@ -361,7 +361,7 @@ export default function CandidatesPage() {
         ))}
       </div>
       <div className="mt-3 flex items-center justify-between">
-        <span className="font-ibm-mono text-[8px] text-[#333] tracking-[0.5px]">
+        <span className="font-ibm-mono text-[8px] text-[var(--c-text-faint)] tracking-[0.5px]">
           Showing {filtered.length} of {candidates.length} candidates — click XAI REPORT for full explainability
         </span>
       </div>

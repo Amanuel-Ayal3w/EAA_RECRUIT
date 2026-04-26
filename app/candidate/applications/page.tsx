@@ -42,9 +42,9 @@ const applications = [
 ];
 
 function statusColor(status: string) {
-  if (status === "SHORTLISTED") return "#FFD600";
-  if (status === "REJECTED") return "#FF6B35";
-  return "#888";
+  if (status === "SHORTLISTED") return "var(--c-accent)";
+  if (status === "REJECTED") return "var(--c-warn)";
+  return "var(--c-text-sub)";
 }
 
 export default function ApplicationsPage() {
@@ -52,36 +52,36 @@ export default function ApplicationsPage() {
     <div className="p-6 md:p-8 max-w-[1200px] mx-auto flex flex-col gap-8">
       {/* Header */}
       <div className="flex flex-col gap-1">
-        <span className="font-ibm-mono text-[9px] text-[#444] tracking-[2px]">[03] // MY APPLICATIONS</span>
-        <h1 className="font-grotesk text-[24px] md:text-[32px] font-bold text-[#F5F5F0] tracking-[-1px]">My Applications</h1>
-        <p className="font-ibm-mono text-[10px] text-[#555] tracking-[0.5px]">
+        <span className="font-ibm-mono text-[9px] text-[var(--c-text-dim)] tracking-[2px]">[03] // MY APPLICATIONS</span>
+        <h1 className="font-grotesk text-[24px] md:text-[32px] font-bold text-[var(--c-text)] tracking-[-1px]">My Applications</h1>
+        <p className="font-ibm-mono text-[10px] text-[var(--c-text-muted)] tracking-[0.5px]">
           Full history and real-time status tracking for every application you have submitted.
         </p>
       </div>
 
       {/* Summary strip */}
-      <div className="grid grid-cols-3 gap-[1px] bg-[#1D1D1D]">
+      <div className="grid grid-cols-3 gap-[1px] bg-[var(--c-border-soft)]">
         {[
           { label: "TOTAL APPLIED",  value: applications.length },
           { label: "SHORTLISTED",    value: applications.filter((a) => a.status === "SHORTLISTED").length },
           { label: "PENDING RESULT", value: applications.filter((a) => a.status === "PROCESSING").length },
         ].map((stat) => (
-          <div key={stat.label} className="flex flex-col gap-2 items-center justify-center py-6 bg-[#0D0D0D]">
-            <span className="font-grotesk text-[36px] font-bold text-[#FFD600] leading-none">{stat.value}</span>
-            <span className="font-ibm-mono text-[7px] text-[#444] tracking-[1.5px]">{stat.label}</span>
+          <div key={stat.label} className="flex flex-col gap-2 items-center justify-center py-6 bg-[var(--c-bg-elev)]">
+            <span className="font-grotesk text-[36px] font-bold text-[var(--c-accent)] leading-none">{stat.value}</span>
+            <span className="font-ibm-mono text-[7px] text-[var(--c-text-dim)] tracking-[1.5px]">{stat.label}</span>
           </div>
         ))}
       </div>
 
       {/* Application cards */}
-      <div className="flex flex-col gap-[1px] bg-[#1D1D1D]">
+      <div className="flex flex-col gap-[1px] bg-[var(--c-border-soft)]">
         {applications.map((app) => (
-          <div key={app.id} className="bg-[#0D0D0D] p-5 flex flex-col gap-5">
+          <div key={app.id} className="bg-[var(--c-bg-elev)] p-5 flex flex-col gap-5">
             {/* Card header */}
             <div className="flex items-start justify-between gap-4 flex-wrap">
               <div className="flex flex-col gap-[4px]">
                 <div className="flex items-center gap-3 flex-wrap">
-                  <span className="font-grotesk text-[16px] font-bold text-[#F5F5F0]">{app.role}</span>
+                  <span className="font-grotesk text-[16px] font-bold text-[var(--c-text)]">{app.role}</span>
                   <div
                     className="flex items-center gap-[6px] px-2 py-[2px]"
                     style={{ background: `${statusColor(app.status)}10`, border: `1px solid ${statusColor(app.status)}30` }}
@@ -93,24 +93,24 @@ export default function ApplicationsPage() {
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
-                  <span className="font-ibm-mono text-[8px] text-[#444] tracking-[1px]">{app.department}</span>
-                  <div className="w-[1px] h-[10px] bg-[#2D2D2D]" />
-                  <span className="font-ibm-mono text-[8px] text-[#444] tracking-[1px]">APPLIED {app.appliedDate.toUpperCase()}</span>
-                  <div className="w-[1px] h-[10px] bg-[#2D2D2D]" />
-                  <span className="font-ibm-mono text-[7px] text-[#333] tracking-[0.5px]">UPDATED {app.lastUpdate.toUpperCase()}</span>
+                  <span className="font-ibm-mono text-[8px] text-[var(--c-text-dim)] tracking-[1px]">{app.department}</span>
+                  <div className="w-[1px] h-[10px] bg-[var(--c-border)]" />
+                  <span className="font-ibm-mono text-[8px] text-[var(--c-text-dim)] tracking-[1px]">APPLIED {app.appliedDate.toUpperCase()}</span>
+                  <div className="w-[1px] h-[10px] bg-[var(--c-border)]" />
+                  <span className="font-ibm-mono text-[7px] text-[var(--c-text-faint)] tracking-[0.5px]">UPDATED {app.lastUpdate.toUpperCase()}</span>
                 </div>
               </div>
 
               <div className="flex items-center gap-3 shrink-0">
                 {app.overallScore > 0 && (
-                  <div className="flex flex-col items-center gap-[1px] px-3 py-2 border border-[#FFD600]/30 bg-[#FFD600]/05">
-                    <span className="font-grotesk text-[20px] font-bold text-[#FFD600] leading-none">{app.overallScore}%</span>
-                    <span className="font-ibm-mono text-[6px] text-[#555] tracking-[0.5px]">AI MATCH</span>
+                  <div className="flex flex-col items-center gap-[1px] px-3 py-2 border border-[var(--c-accent)]/30 bg-[var(--c-accent)]/05">
+                    <span className="font-grotesk text-[20px] font-bold text-[var(--c-accent)] leading-none">{app.overallScore}%</span>
+                    <span className="font-ibm-mono text-[6px] text-[var(--c-text-muted)] tracking-[0.5px]">AI MATCH</span>
                   </div>
                 )}
                 <Link
                   href="/candidate/feedback"
-                  className="px-3 h-[34px] flex items-center font-ibm-mono text-[7px] text-[#555] border border-[#2D2D2D] hover:text-[#FFD600] hover:border-[#FFD600]/40 transition-colors tracking-[1px] whitespace-nowrap"
+                  className="px-3 h-[34px] flex items-center font-ibm-mono text-[7px] text-[var(--c-text-muted)] border border-[var(--c-border)] hover:text-[var(--c-accent)] hover:border-[var(--c-accent)]/40 transition-colors tracking-[1px] whitespace-nowrap"
                 >
                   VIEW FEEDBACK /
                 </Link>
@@ -127,26 +127,26 @@ export default function ApplicationsPage() {
                       <div
                         className="flex items-center justify-center w-[20px] h-[20px] shrink-0 transition-all"
                         style={{
-                          background: step.done ? "#FFD600" : "transparent",
-                          border: isActive ? "2px solid #FFD600" : step.done ? "2px solid #FFD600" : "2px solid #2D2D2D",
+                          background: step.done ? "var(--c-accent)" : "transparent",
+                          border: isActive ? "2px solid var(--c-accent)" : step.done ? "2px solid var(--c-accent)" : "2px solid var(--c-border)",
                         }}
                       >
                         {step.done && (
                           <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
-                            <path d="M1 4l2 2 4-4" stroke="#0A0A0A" strokeWidth="1.4" strokeLinecap="square" />
+                            <path d="M1 4l2 2 4-4" stroke="var(--c-text)" strokeWidth="1.4" strokeLinecap="square" />
                           </svg>
                         )}
-                        {isActive && <div className="w-[6px] h-[6px] bg-[#FFD600] animate-pulse" />}
+                        {isActive && <div className="w-[6px] h-[6px] bg-[var(--c-accent)] animate-pulse" />}
                       </div>
                       <span
                         className="font-ibm-mono text-[6px] text-center tracking-[0.3px] whitespace-nowrap"
-                        style={{ color: step.done ? "#FFD600" : isActive ? "#FFD600" : "#333" }}
+                        style={{ color: step.done ? "var(--c-accent)" : isActive ? "var(--c-accent)" : "var(--c-text-faint)" }}
                       >
                         {step.label}
                       </span>
                     </div>
                     {i < app.steps.length - 1 && (
-                      <div className="h-[2px] flex-1 mx-1 shrink-0" style={{ background: step.done ? "#FFD600" : "#1D1D1D" }} />
+                      <div className="h-[2px] flex-1 mx-1 shrink-0" style={{ background: step.done ? "var(--c-accent)" : "var(--c-border-soft)" }} />
                     )}
                   </div>
                 );
@@ -155,15 +155,15 @@ export default function ApplicationsPage() {
 
             {/* Current step note */}
             <div className="flex items-center gap-2 pt-1">
-              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" className="text-[#FFD600] shrink-0">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" className="text-[var(--c-accent)] shrink-0">
                 <circle cx="5" cy="5" r="4" stroke="currentColor" strokeWidth="1.2" />
                 <path d="M5 3v3M5 7.5v.2" stroke="currentColor" strokeWidth="1.2" strokeLinecap="square" />
               </svg>
-              <span className="font-ibm-mono text-[8px] text-[#555] tracking-[0.5px]">
-                Current stage: <span className="text-[#FFD600]">{app.currentStep}</span>
+              <span className="font-ibm-mono text-[8px] text-[var(--c-text-muted)] tracking-[0.5px]">
+                Current stage: <span className="text-[var(--c-accent)]">{app.currentStep}</span>
                 {app.id === "APP-001" && " — You have an exam waiting. "}
                 {app.id === "APP-001" && (
-                  <Link href="/candidate/exams" className="text-[#FFD600] underline underline-offset-2 hover:no-underline">
+                  <Link href="/candidate/exams" className="text-[var(--c-accent)] underline underline-offset-2 hover:no-underline">
                     Start now /
                   </Link>
                 )}

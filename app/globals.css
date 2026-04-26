@@ -6,15 +6,53 @@
 }
 
 :root {
-  --yellow: #FFD600;
-  --orange: #FF6B35;
-  --bg-primary: #0A0A0A;
-  --text-light: #F5F5F0;
-  --text-gray: #888888;
-  --text-muted: #555555;
-  --text-dim: #444444;
-  --border-dark: #2D2D2D;
-  --border-subtle: #1D1D1D;
+  --c-bg: #FFFFFF;
+  --c-bg-elev: #FDFDFB;
+  --c-bg-soft: #F7F7F4;
+  --c-bg-muted: #F1F1ED;
+  --c-border: #D6D6D2;
+  --c-border-soft: #E8E8E4;
+  --c-text: #121212;
+  --c-text-sub: #888888;
+  --c-text-muted: #555555;
+  --c-text-dim: #444444;
+  --c-text-faint: #333333;
+  --c-accent: #FFD600;
+  --c-accent-hover: #E6C200;
+  --c-warn: #FF6B35;
+
+  --yellow: var(--c-accent);
+  --orange: var(--c-warn);
+  --bg-primary: var(--c-bg);
+  --text-light: var(--c-text);
+  --text-gray: var(--c-text-sub);
+  --text-muted: var(--c-text-muted);
+  --text-dim: var(--c-text-dim);
+  --border-dark: var(--c-border);
+  --border-subtle: var(--c-border-soft);
+}
+
+html[data-theme="dark"] {
+  --c-bg: #0A0A0A;
+  --c-bg-elev: #0D0D0D;
+  --c-bg-soft: #111111;
+  --c-bg-muted: #1A1A1A;
+  --c-border: #2D2D2D;
+  --c-border-soft: #1D1D1D;
+  --c-text: #F5F5F0;
+  --c-text-sub: #AAAAAA;
+  --c-text-muted: #888888;
+  --c-text-dim: #666666;
+  --c-text-faint: #444444;
+  --c-accent: #FFD600;
+  --c-accent-hover: #E6C200;
+  --c-warn: #FF6B35;
+}
+
+html,
+body {
+  background: var(--c-bg);
+  color: var(--c-text);
 }
 
 @utility font-grotesk {
