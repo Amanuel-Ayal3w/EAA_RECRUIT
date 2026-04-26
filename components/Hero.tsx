@@ -37,7 +37,7 @@ export default function Hero() {
         {/* Badge */}
         <div className="flex items-center gap-[8px] h-[32px] px-[12px] md:px-[16px] bg-[var(--c-accent)]/10 border-2 border-[var(--c-accent)]">
           <div className="w-[6px] h-[6px] bg-[var(--c-accent)] shrink-0 rounded-full" />
-          <span className="font-ibm-mono text-[9px] md:text-[11px] font-bold text-[var(--c-accent)] tracking-[1px] md:tracking-[2px] whitespace-nowrap">
+          <span className="font-ibm-mono text-[10px] md:text-[12px] font-bold text-[var(--c-accent)] tracking-[1px] md:tracking-[2px] whitespace-nowrap">
             [AI-POWERED] // ETHIOPIAN AVIATION ACADEMY RECRUITMENT PLATFORM
           </span>
         </div>
@@ -58,7 +58,7 @@ export default function Hero() {
         <div className="h-6 md:h-8" />
 
         {/* Subheading */}
-        <p className="font-ibm-mono text-[13px] md:text-[15px] text-[#AAAAAA] tracking-[1px] leading-[1.6] text-center w-full max-w-[680px]">
+        <p className="font-ibm-mono text-[14px] md:text-[16px] text-[#AAAAAA] tracking-[1px] leading-[1.6] text-center w-full max-w-[680px]">
           AN AI-POWERED PLATFORM FOR ETHIOPIAN AIRLINES AND THE ETHIOPIAN
           AVIATION ACADEMY. TRANSPARENT, FAIR, AND FAST-TRACK HIRING IN UNDER
           4 WEEKS.
@@ -69,10 +69,10 @@ export default function Hero() {
         {/* CTAs */}
         <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
           <a
-            href="#"
+            href="/register"
             className="flex items-center justify-center w-full sm:w-[200px] h-[56px] bg-[var(--c-accent)] hover:bg-[var(--c-accent-hover)] transition-colors"
           >
-            <span className="font-grotesk text-[12px] font-bold text-[var(--c-text)] tracking-[2px]">
+            <span className="font-grotesk text-[13px] font-bold text-[var(--c-text)] tracking-[2px]">
               REGISTER NOW
             </span>
           </a>
@@ -84,7 +84,7 @@ export default function Hero() {
               document.getElementById("jobs")?.scrollIntoView({ behavior: "smooth" });
             }}
           >
-            <span className="font-ibm-mono text-[12px] text-[#AAAAAA] tracking-[2px] hover:text-[var(--c-text)] transition-colors">
+            <span className="font-ibm-mono text-[13px] text-[#AAAAAA] tracking-[2px] hover:text-[var(--c-text)] transition-colors">
               BROWSE JOBS &gt;
             </span>
           </a>
@@ -92,7 +92,7 @@ export default function Hero() {
 
         <div className="h-6" />
 
-        <p className="font-ibm-mono text-[11px] text-[#666666] tracking-[2px] text-center">
+        <p className="font-ibm-mono text-[12px] text-[#666666] tracking-[2px] text-center">
           FAST-TRACK CYCLE // DATA STAYS IN ETHIOPIA // COMPLIANT WITH PROCLAMATION NO. 1329/2023
         </p>
 
@@ -125,10 +125,10 @@ export default function Hero() {
                     : "rgba(10,10,10,0.6)",
               }}
             >
-              <span className="font-grotesk text-[18px] md:text-[22px] font-bold text-[var(--c-accent)] tracking-[-0.5px]">
+              <span className="font-grotesk text-[19px] md:text-[23px] font-bold text-[var(--c-accent)] tracking-[-0.5px]">
                 {stat.value}
               </span>
-              <span className="font-ibm-mono text-[9px] md:text-[10px] text-[#666666] tracking-[1.5px]">
+              <span className="font-ibm-mono text-[10px] md:text-[11px] text-[#666666] tracking-[1.5px]">
                 {stat.label}
               </span>
             </div>

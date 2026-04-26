@@ -78,9 +78,9 @@ const TooltipStyle: React.CSSProperties = {
 function SectionLabel({ index, children }: { index: string; children: string }) {
   return (
     <div className="flex items-center gap-3 mb-5">
-      <span className="font-ibm-mono text-[9px] text-[var(--c-text-dim)] tracking-[2px]">[{index}]</span>
+      <span className="font-ibm-mono text-[10px] text-[var(--c-text-dim)] tracking-[2px]">[{index}]</span>
       <div className="w-[3px] h-[14px] bg-[var(--c-accent)] shrink-0" />
-      <span className="font-ibm-mono text-[9px] text-[var(--c-text-sub)] tracking-[2px]">{children}</span>
+      <span className="font-ibm-mono text-[10px] text-[var(--c-text-sub)] tracking-[2px]">{children}</span>
     </div>
   );
 }
@@ -91,14 +91,14 @@ function KPICard({ label, value, sub, accent = false }: { label: string; value: 
       className="flex flex-col gap-3 p-5 border border-[var(--c-border-soft)] bg-[var(--c-bg-elev)]"
       style={accent ? { borderColor: "var(--c-accent)", background: "rgba(255,214,0,0.03)" } : {}}
     >
-      <span className="font-ibm-mono text-[9px] text-[var(--c-text-muted)] tracking-[1.5px]">{label}</span>
+      <span className="font-ibm-mono text-[10px] text-[var(--c-text-muted)] tracking-[1.5px]">{label}</span>
       <span
-        className="font-grotesk text-[32px] font-bold leading-none tracking-[-1px]"
+        className="font-grotesk text-[33px] font-bold leading-none tracking-[-1px]"
         style={{ color: accent ? "var(--c-accent)" : "var(--c-text)" }}
       >
         {value}
       </span>
-      <span className="font-ibm-mono text-[8px] text-[var(--c-text-dim)] tracking-[0.5px]">{sub}</span>
+      <span className="font-ibm-mono text-[9px] text-[var(--c-text-dim)] tracking-[0.5px]">{sub}</span>
     </div>
   );
 }
@@ -108,11 +108,11 @@ export default function RecruiterDashboard() {
     <div className="p-6 md:p-8 max-w-[1400px] mx-auto">
       {/* Page header */}
       <div className="flex flex-col gap-1 mb-8">
-        <span className="font-ibm-mono text-[9px] text-[var(--c-text-dim)] tracking-[2px]">[01] // PIPELINE OVERVIEW</span>
-        <h1 className="font-grotesk text-[24px] md:text-[32px] font-bold text-[var(--c-text)] tracking-[-1px]">
+        <span className="font-ibm-mono text-[10px] text-[var(--c-text-dim)] tracking-[2px]">[01] // PIPELINE OVERVIEW</span>
+        <h1 className="font-grotesk text-[25px] md:text-[33px] font-bold text-[var(--c-text)] tracking-[-1px]">
           Recruitment Dashboard
         </h1>
-        <p className="font-ibm-mono text-[10px] text-[var(--c-text-muted)] tracking-[0.5px]">
+        <p className="font-ibm-mono text-[11px] text-[var(--c-text-muted)] tracking-[0.5px]">
           Live funnel metrics across all active roles — EAA Recruit
         </p>
       </div>
@@ -159,8 +159,8 @@ export default function RecruiterDashboard() {
               { label: "HIRE RATE",   value: "25%" },
             ].map((item) => (
               <div key={item.label} className="flex-1 flex flex-col items-center py-3 bg-[var(--c-bg-elev)] gap-1">
-                <span className="font-grotesk text-[18px] font-bold text-[var(--c-accent)]">{item.value}</span>
-                <span className="font-ibm-mono text-[7px] text-[var(--c-text-dim)] tracking-[1px]">{item.label}</span>
+                <span className="font-grotesk text-[19px] font-bold text-[var(--c-accent)]">{item.value}</span>
+                <span className="font-ibm-mono text-[8px] text-[var(--c-text-dim)] tracking-[1px]">{item.label}</span>
               </div>
             ))}
           </div>
@@ -195,11 +195,11 @@ export default function RecruiterDashboard() {
           <div className="flex items-center gap-4 mt-3">
             <div className="flex items-center gap-[6px]">
               <div className="w-[8px] h-[8px] bg-[var(--c-accent)]" />
-              <span className="font-ibm-mono text-[8px] text-[var(--c-text-muted)]">ON TRACK (≤4d)</span>
+              <span className="font-ibm-mono text-[9px] text-[var(--c-text-muted)]">ON TRACK (≤4d)</span>
             </div>
             <div className="flex items-center gap-[6px]">
               <div className="w-[8px] h-[8px] bg-[var(--c-warn)]" />
-              <span className="font-ibm-mono text-[8px] text-[var(--c-text-muted)]">DELAYED (&gt;4d)</span>
+              <span className="font-ibm-mono text-[9px] text-[var(--c-text-muted)]">DELAYED (&gt;4d)</span>
             </div>
           </div>
         </div>
@@ -228,7 +228,7 @@ export default function RecruiterDashboard() {
                   }}
                 >
                   <span
-                    className="font-ibm-mono text-[7px] tracking-[1px]"
+                    className="font-ibm-mono text-[8px] tracking-[1px]"
                     style={{
                       color:
                         action.priority === "high" ? "var(--c-warn)" : action.priority === "medium" ? "var(--c-accent)" : "var(--c-text-muted)",
@@ -238,14 +238,14 @@ export default function RecruiterDashboard() {
                   </span>
                 </div>
                 <div className="flex flex-col gap-[3px] flex-1 min-w-0">
-                  <span className="font-ibm-mono text-[9px] text-[var(--c-text)] leading-relaxed">{action.message}</span>
+                  <span className="font-ibm-mono text-[10px] text-[var(--c-text)] leading-relaxed">{action.message}</span>
                   <div className="flex items-center gap-2">
-                    <span className="font-ibm-mono text-[7px] text-[var(--c-accent)]/70 tracking-[1px]">{action.role}</span>
-                    <span className="font-ibm-mono text-[7px] text-[var(--c-text-faint)]">//</span>
-                    <span className="font-ibm-mono text-[7px] text-[var(--c-text-dim)]">{action.time}</span>
+                    <span className="font-ibm-mono text-[8px] text-[var(--c-accent)]/70 tracking-[1px]">{action.role}</span>
+                    <span className="font-ibm-mono text-[8px] text-[var(--c-text-faint)]">//</span>
+                    <span className="font-ibm-mono text-[8px] text-[var(--c-text-dim)]">{action.time}</span>
                   </div>
                 </div>
-                <button className="font-ibm-mono text-[7px] text-[var(--c-text-dim)] hover:text-[var(--c-accent)] tracking-[1px] transition-colors shrink-0">
+                <button className="font-ibm-mono text-[8px] text-[var(--c-text-dim)] hover:text-[var(--c-accent)] tracking-[1px] transition-colors shrink-0">
                   VIEW /
                 </button>
               </div>
@@ -260,7 +260,7 @@ export default function RecruiterDashboard() {
             {/* Header */}
             <div className="grid grid-cols-[1fr_auto_auto_auto] gap-4 px-4 py-2 bg-[var(--c-bg)] items-center">
               {["ROLE", "APPLIED", "SCREENED", "TTF"].map((h) => (
-                <span key={h} className="font-ibm-mono text-[7px] text-[var(--c-text-dim)] tracking-[1.5px]">{h}</span>
+                <span key={h} className="font-ibm-mono text-[8px] text-[var(--c-text-dim)] tracking-[1.5px]">{h}</span>
               ))}
             </div>
             {activeJobs.map((job) => (
@@ -269,14 +269,14 @@ export default function RecruiterDashboard() {
                 className="grid grid-cols-[1fr_auto_auto_auto] gap-4 px-4 py-3 bg-[var(--c-bg-elev)] items-center hover:bg-[var(--c-bg)] transition-colors group"
               >
                 <div className="flex flex-col gap-[2px] min-w-0">
-                  <span className="font-ibm-mono text-[9px] text-[var(--c-text)] truncate">{job.title}</span>
-                  <span className="font-ibm-mono text-[7px] text-[var(--c-text-dim)] tracking-[0.5px]">{job.id}</span>
+                  <span className="font-ibm-mono text-[10px] text-[var(--c-text)] truncate">{job.title}</span>
+                  <span className="font-ibm-mono text-[8px] text-[var(--c-text-dim)] tracking-[0.5px]">{job.id}</span>
                 </div>
-                <span className="font-grotesk text-[13px] font-bold text-[var(--c-text)]">{job.applied}</span>
-                <span className="font-grotesk text-[13px] font-bold text-[var(--c-accent)]">{job.screened}</span>
+                <span className="font-grotesk text-[14px] font-bold text-[var(--c-text)]">{job.applied}</span>
+                <span className="font-grotesk text-[14px] font-bold text-[var(--c-accent)]">{job.screened}</span>
                 <div className="flex items-center gap-[4px]">
                   <span
-                    className="font-ibm-mono text-[9px]"
+                    className="font-ibm-mono text-[10px]"
                     style={{ color: job.ttf <= 7 ? "var(--c-accent)" : "var(--c-warn)" }}
                   >
                     {job.ttf}d
@@ -286,10 +286,10 @@ export default function RecruiterDashboard() {
             ))}
           </div>
           <div className="mt-4 flex items-center justify-between">
-            <span className="font-ibm-mono text-[8px] text-[var(--c-text-faint)] tracking-[0.5px]">
+            <span className="font-ibm-mono text-[9px] text-[var(--c-text-faint)] tracking-[0.5px]">
               Showing 4 of 11 active postings
             </span>
-            <a href="/dashboard/jobs" className="font-ibm-mono text-[8px] text-[var(--c-accent)] hover:underline tracking-[1px]">
+            <a href="/dashboard/jobs" className="font-ibm-mono text-[9px] text-[var(--c-accent)] hover:underline tracking-[1px]">
               VIEW ALL /
             </a>
           </div>

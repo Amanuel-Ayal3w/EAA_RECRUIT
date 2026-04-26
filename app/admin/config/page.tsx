@@ -6,7 +6,7 @@ function SectionLabel({ children }: { children: string }) {
   return (
     <div className="flex items-center gap-3 mb-5">
       <div className="w-[3px] h-[14px] bg-[var(--c-accent)] shrink-0" />
-      <span className="font-ibm-mono text-[9px] text-[var(--c-text-sub)] tracking-[2px]">{children}</span>
+      <span className="font-ibm-mono text-[10px] text-[var(--c-text-sub)] tracking-[2px]">{children}</span>
     </div>
   );
 }
@@ -30,9 +30,9 @@ function Field({
 }) {
   return (
     <div className="flex flex-col gap-[6px]">
-      <label className="font-ibm-mono text-[8px] text-[var(--c-text-muted)] tracking-[1.5px]">{label}</label>
+      <label className="font-ibm-mono text-[9px] text-[var(--c-text-muted)] tracking-[1.5px]">{label}</label>
       {children}
-      {hint && <p className="font-ibm-mono text-[7px] text-[var(--c-text-faint)] tracking-[0.5px]">{hint}</p>}
+      {hint && <p className="font-ibm-mono text-[8px] text-[var(--c-text-faint)] tracking-[0.5px]">{hint}</p>}
     </div>
   );
 }
@@ -54,7 +54,7 @@ function TextInput({
       value={value}
       onChange={(e) => onChange(e.target.value)}
       placeholder={placeholder}
-      className="w-full h-[38px] bg-[var(--c-bg)] border border-[var(--c-border)] px-3 font-ibm-mono text-[10px] text-[var(--c-text)] placeholder-[var(--c-text-faint)] focus:outline-none focus:border-[var(--c-accent)] transition-colors"
+      className="w-full h-[38px] bg-[var(--c-bg)] border border-[var(--c-border)] px-3 font-ibm-mono text-[11px] text-[var(--c-text)] placeholder-[var(--c-text-faint)] focus:outline-none focus:border-[var(--c-accent)] transition-colors"
     />
   );
 }
@@ -87,7 +87,7 @@ function SliderField({
           onChange={(e) => onChange(Number(e.target.value))}
           className="flex-1 accent-[var(--c-accent)] h-[2px] cursor-pointer"
         />
-        <span className="font-ibm-mono text-[12px] font-bold text-[var(--c-accent)] w-[52px] text-right shrink-0">
+        <span className="font-ibm-mono text-[13px] font-bold text-[var(--c-accent)] w-[52px] text-right shrink-0">
           {value}{unit}
         </span>
       </div>
@@ -98,12 +98,12 @@ function SliderField({
 function SaveBar({ onSave }: { onSave: () => void }) {
   return (
     <div className="flex items-center justify-end gap-3 mt-6">
-      <button className="h-[38px] px-5 border border-[var(--c-border)] font-ibm-mono text-[9px] text-[var(--c-text-muted)] tracking-[1.5px] hover:text-[var(--c-text)] hover:border-[var(--c-text-muted)] transition-colors">
+      <button className="h-[38px] px-5 border border-[var(--c-border)] font-ibm-mono text-[10px] text-[var(--c-text-muted)] tracking-[1.5px] hover:text-[var(--c-text)] hover:border-[var(--c-text-muted)] transition-colors">
         DISCARD
       </button>
       <button
         onClick={onSave}
-        className="h-[38px] px-6 bg-[var(--c-accent)] font-ibm-mono text-[9px] font-bold text-[var(--c-text)] tracking-[2px] hover:bg-[var(--c-accent-hover)] transition-colors"
+        className="h-[38px] px-6 bg-[var(--c-accent)] font-ibm-mono text-[10px] font-bold text-[var(--c-text)] tracking-[2px] hover:bg-[var(--c-accent-hover)] transition-colors"
       >
         SAVE CHANGES
       </button>
@@ -146,17 +146,17 @@ export default function ConfigPage() {
       {saved && (
         <div className="fixed top-6 right-6 z-50 flex items-center gap-3 px-5 py-3 bg-[var(--c-bg-elev)] border border-[var(--c-accent)]">
           <div className="w-[6px] h-[6px] rounded-full bg-[var(--c-accent)]" />
-          <span className="font-ibm-mono text-[9px] text-[var(--c-accent)] tracking-[1.5px]">CONFIGURATION SAVED</span>
+          <span className="font-ibm-mono text-[10px] text-[var(--c-accent)] tracking-[1.5px]">CONFIGURATION SAVED</span>
         </div>
       )}
 
       {/* Page header */}
       <div className="flex flex-col gap-1 mb-8">
-        <span className="font-ibm-mono text-[9px] text-[var(--c-text-dim)] tracking-[2px]">[05] // CONFIGURATION</span>
-        <h1 className="font-grotesk text-[24px] md:text-[32px] font-bold text-[var(--c-text)] tracking-[-1px]">
+        <span className="font-ibm-mono text-[10px] text-[var(--c-text-dim)] tracking-[2px]">[05] // CONFIGURATION</span>
+        <h1 className="font-grotesk text-[25px] md:text-[33px] font-bold text-[var(--c-text)] tracking-[-1px]">
           System Configuration
         </h1>
-        <p className="font-ibm-mono text-[10px] text-[var(--c-text-muted)] tracking-[0.5px]">
+        <p className="font-ibm-mono text-[11px] text-[var(--c-text-muted)] tracking-[0.5px]">
           Global rules, NLP settings, integration credentials, and scoring weights
         </p>
       </div>
@@ -175,10 +175,10 @@ export default function ConfigPage() {
                 value={stopwords}
                 onChange={(e) => setStopwords(e.target.value)}
                 rows={4}
-                className="w-full bg-[var(--c-bg)] border border-[var(--c-border)] px-3 py-2 font-ibm-mono text-[10px] text-[var(--c-text)] placeholder-[var(--c-text-faint)] focus:outline-none focus:border-[var(--c-accent)] transition-colors resize-none leading-relaxed"
+                className="w-full bg-[var(--c-bg)] border border-[var(--c-border)] px-3 py-2 font-ibm-mono text-[11px] text-[var(--c-text)] placeholder-[var(--c-text-faint)] focus:outline-none focus:border-[var(--c-accent)] transition-colors resize-none leading-relaxed"
               />
             </Field>
-            <div className="flex items-center gap-3 font-ibm-mono text-[8px] text-[var(--c-text-dim)]">
+            <div className="flex items-center gap-3 font-ibm-mono text-[9px] text-[var(--c-text-dim)]">
               <span>{stopwords.split(",").filter(Boolean).length} WORDS DEFINED</span>
               <div className="w-[1px] h-[10px] bg-[var(--c-border)]" />
               <button
@@ -214,7 +214,7 @@ export default function ConfigPage() {
               unit=" MIN"
             />
             <div className="border-t border-[var(--c-border-soft)] pt-4">
-              <p className="font-ibm-mono text-[8px] text-[var(--c-text-muted)] tracking-[1.5px] mb-4">SCORING WEIGHT ALLOCATION</p>
+              <p className="font-ibm-mono text-[9px] text-[var(--c-text-muted)] tracking-[1.5px] mb-4">SCORING WEIGHT ALLOCATION</p>
               <SliderField
                 label="CV VECTOR WEIGHT"
                 value={vectorWeight}
@@ -238,7 +238,7 @@ export default function ConfigPage() {
                   <div className="h-full bg-[var(--c-accent)] transition-all" style={{ width: `${vectorWeight}%` }} />
                   <div className="h-full bg-[var(--c-warn)] transition-all" style={{ width: `${examWeight}%` }} />
                 </div>
-                <span className="font-ibm-mono text-[7px] text-[var(--c-text-faint)]">TOTAL: 100%</span>
+                <span className="font-ibm-mono text-[8px] text-[var(--c-text-faint)]">TOTAL: 100%</span>
               </div>
             </div>
           </ConfigBlock>
@@ -273,7 +273,7 @@ export default function ConfigPage() {
               <Field label="API KEY" hint="Stored encrypted at rest (AES-256).">
                 <TextInput value={smsKey} onChange={setSmsKey} placeholder="••••••••••••••••" type="password" />
               </Field>
-              <button className="flex items-center gap-[8px] h-[34px] px-4 border border-[var(--c-border)] self-start font-ibm-mono text-[8px] text-[var(--c-text-muted)] hover:text-[var(--c-accent)] hover:border-[var(--c-accent)] transition-colors tracking-[1.5px]">
+              <button className="flex items-center gap-[8px] h-[34px] px-4 border border-[var(--c-border)] self-start font-ibm-mono text-[9px] text-[var(--c-text-muted)] hover:text-[var(--c-accent)] hover:border-[var(--c-accent)] transition-colors tracking-[1.5px]">
                 TEST CONNECTION /
               </button>
             </ConfigBlock>

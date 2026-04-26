@@ -22,14 +22,14 @@ export default function UnauthorizedPage() {
         </div>
 
         <div>
-          <p className="font-ibm-mono text-[9px] text-[var(--c-warn)] tracking-[3px] mb-3">[SYS-403] // ACCESS DENIED</p>
-          <h1 className="font-grotesk text-[80px] md:text-[120px] font-bold text-[var(--c-text)] leading-none tracking-[-4px]">
+          <p className="font-ibm-mono text-[10px] text-[var(--c-warn)] tracking-[3px] mb-3">[SYS-403] // ACCESS DENIED</p>
+          <h1 className="font-grotesk text-[81px] md:text-[121px] font-bold text-[var(--c-text)] leading-none tracking-[-4px]">
             4<span className="text-[var(--c-warn)]">0</span>3
           </h1>
-          <h2 className="font-grotesk text-[20px] md:text-[26px] font-bold text-[var(--c-text)] tracking-[-0.5px] mt-2 text-balance">
+          <h2 className="font-grotesk text-[21px] md:text-[27px] font-bold text-[var(--c-text)] tracking-[-0.5px] mt-2 text-balance">
             RESTRICTED AIRSPACE
           </h2>
-          <p className="font-ibm-mono text-[11px] text-[var(--c-text-muted)] tracking-[0.5px] leading-[1.8] mt-3">
+          <p className="font-ibm-mono text-[12px] text-[var(--c-text-muted)] tracking-[0.5px] leading-[1.8] mt-3">
             YOUR CREDENTIALS DO NOT GRANT ACCESS TO THIS SECTOR. THIS AREA IS RESTRICTED TO AUTHORIZED PERSONNEL ONLY. ALL UNAUTHORIZED ACCESS ATTEMPTS ARE LOGGED.
           </p>
         </div>
@@ -38,7 +38,7 @@ export default function UnauthorizedPage() {
         <div className="w-full border border-[var(--c-border-soft)] bg-[var(--c-bg-elev)]">
           <div className="flex items-center gap-3 px-5 py-3 border-b border-[var(--c-border-soft)]">
             <div className="w-[5px] h-[5px] rounded-full bg-[var(--c-warn)]" />
-            <span className="font-ibm-mono text-[8px] text-[var(--c-text-muted)] tracking-[1.5px]">ACCESS CONTROL MATRIX</span>
+            <span className="font-ibm-mono text-[9px] text-[var(--c-text-muted)] tracking-[1.5px]">ACCESS CONTROL MATRIX</span>
           </div>
           {[
             { route: "/admin", role: "SYSTEM ADMIN", allowed: false },
@@ -47,11 +47,11 @@ export default function UnauthorizedPage() {
             { route: "/login", role: "ALL USERS", allowed: true },
           ].map((row, i) => (
             <div key={i} className={`flex items-center justify-between gap-4 px-5 py-4 ${i < 3 ? "border-b border-[var(--c-border-soft)]" : ""}`}>
-              <span className="font-ibm-mono text-[9px] text-[var(--c-text-sub)] tracking-[0.5px] flex-1 text-left">{row.route}</span>
-              <span className="font-ibm-mono text-[8px] text-[var(--c-text-dim)] tracking-[1px]">{row.role}</span>
+              <span className="font-ibm-mono text-[10px] text-[var(--c-text-sub)] tracking-[0.5px] flex-1 text-left">{row.route}</span>
+              <span className="font-ibm-mono text-[9px] text-[var(--c-text-dim)] tracking-[1px]">{row.role}</span>
               <div className={`flex items-center gap-1.5 shrink-0`}>
                 <div className={`w-[5px] h-[5px] rounded-full ${row.allowed ? "bg-[var(--c-accent)]" : "bg-red-500"}`} />
-                <span className={`font-ibm-mono text-[8px] tracking-[1px] ${row.allowed ? "text-[var(--c-accent)]" : "text-red-400"}`}>
+                <span className={`font-ibm-mono text-[9px] tracking-[1px] ${row.allowed ? "text-[var(--c-accent)]" : "text-red-400"}`}>
                   {row.allowed ? "PERMITTED" : "RESTRICTED"}
                 </span>
               </div>
@@ -65,7 +65,7 @@ export default function UnauthorizedPage() {
             <path d="M7 1l6 3v4c0 3-6 6-6 6S1 11 1 8V4l6-3z" stroke="currentColor" strokeWidth="1.2" />
             <path d="M7 5v3M7 9.5v.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="square" />
           </svg>
-          <p className="font-ibm-mono text-[8px] text-[var(--c-text-muted)] tracking-[0.5px] leading-[1.8]">
+          <p className="font-ibm-mono text-[9px] text-[var(--c-text-muted)] tracking-[0.5px] leading-[1.8]">
             THIS ACCESS ATTEMPT HAS BEEN RECORDED IN THE IMMUTABLE AUDIT LOG IN COMPLIANCE WITH ETHIOPIAN DATA PROTECTION PROCLAMATION NO. 1329/2023.
           </p>
         </div>
@@ -73,10 +73,10 @@ export default function UnauthorizedPage() {
         {/* Actions */}
         <div className="flex flex-col sm:flex-row gap-3 w-full">
           <Link href="/login" className="flex flex-1 items-center justify-center h-[52px] bg-[var(--c-accent)] hover:bg-[var(--c-accent-hover)] transition-colors">
-            <span className="font-grotesk text-[11px] font-bold text-[var(--c-text)] tracking-[2px]">SIGN IN WITH CORRECT ROLE</span>
+            <span className="font-grotesk text-[12px] font-bold text-[var(--c-text)] tracking-[2px]">SIGN IN WITH CORRECT ROLE</span>
           </Link>
           <Link href="/" className="flex flex-1 items-center justify-center h-[52px] border-2 border-[var(--c-border)] hover:border-[var(--c-accent)] transition-colors">
-            <span className="font-ibm-mono text-[9px] text-[var(--c-text-sub)] hover:text-[var(--c-accent)] tracking-[1.5px] transition-colors">RETURN TO HOME</span>
+            <span className="font-ibm-mono text-[10px] text-[var(--c-text-sub)] hover:text-[var(--c-accent)] tracking-[1.5px] transition-colors">RETURN TO HOME</span>
           </Link>
         </div>
       </div>

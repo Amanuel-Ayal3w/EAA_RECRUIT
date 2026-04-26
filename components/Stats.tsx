@@ -8,7 +8,7 @@ const stats = [
 export default function Stats() {
   return (
     <section className="flex flex-col w-full bg-[var(--c-accent)] py-12 px-6 md:py-[80px] md:px-[120px]">
-      <span className="font-ibm-mono text-[12px] font-bold text-[var(--c-text)]/50 tracking-[3px]">
+      <span className="font-ibm-mono text-[13px] font-bold text-[var(--c-text)]/50 tracking-[3px]">
         [03] // BY THE NUMBERS
       </span>
       <div className="h-8 md:h-[32px]" />
@@ -23,10 +23,10 @@ export default function Stats() {
               ${i >= 2 ? "border-t-2 border-t-[var(--c-text)]/20 pt-4 md:border-t-0 md:pt-0" : ""}
             `}
           >
-            <span className="font-grotesk text-[36px] md:text-[56px] font-bold text-[var(--c-text)] tracking-[-2px] leading-none">
+            <span className="font-grotesk text-[37px] md:text-[57px] font-bold text-[var(--c-text)] tracking-[-2px] leading-none">
               {stat.value}
             </span>
-            <span className="font-ibm-mono text-[10px] md:text-[11px] font-bold text-[var(--c-text)]/60 tracking-[2px] text-center">
+            <span className="font-ibm-mono text-[11px] md:text-[12px] font-bold text-[var(--c-text)]/60 tracking-[2px] text-center">
               {stat.label}
             </span>
           </div>

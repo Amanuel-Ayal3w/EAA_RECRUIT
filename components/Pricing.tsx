@@ -48,18 +48,18 @@ function PricingCard({
         className="flex items-center justify-center h-[28px] px-[12px] w-fit"
         style={{ backgroundColor: tierBg, border: `1px solid ${tierBorderColor}` }}
       >
-        <span className="font-ibm-mono text-[11px] tracking-[2px]" style={{ color: tierColor }}>
+        <span className="font-ibm-mono text-[12px] tracking-[2px]" style={{ color: tierColor }}>
           {tier}
         </span>
       </div>
-      <span className="font-grotesk text-[28px] font-bold tracking-[1px]" style={{ color: nameColor }}>
+      <span className="font-grotesk text-[29px] font-bold tracking-[1px]" style={{ color: nameColor }}>
         {name}
       </span>
       <div className="flex items-end gap-[4px]">
-        <span className="font-grotesk text-[48px] font-bold tracking-[-2px] leading-none" style={{ color: priceColor }}>
+        <span className="font-grotesk text-[49px] font-bold tracking-[-2px] leading-none" style={{ color: priceColor }}>
           {price}
         </span>
-        <span className="font-ibm-mono text-[13px] text-[var(--c-text-muted)] tracking-[1px] mb-[6px]">/MO</span>
+        <span className="font-ibm-mono text-[14px] text-[var(--c-text-muted)] tracking-[1px] mb-[6px]">/MO</span>
       </div>
 
       {/* Feature list */}
@@ -68,13 +68,13 @@ function PricingCard({
           {features.map((f, i) => (
             <div key={i} className="flex items-center gap-3">
               <span
-                className="font-ibm-mono text-[14px] leading-none shrink-0"
+                className="font-ibm-mono text-[15px] leading-none shrink-0"
                 style={{ color: f.included ? accentColor : "var(--c-text-faint)" }}
               >
                 {f.included ? "+" : "—"}
               </span>
               <span
-                className="font-ibm-mono text-[11px] tracking-[1px]"
+                className="font-ibm-mono text-[12px] tracking-[1px]"
                 style={{ color: f.included ? "#A0A09A" : "#3D3D3D" }}
               >
                 {f.label}
@@ -88,7 +88,7 @@ function PricingCard({
         className="flex items-center justify-center w-full h-[48px] mt-auto"
         style={{ backgroundColor: btnBg, border: `2px solid ${btnBorderColor}` }}
       >
-        <span className="font-ibm-mono text-[12px] tracking-[2px]" style={{ color: btnLabelColor }}>
+        <span className="font-ibm-mono text-[13px] tracking-[2px]" style={{ color: btnLabelColor }}>
           {btnLabel}
         </span>
       </button>

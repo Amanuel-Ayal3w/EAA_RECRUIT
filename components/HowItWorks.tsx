@@ -23,15 +23,15 @@ function StepCard({
       style={{ backgroundColor: bgColor, borderColor }}
     >
       <span
-        className="font-grotesk text-[52px] font-bold tracking-[-2px] leading-none"
+        className="font-grotesk text-[53px] font-bold tracking-[-2px] leading-none"
         style={{ color: accentColor }}
       >
         {number}
       </span>
-      <h3 className="font-grotesk text-[18px] font-bold text-[var(--c-text)] tracking-[0.5px] leading-[1.2]">
+      <h3 className="font-grotesk text-[19px] font-bold text-[var(--c-text)] tracking-[0.5px] leading-[1.2]">
         {title}
       </h3>
-      <p className="font-ibm-mono text-[11px] text-[var(--c-text-muted)] tracking-[0.5px] leading-[1.6]">
+      <p className="font-ibm-mono text-[12px] text-[var(--c-text-muted)] tracking-[0.5px] leading-[1.6]">
         {description}
       </p>
     </div>
@@ -99,12 +99,12 @@ export default function HowItWorks() {
               borderRight: i < 3 ? "1px solid var(--c-border)" : "none",
             }}
           >
-            <span className="font-ibm-mono text-[9px] md:text-[11px] tracking-[2px]"
+            <span className="font-ibm-mono text-[10px] md:text-[12px] tracking-[2px]"
               style={{ color: i === 0 ? "var(--c-accent)" : "var(--c-text-muted)" }}>
               {step}
             </span>
             {i < 3 && (
-              <span className="font-ibm-mono text-[9px] text-[var(--c-text-faint)]">&gt;</span>
+              <span className="font-ibm-mono text-[10px] text-[var(--c-text-faint)]">&gt;</span>
             )}
           </div>
         ))}

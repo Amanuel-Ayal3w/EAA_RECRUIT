@@ -65,21 +65,21 @@ export default function RegisterPage() {
     type?: string; placeholder?: string; error?: string; touched?: boolean; rightEl?: React.ReactNode;
   }) => (
     <div className="flex flex-col gap-2">
-      <label className="font-ibm-mono text-[9px] text-[#666] tracking-[1.5px]">{label}</label>
+      <label className="font-ibm-mono text-[10px] text-[#666] tracking-[1.5px]">{label}</label>
       <div className="relative">
         <input
           type={type}
           value={value}
           onChange={(e) => onChange(e.target.value)}
           placeholder={placeholder}
-          className={`w-full h-[48px] bg-[var(--c-bg-elev)] border px-4 pr-10 font-ibm-mono text-[12px] text-[var(--c-text)] placeholder-[var(--c-text-faint)] focus:outline-none transition-colors ${
+          className={`w-full h-[48px] bg-[var(--c-bg-elev)] border px-4 pr-10 font-ibm-mono text-[13px] text-[var(--c-text)] placeholder-[var(--c-text-faint)] focus:outline-none transition-colors ${
             touched && error ? "border-red-500/60 focus:border-red-500" : "border-[var(--c-border)] focus:border-[var(--c-accent)]"
           }`}
         />
         {rightEl && <div className="absolute right-4 top-1/2 -translate-y-1/2">{rightEl}</div>}
       </div>
       {touched && error && (
-        <span className="font-ibm-mono text-[8px] text-red-400 tracking-[0.5px]">{error}</span>
+        <span className="font-ibm-mono text-[9px] text-red-400 tracking-[0.5px]">{error}</span>
       )}
     </div>
   );
@@ -106,17 +106,17 @@ export default function RegisterPage() {
             </svg>
           </div>
           <div>
-            <h1 className="font-grotesk text-[28px] font-bold text-[var(--c-text)] tracking-[-0.5px] text-balance">
+            <h1 className="font-grotesk text-[29px] font-bold text-[var(--c-text)] tracking-[-0.5px] text-balance">
               {isEn ? "REGISTRATION SUCCESSFUL" : "ምዝገባ ተሳካ"}
             </h1>
-            <p className="font-ibm-mono text-[10px] text-[var(--c-text-muted)] tracking-[1px] leading-[1.8] mt-3">
+            <p className="font-ibm-mono text-[11px] text-[var(--c-text-muted)] tracking-[1px] leading-[1.8] mt-3">
               {isEn
                 ? "YOUR ACCOUNT HAS BEEN CREATED. CHECK YOUR EMAIL FOR A VERIFICATION LINK BEFORE SIGNING IN."
                 : "መለያዎ ተፈጥሯል። ከመግባትዎ በፊት ኢሜይልዎን ያረጋግጡ።"}
             </p>
           </div>
           <Link href="/login" className="flex items-center justify-center w-full h-[52px] bg-[var(--c-accent)] hover:bg-[var(--c-accent-hover)] transition-colors">
-            <span className="font-grotesk text-[12px] font-bold text-[var(--c-text)] tracking-[2px]">
+            <span className="font-grotesk text-[13px] font-bold text-[var(--c-text)] tracking-[2px]">
               {isEn ? "GO TO LOGIN" : "ወደ ግቤት ሂድ"}
             </span>
           </Link>
@@ -137,20 +137,20 @@ export default function RegisterPage() {
         <div className="flex flex-col gap-8">
           <div className="flex items-center gap-3">
             <div className="flex items-center justify-center w-[36px] h-[36px] bg-[var(--c-accent)]">
-              <span className="font-ibm-mono text-[10px] font-bold text-[var(--c-text)] tracking-[1px]">EAA</span>
+              <span className="font-ibm-mono text-[11px] font-bold text-[var(--c-text)] tracking-[1px]">EAA</span>
             </div>
             <div className="flex flex-col leading-none">
-              <span className="font-ibm-mono text-[10px] font-bold text-[var(--c-text)] tracking-[2px]">EAA RECRUIT</span>
-              <span className="font-ibm-mono text-[7px] text-[var(--c-text-muted)] tracking-[1px]">CANDIDATE REGISTRATION</span>
+              <span className="font-ibm-mono text-[11px] font-bold text-[var(--c-text)] tracking-[2px]">EAA RECRUIT</span>
+              <span className="font-ibm-mono text-[8px] text-[var(--c-text-muted)] tracking-[1px]">CANDIDATE REGISTRATION</span>
             </div>
           </div>
           <div className="mt-6">
-            <h2 className="font-grotesk text-[34px] font-bold text-[var(--c-text)] leading-[1.05] tracking-[-1px] text-balance">
+            <h2 className="font-grotesk text-[35px] font-bold text-[var(--c-text)] leading-[1.05] tracking-[-1px] text-balance">
               YOUR AVIATION<br />
               <span className="text-[var(--c-accent)]">CAREER</span><br />
               STARTS HERE.
             </h2>
-            <p className="font-ibm-mono text-[10px] text-[var(--c-text-muted)] tracking-[0.5px] leading-[1.8] mt-5">
+            <p className="font-ibm-mono text-[11px] text-[var(--c-text-muted)] tracking-[0.5px] leading-[1.8] mt-5">
               REGISTER TO ACCESS OPEN POSITIONS AT ETHIOPIAN AIRLINES AND THE ETHIOPIAN AVIATION ACADEMY. ALL DATA IS PROCESSED WITHIN ETHIOPIA.
             </p>
           </div>
@@ -161,17 +161,17 @@ export default function RegisterPage() {
               { n: 2, label: isEn ? "SET PASSWORD" : "የምስጢር ቃል ያዘጋጁ" },
             ].map((s) => (
               <div key={s.n} className="flex items-center gap-3">
-                <div className={`flex items-center justify-center w-[22px] h-[22px] shrink-0 font-ibm-mono text-[9px] font-bold ${step >= s.n ? "bg-[var(--c-accent)] text-[var(--c-text)]" : "border border-[var(--c-border)] text-[var(--c-text-dim)]"}`}>
+                <div className={`flex items-center justify-center w-[22px] h-[22px] shrink-0 font-ibm-mono text-[10px] font-bold ${step >= s.n ? "bg-[var(--c-accent)] text-[var(--c-text)]" : "border border-[var(--c-border)] text-[var(--c-text-dim)]"}`}>
                   {step > s.n ? (
                     <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="var(--c-text)" strokeWidth="1.5" strokeLinecap="square" /></svg>
                   ) : s.n}
                 </div>
-                <span className={`font-ibm-mono text-[9px] tracking-[1px] ${step >= s.n ? "text-[var(--c-text)]" : "text-[var(--c-text-faint)]"}`}>{s.label}</span>
+                <span className={`font-ibm-mono text-[10px] tracking-[1px] ${step >= s.n ? "text-[var(--c-text)]" : "text-[var(--c-text-faint)]"}`}>{s.label}</span>
               </div>
             ))}
           </div>
         </div>
-        <div className="font-ibm-mono text-[8px] text-[var(--c-text-faint)] tracking-[0.5px] leading-[1.8]">
+        <div className="font-ibm-mono text-[9px] text-[var(--c-text-faint)] tracking-[0.5px] leading-[1.8]">
           COMPLIANT WITH PROCLAMATION NO. 1329/2023<br />
           DATA STAYS IN ETHIOPIA
         </div>
@@ -183,15 +183,15 @@ export default function RegisterPage() {
           {/* Mobile logo */}
           <div className="flex lg:hidden items-center gap-3">
             <div className="flex items-center justify-center w-[32px] h-[32px] bg-[var(--c-accent)]">
-              <span className="font-ibm-mono text-[9px] font-bold text-[var(--c-text)]">EAA</span>
+              <span className="font-ibm-mono text-[10px] font-bold text-[var(--c-text)]">EAA</span>
             </div>
-            <span className="font-ibm-mono text-[10px] font-bold text-[var(--c-text)] tracking-[2px]">EAA RECRUIT</span>
+            <span className="font-ibm-mono text-[11px] font-bold text-[var(--c-text)] tracking-[2px]">EAA RECRUIT</span>
           </div>
 
           {/* Lang toggle */}
           <div className="flex items-center gap-0 w-fit border border-[var(--c-border)]">
             {(["en", "am"] as const).map((l) => (
-              <button key={l} onClick={() => setLang(l)} className={`px-4 py-[6px] font-ibm-mono text-[9px] tracking-[1.5px] transition-colors ${lang === l ? "bg-[var(--c-accent)] text-[var(--c-text)] font-bold" : "text-[var(--c-text-muted)] hover:text-[var(--c-text)]"}`}>
+              <button key={l} onClick={() => setLang(l)} className={`px-4 py-[6px] font-ibm-mono text-[10px] tracking-[1.5px] transition-colors ${lang === l ? "bg-[var(--c-accent)] text-[var(--c-text)] font-bold" : "text-[var(--c-text-muted)] hover:text-[var(--c-text)]"}`}>
                 {l === "en" ? "EN" : "አማ"}
               </button>
             ))}
@@ -199,8 +199,8 @@ export default function RegisterPage() {
 
           {/* Step header */}
           <div>
-            <p className="font-ibm-mono text-[9px] text-[var(--c-accent)] tracking-[2px] mb-2">[AUTH] // REGISTER — STEP {step}/2</p>
-            <h1 className="font-grotesk text-[24px] font-bold text-[var(--c-text)] tracking-[-0.5px]">
+            <p className="font-ibm-mono text-[10px] text-[var(--c-accent)] tracking-[2px] mb-2">[AUTH] // REGISTER — STEP {step}/2</p>
+            <h1 className="font-grotesk text-[25px] font-bold text-[var(--c-text)] tracking-[-0.5px]">
               {step === 1 ? (isEn ? "PERSONAL DETAILS" : "የግል መረጃ") : (isEn ? "SET YOUR PASSWORD" : "የምስጢር ቃልዎን ያዘጋጁ")}
             </h1>
             {/* Mobile step dots */}
@@ -240,7 +240,7 @@ export default function RegisterPage() {
                 touched={phone.touched}
               />
               <button type="submit" className="h-[52px] bg-[var(--c-accent)] hover:bg-[var(--c-accent-hover)] transition-colors flex items-center justify-center">
-                <span className="font-grotesk text-[12px] font-bold text-[var(--c-text)] tracking-[2px]">{isEn ? "CONTINUE" : "ቀጥል"}</span>
+                <span className="font-grotesk text-[13px] font-bold text-[var(--c-text)] tracking-[2px]">{isEn ? "CONTINUE" : "ቀጥል"}</span>
               </button>
             </form>
           )}
@@ -269,7 +269,7 @@ export default function RegisterPage() {
                       <div key={i} className={`h-[3px] flex-1 transition-colors ${passwordStrength >= i ? (passwordStrength >= 4 ? "bg-[var(--c-accent)]" : passwordStrength >= 3 ? "bg-orange-400" : "bg-red-500") : "bg-[var(--c-border)]"}`} />
                     ))}
                   </div>
-                  <span className="font-ibm-mono text-[8px] text-[var(--c-text-dim)] tracking-[0.5px]">
+                  <span className="font-ibm-mono text-[9px] text-[var(--c-text-dim)] tracking-[0.5px]">
                     {passwordStrength <= 1 ? (isEn ? "WEAK" : "ደካማ") : passwordStrength <= 2 ? (isEn ? "FAIR" : "መካከለኛ") : passwordStrength <= 3 ? (isEn ? "GOOD" : "ጥሩ") : (isEn ? "STRONG" : "ጠንካራ")}
                   </span>
                 </div>
@@ -284,12 +284,12 @@ export default function RegisterPage() {
                 touched={confirm.touched}
               />
               <div className="flex gap-3">
-                <button type="button" onClick={() => setStep(1)} className="h-[52px] flex-1 border-2 border-[var(--c-border)] hover:border-[var(--c-accent)] transition-colors font-ibm-mono text-[9px] text-[var(--c-text-muted)] hover:text-[var(--c-accent)] tracking-[1.5px]">
+                <button type="button" onClick={() => setStep(1)} className="h-[52px] flex-1 border-2 border-[var(--c-border)] hover:border-[var(--c-accent)] transition-colors font-ibm-mono text-[10px] text-[var(--c-text-muted)] hover:text-[var(--c-accent)] tracking-[1.5px]">
                   {isEn ? "BACK" : "ተመለስ"}
                 </button>
                 <button type="submit" disabled={loading} className="h-[52px] flex-[2] bg-[var(--c-accent)] hover:bg-[var(--c-accent-hover)] disabled:opacity-50 transition-colors flex items-center justify-center gap-3">
                   {loading && <div className="w-[14px] h-[14px] border-2 border-[var(--c-text)]/30 border-t-[var(--c-text)] rounded-full animate-spin" />}
-                  <span className="font-grotesk text-[12px] font-bold text-[var(--c-text)] tracking-[2px]">{isEn ? "CREATE ACCOUNT" : "መለያ ፍጠር"}</span>
+                  <span className="font-grotesk text-[13px] font-bold text-[var(--c-text)] tracking-[2px]">{isEn ? "CREATE ACCOUNT" : "መለያ ፍጠር"}</span>
                 </button>
               </div>
             </form>
@@ -297,11 +297,11 @@ export default function RegisterPage() {
 
           <div className="flex items-center gap-3">
             <div className="flex-1 h-[1px] bg-[var(--c-border-soft)]" />
-            <span className="font-ibm-mono text-[8px] text-[var(--c-text-faint)] tracking-[1px]">{isEn ? "ALREADY REGISTERED?" : "አስቀድሞ ተመዝግበዋል?"}</span>
+            <span className="font-ibm-mono text-[9px] text-[var(--c-text-faint)] tracking-[1px]">{isEn ? "ALREADY REGISTERED?" : "አስቀድሞ ተመዝግበዋል?"}</span>
             <div className="flex-1 h-[1px] bg-[var(--c-border-soft)]" />
           </div>
           <Link href="/login" className="flex items-center justify-center h-[48px] border-2 border-[var(--c-border)] hover:border-[var(--c-accent)] transition-colors">
-            <span className="font-ibm-mono text-[9px] text-[var(--c-text-sub)] hover:text-[var(--c-accent)] tracking-[1.5px] transition-colors">{isEn ? "SIGN IN TO EXISTING ACCOUNT" : "ወደ ነባር መለያ ግባ"}</span>
+            <span className="font-ibm-mono text-[10px] text-[var(--c-text-sub)] hover:text-[var(--c-accent)] tracking-[1.5px] transition-colors">{isEn ? "SIGN IN TO EXISTING ACCOUNT" : "ወደ ነባር መለያ ግባ"}</span>
           </Link>
         </div>
       </div>

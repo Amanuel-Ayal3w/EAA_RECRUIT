@@ -74,12 +74,12 @@ function IdentityCheck({ onConfirm }: { onConfirm: () => void }) {
         <div className="flex flex-col gap-2">
           <div className="flex items-center gap-3">
             <div className="w-[3px] h-[20px] bg-[var(--c-accent)]" />
-            <span className="font-ibm-mono text-[9px] text-[var(--c-text-sub)] tracking-[2px]">IDENTITY VERIFICATION</span>
+            <span className="font-ibm-mono text-[10px] text-[var(--c-text-sub)] tracking-[2px]">IDENTITY VERIFICATION</span>
           </div>
-          <h1 className="font-grotesk text-[24px] font-bold text-[var(--c-text)] tracking-[-1px]">
+          <h1 className="font-grotesk text-[25px] font-bold text-[var(--c-text)] tracking-[-1px]">
             Before You Begin
           </h1>
-          <p className="font-ibm-mono text-[9px] text-[var(--c-text-muted)] leading-relaxed tracking-[0.3px]">
+          <p className="font-ibm-mono text-[10px] text-[var(--c-text-muted)] leading-relaxed tracking-[0.3px]">
             This is a proctored AI assessment for the position of Senior Pilot (B787). Once started, the 45-minute timer cannot be paused. Tab-switching is monitored.
           </p>
         </div>
@@ -87,11 +87,11 @@ function IdentityCheck({ onConfirm }: { onConfirm: () => void }) {
         <div className="bg-[var(--c-bg-elev)] border border-[var(--c-border)] p-5 flex flex-col gap-4">
           <div className="flex items-center gap-3 py-3 border-b border-[var(--c-border-soft)]">
             <div className="w-[36px] h-[36px] bg-[var(--c-bg-muted)] border border-[var(--c-border)] flex items-center justify-center shrink-0">
-              <span className="font-ibm-mono text-[10px] text-[var(--c-text-sub)]">AT</span>
+              <span className="font-ibm-mono text-[11px] text-[var(--c-text-sub)]">AT</span>
             </div>
             <div className="flex flex-col gap-[1px]">
-              <span className="font-ibm-mono text-[9px] text-[var(--c-text)] tracking-[1px]">AMANUEL TADESSE</span>
-              <span className="font-ibm-mono text-[7px] text-[var(--c-text-dim)]">CANDIDATE ID: C001 // APP-001</span>
+              <span className="font-ibm-mono text-[10px] text-[var(--c-text)] tracking-[1px]">AMANUEL TADESSE</span>
+              <span className="font-ibm-mono text-[8px] text-[var(--c-text-dim)]">CANDIDATE ID: C001 // APP-001</span>
             </div>
           </div>
 
@@ -103,8 +103,8 @@ function IdentityCheck({ onConfirm }: { onConfirm: () => void }) {
               { label: "PROCTORED", value: "YES — AI MONITORED" },
             ].map((item) => (
               <div key={item.label} className="flex flex-col gap-[2px] bg-[var(--c-bg-elev)] px-3 py-3">
-                <span className="font-ibm-mono text-[7px] text-[var(--c-text-faint)] tracking-[0.5px]">{item.label}</span>
-                <span className="font-ibm-mono text-[8px] text-[var(--c-text-sub)]">{item.value}</span>
+                <span className="font-ibm-mono text-[8px] text-[var(--c-text-faint)] tracking-[0.5px]">{item.label}</span>
+                <span className="font-ibm-mono text-[9px] text-[var(--c-text-sub)]">{item.value}</span>
               </div>
             ))}
           </div>
@@ -122,7 +122,7 @@ function IdentityCheck({ onConfirm }: { onConfirm: () => void }) {
               </svg>
             )}
           </button>
-          <span className="font-ibm-mono text-[8px] text-[var(--c-text-muted)] leading-relaxed tracking-[0.3px]">
+          <span className="font-ibm-mono text-[9px] text-[var(--c-text-muted)] leading-relaxed tracking-[0.3px]">
             I confirm that I am Amanuel Tadesse and that I will complete this assessment independently without external assistance, in accordance with EAA Proclamation 1329/2023 guidelines.
           </span>
         </div>
@@ -130,7 +130,7 @@ function IdentityCheck({ onConfirm }: { onConfirm: () => void }) {
         <button
           onClick={onConfirm}
           disabled={!checked}
-          className="w-full h-[52px] font-ibm-mono text-[9px] font-bold tracking-[2px] transition-all"
+          className="w-full h-[52px] font-ibm-mono text-[10px] font-bold tracking-[2px] transition-all"
           style={{
             background: checked ? "var(--c-accent)" : "var(--c-bg-muted)",
             color: checked ? "var(--c-text)" : "var(--c-text-faint)",
@@ -185,7 +185,7 @@ function ExamEngine({ onSubmit }: { onSubmit: () => void }) {
       {/* Sticky exam bar */}
       <div className="sticky top-[60px] z-10 flex items-center justify-between px-6 py-3 bg-[var(--c-bg-elev)] border-b border-[var(--c-border-soft)]">
         <div className="flex items-center gap-4">
-          <span className="font-ibm-mono text-[8px] text-[var(--c-text-dim)] tracking-[1px]">
+          <span className="font-ibm-mono text-[9px] text-[var(--c-text-dim)] tracking-[1px]">
             Q{current + 1}/{questions.length}
           </span>
           <div className="flex items-center gap-[2px]">
@@ -200,14 +200,14 @@ function ExamEngine({ onSubmit }: { onSubmit: () => void }) {
               />
             ))}
           </div>
-          <span className="font-ibm-mono text-[7px] text-[var(--c-text-faint)]">{answered}/{questions.length} ANSWERED</span>
+          <span className="font-ibm-mono text-[8px] text-[var(--c-text-faint)]">{answered}/{questions.length} ANSWERED</span>
         </div>
 
         <div className="flex items-center gap-4">
           {tabWarnings > 0 && (
             <div className="flex items-center gap-2 px-3 py-[4px] border border-[var(--c-warn)]/40 bg-[var(--c-warn)]/08">
               <div className="w-[5px] h-[5px] rounded-full bg-[var(--c-warn)]" />
-              <span className="font-ibm-mono text-[7px] text-[var(--c-warn)] tracking-[1px]">{tabWarnings} TAB SWITCH{tabWarnings > 1 ? "ES" : ""} DETECTED</span>
+              <span className="font-ibm-mono text-[8px] text-[var(--c-warn)] tracking-[1px]">{tabWarnings} TAB SWITCH{tabWarnings > 1 ? "ES" : ""} DETECTED</span>
             </div>
           )}
           <div
@@ -215,7 +215,7 @@ function ExamEngine({ onSubmit }: { onSubmit: () => void }) {
             style={{ background: isUrgent ? "var(--c-warn)14" : "var(--c-accent)08", border: `1px solid ${isUrgent ? "var(--c-warn)40" : "var(--c-accent)30"}` }}
           >
             <div className={`w-[5px] h-[5px] rounded-full ${isUrgent ? "bg-[var(--c-warn)] animate-pulse" : "bg-[var(--c-accent)]"}`} />
-            <span className="font-ibm-mono text-[10px] font-bold tracking-[2px]" style={{ color: isUrgent ? "var(--c-warn)" : "var(--c-accent)" }}>
+            <span className="font-ibm-mono text-[11px] font-bold tracking-[2px]" style={{ color: isUrgent ? "var(--c-warn)" : "var(--c-accent)" }}>
               {formatTime(timeLeft)}
             </span>
           </div>
@@ -226,7 +226,7 @@ function ExamEngine({ onSubmit }: { onSubmit: () => void }) {
       <div className="flex-1 flex flex-col md:flex-row">
         {/* Question nav sidebar */}
         <aside className="hidden md:flex flex-col w-[200px] shrink-0 border-r border-[var(--c-border-soft)] bg-[var(--c-bg-elev)] p-4 gap-[2px]">
-          <span className="font-ibm-mono text-[7px] text-[var(--c-text-faint)] tracking-[1px] mb-2">QUESTIONS</span>
+          <span className="font-ibm-mono text-[8px] text-[var(--c-text-faint)] tracking-[1px] mb-2">QUESTIONS</span>
           {questions.map((q, i) => (
             <button
               key={i}
@@ -237,10 +237,10 @@ function ExamEngine({ onSubmit }: { onSubmit: () => void }) {
                 borderLeft: i === current ? "2px solid var(--c-accent)" : "2px solid transparent",
               }}
             >
-              <span className="font-ibm-mono text-[8px] tracking-[1px]" style={{ color: i === current ? "var(--c-accent)" : answers[questions[i].id] !== undefined ? "var(--c-text-sub)" : "var(--c-text-faint)" }}>
+              <span className="font-ibm-mono text-[9px] tracking-[1px]" style={{ color: i === current ? "var(--c-accent)" : answers[questions[i].id] !== undefined ? "var(--c-text-sub)" : "var(--c-text-faint)" }}>
                 Q{i + 1}
               </span>
-              <span className="font-ibm-mono text-[7px] tracking-[0.5px]" style={{ color: "var(--c-text-faint)" }}>
+              <span className="font-ibm-mono text-[8px] tracking-[0.5px]" style={{ color: "var(--c-text-faint)" }}>
                 {q.type === "mcq" ? "MCQ" : "DESC"}
               </span>
               {answers[questions[i].id] !== undefined && (
@@ -254,15 +254,15 @@ function ExamEngine({ onSubmit }: { onSubmit: () => void }) {
         <div className="flex-1 p-6 md:p-10 flex flex-col gap-6 max-w-[760px]">
           <div className="flex items-center gap-3">
             <span
-              className="font-ibm-mono text-[7px] px-2 py-[3px] tracking-[1px]"
+              className="font-ibm-mono text-[8px] px-2 py-[3px] tracking-[1px]"
               style={{ color: q.type === "mcq" ? "var(--c-accent)" : "var(--c-text-sub)", background: q.type === "mcq" ? "var(--c-accent)10" : "var(--c-text-sub)10", border: `1px solid ${q.type === "mcq" ? "var(--c-accent)30" : "var(--c-border)"}` }}
             >
               {q.type === "mcq" ? "MULTIPLE CHOICE" : "DESCRIPTIVE"}
             </span>
-            <span className="font-ibm-mono text-[7px] text-[var(--c-text-faint)] tracking-[1px]">QUESTION {current + 1} OF {questions.length}</span>
+            <span className="font-ibm-mono text-[8px] text-[var(--c-text-faint)] tracking-[1px]">QUESTION {current + 1} OF {questions.length}</span>
           </div>
 
-          <p className="font-grotesk text-[16px] md:text-[18px] text-[var(--c-text)] leading-relaxed">
+          <p className="font-grotesk text-[17px] md:text-[19px] text-[var(--c-text)] leading-relaxed">
             {q.text}
           </p>
 
@@ -283,7 +283,7 @@ function ExamEngine({ onSubmit }: { onSubmit: () => void }) {
                     >
                       {selected && <div className="w-[8px] h-[8px] rounded-full bg-[var(--c-bg)]" />}
                     </div>
-                    <span className="font-ibm-mono text-[9px] tracking-[0.5px] leading-relaxed" style={{ color: selected ? "var(--c-text)" : "var(--c-text-muted)" }}>
+                    <span className="font-ibm-mono text-[10px] tracking-[0.5px] leading-relaxed" style={{ color: selected ? "var(--c-text)" : "var(--c-text-muted)" }}>
                       {opt}
                     </span>
                   </button>
@@ -299,13 +299,13 @@ function ExamEngine({ onSubmit }: { onSubmit: () => void }) {
                 onChange={(e) => setAnswer(e.target.value)}
                 placeholder={(q as { placeholder?: string }).placeholder ?? ""}
                 rows={8}
-                className="w-full bg-[var(--c-bg-elev)] border border-[var(--c-border)] text-[var(--c-text)] font-ibm-mono text-[10px] p-4 focus:outline-none focus:border-[var(--c-accent)] placeholder:text-[#222] resize-none tracking-[0.3px] leading-relaxed transition-colors"
+                className="w-full bg-[var(--c-bg-elev)] border border-[var(--c-border)] text-[var(--c-text)] font-ibm-mono text-[11px] p-4 focus:outline-none focus:border-[var(--c-accent)] placeholder:text-[#222] resize-none tracking-[0.3px] leading-relaxed transition-colors"
               />
               <div className="flex items-center justify-between">
-                <span className="font-ibm-mono text-[7px] text-[var(--c-text-faint)] tracking-[0.5px]">
+                <span className="font-ibm-mono text-[8px] text-[var(--c-text-faint)] tracking-[0.5px]">
                   Your answer will be vectorized and compared against the ideal response model.
                 </span>
-                <span className="font-ibm-mono text-[7px] text-[var(--c-text-dim)]">
+                <span className="font-ibm-mono text-[8px] text-[var(--c-text-dim)]">
                   {((answers[q.id] as string) ?? "").length} chars
                 </span>
               </div>
@@ -317,7 +317,7 @@ function ExamEngine({ onSubmit }: { onSubmit: () => void }) {
             <button
               onClick={() => setCurrent((c) => Math.max(0, c - 1))}
               disabled={current === 0}
-              className="flex items-center gap-2 px-4 h-[38px] border border-[var(--c-border)] font-ibm-mono text-[8px] text-[var(--c-text-muted)] hover:text-[var(--c-text)] hover:border-[var(--c-text-muted)] transition-colors disabled:opacity-30 disabled:cursor-not-allowed tracking-[1px]"
+              className="flex items-center gap-2 px-4 h-[38px] border border-[var(--c-border)] font-ibm-mono text-[9px] text-[var(--c-text-muted)] hover:text-[var(--c-text)] hover:border-[var(--c-text-muted)] transition-colors disabled:opacity-30 disabled:cursor-not-allowed tracking-[1px]"
             >
               <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
                 <path d="M7 1L3 5l4 4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="square" />
@@ -328,7 +328,7 @@ function ExamEngine({ onSubmit }: { onSubmit: () => void }) {
             {current < questions.length - 1 ? (
               <button
                 onClick={() => setCurrent((c) => Math.min(questions.length - 1, c + 1))}
-                className="flex items-center gap-2 px-4 h-[38px] bg-[var(--c-bg-muted)] border border-[var(--c-border)] font-ibm-mono text-[8px] text-[var(--c-text)] hover:border-[var(--c-accent)] transition-colors tracking-[1px]"
+                className="flex items-center gap-2 px-4 h-[38px] bg-[var(--c-bg-muted)] border border-[var(--c-border)] font-ibm-mono text-[9px] text-[var(--c-text)] hover:border-[var(--c-accent)] transition-colors tracking-[1px]"
               >
                 NEXT
                 <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
@@ -338,7 +338,7 @@ function ExamEngine({ onSubmit }: { onSubmit: () => void }) {
             ) : (
               <button
                 onClick={onSubmit}
-                className="flex items-center gap-2 px-6 h-[38px] bg-[var(--c-accent)] font-ibm-mono text-[8px] font-bold text-[var(--c-text)] tracking-[1.5px] hover:bg-[var(--c-accent-hover)] transition-colors"
+                className="flex items-center gap-2 px-6 h-[38px] bg-[var(--c-accent)] font-ibm-mono text-[9px] font-bold text-[var(--c-text)] tracking-[1.5px] hover:bg-[var(--c-accent-hover)] transition-colors"
               >
                 SUBMIT EXAM /
               </button>
@@ -361,8 +361,8 @@ function SubmittedScreen() {
           </svg>
         </div>
         <div className="flex flex-col gap-2">
-          <h2 className="font-grotesk text-[24px] font-bold text-[var(--c-text)] tracking-[-1px]">Exam Submitted</h2>
-          <p className="font-ibm-mono text-[9px] text-[var(--c-text-muted)] leading-relaxed tracking-[0.3px]">
+          <h2 className="font-grotesk text-[25px] font-bold text-[var(--c-text)] tracking-[-1px]">Exam Submitted</h2>
+          <p className="font-ibm-mono text-[10px] text-[var(--c-text-muted)] leading-relaxed tracking-[0.3px]">
             Your responses have been securely submitted. The AI engine will now vectorize your descriptive answers and score your exam. Results will appear in your Feedback page within 24 hours.
           </p>
         </div>
@@ -373,18 +373,18 @@ function SubmittedScreen() {
             { label: "RESULT ETA", value: "WITHIN 24 HOURS" },
           ].map((item) => (
             <div key={item.label} className="flex items-center justify-between px-4 py-3 bg-[var(--c-bg-elev)]">
-              <span className="font-ibm-mono text-[8px] text-[var(--c-text-faint)] tracking-[1px]">{item.label}</span>
-              <span className="font-ibm-mono text-[8px] text-[var(--c-text-sub)] tracking-[1px]">{item.value}</span>
+              <span className="font-ibm-mono text-[9px] text-[var(--c-text-faint)] tracking-[1px]">{item.label}</span>
+              <span className="font-ibm-mono text-[9px] text-[var(--c-text-sub)] tracking-[1px]">{item.value}</span>
             </div>
           ))}
         </div>
         <a
           href="/candidate/feedback"
-          className="w-full flex items-center justify-center h-[44px] bg-[var(--c-accent)] font-ibm-mono text-[9px] font-bold text-[var(--c-text)] tracking-[1.5px] hover:bg-[var(--c-accent-hover)] transition-colors"
+          className="w-full flex items-center justify-center h-[44px] bg-[var(--c-accent)] font-ibm-mono text-[10px] font-bold text-[var(--c-text)] tracking-[1.5px] hover:bg-[var(--c-accent-hover)] transition-colors"
         >
           VIEW FEEDBACK PAGE /
         </a>
-        <a href="/candidate" className="font-ibm-mono text-[8px] text-[var(--c-text-dim)] hover:text-[var(--c-accent)] tracking-[1px] transition-colors">
+        <a href="/candidate" className="font-ibm-mono text-[9px] text-[var(--c-text-dim)] hover:text-[var(--c-accent)] tracking-[1px] transition-colors">
           BACK TO DASHBOARD /
         </a>
       </div>

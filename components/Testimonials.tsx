@@ -23,14 +23,14 @@ function JobCategoryCard({
       style={{ borderLeftColor: accentColor }}
     >
       <div className="flex items-start justify-between gap-4">
-        <h3 className="font-grotesk text-[18px] font-bold text-[var(--c-text)] tracking-[0.5px] leading-[1.2]">
+        <h3 className="font-grotesk text-[19px] font-bold text-[var(--c-text)] tracking-[0.5px] leading-[1.2]">
           {title}
         </h3>
         <div
           className="flex items-center justify-center shrink-0 h-[28px] px-[10px] border"
           style={{ borderColor: accentColor, background: `${accentColor}18` }}
         >
-          <span className="font-ibm-mono text-[10px] font-bold tracking-[1.5px]" style={{ color: accentColor }}>
+          <span className="font-ibm-mono text-[11px] font-bold tracking-[1.5px]" style={{ color: accentColor }}>
             {openings} OPEN
           </span>
         </div>
@@ -39,21 +39,21 @@ function JobCategoryCard({
         {roles.map((role) => (
           <div key={role} className="flex items-center gap-[8px]">
             <div className="w-[4px] h-[4px] rounded-full shrink-0" style={{ background: accentColor }} />
-            <span className="font-ibm-mono text-[11px] text-[var(--c-text-sub)] tracking-[0.5px]">{role}</span>
+            <span className="font-ibm-mono text-[12px] text-[var(--c-text-sub)] tracking-[0.5px]">{role}</span>
           </div>
         ))}
       </div>
-      <p className="font-ibm-mono text-[10px] text-[var(--c-text-muted)] tracking-[0.5px] leading-[1.5] mt-auto">
+      <p className="font-ibm-mono text-[11px] text-[var(--c-text-muted)] tracking-[0.5px] leading-[1.5] mt-auto">
         {note}
       </p>
       <a
-        href="#"
+        href="/login"
         className="flex items-center justify-center h-[40px] border transition-colors"
         style={{ borderColor: accentColor }}
         onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = `${accentColor}18`)}
         onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "transparent")}
       >
-        <span className="font-grotesk text-[11px] font-bold tracking-[1.5px]" style={{ color: accentColor }}>
+        <span className="font-grotesk text-[12px] font-bold tracking-[1.5px]" style={{ color: accentColor }}>
           BROWSE POSITIONS &gt;
         </span>
       </a>
@@ -76,7 +76,7 @@ export default function Testimonials() {
               <circle cx="6" cy="6" r="4.5" stroke="var(--c-text-muted)" strokeWidth="1.2" />
               <path d="M9.5 9.5l2.5 2.5" stroke="var(--c-text-muted)" strokeWidth="1.2" strokeLinecap="round" />
             </svg>
-            <span className="font-ibm-mono text-[11px] text-[var(--c-text-dim)] tracking-[1px]">
+            <span className="font-ibm-mono text-[12px] text-[var(--c-text-dim)] tracking-[1px]">
               SEARCH JOBS...
             </span>
           </div>
@@ -115,10 +115,10 @@ export default function Testimonials() {
 
       <div className="flex items-center gap-[10px] py-4 px-5 border border-[#1E2A1E] bg-[var(--c-bg-elev)]">
         <div className="w-[6px] h-[6px] rounded-full bg-[#4ADE80] shrink-0" />
-        <span className="font-ibm-mono text-[11px] text-[#666666] tracking-[1px]">
+        <span className="font-ibm-mono text-[12px] text-[#666666] tracking-[1px]">
           ALL POSITIONS FOLLOW A FAST-TRACK CYCLE — RESULTS WITHIN
         </span>
-        <span className="font-ibm-mono text-[11px] font-bold text-[var(--c-accent)] tracking-[1px]">
+        <span className="font-ibm-mono text-[12px] font-bold text-[var(--c-accent)] tracking-[1px]">
           4 WEEKS OF APPLICATION.
         </span>
       </div>

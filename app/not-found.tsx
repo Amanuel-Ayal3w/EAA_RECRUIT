@@ -67,14 +67,14 @@ export default function NotFound() {
 
         {/* Error code */}
         <div>
-          <p className="font-ibm-mono text-[9px] text-[var(--c-accent)] tracking-[3px] mb-3">[SYS-404] // ROUTE NOT FOUND</p>
-          <h1 className="font-grotesk text-[80px] md:text-[120px] font-bold text-[var(--c-text)] leading-none tracking-[-4px]">
+          <p className="font-ibm-mono text-[10px] text-[var(--c-accent)] tracking-[3px] mb-3">[SYS-404] // ROUTE NOT FOUND</p>
+          <h1 className="font-grotesk text-[81px] md:text-[121px] font-bold text-[var(--c-text)] leading-none tracking-[-4px]">
             4<span className="text-[var(--c-accent)]">0</span>4
           </h1>
-          <h2 className="font-grotesk text-[20px] md:text-[26px] font-bold text-[var(--c-text)] tracking-[-0.5px] mt-2 text-balance">
+          <h2 className="font-grotesk text-[21px] md:text-[27px] font-bold text-[var(--c-text)] tracking-[-0.5px] mt-2 text-balance">
             THIS FLIGHT HAS BEEN DIVERTED
           </h2>
-          <p className="font-ibm-mono text-[11px] text-[var(--c-text-muted)] tracking-[0.5px] leading-[1.8] mt-3">
+          <p className="font-ibm-mono text-[12px] text-[var(--c-text-muted)] tracking-[0.5px] leading-[1.8] mt-3">
             THE ROUTE YOU REQUESTED DOES NOT EXIST IN OUR SYSTEM. THE AIRSPACE MAY HAVE CHANGED OR THE URL IS INCORRECT{dots}
           </p>
         </div>
@@ -83,13 +83,13 @@ export default function NotFound() {
         <div className="w-full border border-[var(--c-border-soft)] bg-[var(--c-bg-elev)]">
           <div className="flex items-center gap-3 px-5 py-3 border-b border-[var(--c-border-soft)]">
             <div className="w-[5px] h-[5px] rounded-full bg-red-500 animate-pulse" />
-            <span className="font-ibm-mono text-[8px] text-[var(--c-text-muted)] tracking-[1.5px]">FLIGHT LOG // NAVIGATION REPORT</span>
+            <span className="font-ibm-mono text-[9px] text-[var(--c-text-muted)] tracking-[1.5px]">FLIGHT LOG // NAVIGATION REPORT</span>
           </div>
           {WAYPOINTS.map((wp, i) => (
             <div key={i} className={`flex items-center justify-between gap-4 px-5 py-4 ${i < WAYPOINTS.length - 1 ? "border-b border-[var(--c-border-soft)]" : ""}`}>
-              <span className="font-ibm-mono text-[9px] text-[var(--c-text-faint)] tracking-[1px] w-[40px] shrink-0">{wp.time}</span>
-              <span className="font-ibm-mono text-[9px] text-[var(--c-text-sub)] tracking-[0.5px] flex-1 text-left">{wp.label}</span>
-              <span className={`font-ibm-mono text-[8px] tracking-[1px] shrink-0 ${wp.status === "DEPARTED" ? "text-[var(--c-accent)]" : wp.status === "DIVERTED" ? "text-orange-400" : "text-red-400"}`}>
+              <span className="font-ibm-mono text-[10px] text-[var(--c-text-faint)] tracking-[1px] w-[40px] shrink-0">{wp.time}</span>
+              <span className="font-ibm-mono text-[10px] text-[var(--c-text-sub)] tracking-[0.5px] flex-1 text-left">{wp.label}</span>
+              <span className={`font-ibm-mono text-[9px] tracking-[1px] shrink-0 ${wp.status === "DEPARTED" ? "text-[var(--c-accent)]" : wp.status === "DIVERTED" ? "text-orange-400" : "text-red-400"}`}>
                 {wp.status}
               </span>
             </div>
@@ -99,14 +99,14 @@ export default function NotFound() {
         {/* Actions */}
         <div className="flex flex-col sm:flex-row gap-3 w-full">
           <Link href="/" className="flex flex-1 items-center justify-center h-[52px] bg-[var(--c-accent)] hover:bg-[var(--c-accent-hover)] transition-colors">
-            <span className="font-grotesk text-[11px] font-bold text-[var(--c-text)] tracking-[2px]">RETURN TO BASE (HOME)</span>
+            <span className="font-grotesk text-[12px] font-bold text-[var(--c-text)] tracking-[2px]">RETURN TO BASE (HOME)</span>
           </Link>
           <Link href="/login" className="flex flex-1 items-center justify-center h-[52px] border-2 border-[var(--c-border)] hover:border-[var(--c-accent)] transition-colors">
-            <span className="font-ibm-mono text-[9px] text-[var(--c-text-sub)] hover:text-[var(--c-accent)] tracking-[1.5px] transition-colors">GO TO SIGN IN</span>
+            <span className="font-ibm-mono text-[10px] text-[var(--c-text-sub)] hover:text-[var(--c-accent)] tracking-[1.5px] transition-colors">GO TO SIGN IN</span>
           </Link>
         </div>
 
-        <p className="font-ibm-mono text-[8px] text-[var(--c-border)] tracking-[0.5px]">
+        <p className="font-ibm-mono text-[9px] text-[var(--c-border)] tracking-[0.5px]">
           EAA RECRUIT // FLIGHT CONTROL SYSTEM v2.4.1
         </p>
       </div>

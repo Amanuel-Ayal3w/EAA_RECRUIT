@@ -83,16 +83,16 @@ export default function LoginPage() {
         <div className="flex flex-col gap-8">
           <div className="flex items-center gap-3">
             <div className="flex items-center justify-center w-[36px] h-[36px] bg-[var(--c-accent)]">
-              <span className="font-ibm-mono text-[10px] font-bold text-[var(--c-text)] tracking-[1px]">EAA</span>
+              <span className="font-ibm-mono text-[11px] font-bold text-[var(--c-text)] tracking-[1px]">EAA</span>
             </div>
             <div className="flex flex-col leading-none">
-              <span className="font-ibm-mono text-[10px] font-bold text-[var(--c-text)] tracking-[2px]">EAA RECRUIT</span>
-              <span className="font-ibm-mono text-[7px] text-[var(--c-text-muted)] tracking-[1px]">ETHIOPIAN AVIATION ACADEMY</span>
+              <span className="font-ibm-mono text-[11px] font-bold text-[var(--c-text)] tracking-[2px]">EAA RECRUIT</span>
+              <span className="font-ibm-mono text-[8px] text-[var(--c-text-muted)] tracking-[1px]">ETHIOPIAN AVIATION ACADEMY</span>
             </div>
           </div>
 
           <div className="mt-8">
-            <h2 className="font-grotesk text-[40px] font-bold text-[var(--c-text)] leading-[1.05] tracking-[-1px] text-balance">
+            <h2 className="font-grotesk text-[41px] font-bold text-[var(--c-text)] leading-[1.05] tracking-[-1px] text-balance">
               <GlitchText text="HIRE THE" speed={40} delay={100} />
               <br />
               <span className="text-[var(--c-accent)]">
@@ -101,7 +101,7 @@ export default function LoginPage() {
               <br />
               <GlitchText text="AVIATION." speed={40} delay={500} />
             </h2>
-            <p className="font-ibm-mono text-[11px] text-[var(--c-text-muted)] tracking-[1px] leading-[1.7] mt-6 max-w-[280px]">
+            <p className="font-ibm-mono text-[12px] text-[var(--c-text-muted)] tracking-[1px] leading-[1.7] mt-6 max-w-[280px]">
               AN AI-POWERED RECRUITMENT SYSTEM FOR ETHIOPIAN AIRLINES AND THE ETHIOPIAN AVIATION ACADEMY.
             </p>
           </div>
@@ -115,15 +115,15 @@ export default function LoginPage() {
               <div key={item.label} className="flex items-start gap-3">
                 <div className="w-[5px] h-[5px] bg-[var(--c-accent)] mt-[5px] shrink-0" />
                 <div>
-                  <span className="font-ibm-mono text-[9px] font-bold text-[var(--c-accent)] tracking-[1.5px] block">{item.label}</span>
-                  <span className="font-ibm-mono text-[8px] text-[var(--c-text-dim)] tracking-[0.5px]">{item.desc}</span>
+                  <span className="font-ibm-mono text-[10px] font-bold text-[var(--c-accent)] tracking-[1.5px] block">{item.label}</span>
+                  <span className="font-ibm-mono text-[9px] text-[var(--c-text-dim)] tracking-[0.5px]">{item.desc}</span>
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="font-ibm-mono text-[8px] text-[var(--c-text-faint)] tracking-[0.5px] leading-[1.8]">
+        <div className="font-ibm-mono text-[9px] text-[var(--c-text-faint)] tracking-[0.5px] leading-[1.8]">
           COMPLIANT WITH PROCLAMATION NO. 1329/2023<br />
           DATA STAYS IN ETHIOPIA // ALL RIGHTS RESERVED
         </div>
@@ -135,9 +135,9 @@ export default function LoginPage() {
           {/* Mobile logo */}
           <div className="flex lg:hidden items-center gap-3">
             <div className="flex items-center justify-center w-[32px] h-[32px] bg-[var(--c-accent)]">
-              <span className="font-ibm-mono text-[9px] font-bold text-[var(--c-text)]">EAA</span>
+              <span className="font-ibm-mono text-[10px] font-bold text-[var(--c-text)]">EAA</span>
             </div>
-            <span className="font-ibm-mono text-[10px] font-bold text-[var(--c-text)] tracking-[2px]">EAA RECRUIT</span>
+            <span className="font-ibm-mono text-[11px] font-bold text-[var(--c-text)] tracking-[2px]">EAA RECRUIT</span>
           </div>
 
           {/* Lang toggle */}
@@ -146,7 +146,7 @@ export default function LoginPage() {
               <button
                 key={l}
                 onClick={() => setLang(l)}
-                className={`px-4 py-[6px] font-ibm-mono text-[9px] tracking-[1.5px] transition-colors ${
+                className={`px-4 py-[6px] font-ibm-mono text-[10px] tracking-[1.5px] transition-colors ${
                   lang === l
                     ? "bg-[var(--c-accent)] text-[var(--c-text)] font-bold"
                     : "text-[var(--c-text-muted)] hover:text-[var(--c-text)]"
@@ -159,37 +159,37 @@ export default function LoginPage() {
 
           {/* Header */}
           <div>
-            <p className="font-ibm-mono text-[9px] text-[var(--c-accent)] tracking-[2px] mb-2">[AUTH] // LOGIN</p>
-            <h1 className="font-grotesk text-[26px] font-bold text-[var(--c-text)] tracking-[-0.5px] text-balance">{t.title}</h1>
-            <p className="font-ibm-mono text-[8px] text-[var(--c-text-dim)] tracking-[1.5px] mt-1">{t.subtitle}</p>
+            <p className="font-ibm-mono text-[10px] text-[var(--c-accent)] tracking-[2px] mb-2">[AUTH] // LOGIN</p>
+            <h1 className="font-grotesk text-[27px] font-bold text-[var(--c-text)] tracking-[-0.5px] text-balance">{t.title}</h1>
+            <p className="font-ibm-mono text-[9px] text-[var(--c-text-dim)] tracking-[1.5px] mt-1">{t.subtitle}</p>
           </div>
 
           {/* Error banner */}
           {error && (
             <div className="flex items-center gap-3 px-4 py-3 bg-red-500/10 border border-red-500/40">
               <div className="w-[5px] h-[5px] bg-red-400 shrink-0" />
-              <span className="font-ibm-mono text-[9px] text-red-400 tracking-[1px]">{t.errorMsg}</span>
+              <span className="font-ibm-mono text-[10px] text-red-400 tracking-[1px]">{t.errorMsg}</span>
             </div>
           )}
 
           {/* Form */}
           <form onSubmit={handleSubmit} className="flex flex-col gap-5">
             <div className="flex flex-col gap-2">
-              <label className="font-ibm-mono text-[9px] text-[#666] tracking-[1.5px]">{t.email}</label>
+              <label className="font-ibm-mono text-[10px] text-[#666] tracking-[1.5px]">{t.email}</label>
               <input
                 type="email"
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder={t.emailPlaceholder}
-                className="h-[48px] bg-[var(--c-bg-elev)] border border-[var(--c-border)] px-4 font-ibm-mono text-[12px] text-[var(--c-text)] placeholder-[var(--c-text-faint)] focus:outline-none focus:border-[var(--c-accent)] transition-colors"
+                className="h-[48px] bg-[var(--c-bg-elev)] border border-[var(--c-border)] px-4 font-ibm-mono text-[13px] text-[var(--c-text)] placeholder-[var(--c-text-faint)] focus:outline-none focus:border-[var(--c-accent)] transition-colors"
               />
             </div>
 
             <div className="flex flex-col gap-2">
               <div className="flex items-center justify-between">
-                <label className="font-ibm-mono text-[9px] text-[#666] tracking-[1.5px]">{t.password}</label>
-                <Link href="/forgot-password" className="font-ibm-mono text-[8px] text-[var(--c-text-dim)] hover:text-[var(--c-accent)] tracking-[1px] transition-colors">
+                <label className="font-ibm-mono text-[10px] text-[#666] tracking-[1.5px]">{t.password}</label>
+                <Link href="/forgot-password" className="font-ibm-mono text-[9px] text-[var(--c-text-dim)] hover:text-[var(--c-accent)] tracking-[1px] transition-colors">
                   {t.forgot}
                 </Link>
               </div>
@@ -200,7 +200,7 @@ export default function LoginPage() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder={t.passwordPlaceholder}
-                  className="w-full h-[48px] bg-[var(--c-bg-elev)] border border-[var(--c-border)] px-4 pr-12 font-ibm-mono text-[12px] text-[var(--c-text)] placeholder-[var(--c-text-faint)] focus:outline-none focus:border-[var(--c-accent)] transition-colors"
+                  className="w-full h-[48px] bg-[var(--c-bg-elev)] border border-[var(--c-border)] px-4 pr-12 font-ibm-mono text-[13px] text-[var(--c-text)] placeholder-[var(--c-text-faint)] focus:outline-none focus:border-[var(--c-accent)] transition-colors"
                 />
                 <button
                   type="button"
@@ -227,7 +227,7 @@ export default function LoginPage() {
               {loading ? (
                 <div className="w-[16px] h-[16px] border-2 border-[var(--c-text)]/30 border-t-[var(--c-text)] rounded-full animate-spin" />
               ) : null}
-              <span className="font-grotesk text-[12px] font-bold text-[var(--c-text)] tracking-[2px]">{t.submit}</span>
+              <span className="font-grotesk text-[13px] font-bold text-[var(--c-text)] tracking-[2px]">{t.submit}</span>
             </button>
           </form>
 
@@ -237,23 +237,23 @@ export default function LoginPage() {
               <circle cx="6" cy="6" r="5" stroke="currentColor" strokeWidth="1.2" />
               <path d="M6 5v4M6 3.5v.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="square" />
             </svg>
-            <span className="font-ibm-mono text-[8px] text-[var(--c-text-muted)] tracking-[0.5px] leading-[1.7]">{t.roles}</span>
+            <span className="font-ibm-mono text-[9px] text-[var(--c-text-muted)] tracking-[0.5px] leading-[1.7]">{t.roles}</span>
           </div>
 
           {/* Register link */}
           <div className="flex items-center gap-3">
             <div className="flex-1 h-[1px] bg-[var(--c-border-soft)]" />
-            <span className="font-ibm-mono text-[8px] text-[var(--c-text-faint)] tracking-[1px]">{t.noAccount}</span>
+            <span className="font-ibm-mono text-[9px] text-[var(--c-text-faint)] tracking-[1px]">{t.noAccount}</span>
             <div className="flex-1 h-[1px] bg-[var(--c-border-soft)]" />
           </div>
           <Link
             href="/register"
             className="flex items-center justify-center h-[48px] border-2 border-[var(--c-border)] hover:border-[var(--c-accent)] transition-colors"
           >
-            <span className="font-ibm-mono text-[9px] text-[var(--c-text-sub)] hover:text-[var(--c-accent)] tracking-[1.5px] transition-colors">{t.register}</span>
+            <span className="font-ibm-mono text-[10px] text-[var(--c-text-sub)] hover:text-[var(--c-accent)] tracking-[1.5px] transition-colors">{t.register}</span>
           </Link>
 
-          <p className="font-ibm-mono text-[7px] text-[var(--c-text-faint)] tracking-[0.5px] text-center leading-[1.8]">
+          <p className="font-ibm-mono text-[8px] text-[var(--c-text-faint)] tracking-[0.5px] text-center leading-[1.8]">
             DEMO: USE admin@eaa.et / recruiter@eaa.et / candidate@eaa.et TO ROUTE TO EACH PORTAL
           </p>
         </div>

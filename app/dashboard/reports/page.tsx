@@ -56,9 +56,9 @@ function matchColor(score: number) {
 function SectionLabel({ index, children }: { index: string; children: string }) {
   return (
     <div className="flex items-center gap-3 mb-4">
-      <span className="font-ibm-mono text-[9px] text-[var(--c-text-dim)] tracking-[2px]">[{index}]</span>
+      <span className="font-ibm-mono text-[10px] text-[var(--c-text-dim)] tracking-[2px]">[{index}]</span>
       <div className="w-[3px] h-[14px] bg-[var(--c-accent)] shrink-0" />
-      <span className="font-ibm-mono text-[9px] text-[var(--c-text-sub)] tracking-[2px]">{children}</span>
+      <span className="font-ibm-mono text-[10px] text-[var(--c-text-sub)] tracking-[2px]">{children}</span>
     </div>
   );
 }
@@ -76,11 +76,11 @@ export default function ReportsPage() {
       {/* Header */}
       <div className="flex items-start justify-between mb-8">
         <div className="flex flex-col gap-1">
-          <span className="font-ibm-mono text-[9px] text-[var(--c-text-dim)] tracking-[2px]">[06] // REPORTS & ANALYTICS</span>
-          <h1 className="font-grotesk text-[24px] md:text-[32px] font-bold text-[var(--c-text)] tracking-[-1px]">
+          <span className="font-ibm-mono text-[10px] text-[var(--c-text-dim)] tracking-[2px]">[06] // REPORTS & ANALYTICS</span>
+          <h1 className="font-grotesk text-[25px] md:text-[33px] font-bold text-[var(--c-text)] tracking-[-1px]">
             Reports & Analytics
           </h1>
-          <p className="font-ibm-mono text-[10px] text-[var(--c-text-muted)] tracking-[0.5px]">
+          <p className="font-ibm-mono text-[11px] text-[var(--c-text-muted)] tracking-[0.5px]">
             Exportable shortlists, AI accuracy trends, and per-role funnel analytics
           </p>
         </div>
@@ -89,9 +89,9 @@ export default function ReportsPage() {
           className="flex items-center gap-2 px-4 py-3 border border-[var(--c-accent)] hover:bg-[var(--c-accent)]/08 transition-colors"
         >
           {exported ? (
-            <span className="font-ibm-mono text-[9px] text-[var(--c-accent)] tracking-[1.5px]">EXPORTED /</span>
+            <span className="font-ibm-mono text-[10px] text-[var(--c-accent)] tracking-[1.5px]">EXPORTED /</span>
           ) : (
-            <span className="font-ibm-mono text-[9px] text-[var(--c-accent)] tracking-[1.5px]">EXPORT CSV /</span>
+            <span className="font-ibm-mono text-[10px] text-[var(--c-accent)] tracking-[1.5px]">EXPORT CSV /</span>
           )}
         </button>
       </div>
@@ -102,7 +102,7 @@ export default function ReportsPage() {
         <div className="border border-[var(--c-border-soft)] bg-[var(--c-bg-elev)]">
           <div className="grid grid-cols-[1fr_auto_auto_auto_auto] gap-4 px-5 py-3 bg-[var(--c-bg)] border-b border-[var(--c-border-soft)] items-center">
             {["NAME / ROLE", "MATCH %", "CV SCORE", "EXAM SCORE", "STAGE"].map((h) => (
-              <span key={h} className="font-ibm-mono text-[7px] text-[var(--c-text-dim)] tracking-[1.5px]">{h}</span>
+              <span key={h} className="font-ibm-mono text-[8px] text-[var(--c-text-dim)] tracking-[1.5px]">{h}</span>
             ))}
           </div>
           {shortlistData.map((c, i) => (
@@ -111,14 +111,14 @@ export default function ReportsPage() {
               className="grid grid-cols-[1fr_auto_auto_auto_auto] gap-4 px-5 py-4 border-b border-[#111] items-center hover:bg-[var(--c-bg)] transition-colors"
             >
               <div className="flex flex-col gap-[2px]">
-                <span className="font-ibm-mono text-[9px] text-[var(--c-text)]">{c.name}</span>
-                <span className="font-ibm-mono text-[7px] text-[var(--c-text-dim)]">{c.role}</span>
+                <span className="font-ibm-mono text-[10px] text-[var(--c-text)]">{c.name}</span>
+                <span className="font-ibm-mono text-[8px] text-[var(--c-text-dim)]">{c.role}</span>
               </div>
-              <span className="font-grotesk text-[15px] font-bold" style={{ color: matchColor(c.match) }}>{c.match}%</span>
-              <span className="font-ibm-mono text-[9px] text-[var(--c-text-sub)]">{c.cvScore}%</span>
-              <span className="font-ibm-mono text-[9px] text-[var(--c-text-sub)]">{c.examScore}%</span>
+              <span className="font-grotesk text-[16px] font-bold" style={{ color: matchColor(c.match) }}>{c.match}%</span>
+              <span className="font-ibm-mono text-[10px] text-[var(--c-text-sub)]">{c.cvScore}%</span>
+              <span className="font-ibm-mono text-[10px] text-[var(--c-text-sub)]">{c.examScore}%</span>
               <span
-                className="font-ibm-mono text-[7px] px-2 py-[2px] tracking-[1px]"
+                className="font-ibm-mono text-[8px] px-2 py-[2px] tracking-[1px]"
                 style={{ color: c.stage === "INTERVIEWED" ? "var(--c-accent)" : "var(--c-text-sub)", background: c.stage === "INTERVIEWED" ? "var(--c-accent)14" : "var(--c-text-sub)14" }}
               >
                 {c.stage}
@@ -150,7 +150,7 @@ export default function ReportsPage() {
               />
             </LineChart>
           </ResponsiveContainer>
-          <p className="font-ibm-mono text-[8px] text-[var(--c-text-faint)] mt-3 tracking-[0.5px]">
+          <p className="font-ibm-mono text-[9px] text-[var(--c-text-faint)] mt-3 tracking-[0.5px]">
             Accuracy measured by recruiter acceptance rate of AI-recommended shortlist
           </p>
         </div>
@@ -188,7 +188,7 @@ export default function ReportsPage() {
         <div className="border border-[var(--c-border-soft)] bg-[var(--c-bg-elev)]">
           <div className="grid grid-cols-[1fr_auto_auto_auto_auto_auto] gap-4 px-5 py-3 bg-[var(--c-bg)] border-b border-[var(--c-border-soft)] items-center">
             {["ROLE", "APPLIED", "SCREENED", "SHORTLISTED", "SCREEN RATE", "SHORTLIST RATE"].map((h) => (
-              <span key={h} className="font-ibm-mono text-[7px] text-[var(--c-text-dim)] tracking-[1.5px]">{h}</span>
+              <span key={h} className="font-ibm-mono text-[8px] text-[var(--c-text-dim)] tracking-[1.5px]">{h}</span>
             ))}
           </div>
           {roleBreakdown.map((r, i) => {
@@ -196,12 +196,12 @@ export default function ReportsPage() {
             const shortlistRate = Math.round((r.shortlisted / r.screened) * 100);
             return (
               <div key={i} className="grid grid-cols-[1fr_auto_auto_auto_auto_auto] gap-4 px-5 py-4 border-b border-[#111] items-center hover:bg-[var(--c-bg)] transition-colors">
-                <span className="font-ibm-mono text-[9px] text-[var(--c-text)]">{r.role}</span>
-                <span className="font-grotesk text-[13px] font-bold text-[var(--c-text)]">{r.applied}</span>
-                <span className="font-grotesk text-[13px] font-bold text-[var(--c-text-sub)]">{r.screened}</span>
-                <span className="font-grotesk text-[13px] font-bold text-[var(--c-accent)]">{r.shortlisted}</span>
-                <span className="font-ibm-mono text-[9px]" style={{ color: screenRate >= 20 ? "var(--c-accent)" : "var(--c-text-sub)" }}>{screenRate}%</span>
-                <span className="font-ibm-mono text-[9px]" style={{ color: shortlistRate >= 20 ? "var(--c-accent)" : "var(--c-text-sub)" }}>{shortlistRate}%</span>
+                <span className="font-ibm-mono text-[10px] text-[var(--c-text)]">{r.role}</span>
+                <span className="font-grotesk text-[14px] font-bold text-[var(--c-text)]">{r.applied}</span>
+                <span className="font-grotesk text-[14px] font-bold text-[var(--c-text-sub)]">{r.screened}</span>
+                <span className="font-grotesk text-[14px] font-bold text-[var(--c-accent)]">{r.shortlisted}</span>
+                <span className="font-ibm-mono text-[10px]" style={{ color: screenRate >= 20 ? "var(--c-accent)" : "var(--c-text-sub)" }}>{screenRate}%</span>
+                <span className="font-ibm-mono text-[10px]" style={{ color: shortlistRate >= 20 ? "var(--c-accent)" : "var(--c-text-sub)" }}>{shortlistRate}%</span>
               </div>
             );
           })}
@@ -229,7 +229,7 @@ export default function ReportsPage() {
           {[{ label: "APPLIED", color: "var(--c-border)" }, { label: "SCREENED", color: "var(--c-text-sub)" }, { label: "SHORTLISTED", color: "var(--c-accent)" }].map((l) => (
             <div key={l.label} className="flex items-center gap-[6px]">
               <div className="w-[8px] h-[8px]" style={{ background: l.color, border: l.color === "var(--c-border)" ? "1px solid var(--c-text-dim)" : "none" }} />
-              <span className="font-ibm-mono text-[7px] text-[var(--c-text-muted)]">{l.label}</span>
+              <span className="font-ibm-mono text-[8px] text-[var(--c-text-muted)]">{l.label}</span>
             </div>
           ))}
         </div>

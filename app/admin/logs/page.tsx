@@ -49,7 +49,7 @@ function SectionLabel({ children }: { children: string }) {
   return (
     <div className="flex items-center gap-3 mb-4">
       <div className="w-[3px] h-[14px] bg-[var(--c-accent)] shrink-0" />
-      <span className="font-ibm-mono text-[9px] text-[var(--c-text-sub)] tracking-[2px]">{children}</span>
+      <span className="font-ibm-mono text-[10px] text-[var(--c-text-sub)] tracking-[2px]">{children}</span>
     </div>
   );
 }
@@ -78,11 +78,11 @@ export default function LogsPage() {
     <div className="p-6 md:p-8 max-w-[1400px] mx-auto">
       {/* Page header */}
       <div className="flex flex-col gap-1 mb-8">
-        <span className="font-ibm-mono text-[9px] text-[var(--c-text-dim)] tracking-[2px]">[04] // SECURITY LOGS</span>
-        <h1 className="font-grotesk text-[24px] md:text-[32px] font-bold text-[var(--c-text)] tracking-[-1px]">
+        <span className="font-ibm-mono text-[10px] text-[var(--c-text-dim)] tracking-[2px]">[04] // SECURITY LOGS</span>
+        <h1 className="font-grotesk text-[25px] md:text-[33px] font-bold text-[var(--c-text)] tracking-[-1px]">
           Audit Trail
         </h1>
-        <p className="font-ibm-mono text-[10px] text-[var(--c-text-muted)] tracking-[0.5px]">
+        <p className="font-ibm-mono text-[11px] text-[var(--c-text-muted)] tracking-[0.5px]">
           Immutable system log — Data Protection Proclamation No. 1321/2024 compliance
         </p>
       </div>
@@ -95,8 +95,8 @@ export default function LogsPage() {
           { label: "WARNINGS",        count: warnCount,     color: "var(--c-warn)" },
         ].map(({ label, count, color }) => (
           <div key={label} className="flex flex-col gap-2 p-5 bg-[var(--c-bg-elev)]">
-            <span className="font-ibm-mono text-[8px] tracking-[1.5px]" style={{ color }}>{label}</span>
-            <span className="font-grotesk text-[36px] font-bold leading-none" style={{ color: count > 0 ? color : "var(--c-border)" }}>
+            <span className="font-ibm-mono text-[9px] tracking-[1.5px]" style={{ color }}>{label}</span>
+            <span className="font-grotesk text-[37px] font-bold leading-none" style={{ color: count > 0 ? color : "var(--c-border)" }}>
               {count}
             </span>
           </div>
@@ -110,7 +110,7 @@ export default function LogsPage() {
           placeholder="SEARCH LOGS — ACTION, ACTOR, DETAIL..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="w-full h-[38px] bg-[var(--c-bg-elev)] border border-[var(--c-border-soft)] px-4 font-ibm-mono text-[10px] text-[var(--c-text)] placeholder-[var(--c-text-faint)] focus:outline-none focus:border-[var(--c-accent)] transition-colors"
+          className="w-full h-[38px] bg-[var(--c-bg-elev)] border border-[var(--c-border-soft)] px-4 font-ibm-mono text-[11px] text-[var(--c-text)] placeholder-[var(--c-text-faint)] focus:outline-none focus:border-[var(--c-accent)] transition-colors"
         />
         <div className="flex flex-wrap gap-2">
           <div className="flex gap-[2px]">
@@ -118,7 +118,7 @@ export default function LogsPage() {
               <button
                 key={s}
                 onClick={() => setSevFilter(s)}
-                className="h-[30px] px-3 font-ibm-mono text-[8px] tracking-[1.5px] transition-colors border border-[var(--c-border-soft)]"
+                className="h-[30px] px-3 font-ibm-mono text-[9px] tracking-[1.5px] transition-colors border border-[var(--c-border-soft)]"
                 style={{
                   background: sevFilter === s ? (s === "ALL" ? "var(--c-accent)" : SEV_STYLES[s as Severity]?.bg ?? "var(--c-accent)") : "var(--c-bg-elev)",
                   color:      sevFilter === s ? (s === "ALL" ? "var(--c-text)" : SEV_STYLES[s as Severity]?.text ?? "var(--c-text)") : "var(--c-text-dim)",
@@ -135,7 +135,7 @@ export default function LogsPage() {
               <button
                 key={c}
                 onClick={() => setCatFilter(c)}
-                className="h-[30px] px-3 font-ibm-mono text-[8px] tracking-[1.5px] transition-colors border"
+                className="h-[30px] px-3 font-ibm-mono text-[9px] tracking-[1.5px] transition-colors border"
                 style={{
                   background:  catFilter === c ? (c === "ALL" ? "var(--c-accent)" : "rgba(255,255,255,0.04)") : "var(--c-bg-elev)",
                   color:       catFilter === c ? (c === "ALL" ? "var(--c-text)" : CAT_COLORS[c as Category]) : "var(--c-text-dim)",
@@ -167,11 +167,11 @@ export default function LogsPage() {
 
                 <div className="flex items-center gap-3 px-4 py-3 flex-1 min-w-0 flex-wrap md:flex-nowrap">
                   {/* Timestamp */}
-                  <span className="font-ibm-mono text-[8px] text-[var(--c-text-faint)] shrink-0 w-[128px]">{log.timestamp}</span>
+                  <span className="font-ibm-mono text-[9px] text-[var(--c-text-faint)] shrink-0 w-[128px]">{log.timestamp}</span>
 
                   {/* Severity badge */}
                   <span
-                    className="font-ibm-mono text-[7px] px-[6px] py-[2px] tracking-[1px] shrink-0 border"
+                    className="font-ibm-mono text-[8px] px-[6px] py-[2px] tracking-[1px] shrink-0 border"
                     style={{ background: sev.bg, color: sev.text, borderColor: sev.border }}
                   >
                     {log.severity}
@@ -179,22 +179,22 @@ export default function LogsPage() {
 
                   {/* Category */}
                   <span
-                    className="font-ibm-mono text-[8px] tracking-[1.5px] shrink-0 w-[52px]"
+                    className="font-ibm-mono text-[9px] tracking-[1.5px] shrink-0 w-[52px]"
                     style={{ color: CAT_COLORS[log.category] }}
                   >
                     {log.category}
                   </span>
 
                   {/* Action */}
-                  <span className="font-ibm-mono text-[10px] text-[var(--c-text)] tracking-[0.5px] shrink-0 min-w-[160px]">
+                  <span className="font-ibm-mono text-[11px] text-[var(--c-text)] tracking-[0.5px] shrink-0 min-w-[160px]">
                     {log.action}
                   </span>
 
                   {/* Actor */}
-                  <span className="font-ibm-mono text-[8px] text-[var(--c-text-muted)] flex-1 truncate min-w-[120px]">{log.actor}</span>
+                  <span className="font-ibm-mono text-[9px] text-[var(--c-text-muted)] flex-1 truncate min-w-[120px]">{log.actor}</span>
 
                   {/* IP */}
-                  <span className="font-ibm-mono text-[8px] text-[var(--c-text-faint)] shrink-0 w-[112px] text-right">{log.ip}</span>
+                  <span className="font-ibm-mono text-[9px] text-[var(--c-text-faint)] shrink-0 w-[112px] text-right">{log.ip}</span>
 
                   {/* Expand chevron */}
                   <svg
@@ -211,16 +211,16 @@ export default function LogsPage() {
               {isExp && (
                 <div className="px-6 py-3 border-t border-[var(--c-bg-muted)] bg-[var(--c-bg)] flex flex-col gap-2">
                   <div className="flex items-center gap-3">
-                    <span className="font-ibm-mono text-[8px] text-[var(--c-text-dim)] w-[80px] shrink-0">LOG ID</span>
-                    <span className="font-ibm-mono text-[9px] text-[var(--c-accent)]">{log.id}</span>
+                    <span className="font-ibm-mono text-[9px] text-[var(--c-text-dim)] w-[80px] shrink-0">LOG ID</span>
+                    <span className="font-ibm-mono text-[10px] text-[var(--c-accent)]">{log.id}</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <span className="font-ibm-mono text-[8px] text-[var(--c-text-dim)] w-[80px] shrink-0">DETAIL</span>
-                    <span className="font-ibm-mono text-[9px] text-[var(--c-text-sub)] leading-relaxed">{log.detail}</span>
+                    <span className="font-ibm-mono text-[9px] text-[var(--c-text-dim)] w-[80px] shrink-0">DETAIL</span>
+                    <span className="font-ibm-mono text-[10px] text-[var(--c-text-sub)] leading-relaxed">{log.detail}</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <span className="font-ibm-mono text-[8px] text-[var(--c-text-dim)] w-[80px] shrink-0">SOURCE IP</span>
-                    <span className="font-ibm-mono text-[9px] text-[var(--c-text-sub)]">{log.ip}</span>
+                    <span className="font-ibm-mono text-[9px] text-[var(--c-text-dim)] w-[80px] shrink-0">SOURCE IP</span>
+                    <span className="font-ibm-mono text-[10px] text-[var(--c-text-sub)]">{log.ip}</span>
                   </div>
                 </div>
               )}
@@ -229,16 +229,16 @@ export default function LogsPage() {
         })}
         {filtered.length === 0 && (
           <div className="flex items-center justify-center py-16 bg-[var(--c-bg-elev)]">
-            <span className="font-ibm-mono text-[10px] text-[var(--c-text-faint)] tracking-[1.5px]">NO LOGS MATCH THIS FILTER</span>
+            <span className="font-ibm-mono text-[11px] text-[var(--c-text-faint)] tracking-[1.5px]">NO LOGS MATCH THIS FILTER</span>
           </div>
         )}
       </div>
 
       <div className="flex items-center justify-between mt-3">
-        <span className="font-ibm-mono text-[8px] text-[var(--c-text-faint)] tracking-[1px]">
+        <span className="font-ibm-mono text-[9px] text-[var(--c-text-faint)] tracking-[1px]">
           SHOWING {filtered.length} OF {MOCK_LOGS.length} ENTRIES — LAST 24H
         </span>
-        <button className="font-ibm-mono text-[8px] text-[var(--c-accent)] hover:text-[var(--c-accent-hover)] tracking-[1px] transition-colors">
+        <button className="font-ibm-mono text-[9px] text-[var(--c-accent)] hover:text-[var(--c-accent-hover)] tracking-[1px] transition-colors">
           EXPORT CSV /
         </button>
       </div>

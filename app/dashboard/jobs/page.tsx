@@ -29,9 +29,9 @@ const mandatoryKeywords = [
 function SectionLabel({ index, children }: { index: string; children: string }) {
   return (
     <div className="flex items-center gap-3 mb-5">
-      <span className="font-ibm-mono text-[9px] text-[var(--c-text-dim)] tracking-[2px]">[{index}]</span>
+      <span className="font-ibm-mono text-[10px] text-[var(--c-text-dim)] tracking-[2px]">[{index}]</span>
       <div className="w-[3px] h-[14px] bg-[var(--c-accent)] shrink-0" />
-      <span className="font-ibm-mono text-[9px] text-[var(--c-text-sub)] tracking-[2px]">{children}</span>
+      <span className="font-ibm-mono text-[10px] text-[var(--c-text-sub)] tracking-[2px]">{children}</span>
     </div>
   );
 }
@@ -44,8 +44,8 @@ function Slider({
   return (
     <div className="flex flex-col gap-2">
       <div className="flex items-center justify-between">
-        <span className="font-ibm-mono text-[9px] text-[var(--c-text-sub)] tracking-[1px]">{label}</span>
-        <span className="font-ibm-mono text-[11px] font-bold" style={{ color }}>{value}%</span>
+        <span className="font-ibm-mono text-[10px] text-[var(--c-text-sub)] tracking-[1px]">{label}</span>
+        <span className="font-ibm-mono text-[12px] font-bold" style={{ color }}>{value}%</span>
       </div>
       <div className="relative h-[3px] bg-[var(--c-bg-muted)] w-full">
         <div className="absolute top-0 left-0 h-full transition-all" style={{ width: `${value}%`, background: color }} />
@@ -83,11 +83,11 @@ export default function JobsPage() {
       {/* Header */}
       <div className="flex items-start justify-between mb-8">
         <div className="flex flex-col gap-1">
-          <span className="font-ibm-mono text-[9px] text-[var(--c-text-dim)] tracking-[2px]">[02] // MY JOB POSTINGS</span>
-          <h1 className="font-grotesk text-[24px] md:text-[32px] font-bold text-[var(--c-text)] tracking-[-1px]">
+          <span className="font-ibm-mono text-[10px] text-[var(--c-text-dim)] tracking-[2px]">[02] // MY JOB POSTINGS</span>
+          <h1 className="font-grotesk text-[25px] md:text-[33px] font-bold text-[var(--c-text)] tracking-[-1px]">
             Job Creation & Weighting
           </h1>
-          <p className="font-ibm-mono text-[10px] text-[var(--c-text-muted)] tracking-[0.5px]">
+          <p className="font-ibm-mono text-[11px] text-[var(--c-text-muted)] tracking-[0.5px]">
             Define job requirements and tune the AI scoring vector
           </p>
         </div>
@@ -95,7 +95,7 @@ export default function JobsPage() {
           onClick={() => setShowCreate((v) => !v)}
           className="flex items-center gap-2 px-4 py-3 bg-[var(--c-accent)] hover:bg-[var(--c-accent-hover)] transition-colors"
         >
-          <span className="font-ibm-mono text-[9px] font-bold text-[var(--c-text)] tracking-[1.5px]">
+          <span className="font-ibm-mono text-[10px] font-bold text-[var(--c-text)] tracking-[1.5px]">
             {showCreate ? "CANCEL /" : "+ NEW JOB"}
           </span>
         </button>
@@ -112,20 +112,20 @@ export default function JobsPage() {
               { label: "LOCATION", placeholder: "e.g. Addis Ababa HQ" },
             ].map((field) => (
               <div key={field.label} className="flex flex-col gap-2">
-                <label className="font-ibm-mono text-[8px] text-[var(--c-text-muted)] tracking-[1.5px]">{field.label}</label>
+                <label className="font-ibm-mono text-[9px] text-[var(--c-text-muted)] tracking-[1.5px]">{field.label}</label>
                 <input
                   type="text"
                   placeholder={field.placeholder}
-                  className="bg-[var(--c-bg)] border border-[var(--c-border)] text-[var(--c-text)] font-ibm-mono text-[10px] px-3 py-2 focus:outline-none focus:border-[var(--c-accent)] placeholder:text-[var(--c-text-faint)] transition-colors tracking-[0.5px]"
+                  className="bg-[var(--c-bg)] border border-[var(--c-border)] text-[var(--c-text)] font-ibm-mono text-[11px] px-3 py-2 focus:outline-none focus:border-[var(--c-accent)] placeholder:text-[var(--c-text-faint)] transition-colors tracking-[0.5px]"
                 />
               </div>
             ))}
             <div className="flex flex-col gap-2 md:col-span-3">
-              <label className="font-ibm-mono text-[8px] text-[var(--c-text-muted)] tracking-[1.5px]">JOB DESCRIPTION</label>
+              <label className="font-ibm-mono text-[9px] text-[var(--c-text-muted)] tracking-[1.5px]">JOB DESCRIPTION</label>
               <textarea
                 rows={4}
                 placeholder="Paste or type the full job description — the AI will parse this to generate the ideal candidate vector..."
-                className="bg-[var(--c-bg)] border border-[var(--c-border)] text-[var(--c-text)] font-ibm-mono text-[10px] px-3 py-2 focus:outline-none focus:border-[var(--c-accent)] placeholder:text-[var(--c-text-faint)] resize-none transition-colors tracking-[0.5px] leading-relaxed"
+                className="bg-[var(--c-bg)] border border-[var(--c-border)] text-[var(--c-text)] font-ibm-mono text-[11px] px-3 py-2 focus:outline-none focus:border-[var(--c-accent)] placeholder:text-[var(--c-text-faint)] resize-none transition-colors tracking-[0.5px] leading-relaxed"
               />
             </div>
           </div>
@@ -141,9 +141,9 @@ export default function JobsPage() {
               {/* Weight total indicator */}
               <div className="flex flex-col gap-2">
                 <div className="flex items-center justify-between">
-                  <span className="font-ibm-mono text-[8px] text-[var(--c-text-dim)] tracking-[1px]">TOTAL WEIGHT</span>
+                  <span className="font-ibm-mono text-[9px] text-[var(--c-text-dim)] tracking-[1px]">TOTAL WEIGHT</span>
                   <span
-                    className="font-ibm-mono text-[11px] font-bold"
+                    className="font-ibm-mono text-[12px] font-bold"
                     style={{ color: totalWeight === 100 ? "var(--c-accent)" : "var(--c-warn)" }}
                   >
                     {totalWeight}% {totalWeight !== 100 && "(must equal 100%)"}
@@ -162,7 +162,7 @@ export default function JobsPage() {
                   ].map((l) => (
                     <div key={l.label} className="flex items-center gap-[5px]">
                       <div className="w-[6px] h-[6px]" style={{ background: l.color }} />
-                      <span className="font-ibm-mono text-[7px] text-[var(--c-text-dim)]">{l.label}</span>
+                      <span className="font-ibm-mono text-[8px] text-[var(--c-text-dim)]">{l.label}</span>
                     </div>
                   ))}
                 </div>
@@ -171,14 +171,14 @@ export default function JobsPage() {
 
             {/* Mandatory requirements */}
             <div className="flex flex-col gap-3">
-              <span className="font-ibm-mono text-[9px] text-[var(--c-text-sub)] tracking-[1.5px] mb-1">MANDATORY REQUIREMENTS</span>
-              <p className="font-ibm-mono text-[8px] text-[var(--c-text-dim)] leading-relaxed">
+              <span className="font-ibm-mono text-[10px] text-[var(--c-text-sub)] tracking-[1.5px] mb-1">MANDATORY REQUIREMENTS</span>
+              <p className="font-ibm-mono text-[9px] text-[var(--c-text-dim)] leading-relaxed">
                 Toggle must-have keywords. Candidates missing these will be auto-disqualified.
               </p>
               <div className="flex flex-col gap-[1px] bg-[var(--c-border-soft)]">
                 {mandatoryKeywords.map((kw) => (
                   <div key={kw} className="flex items-center justify-between px-4 py-3 bg-[var(--c-bg-elev)]">
-                    <span className="font-ibm-mono text-[9px] text-[var(--c-text-sub)] tracking-[0.5px]">{kw}</span>
+                    <span className="font-ibm-mono text-[10px] text-[var(--c-text-sub)] tracking-[0.5px]">{kw}</span>
                     <button
                       onClick={() => setToggles((t) => ({ ...t, [kw]: !t[kw] }))}
                       className="relative w-[36px] h-[18px] transition-colors shrink-0"
@@ -197,19 +197,19 @@ export default function JobsPage() {
           </div>
 
           <div className="flex items-center justify-between pt-4 border-t border-[var(--c-border-soft)]">
-            <span className="font-ibm-mono text-[8px] text-[var(--c-text-dim)] tracking-[0.5px]">
+            <span className="font-ibm-mono text-[9px] text-[var(--c-text-dim)] tracking-[0.5px]">
               Weights define the pgvector similarity computation for this role.
             </span>
             <div className="flex items-center gap-3">
               {saved && (
-                <span className="font-ibm-mono text-[8px] text-[var(--c-accent)] tracking-[1px] animate-pulse">
+                <span className="font-ibm-mono text-[9px] text-[var(--c-accent)] tracking-[1px] animate-pulse">
                   JOB CREATED /
                 </span>
               )}
               <button
                 onClick={handleSave}
                 disabled={totalWeight !== 100}
-                className="px-6 py-3 font-ibm-mono text-[9px] font-bold tracking-[1.5px] transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+                className="px-6 py-3 font-ibm-mono text-[10px] font-bold tracking-[1.5px] transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
                 style={{ background: totalWeight === 100 ? "var(--c-accent)" : "var(--c-bg-muted)", color: totalWeight === 100 ? "var(--c-text)" : "var(--c-text-muted)" }}
               >
                 PUBLISH JOB /
@@ -227,7 +227,7 @@ export default function JobsPage() {
         {/* Table header */}
         <div className="grid grid-cols-[auto_1fr_auto_auto_auto_auto] gap-4 px-5 py-3 bg-[var(--c-bg)] border-b border-[var(--c-border-soft)] items-center">
           {["ID", "TITLE / DEPT", "STATUS", "APPLIED", "POSTED", "ACTIONS"].map((h) => (
-            <span key={h} className="font-ibm-mono text-[7px] text-[var(--c-text-dim)] tracking-[1.5px]">{h}</span>
+            <span key={h} className="font-ibm-mono text-[8px] text-[var(--c-text-dim)] tracking-[1.5px]">{h}</span>
           ))}
         </div>
         {existingJobs.map((job) => (
@@ -235,25 +235,25 @@ export default function JobsPage() {
             key={job.id}
             className="grid grid-cols-[auto_1fr_auto_auto_auto_auto] gap-4 px-5 py-4 border-b border-[#111] items-center hover:bg-[var(--c-bg)] transition-colors"
           >
-            <span className="font-ibm-mono text-[8px] text-[var(--c-text-dim)] tracking-[1px]">{job.id}</span>
+            <span className="font-ibm-mono text-[9px] text-[var(--c-text-dim)] tracking-[1px]">{job.id}</span>
             <div className="flex flex-col gap-[2px] min-w-0">
-              <span className="font-ibm-mono text-[9px] text-[var(--c-text)] truncate">{job.title}</span>
-              <span className="font-ibm-mono text-[7px] text-[var(--c-text-dim)]">{job.dept}</span>
+              <span className="font-ibm-mono text-[10px] text-[var(--c-text)] truncate">{job.title}</span>
+              <span className="font-ibm-mono text-[8px] text-[var(--c-text-dim)]">{job.dept}</span>
             </div>
             <span
-              className="font-ibm-mono text-[7px] px-2 py-[3px] tracking-[1px]"
+              className="font-ibm-mono text-[8px] px-2 py-[3px] tracking-[1px]"
               style={{ color: statusColor(job.status), background: `${statusColor(job.status)}14` }}
             >
               {job.status}
             </span>
-            <span className="font-grotesk text-[13px] font-bold text-[var(--c-text)]">{job.applied}</span>
-            <span className="font-ibm-mono text-[8px] text-[var(--c-text-dim)]">{job.posted}</span>
+            <span className="font-grotesk text-[14px] font-bold text-[var(--c-text)]">{job.applied}</span>
+            <span className="font-ibm-mono text-[9px] text-[var(--c-text-dim)]">{job.posted}</span>
             <div className="flex items-center gap-2">
-              <button className="font-ibm-mono text-[7px] text-[var(--c-text-dim)] hover:text-[var(--c-accent)] tracking-[1px] transition-colors">
+              <button className="font-ibm-mono text-[8px] text-[var(--c-text-dim)] hover:text-[var(--c-accent)] tracking-[1px] transition-colors">
                 EDIT
               </button>
               <span className="text-[var(--c-border)]">/</span>
-              <button className="font-ibm-mono text-[7px] text-[var(--c-text-dim)] hover:text-[var(--c-warn)] tracking-[1px] transition-colors">
+              <button className="font-ibm-mono text-[8px] text-[var(--c-text-dim)] hover:text-[var(--c-warn)] tracking-[1px] transition-colors">
                 CLOSE
               </button>
             </div>

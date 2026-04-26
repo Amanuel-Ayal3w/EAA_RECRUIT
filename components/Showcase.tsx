@@ -76,13 +76,13 @@ export default function Showcase() {
             onClick={prev}
             className="flex items-center justify-center w-[48px] h-[48px] bg-[var(--c-bg-soft)] border-2 border-[#3D3D3D] hover:border-[var(--c-text-sub)] transition-colors"
           >
-            <span className="font-grotesk text-[18px] font-bold text-[var(--c-text-sub)]">&lt;</span>
+            <span className="font-grotesk text-[19px] font-bold text-[var(--c-text-sub)]">&lt;</span>
           </button>
           <button
             onClick={next}
             className="flex items-center justify-center w-[48px] h-[48px] bg-[var(--c-accent)] hover:bg-[var(--c-accent-hover)] transition-colors"
           >
-            <span className="font-grotesk text-[18px] font-bold text-[var(--c-text)]">&gt;</span>
+            <span className="font-grotesk text-[19px] font-bold text-[var(--c-text)]">&gt;</span>
           </button>
         </div>
       </div>
@@ -94,25 +94,25 @@ export default function Showcase() {
           style={{ backgroundColor: slide.bg, borderColor: slide.border }}
         >
           <div className="flex items-center justify-center h-[160px] bg-[var(--c-bg-muted)] border border-[var(--c-border)]">
-            <span className="font-ibm-mono text-[11px] text-[var(--c-text-faint)] tracking-[2px]">[SCREENSHOT]</span>
+            <span className="font-ibm-mono text-[12px] text-[var(--c-text-faint)] tracking-[2px]">[SCREENSHOT]</span>
           </div>
           <div className="flex items-center justify-between w-full">
             <div
               className="flex items-center justify-center h-[24px] px-[10px] border"
               style={{ backgroundColor: slide.tagBg, borderColor: slide.tagBorder || "transparent" }}
             >
-              <span className="font-ibm-mono text-[9px] font-bold tracking-[1px]" style={{ color: slide.tagColor }}>
+              <span className="font-ibm-mono text-[10px] font-bold tracking-[1px]" style={{ color: slide.tagColor }}>
                 {slide.tag}
               </span>
             </div>
-            <span className="font-ibm-mono text-[11px] tracking-[2px]" style={{ color: slide.idxColor }}>
+            <span className="font-ibm-mono text-[12px] tracking-[2px]" style={{ color: slide.idxColor }}>
               {slide.idx}
             </span>
           </div>
-          <h3 className="font-grotesk text-[20px] font-bold text-[var(--c-text)] tracking-[1px] leading-[1.2] whitespace-pre-line">
+          <h3 className="font-grotesk text-[21px] font-bold text-[var(--c-text)] tracking-[1px] leading-[1.2] whitespace-pre-line">
             {slide.title}
           </h3>
-          <p className="font-ibm-mono text-[11px] text-[var(--c-text-muted)] tracking-[1px]">{slide.by}</p>
+          <p className="font-ibm-mono text-[12px] text-[var(--c-text-muted)] tracking-[1px]">{slide.by}</p>
         </div>
       </div>
 
@@ -129,25 +129,25 @@ export default function Showcase() {
             style={{ backgroundColor: s.bg, borderColor: s.border }}
           >
             <div className="flex items-center justify-center h-[200px] bg-[var(--c-bg-muted)] border border-[var(--c-border)]">
-              <span className="font-ibm-mono text-[11px] text-[var(--c-text-faint)] tracking-[2px]">[SCREENSHOT]</span>
+              <span className="font-ibm-mono text-[12px] text-[var(--c-text-faint)] tracking-[2px]">[SCREENSHOT]</span>
             </div>
             <div className="flex items-center justify-between w-full">
               <div
                 className="flex items-center justify-center h-[24px] px-[10px] border"
                 style={{ backgroundColor: s.tagBg, borderColor: s.tagBorder || "transparent" }}
               >
-                <span className="font-ibm-mono text-[9px] font-bold tracking-[1px]" style={{ color: s.tagColor }}>
+                <span className="font-ibm-mono text-[10px] font-bold tracking-[1px]" style={{ color: s.tagColor }}>
                   {s.tag}
                 </span>
               </div>
-              <span className="font-ibm-mono text-[11px] tracking-[2px]" style={{ color: s.idxColor }}>
+              <span className="font-ibm-mono text-[12px] tracking-[2px]" style={{ color: s.idxColor }}>
                 {s.idx}
               </span>
             </div>
-            <h3 className="font-grotesk text-[20px] font-bold text-[var(--c-text)] tracking-[1px] leading-[1.2] whitespace-pre-line">
+            <h3 className="font-grotesk text-[21px] font-bold text-[var(--c-text)] tracking-[1px] leading-[1.2] whitespace-pre-line">
               {s.title}
             </h3>
-            <p className="font-ibm-mono text-[11px] text-[var(--c-text-muted)] tracking-[1px]">{s.by}</p>
+            <p className="font-ibm-mono text-[12px] text-[var(--c-text-muted)] tracking-[1px]">{s.by}</p>
           </div>
         ))}
         </div>
@@ -167,10 +167,10 @@ export default function Showcase() {
 
       {/* Footer */}
       <div className="flex items-center justify-between px-6 md:px-[120px] pb-16 md:pb-[100px]">
-        <span className="font-ibm-mono text-[11px] text-[var(--c-text-dim)] tracking-[2px]">
+        <span className="font-ibm-mono text-[12px] text-[var(--c-text-dim)] tracking-[2px]">
           SHOWING 0{active + 1} OF 04 PROJECTS
         </span>
-        <span className="font-ibm-mono text-[11px] text-[var(--c-accent)] tracking-[2px] cursor-pointer hover:underline">
+        <span className="font-ibm-mono text-[12px] text-[var(--c-accent)] tracking-[2px] cursor-pointer hover:underline">
           VIEW ALL &gt;
         </span>
       </div>

@@ -35,11 +35,11 @@ export default function ThemeToggle() {
       aria-label="Toggle theme"
       title={`Switch to ${nextTheme} mode`}
     >
-      <span className="font-ibm-mono text-[9px] tracking-[1px] text-[var(--c-text-muted)]">
+      <span className="font-ibm-mono text-[10px] tracking-[1px] text-[var(--c-text-muted)]">
         {theme === "light" ? "LIGHT" : "DARK"}
       </span>
       <span className="h-[12px] w-[1px] bg-[var(--c-border)]" />
-      <span className="font-ibm-mono text-[9px] font-bold tracking-[1px] text-[var(--c-text)]">
+      <span className="font-ibm-mono text-[10px] font-bold tracking-[1px] text-[var(--c-text)]">
         {theme === "light" ? "MOON" : "SUN"}
       </span>
     </button>

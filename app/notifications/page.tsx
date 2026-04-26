@@ -94,23 +94,23 @@ export default function NotificationsPage() {
         {/* Header */}
         <div className="flex items-start justify-between gap-4 mb-8">
           <div>
-            <p className="font-ibm-mono text-[9px] text-[var(--c-accent)] tracking-[2px] mb-2">[SYSTEM] // NOTIFICATION CENTER</p>
-            <h1 className="font-grotesk text-[28px] font-bold text-[var(--c-text)] tracking-[-0.5px]">NOTIFICATIONS</h1>
-            <p className="font-ibm-mono text-[9px] text-[var(--c-text-dim)] tracking-[1px] mt-1">
+            <p className="font-ibm-mono text-[10px] text-[var(--c-accent)] tracking-[2px] mb-2">[SYSTEM] // NOTIFICATION CENTER</p>
+            <h1 className="font-grotesk text-[29px] font-bold text-[var(--c-text)] tracking-[-0.5px]">NOTIFICATIONS</h1>
+            <p className="font-ibm-mono text-[10px] text-[var(--c-text-dim)] tracking-[1px] mt-1">
               {unreadCount > 0 ? `${unreadCount} UNREAD NOTIFICATION${unreadCount > 1 ? "S" : ""}` : "ALL CAUGHT UP"}
             </p>
           </div>
           <div className="flex items-center gap-3 shrink-0">
             <button
               onClick={() => setShowUnread((v) => !v)}
-              className={`flex items-center gap-2 px-3 h-[34px] border transition-colors font-ibm-mono text-[8px] tracking-[1px] ${showUnread ? "border-[var(--c-accent)] text-[var(--c-accent)] bg-[var(--c-accent)]/08" : "border-[var(--c-border)] text-[var(--c-text-muted)] hover:border-[var(--c-accent)] hover:text-[var(--c-accent)]"}`}
+              className={`flex items-center gap-2 px-3 h-[34px] border transition-colors font-ibm-mono text-[9px] tracking-[1px] ${showUnread ? "border-[var(--c-accent)] text-[var(--c-accent)] bg-[var(--c-accent)]/08" : "border-[var(--c-border)] text-[var(--c-text-muted)] hover:border-[var(--c-accent)] hover:text-[var(--c-accent)]"}`}
             >
               <div className={`w-[5px] h-[5px] rounded-full ${showUnread ? "bg-[var(--c-accent)]" : "bg-[var(--c-text-dim)]"}`} />
               UNREAD ONLY
             </button>
             <button
               onClick={markAllRead}
-              className="px-3 h-[34px] border border-[var(--c-border)] hover:border-[var(--c-accent)] transition-colors font-ibm-mono text-[8px] text-[var(--c-text-muted)] hover:text-[var(--c-accent)] tracking-[1px]"
+              className="px-3 h-[34px] border border-[var(--c-border)] hover:border-[var(--c-accent)] transition-colors font-ibm-mono text-[9px] text-[var(--c-text-muted)] hover:text-[var(--c-accent)] tracking-[1px]"
             >
               MARK ALL READ
             </button>
@@ -125,10 +125,10 @@ export default function NotificationsPage() {
               <button
                 key={r.key}
                 onClick={() => setActiveRole(r.key)}
-                className={`flex items-center gap-2 px-4 py-[8px] font-ibm-mono text-[8px] tracking-[1.5px] transition-colors border-r border-[var(--c-border-soft)] last:border-r-0 ${activeRole === r.key ? "bg-[var(--c-accent)] text-[var(--c-text)] font-bold" : "text-[var(--c-text-muted)] hover:text-[var(--c-text)]"}`}
+                className={`flex items-center gap-2 px-4 py-[8px] font-ibm-mono text-[9px] tracking-[1.5px] transition-colors border-r border-[var(--c-border-soft)] last:border-r-0 ${activeRole === r.key ? "bg-[var(--c-accent)] text-[var(--c-text)] font-bold" : "text-[var(--c-text-muted)] hover:text-[var(--c-text)]"}`}
               >
                 {r.label}
-                <span className={`text-[7px] px-1.5 py-0.5 ${activeRole === r.key ? "bg-[var(--c-bg)]/15 text-[var(--c-text)]" : "bg-[var(--c-bg-muted)] text-[var(--c-text-dim)]"}`}>{count}</span>
+                <span className={`text-[8px] px-1.5 py-0.5 ${activeRole === r.key ? "bg-[var(--c-bg)]/15 text-[var(--c-text)]" : "bg-[var(--c-bg-muted)] text-[var(--c-text-dim)]"}`}>{count}</span>
               </button>
             );
           })}
@@ -139,7 +139,7 @@ export default function NotificationsPage() {
           {filtered.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-20 gap-4 border border-[var(--c-border-soft)] bg-[var(--c-bg-elev)]">
               <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M16 4a6 6 0 0 1 6 6v7l3 3H7l3-3V10a6 6 0 0 1 6-6z" stroke="var(--c-border)" strokeWidth="1.4" /><path d="M13 28a3 3 0 0 0 6 0" stroke="var(--c-border)" strokeWidth="1.4" /></svg>
-              <span className="font-ibm-mono text-[9px] text-[var(--c-text-faint)] tracking-[1.5px]">NO NOTIFICATIONS</span>
+              <span className="font-ibm-mono text-[10px] text-[var(--c-text-faint)] tracking-[1.5px]">NO NOTIFICATIONS</span>
             </div>
           ) : (
             filtered.map((n) => {
@@ -162,21 +162,21 @@ export default function NotificationsPage() {
                   {/* Content */}
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-1 flex-wrap">
-                      <span className="font-ibm-mono text-[7px] tracking-[1px]" style={{ color: meta.color }}>{meta.label}</span>
-                      <span className="font-ibm-mono text-[7px] text-[var(--c-border)]">//</span>
-                      <span className="font-ibm-mono text-[7px] text-[var(--c-text-faint)] tracking-[1px] uppercase">{n.role}</span>
+                      <span className="font-ibm-mono text-[8px] tracking-[1px]" style={{ color: meta.color }}>{meta.label}</span>
+                      <span className="font-ibm-mono text-[8px] text-[var(--c-border)]">//</span>
+                      <span className="font-ibm-mono text-[8px] text-[var(--c-text-faint)] tracking-[1px] uppercase">{n.role}</span>
                     </div>
-                    <h3 className={`font-grotesk text-[13px] font-bold tracking-[-0.2px] mb-1 ${!n.read ? "text-[var(--c-text)]" : "text-[#666]"}`}>{n.title}</h3>
-                    <p className="font-ibm-mono text-[9px] text-[var(--c-text-muted)] tracking-[0.3px] leading-[1.7]">{n.body}</p>
+                    <h3 className={`font-grotesk text-[14px] font-bold tracking-[-0.2px] mb-1 ${!n.read ? "text-[var(--c-text)]" : "text-[#666]"}`}>{n.title}</h3>
+                    <p className="font-ibm-mono text-[10px] text-[var(--c-text-muted)] tracking-[0.3px] leading-[1.7]">{n.body}</p>
                     <div className="flex items-center gap-4 mt-3">
-                      <span className="font-ibm-mono text-[7px] text-[var(--c-text-faint)] tracking-[1px]">{n.time}</span>
+                      <span className="font-ibm-mono text-[8px] text-[var(--c-text-faint)] tracking-[1px]">{n.time}</span>
                       {n.link && (
-                        <Link href={n.link} onClick={() => markRead(n.id)} className="font-ibm-mono text-[7px] text-[var(--c-accent)]/60 hover:text-[var(--c-accent)] tracking-[1px] transition-colors">
+                        <Link href={n.link} onClick={() => markRead(n.id)} className="font-ibm-mono text-[8px] text-[var(--c-accent)]/60 hover:text-[var(--c-accent)] tracking-[1px] transition-colors">
                           VIEW DETAILS /
                         </Link>
                       )}
                       {!n.read && (
-                        <button onClick={() => markRead(n.id)} className="font-ibm-mono text-[7px] text-[var(--c-text-dim)] hover:text-[var(--c-text)] tracking-[1px] transition-colors">
+                        <button onClick={() => markRead(n.id)} className="font-ibm-mono text-[8px] text-[var(--c-text-dim)] hover:text-[var(--c-text)] tracking-[1px] transition-colors">
                           MARK READ
                         </button>
                       )}
@@ -200,7 +200,7 @@ export default function NotificationsPage() {
         </div>
 
         <div className="mt-8 pt-6 border-t border-[var(--c-border-soft)]">
-          <p className="font-ibm-mono text-[8px] text-[var(--c-border)] tracking-[0.5px]">
+          <p className="font-ibm-mono text-[9px] text-[var(--c-border)] tracking-[0.5px]">
             NOTIFICATION LOGS RETAINED FOR 90 DAYS // COMPLIANT WITH PROCLAMATION NO. 1329/2023
           </p>
         </div>

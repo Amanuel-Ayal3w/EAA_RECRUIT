@@ -35,7 +35,7 @@ function SectionLabel({ children }: { children: string }) {
   return (
     <div className="flex items-center gap-3 mb-4">
       <div className="w-[3px] h-[14px] bg-[var(--c-accent)] shrink-0" />
-      <span className="font-ibm-mono text-[9px] text-[var(--c-text-sub)] tracking-[2px]">{children}</span>
+      <span className="font-ibm-mono text-[10px] text-[var(--c-text-sub)] tracking-[2px]">{children}</span>
     </div>
   );
 }
@@ -47,9 +47,9 @@ function AddUserModal({ onClose }: { onClose: () => void }) {
         <div className="flex items-center justify-between px-6 py-4 border-b border-[var(--c-border-soft)]">
           <div className="flex items-center gap-3">
             <div className="w-[3px] h-[14px] bg-[var(--c-accent)]" />
-            <span className="font-ibm-mono text-[9px] text-[var(--c-text-sub)] tracking-[2px]">ADD INTERNAL USER</span>
+            <span className="font-ibm-mono text-[10px] text-[var(--c-text-sub)] tracking-[2px]">ADD INTERNAL USER</span>
           </div>
-          <button onClick={onClose} className="text-[var(--c-text-dim)] hover:text-[var(--c-text)] transition-colors font-ibm-mono text-[16px]">
+          <button onClick={onClose} className="text-[var(--c-text-dim)] hover:text-[var(--c-text)] transition-colors font-ibm-mono text-[17px]">
             ×
           </button>
         </div>
@@ -60,17 +60,17 @@ function AddUserModal({ onClose }: { onClose: () => void }) {
             { label: "TEMPORARY PASSWORD", placeholder: "Min. 12 characters", type: "password" },
           ].map(({ label, placeholder, type }) => (
             <div key={label} className="flex flex-col gap-[6px]">
-              <label className="font-ibm-mono text-[8px] text-[var(--c-text-muted)] tracking-[1.5px]">{label}</label>
+              <label className="font-ibm-mono text-[9px] text-[var(--c-text-muted)] tracking-[1.5px]">{label}</label>
               <input
                 type={type}
                 placeholder={placeholder}
-                className="w-full h-[40px] bg-[var(--c-bg)] border border-[var(--c-border)] px-3 font-ibm-mono text-[11px] text-[var(--c-text)] placeholder-[var(--c-text-faint)] focus:outline-none focus:border-[var(--c-accent)] transition-colors"
+                className="w-full h-[40px] bg-[var(--c-bg)] border border-[var(--c-border)] px-3 font-ibm-mono text-[12px] text-[var(--c-text)] placeholder-[var(--c-text-faint)] focus:outline-none focus:border-[var(--c-accent)] transition-colors"
               />
             </div>
           ))}
           <div className="flex flex-col gap-[6px]">
-            <label className="font-ibm-mono text-[8px] text-[var(--c-text-muted)] tracking-[1.5px]">ASSIGN ROLE</label>
-            <select className="w-full h-[40px] bg-[var(--c-bg)] border border-[var(--c-border)] px-3 font-ibm-mono text-[11px] text-[var(--c-text)] focus:outline-none focus:border-[var(--c-accent)] transition-colors appearance-none">
+            <label className="font-ibm-mono text-[9px] text-[var(--c-text-muted)] tracking-[1.5px]">ASSIGN ROLE</label>
+            <select className="w-full h-[40px] bg-[var(--c-bg)] border border-[var(--c-border)] px-3 font-ibm-mono text-[12px] text-[var(--c-text)] focus:outline-none focus:border-[var(--c-accent)] transition-colors appearance-none">
               <option value="RECRUITER">RECRUITER</option>
               <option value="ADMIN">ADMIN</option>
             </select>
@@ -78,14 +78,14 @@ function AddUserModal({ onClose }: { onClose: () => void }) {
           <div className="flex items-center gap-3 pt-2">
             <button
               type="submit"
-              className="flex-1 h-[40px] bg-[var(--c-accent)] font-ibm-mono text-[9px] font-bold text-[var(--c-text)] tracking-[2px] hover:bg-[var(--c-accent-hover)] transition-colors"
+              className="flex-1 h-[40px] bg-[var(--c-accent)] font-ibm-mono text-[10px] font-bold text-[var(--c-text)] tracking-[2px] hover:bg-[var(--c-accent-hover)] transition-colors"
             >
               CREATE ACCOUNT
             </button>
             <button
               type="button"
               onClick={onClose}
-              className="h-[40px] px-5 border border-[var(--c-border)] font-ibm-mono text-[9px] text-[var(--c-text-muted)] tracking-[1.5px] hover:text-[var(--c-text)] hover:border-[var(--c-text-muted)] transition-colors"
+              className="h-[40px] px-5 border border-[var(--c-border)] font-ibm-mono text-[10px] text-[var(--c-text-muted)] tracking-[1.5px] hover:text-[var(--c-text)] hover:border-[var(--c-text-muted)] transition-colors"
             >
               CANCEL
             </button>
@@ -127,14 +127,14 @@ export default function UsersPage() {
       {/* Page header */}
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
         <div className="flex flex-col gap-1">
-          <span className="font-ibm-mono text-[9px] text-[var(--c-text-dim)] tracking-[2px]">[02] // USER MANAGEMENT</span>
-          <h1 className="font-grotesk text-[24px] md:text-[32px] font-bold text-[var(--c-text)] tracking-[-1px]">
+          <span className="font-ibm-mono text-[10px] text-[var(--c-text-dim)] tracking-[2px]">[02] // USER MANAGEMENT</span>
+          <h1 className="font-grotesk text-[25px] md:text-[33px] font-bold text-[var(--c-text)] tracking-[-1px]">
             Identity &amp; Access
           </h1>
         </div>
         <button
           onClick={() => setShowModal(true)}
-          className="flex items-center gap-[8px] h-[40px] px-5 bg-[var(--c-accent)] font-ibm-mono text-[9px] font-bold text-[var(--c-text)] tracking-[2px] hover:bg-[var(--c-accent-hover)] transition-colors self-start"
+          className="flex items-center gap-[8px] h-[40px] px-5 bg-[var(--c-accent)] font-ibm-mono text-[10px] font-bold text-[var(--c-text)] tracking-[2px] hover:bg-[var(--c-accent-hover)] transition-colors self-start"
         >
           + ADD USER
         </button>
@@ -144,10 +144,10 @@ export default function UsersPage() {
       <div className="grid grid-cols-3 gap-[1px] bg-[var(--c-border-soft)] mb-8">
         {(["ADMIN", "RECRUITER", "CANDIDATE"] as Role[]).map((role) => (
           <div key={role} className="flex flex-col gap-2 p-5 bg-[var(--c-bg-elev)]">
-            <span className="font-ibm-mono text-[8px] tracking-[1.5px]" style={{ color: ROLE_COLORS[role].text }}>
+            <span className="font-ibm-mono text-[9px] tracking-[1.5px]" style={{ color: ROLE_COLORS[role].text }}>
               {role}S
             </span>
-            <span className="font-grotesk text-[32px] font-bold text-[var(--c-text)] leading-none">{counts[role]}</span>
+            <span className="font-grotesk text-[33px] font-bold text-[var(--c-text)] leading-none">{counts[role]}</span>
           </div>
         ))}
       </div>
@@ -159,14 +159,14 @@ export default function UsersPage() {
           placeholder="SEARCH BY NAME OR EMAIL..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="flex-1 h-[38px] bg-[var(--c-bg-elev)] border border-[var(--c-border-soft)] px-4 font-ibm-mono text-[10px] text-[var(--c-text)] placeholder-[var(--c-text-faint)] focus:outline-none focus:border-[var(--c-accent)] transition-colors"
+          className="flex-1 h-[38px] bg-[var(--c-bg-elev)] border border-[var(--c-border-soft)] px-4 font-ibm-mono text-[11px] text-[var(--c-text)] placeholder-[var(--c-text-faint)] focus:outline-none focus:border-[var(--c-accent)] transition-colors"
         />
         <div className="flex gap-[2px]">
           {(["ALL", "ADMIN", "RECRUITER", "CANDIDATE"] as const).map((r) => (
             <button
               key={r}
               onClick={() => setRoleFilter(r)}
-              className="h-[38px] px-4 font-ibm-mono text-[8px] tracking-[1.5px] transition-colors"
+              className="h-[38px] px-4 font-ibm-mono text-[9px] tracking-[1.5px] transition-colors"
               style={{
                 background: roleFilter === r ? "var(--c-accent)" : "var(--c-bg-elev)",
                 color:      roleFilter === r ? "var(--c-text)" : "var(--c-text-muted)",
@@ -185,7 +185,7 @@ export default function UsersPage() {
           <thead>
             <tr className="border-b border-[var(--c-border-soft)]">
               {["ID", "NAME", "EMAIL", "ROLE", "STATUS", "LAST LOGIN", "ACTIONS"].map((h) => (
-                <th key={h} className="text-left px-4 py-3 font-ibm-mono text-[8px] text-[var(--c-text-dim)] tracking-[1.5px]">{h}</th>
+                <th key={h} className="text-left px-4 py-3 font-ibm-mono text-[9px] text-[var(--c-text-dim)] tracking-[1.5px]">{h}</th>
               ))}
             </tr>
           </thead>
@@ -195,12 +195,12 @@ export default function UsersPage() {
                 key={user.id}
                 className="border-b border-[var(--c-bg-muted)] hover:bg-[var(--c-bg)] transition-colors"
               >
-                <td className="px-4 py-3 font-ibm-mono text-[8px] text-[var(--c-text-dim)]">{user.id}</td>
-                <td className="px-4 py-3 font-grotesk text-[13px] text-[var(--c-text)]">{user.name}</td>
-                <td className="px-4 py-3 font-ibm-mono text-[9px] text-[var(--c-text-sub)]">{user.email}</td>
+                <td className="px-4 py-3 font-ibm-mono text-[9px] text-[var(--c-text-dim)]">{user.id}</td>
+                <td className="px-4 py-3 font-grotesk text-[14px] text-[var(--c-text)]">{user.name}</td>
+                <td className="px-4 py-3 font-ibm-mono text-[10px] text-[var(--c-text-sub)]">{user.email}</td>
                 <td className="px-4 py-3">
                   <span
-                    className="font-ibm-mono text-[8px] px-2 py-[3px] tracking-[1px]"
+                    className="font-ibm-mono text-[9px] px-2 py-[3px] tracking-[1px]"
                     style={{ background: ROLE_COLORS[user.role].bg, color: ROLE_COLORS[user.role].text }}
                   >
                     {user.role}
@@ -213,25 +213,25 @@ export default function UsersPage() {
                       style={{ background: user.status === "ACTIVE" ? "var(--c-accent)" : "var(--c-warn)" }}
                     />
                     <span
-                      className="font-ibm-mono text-[8px] tracking-[1px]"
+                      className="font-ibm-mono text-[9px] tracking-[1px]"
                       style={{ color: user.status === "ACTIVE" ? "var(--c-accent)" : "var(--c-warn)" }}
                     >
                       {user.status}
                     </span>
                   </div>
                 </td>
-                <td className="px-4 py-3 font-ibm-mono text-[8px] text-[var(--c-text-dim)]">{user.lastLogin}</td>
+                <td className="px-4 py-3 font-ibm-mono text-[9px] text-[var(--c-text-dim)]">{user.lastLogin}</td>
                 <td className="px-4 py-3">
                   <div className="flex items-center gap-[8px]">
                     <button
-                      className="font-ibm-mono text-[8px] text-[var(--c-text-muted)] hover:text-[var(--c-accent)] tracking-[1px] transition-colors"
+                      className="font-ibm-mono text-[9px] text-[var(--c-text-muted)] hover:text-[var(--c-accent)] tracking-[1px] transition-colors"
                     >
                       RESET PWD
                     </button>
                     <span className="text-[var(--c-border-soft)]">|</span>
                     <button
                       onClick={() => toggleStatus(user.id)}
-                      className="font-ibm-mono text-[8px] tracking-[1px] transition-colors"
+                      className="font-ibm-mono text-[9px] tracking-[1px] transition-colors"
                       style={{ color: user.status === "ACTIVE" ? "var(--c-warn)" : "var(--c-accent)" }}
                     >
                       {user.status === "ACTIVE" ? "SUSPEND" : "ACTIVATE"}
@@ -239,7 +239,7 @@ export default function UsersPage() {
                     {user.role !== "ADMIN" && (
                       <>
                         <span className="text-[var(--c-border-soft)]">|</span>
-                        <button className="font-ibm-mono text-[8px] text-[var(--c-text-muted)] hover:text-[var(--c-text)] tracking-[1px] transition-colors">
+                        <button className="font-ibm-mono text-[9px] text-[var(--c-text-muted)] hover:text-[var(--c-text)] tracking-[1px] transition-colors">
                           PROMOTE
                         </button>
                       </>
@@ -252,15 +252,15 @@ export default function UsersPage() {
         </table>
         {filtered.length === 0 && (
           <div className="flex items-center justify-center py-16">
-            <span className="font-ibm-mono text-[10px] text-[var(--c-text-faint)] tracking-[1.5px]">NO USERS MATCH THIS FILTER</span>
+            <span className="font-ibm-mono text-[11px] text-[var(--c-text-faint)] tracking-[1.5px]">NO USERS MATCH THIS FILTER</span>
           </div>
         )}
       </div>
       <div className="flex items-center justify-between mt-3">
-        <span className="font-ibm-mono text-[8px] text-[var(--c-text-faint)] tracking-[1px]">
+        <span className="font-ibm-mono text-[9px] text-[var(--c-text-faint)] tracking-[1px]">
           SHOWING {filtered.length} OF {users.length} USERS
         </span>
-        <span className="font-ibm-mono text-[8px] text-[var(--c-text-faint)] tracking-[1px]">PAGE 1 / 1</span>
+        <span className="font-ibm-mono text-[9px] text-[var(--c-text-faint)] tracking-[1px]">PAGE 1 / 1</span>
       </div>
     </div>
   );

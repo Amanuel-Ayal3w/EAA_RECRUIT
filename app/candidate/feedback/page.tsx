@@ -81,11 +81,11 @@ export default function FeedbackPage() {
     <div className="p-6 md:p-8 max-w-[1200px] mx-auto flex flex-col gap-8">
       {/* Header */}
       <div className="flex flex-col gap-1">
-        <span className="font-ibm-mono text-[9px] text-[var(--c-text-dim)] tracking-[2px]">[05] // MY FEEDBACK</span>
-        <h1 className="font-grotesk text-[24px] md:text-[32px] font-bold text-[var(--c-text)] tracking-[-1px]">
+        <span className="font-ibm-mono text-[10px] text-[var(--c-text-dim)] tracking-[2px]">[05] // MY FEEDBACK</span>
+        <h1 className="font-grotesk text-[25px] md:text-[33px] font-bold text-[var(--c-text)] tracking-[-1px]">
           Application Feedback
         </h1>
-        <p className="font-ibm-mono text-[10px] text-[var(--c-text-muted)] tracking-[0.5px]">
+        <p className="font-ibm-mono text-[11px] text-[var(--c-text-muted)] tracking-[0.5px]">
           Transparent XAI-powered results — see exactly why the system scored your application the way it did.
         </p>
       </div>
@@ -99,10 +99,10 @@ export default function FeedbackPage() {
             className="flex flex-col gap-[2px] px-5 py-3 text-left transition-all"
             style={{ background: selected.id === f.id ? "var(--c-accent)12" : "var(--c-bg-elev)", borderBottom: selected.id === f.id ? "2px solid var(--c-accent)" : "2px solid transparent" }}
           >
-            <span className="font-ibm-mono text-[8px] tracking-[1px]" style={{ color: selected.id === f.id ? "var(--c-accent)" : "var(--c-text-muted)" }}>
+            <span className="font-ibm-mono text-[9px] tracking-[1px]" style={{ color: selected.id === f.id ? "var(--c-accent)" : "var(--c-text-muted)" }}>
               {f.id}
             </span>
-            <span className="font-ibm-mono text-[7px] text-[var(--c-text-faint)]">{f.role}</span>
+            <span className="font-ibm-mono text-[8px] text-[var(--c-text-faint)]">{f.role}</span>
           </button>
         ))}
       </div>
@@ -112,8 +112,8 @@ export default function FeedbackPage() {
         <div className="flex flex-col items-center justify-center gap-4 py-20 border border-[var(--c-border-soft)]">
           <div className="w-[40px] h-[40px] border-2 border-[var(--c-accent)] border-t-transparent rounded-full animate-spin" />
           <div className="flex flex-col items-center gap-1">
-            <span className="font-ibm-mono text-[9px] text-[var(--c-text-muted)] tracking-[1px]">AI ENGINE PROCESSING YOUR SUBMISSION</span>
-            <span className="font-ibm-mono text-[7px] text-[var(--c-text-faint)] tracking-[0.5px]">Vectorizing exam responses and computing semantic similarity — results within 24 hours.</span>
+            <span className="font-ibm-mono text-[10px] text-[var(--c-text-muted)] tracking-[1px]">AI ENGINE PROCESSING YOUR SUBMISSION</span>
+            <span className="font-ibm-mono text-[8px] text-[var(--c-text-faint)] tracking-[0.5px]">Vectorizing exam responses and computing semantic similarity — results within 24 hours.</span>
           </div>
         </div>
       )}
@@ -127,9 +127,9 @@ export default function FeedbackPage() {
               style={{ background: "var(--c-accent)10", border: "1px solid var(--c-accent)40" }}
             >
               <div className="w-[5px] h-[5px] rounded-full bg-[var(--c-accent)]" />
-              <span className="font-ibm-mono text-[8px] text-[var(--c-accent)] tracking-[1px]">{selected.status}</span>
+              <span className="font-ibm-mono text-[9px] text-[var(--c-accent)] tracking-[1px]">{selected.status}</span>
             </div>
-            <span className="font-ibm-mono text-[7px] text-[var(--c-text-faint)] tracking-[0.5px]">
+            <span className="font-ibm-mono text-[8px] text-[var(--c-text-faint)] tracking-[0.5px]">
               APPLIED: {selected.submittedDate.toUpperCase()} / RESULT: {selected.resultDate.toUpperCase()}
             </span>
           </div>
@@ -138,7 +138,7 @@ export default function FeedbackPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Gauge */}
             <div className="bg-[var(--c-bg-elev)] border border-[var(--c-border-soft)] p-6 flex flex-col items-center gap-4">
-              <span className="font-ibm-mono text-[9px] text-[var(--c-text-muted)] tracking-[2px] self-start">OVERALL AI MATCH SCORE</span>
+              <span className="font-ibm-mono text-[10px] text-[var(--c-text-muted)] tracking-[2px] self-start">OVERALL AI MATCH SCORE</span>
               <div className="relative">
                 <ResponsiveContainer width={200} height={200}>
                   <RadialBarChart cx={100} cy={100} innerRadius={60} outerRadius={88} data={[{ value: selected.overallScore, fill: matchColor(selected.overallScore) }]} startAngle={220} endAngle={-40}>
@@ -148,10 +148,10 @@ export default function FeedbackPage() {
                   </RadialBarChart>
                 </ResponsiveContainer>
                 <div className="absolute inset-0 flex flex-col items-center justify-center">
-                  <span className="font-grotesk text-[48px] font-bold leading-none" style={{ color: matchColor(selected.overallScore) }}>
+                  <span className="font-grotesk text-[49px] font-bold leading-none" style={{ color: matchColor(selected.overallScore) }}>
                     {selected.overallScore}
                   </span>
-                  <span className="font-ibm-mono text-[10px] text-[var(--c-text-dim)]">%</span>
+                  <span className="font-ibm-mono text-[11px] text-[var(--c-text-dim)]">%</span>
                 </div>
               </div>
             </div>
@@ -166,10 +166,10 @@ export default function FeedbackPage() {
                 <div key={item.label} className="flex flex-col gap-2">
                   <div className="flex items-center justify-between">
                     <div className="flex flex-col gap-[1px]">
-                      <span className="font-ibm-mono text-[8px] text-[var(--c-text-sub)] tracking-[1px]">{item.label}</span>
-                      <span className="font-ibm-mono text-[7px] text-[var(--c-text-faint)]">WEIGHT: {item.weight}</span>
+                      <span className="font-ibm-mono text-[9px] text-[var(--c-text-sub)] tracking-[1px]">{item.label}</span>
+                      <span className="font-ibm-mono text-[8px] text-[var(--c-text-faint)]">WEIGHT: {item.weight}</span>
                     </div>
-                    <span className="font-grotesk text-[20px] font-bold" style={{ color: matchColor(item.value) }}>
+                    <span className="font-grotesk text-[21px] font-bold" style={{ color: matchColor(item.value) }}>
                       {item.value}%
                     </span>
                   </div>
@@ -187,7 +187,7 @@ export default function FeedbackPage() {
             <div className="bg-[var(--c-bg-elev)] p-5 flex flex-col gap-4">
               <div className="flex items-center gap-3">
                 <div className="w-[3px] h-[14px] bg-[var(--c-accent)] shrink-0" />
-                <span className="font-ibm-mono text-[9px] text-[var(--c-text-sub)] tracking-[2px]">STRENGTHS DETECTED</span>
+                <span className="font-ibm-mono text-[10px] text-[var(--c-text-sub)] tracking-[2px]">STRENGTHS DETECTED</span>
               </div>
               <div className="flex flex-col gap-[1px] bg-[var(--c-border-soft)]">
                 {selected.strengths.map((s, i) => (
@@ -198,8 +198,8 @@ export default function FeedbackPage() {
                       </svg>
                     </div>
                     <div className="flex flex-col gap-[3px]">
-                      <span className="font-ibm-mono text-[9px] text-[var(--c-text)]">{s.label}</span>
-                      <span className="font-ibm-mono text-[7px] text-[var(--c-text-dim)] leading-relaxed">{s.detail}</span>
+                      <span className="font-ibm-mono text-[10px] text-[var(--c-text)]">{s.label}</span>
+                      <span className="font-ibm-mono text-[8px] text-[var(--c-text-dim)] leading-relaxed">{s.detail}</span>
                     </div>
                   </div>
                 ))}
@@ -210,7 +210,7 @@ export default function FeedbackPage() {
             <div className="bg-[var(--c-bg-elev)] p-5 flex flex-col gap-4">
               <div className="flex items-center gap-3">
                 <div className="w-[3px] h-[14px] bg-[var(--c-warn)] shrink-0" />
-                <span className="font-ibm-mono text-[9px] text-[var(--c-text-sub)] tracking-[2px]">AREAS FOR IMPROVEMENT</span>
+                <span className="font-ibm-mono text-[10px] text-[var(--c-text-sub)] tracking-[2px]">AREAS FOR IMPROVEMENT</span>
               </div>
               <div className="flex flex-col gap-[1px] bg-[var(--c-border-soft)]">
                 {selected.gaps.map((g, i) => (
@@ -221,8 +221,8 @@ export default function FeedbackPage() {
                       </svg>
                     </div>
                     <div className="flex flex-col gap-[3px]">
-                      <span className="font-ibm-mono text-[9px] text-[var(--c-text)]">{g.label}</span>
-                      <span className="font-ibm-mono text-[7px] text-[var(--c-text-dim)] leading-relaxed">{g.detail}</span>
+                      <span className="font-ibm-mono text-[10px] text-[var(--c-text)]">{g.label}</span>
+                      <span className="font-ibm-mono text-[8px] text-[var(--c-text-dim)] leading-relaxed">{g.detail}</span>
                     </div>
                   </div>
                 ))}
@@ -234,23 +234,23 @@ export default function FeedbackPage() {
           <div className="bg-[var(--c-bg-elev)] border border-[var(--c-border-soft)] p-5 flex flex-col gap-4">
             <div className="flex items-center gap-3">
               <div className="w-[3px] h-[14px] bg-[var(--c-accent)] shrink-0" />
-              <span className="font-ibm-mono text-[9px] text-[var(--c-text-sub)] tracking-[2px]">SEMANTIC ALIGNMENT MAP</span>
+              <span className="font-ibm-mono text-[10px] text-[var(--c-text-sub)] tracking-[2px]">SEMANTIC ALIGNMENT MAP</span>
             </div>
             <div className="flex flex-col gap-[1px] bg-[var(--c-border-soft)]">
               {selected.semanticMatches.map((match, i) => (
                 <div key={i} className="flex items-center gap-4 px-4 py-3 bg-[var(--c-bg-elev)]">
                   <div className="flex flex-col gap-[3px] flex-1 min-w-0">
-                    <span className="font-ibm-mono text-[8px] text-[var(--c-text)]">{match.candidate}</span>
+                    <span className="font-ibm-mono text-[9px] text-[var(--c-text)]">{match.candidate}</span>
                     <div className="flex items-center gap-2">
                       <svg width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M1 4h6M4 1l3 3-3 3" stroke="var(--c-text-dim)" strokeWidth="1.2" strokeLinecap="square" /></svg>
-                      <span className="font-ibm-mono text-[7px] text-[var(--c-text-dim)]">{match.requirement}</span>
+                      <span className="font-ibm-mono text-[8px] text-[var(--c-text-dim)]">{match.requirement}</span>
                     </div>
                   </div>
                   <div
                     className="flex items-center justify-center w-[44px] h-[24px] shrink-0"
                     style={{ background: `${matchColor(match.score)}12`, border: `1px solid ${matchColor(match.score)}40` }}
                   >
-                    <span className="font-ibm-mono text-[9px] font-bold" style={{ color: matchColor(match.score) }}>
+                    <span className="font-ibm-mono text-[10px] font-bold" style={{ color: matchColor(match.score) }}>
                       {match.score}%
                     </span>
                   </div>
@@ -264,7 +264,7 @@ export default function FeedbackPage() {
             <div className="bg-[var(--c-bg-elev)] border border-[var(--c-border-soft)] p-5 flex flex-col gap-4">
               <div className="flex items-center gap-3">
                 <div className="w-[3px] h-[14px] bg-[var(--c-accent)] shrink-0" />
-                <span className="font-ibm-mono text-[9px] text-[var(--c-text-sub)] tracking-[2px]">EXAM PERFORMANCE vs. IDEAL ANSWER VECTOR</span>
+                <span className="font-ibm-mono text-[10px] text-[var(--c-text-sub)] tracking-[2px]">EXAM PERFORMANCE vs. IDEAL ANSWER VECTOR</span>
               </div>
               <ResponsiveContainer width="100%" height={180}>
                 <BarChart data={selected.examComparison} barGap={2} barSize={18}>
@@ -276,18 +276,18 @@ export default function FeedbackPage() {
                 </BarChart>
               </ResponsiveContainer>
               <div className="flex items-center gap-4">
-                <div className="flex items-center gap-[6px]"><div className="w-[8px] h-[8px] bg-[var(--c-accent)]" /><span className="font-ibm-mono text-[7px] text-[var(--c-text-muted)]">YOUR SCORE</span></div>
-                <div className="flex items-center gap-[6px]"><div className="w-[8px] h-[8px] bg-[var(--c-bg-muted)] border border-[var(--c-border)]" /><span className="font-ibm-mono text-[7px] text-[var(--c-text-muted)]">IDEAL ANSWER VECTOR</span></div>
+                <div className="flex items-center gap-[6px]"><div className="w-[8px] h-[8px] bg-[var(--c-accent)]" /><span className="font-ibm-mono text-[8px] text-[var(--c-text-muted)]">YOUR SCORE</span></div>
+                <div className="flex items-center gap-[6px]"><div className="w-[8px] h-[8px] bg-[var(--c-bg-muted)] border border-[var(--c-border)]" /><span className="font-ibm-mono text-[8px] text-[var(--c-text-muted)]">IDEAL ANSWER VECTOR</span></div>
               </div>
             </div>
           )}
 
           {/* Footer note */}
           <div className="flex items-center justify-between border-t border-[var(--c-border-soft)] pt-4">
-            <span className="font-ibm-mono text-[7px] text-[var(--c-text-faint)] tracking-[0.5px]">
+            <span className="font-ibm-mono text-[8px] text-[var(--c-text-faint)] tracking-[0.5px]">
               Generated by EAA XAI Engine v2.1 — Proclamation 1329/2023 compliant. Scores are computed, not human-assigned.
             </span>
-            <button className="px-4 py-2 border border-[var(--c-border)] font-ibm-mono text-[8px] text-[var(--c-text-muted)] hover:text-[var(--c-text)] hover:border-[var(--c-text-muted)] transition-colors tracking-[1px]">
+            <button className="px-4 py-2 border border-[var(--c-border)] font-ibm-mono text-[9px] text-[var(--c-text-muted)] hover:text-[var(--c-text)] hover:border-[var(--c-text-muted)] transition-colors tracking-[1px]">
               EXPORT PDF /
             </button>
           </div>

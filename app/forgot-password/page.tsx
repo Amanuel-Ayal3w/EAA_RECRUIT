@@ -55,15 +55,15 @@ export default function ForgotPasswordPage() {
             <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M6 14l5 5L22 8" stroke="var(--c-text)" strokeWidth="2.5" strokeLinecap="square" /></svg>
           </div>
           <div>
-            <h1 className="font-grotesk text-[28px] font-bold text-[var(--c-text)] tracking-[-0.5px]">
+            <h1 className="font-grotesk text-[29px] font-bold text-[var(--c-text)] tracking-[-0.5px]">
               {isEn ? "PASSWORD UPDATED" : "የምስጢር ቃሉ ተዘምኗል"}
             </h1>
-            <p className="font-ibm-mono text-[10px] text-[var(--c-text-muted)] tracking-[1px] leading-[1.8] mt-3">
+            <p className="font-ibm-mono text-[11px] text-[var(--c-text-muted)] tracking-[1px] leading-[1.8] mt-3">
               {isEn ? "YOUR PASSWORD HAS BEEN SUCCESSFULLY RESET. YOU CAN NOW SIGN IN WITH YOUR NEW CREDENTIALS." : "የምስጢር ቃልዎ በተሳካ ሁኔታ ተቀይሯል።"}
             </p>
           </div>
           <Link href="/login" className="flex items-center justify-center w-full h-[52px] bg-[var(--c-accent)] hover:bg-[var(--c-accent-hover)] transition-colors">
-            <span className="font-grotesk text-[12px] font-bold text-[var(--c-text)] tracking-[2px]">{isEn ? "SIGN IN NOW" : "አሁን ግባ"}</span>
+            <span className="font-grotesk text-[13px] font-bold text-[var(--c-text)] tracking-[2px]">{isEn ? "SIGN IN NOW" : "አሁን ግባ"}</span>
           </Link>
         </div>
       </div>
@@ -78,15 +78,15 @@ export default function ForgotPasswordPage() {
         {/* Logo */}
         <div className="flex items-center gap-3">
           <div className="flex items-center justify-center w-[32px] h-[32px] bg-[var(--c-accent)]">
-            <span className="font-ibm-mono text-[9px] font-bold text-[var(--c-text)]">EAA</span>
+            <span className="font-ibm-mono text-[10px] font-bold text-[var(--c-text)]">EAA</span>
           </div>
-          <span className="font-ibm-mono text-[10px] font-bold text-[var(--c-text)] tracking-[2px]">EAA RECRUIT</span>
+          <span className="font-ibm-mono text-[11px] font-bold text-[var(--c-text)] tracking-[2px]">EAA RECRUIT</span>
         </div>
 
         {/* Lang toggle */}
         <div className="flex items-center w-fit border border-[var(--c-border)]">
           {(["en", "am"] as const).map((l) => (
-            <button key={l} onClick={() => setLang(l)} className={`px-4 py-[6px] font-ibm-mono text-[9px] tracking-[1.5px] transition-colors ${lang === l ? "bg-[var(--c-accent)] text-[var(--c-text)] font-bold" : "text-[var(--c-text-muted)] hover:text-[var(--c-text)]"}`}>
+            <button key={l} onClick={() => setLang(l)} className={`px-4 py-[6px] font-ibm-mono text-[10px] tracking-[1.5px] transition-colors ${lang === l ? "bg-[var(--c-accent)] text-[var(--c-text)] font-bold" : "text-[var(--c-text-muted)] hover:text-[var(--c-text)]"}`}>
               {l === "en" ? "EN" : "አማ"}
             </button>
           ))}
@@ -96,17 +96,17 @@ export default function ForgotPasswordPage() {
         {stage === "request" && (
           <>
             <div>
-              <p className="font-ibm-mono text-[9px] text-[var(--c-accent)] tracking-[2px] mb-2">[AUTH] // PASSWORD RECOVERY</p>
-              <h1 className="font-grotesk text-[24px] font-bold text-[var(--c-text)] tracking-[-0.5px]">
+              <p className="font-ibm-mono text-[10px] text-[var(--c-accent)] tracking-[2px] mb-2">[AUTH] // PASSWORD RECOVERY</p>
+              <h1 className="font-grotesk text-[25px] font-bold text-[var(--c-text)] tracking-[-0.5px]">
                 {isEn ? "FORGOT YOUR PASSWORD?" : "የምስጢር ቃልዎን ረሱ?"}
               </h1>
-              <p className="font-ibm-mono text-[9px] text-[var(--c-text-muted)] tracking-[0.5px] leading-[1.8] mt-2">
+              <p className="font-ibm-mono text-[10px] text-[var(--c-text-muted)] tracking-[0.5px] leading-[1.8] mt-2">
                 {isEn ? "ENTER YOUR REGISTERED EMAIL ADDRESS. WE'LL SEND A SECURE RESET LINK VIA SMTP." : "የተመዘገበ ኢሜይልዎን ያስገቡ። ደህንነቱ የተጠበቀ ማገናኛ እንልካለን።"}
               </p>
             </div>
             <form onSubmit={handleRequest} className="flex flex-col gap-5">
               <div className="flex flex-col gap-2">
-                <label className="font-ibm-mono text-[9px] text-[#666] tracking-[1.5px]">
+                <label className="font-ibm-mono text-[10px] text-[#666] tracking-[1.5px]">
                   {isEn ? "EMAIL ADDRESS" : "ኢሜይል አድራሻ"}
                 </label>
                 <input
@@ -114,13 +114,13 @@ export default function ForgotPasswordPage() {
                   value={email}
                   onChange={(e) => { setEmail(e.target.value); setEmailError(""); }}
                   placeholder="you@example.com"
-                  className={`h-[48px] bg-[var(--c-bg-elev)] border px-4 font-ibm-mono text-[12px] text-[var(--c-text)] placeholder-[var(--c-text-faint)] focus:outline-none transition-colors ${emailError ? "border-red-500/60" : "border-[var(--c-border)] focus:border-[var(--c-accent)]"}`}
+                  className={`h-[48px] bg-[var(--c-bg-elev)] border px-4 font-ibm-mono text-[13px] text-[var(--c-text)] placeholder-[var(--c-text-faint)] focus:outline-none transition-colors ${emailError ? "border-red-500/60" : "border-[var(--c-border)] focus:border-[var(--c-accent)]"}`}
                 />
-                {emailError && <span className="font-ibm-mono text-[8px] text-red-400 tracking-[0.5px]">{emailError}</span>}
+                {emailError && <span className="font-ibm-mono text-[9px] text-red-400 tracking-[0.5px]">{emailError}</span>}
               </div>
               <button type="submit" disabled={loading} className="h-[52px] bg-[var(--c-accent)] hover:bg-[var(--c-accent-hover)] disabled:opacity-50 transition-colors flex items-center justify-center gap-3">
                 {loading && <div className="w-[14px] h-[14px] border-2 border-[var(--c-text)]/30 border-t-[var(--c-text)] rounded-full animate-spin" />}
-                <span className="font-grotesk text-[12px] font-bold text-[var(--c-text)] tracking-[2px]">{isEn ? "SEND RESET LINK" : "ማገናኛ ላክ"}</span>
+                <span className="font-grotesk text-[13px] font-bold text-[var(--c-text)] tracking-[2px]">{isEn ? "SEND RESET LINK" : "ማገናኛ ላክ"}</span>
               </button>
             </form>
           </>
@@ -130,8 +130,8 @@ export default function ForgotPasswordPage() {
         {stage === "sent" && (
           <div className="flex flex-col gap-6">
             <div>
-              <p className="font-ibm-mono text-[9px] text-[var(--c-accent)] tracking-[2px] mb-2">[AUTH] // CHECK YOUR EMAIL</p>
-              <h1 className="font-grotesk text-[24px] font-bold text-[var(--c-text)] tracking-[-0.5px]">
+              <p className="font-ibm-mono text-[10px] text-[var(--c-accent)] tracking-[2px] mb-2">[AUTH] // CHECK YOUR EMAIL</p>
+              <h1 className="font-grotesk text-[25px] font-bold text-[var(--c-text)] tracking-[-0.5px]">
                 {isEn ? "RESET LINK SENT" : "ማገናኛ ተልኳል"}
               </h1>
             </div>
@@ -141,12 +141,12 @@ export default function ForgotPasswordPage() {
                 <path d="M1 4l9 8 9-8" stroke="currentColor" strokeWidth="1.4" strokeLinecap="square" />
               </svg>
               <div>
-                <p className="font-ibm-mono text-[10px] text-[var(--c-text)] tracking-[0.5px] leading-[1.8]">
+                <p className="font-ibm-mono text-[11px] text-[var(--c-text)] tracking-[0.5px] leading-[1.8]">
                   {isEn
                     ? `A SECURE RESET LINK HAS BEEN SENT TO ${email}. CHECK YOUR INBOX AND SPAM FOLDER.`
                     : `ደህንነቱ የተጠበቀ ማገናኛ ወደ ${email} ተልኳል።`}
                 </p>
-                <p className="font-ibm-mono text-[8px] text-[var(--c-text-dim)] tracking-[0.5px] mt-2">
+                <p className="font-ibm-mono text-[9px] text-[var(--c-text-dim)] tracking-[0.5px] mt-2">
                   {isEn ? "LINK EXPIRES IN 30 MINUTES" : "ማገናኛው በ30 ደቂቃ ውስጥ ያበቃል"}
                 </p>
               </div>
@@ -156,11 +156,11 @@ export default function ForgotPasswordPage() {
               onClick={() => setStage("reset")}
               className="flex items-center justify-center h-[48px] border-2 border-[var(--c-border)] hover:border-[var(--c-accent)] transition-colors"
             >
-              <span className="font-ibm-mono text-[9px] text-[var(--c-text-sub)] hover:text-[var(--c-accent)] tracking-[1.5px] transition-colors">
+              <span className="font-ibm-mono text-[10px] text-[var(--c-text-sub)] hover:text-[var(--c-accent)] tracking-[1.5px] transition-colors">
                 {isEn ? "SIMULATE: OPEN RESET LINK" : "ምሳሌ: ማገናኛ ክፈት"}
               </span>
             </button>
-            <button onClick={() => setStage("request")} className="font-ibm-mono text-[8px] text-[var(--c-text-dim)] hover:text-[var(--c-accent)] tracking-[1px] transition-colors text-center">
+            <button onClick={() => setStage("request")} className="font-ibm-mono text-[9px] text-[var(--c-text-dim)] hover:text-[var(--c-accent)] tracking-[1px] transition-colors text-center">
               {isEn ? "BACK / USE DIFFERENT EMAIL" : "ተመለስ / ሌላ ኢሜይል ተጠቀም"}
             </button>
           </div>
@@ -170,8 +170,8 @@ export default function ForgotPasswordPage() {
         {stage === "reset" && (
           <>
             <div>
-              <p className="font-ibm-mono text-[9px] text-[var(--c-accent)] tracking-[2px] mb-2">[AUTH] // SET NEW PASSWORD</p>
-              <h1 className="font-grotesk text-[24px] font-bold text-[var(--c-text)] tracking-[-0.5px]">
+              <p className="font-ibm-mono text-[10px] text-[var(--c-accent)] tracking-[2px] mb-2">[AUTH] // SET NEW PASSWORD</p>
+              <h1 className="font-grotesk text-[25px] font-bold text-[var(--c-text)] tracking-[-0.5px]">
                 {isEn ? "CREATE NEW PASSWORD" : "አዲስ የምስጢር ቃል ፍጠር"}
               </h1>
             </div>
@@ -181,26 +181,26 @@ export default function ForgotPasswordPage() {
                 { label: isEn ? "CONFIRM PASSWORD" : "ያረጋግጡ", val: confirmPassword, set: setConfirmPassword },
               ].map((f) => (
                 <div key={f.label} className="flex flex-col gap-2">
-                  <label className="font-ibm-mono text-[9px] text-[#666] tracking-[1.5px]">{f.label}</label>
+                  <label className="font-ibm-mono text-[10px] text-[#666] tracking-[1.5px]">{f.label}</label>
                   <input
                     type="password"
                     value={f.val}
                     onChange={(e) => { f.set(e.target.value); setPassError(""); }}
                     placeholder="••••••••••••"
-                    className="h-[48px] bg-[var(--c-bg-elev)] border border-[var(--c-border)] px-4 font-ibm-mono text-[12px] text-[var(--c-text)] placeholder-[var(--c-text-faint)] focus:outline-none focus:border-[var(--c-accent)] transition-colors"
+                    className="h-[48px] bg-[var(--c-bg-elev)] border border-[var(--c-border)] px-4 font-ibm-mono text-[13px] text-[var(--c-text)] placeholder-[var(--c-text-faint)] focus:outline-none focus:border-[var(--c-accent)] transition-colors"
                   />
                 </div>
               ))}
-              {passError && <span className="font-ibm-mono text-[8px] text-red-400 tracking-[0.5px]">{passError}</span>}
+              {passError && <span className="font-ibm-mono text-[9px] text-red-400 tracking-[0.5px]">{passError}</span>}
               <button type="submit" disabled={loading} className="h-[52px] bg-[var(--c-accent)] hover:bg-[var(--c-accent-hover)] disabled:opacity-50 transition-colors flex items-center justify-center gap-3">
                 {loading && <div className="w-[14px] h-[14px] border-2 border-[var(--c-text)]/30 border-t-[var(--c-text)] rounded-full animate-spin" />}
-                <span className="font-grotesk text-[12px] font-bold text-[var(--c-text)] tracking-[2px]">{isEn ? "UPDATE PASSWORD" : "የምስጢር ቃሉን ዘምን"}</span>
+                <span className="font-grotesk text-[13px] font-bold text-[var(--c-text)] tracking-[2px]">{isEn ? "UPDATE PASSWORD" : "የምስጢር ቃሉን ዘምን"}</span>
               </button>
             </form>
           </>
         )}
 
-        <Link href="/login" className="font-ibm-mono text-[8px] text-[var(--c-text-dim)] hover:text-[var(--c-accent)] tracking-[1px] transition-colors text-center">
+        <Link href="/login" className="font-ibm-mono text-[9px] text-[var(--c-text-dim)] hover:text-[var(--c-accent)] tracking-[1px] transition-colors text-center">
           {isEn ? "BACK TO LOGIN" : "ወደ ግቤት ተመለስ"}
         </Link>
       </div>

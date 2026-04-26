@@ -10,10 +10,10 @@ const rows = [
 ];
 
 function cellStyle(val: string) {
-  if (val === "[✓]") return "font-bold text-[14px]";
-  if (val === "[✗]") return "text-[#3D3D3D] text-[13px]";
-  if (val === "[—]") return "text-[var(--c-text-dim)] text-[13px]";
-  return "text-[var(--c-text-dim)] text-[10px]";
+  if (val === "[✓]") return "font-bold text-[15px]";
+  if (val === "[✗]") return "text-[#3D3D3D] text-[14px]";
+  if (val === "[—]") return "text-[var(--c-text-dim)] text-[14px]";
+  return "text-[var(--c-text-dim)] text-[11px]";
 }
 
 function cellColor(val: string) {
@@ -35,14 +35,14 @@ export default function Comparison() {
         {/* Header */}
         <div className="flex w-full h-[56px] bg-[var(--c-bg-soft)] border-b-2 border-b-[var(--c-accent)]">
           <div className="flex items-center w-[400px] shrink-0 px-[32px] border-r border-r-[var(--c-border)]">
-            <span className="font-grotesk text-[11px] font-bold text-[var(--c-text-sub)] tracking-[2px]">FEATURE</span>
+            <span className="font-grotesk text-[12px] font-bold text-[var(--c-text-sub)] tracking-[2px]">FEATURE</span>
           </div>
           <div className="flex items-center flex-1 px-[32px] bg-[var(--c-bg-muted)] border-r border-r-[var(--c-border)]">
-            <span className="font-grotesk text-[11px] font-bold text-[var(--c-accent)] tracking-[2px]">PIXELCRAFT</span>
+            <span className="font-grotesk text-[12px] font-bold text-[var(--c-accent)] tracking-[2px]">PIXELCRAFT</span>
           </div>
           {["FIGMA", "SKETCH", "FRAMER"].map((tool, i) => (
             <div key={tool} className={`flex items-center flex-1 px-[32px] ${i < 2 ? "border-r border-r-[var(--c-border)]" : ""}`}>
-              <span className="font-grotesk text-[11px] font-bold text-[var(--c-text-muted)] tracking-[2px]">{tool}</span>
+              <span className="font-grotesk text-[12px] font-bold text-[var(--c-text-muted)] tracking-[2px]">{tool}</span>
             </div>
           ))}
         </div>
@@ -51,10 +51,10 @@ export default function Comparison() {
         {rows.map((row, i) => (
           <div key={row.feature} className={`flex w-full h-[56px] ${i < rows.length - 1 ? "border-b border-b-[var(--c-border-soft)]" : ""}`}>
             <div className="flex items-center w-[400px] shrink-0 px-[32px] border-r border-r-[var(--c-border)]">
-              <span className="font-ibm-mono text-[12px] text-[#CCCCCC] tracking-[1px]">{row.feature}</span>
+              <span className="font-ibm-mono text-[13px] text-[#CCCCCC] tracking-[1px]">{row.feature}</span>
             </div>
             <div className="flex items-center flex-1 px-[32px] bg-[var(--c-bg-elev)] border-r border-r-[var(--c-border)]">
-              <span className="font-ibm-mono tracking-[1px] text-[var(--c-accent)] font-bold text-[14px]">{row.pc}</span>
+              <span className="font-ibm-mono tracking-[1px] text-[var(--c-accent)] font-bold text-[15px]">{row.pc}</span>
             </div>
             {[row.figma, row.sketch, row.framer].map((val, j) => (
               <div key={j} className={`flex items-center flex-1 px-[32px] ${j < 2 ? "border-r border-r-[var(--c-border)]" : ""}`}>
@@ -70,31 +70,31 @@ export default function Comparison() {
         {/* Header row */}
         <div className="grid grid-cols-5 bg-[var(--c-bg-soft)] border border-[var(--c-accent)] border-b-2">
           <div className="col-span-2 px-3 py-3">
-            <span className="font-grotesk text-[9px] font-bold text-[var(--c-text-sub)] tracking-[1px]">FEATURE</span>
+            <span className="font-grotesk text-[10px] font-bold text-[var(--c-text-sub)] tracking-[1px]">FEATURE</span>
           </div>
           <div className="px-2 py-3 bg-[var(--c-bg-muted)]">
-            <span className="font-grotesk text-[9px] font-bold text-[var(--c-accent)] tracking-[1px]">PC</span>
+            <span className="font-grotesk text-[10px] font-bold text-[var(--c-accent)] tracking-[1px]">PC</span>
           </div>
           <div className="px-2 py-3">
-            <span className="font-grotesk text-[9px] font-bold text-[var(--c-text-muted)] tracking-[1px]">FIG</span>
+            <span className="font-grotesk text-[10px] font-bold text-[var(--c-text-muted)] tracking-[1px]">FIG</span>
           </div>
           <div className="px-2 py-3">
-            <span className="font-grotesk text-[9px] font-bold text-[var(--c-text-muted)] tracking-[1px]">SKT</span>
+            <span className="font-grotesk text-[10px] font-bold text-[var(--c-text-muted)] tracking-[1px]">SKT</span>
           </div>
         </div>
         {rows.map((row, i) => (
           <div key={row.feature} className={`grid grid-cols-5 border border-[var(--c-border-soft)] ${i % 2 === 0 ? "bg-[var(--c-bg)]" : "bg-[var(--c-bg-elev)]"}`}>
             <div className="col-span-2 flex items-center px-3 py-4">
-              <span className="font-ibm-mono text-[9px] text-[#CCCCCC] tracking-[1px] leading-[1.4]">{row.feature}</span>
+              <span className="font-ibm-mono text-[10px] text-[#CCCCCC] tracking-[1px] leading-[1.4]">{row.feature}</span>
             </div>
             <div className="flex items-center px-2 py-4 bg-[var(--c-bg-elev)]">
-              <span className="font-ibm-mono text-[12px] text-[var(--c-accent)] font-bold">{row.pc}</span>
+              <span className="font-ibm-mono text-[13px] text-[var(--c-accent)] font-bold">{row.pc}</span>
             </div>
             <div className="flex items-center px-2 py-4">
-              <span className={`font-ibm-mono text-[11px] ${cellColor(row.figma)}`}>{row.figma}</span>
+              <span className={`font-ibm-mono text-[12px] ${cellColor(row.figma)}`}>{row.figma}</span>
             </div>
             <div className="flex items-center px-2 py-4">
-              <span className={`font-ibm-mono text-[11px] ${cellColor(row.sketch)}`}>{row.sketch}</span>
+              <span className={`font-ibm-mono text-[12px] ${cellColor(row.sketch)}`}>{row.sketch}</span>
             </div>
           </div>
         ))}

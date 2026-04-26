@@ -81,11 +81,11 @@ export default function CandidateDashboard() {
 
       {/* Page Header */}
       <div className="flex flex-col gap-1">
-        <span className="font-ibm-mono text-[9px] text-[var(--c-text-dim)] tracking-[2px]">[01] // MY DASHBOARD</span>
-        <h1 className="font-grotesk text-[24px] md:text-[32px] font-bold text-[var(--c-text)] tracking-[-1px]">
+        <span className="font-ibm-mono text-[10px] text-[var(--c-text-dim)] tracking-[2px]">[01] // MY DASHBOARD</span>
+        <h1 className="font-grotesk text-[25px] md:text-[33px] font-bold text-[var(--c-text)] tracking-[-1px]">
           {lang === "EN" ? "Application Control Center" : "የማመልከቻ መቆጣጠሪያ ማዕከል"}
         </h1>
-        <p className="font-ibm-mono text-[10px] text-[var(--c-text-muted)] tracking-[0.5px]">
+        <p className="font-ibm-mono text-[11px] text-[var(--c-text-muted)] tracking-[0.5px]">
           {lang === "EN" ? "Real-time status of your applications and AI-parsed skill profile." : "የእርስዎ ማመልከቻዎች እና የ AI የተተነተነ ክህሎት መገለጫ ሁኔታ።"}
         </p>
       </div>
@@ -97,19 +97,19 @@ export default function CandidateDashboard() {
             <div className="w-[3px] h-[40px] bg-[var(--c-accent)]" />
             <div className="flex flex-col gap-1">
               <div className="flex items-center gap-2">
-                <span className="font-ibm-mono text-[7px] text-[var(--c-accent)] bg-[var(--c-accent)]/10 px-2 py-[2px] tracking-[1px]">
+                <span className="font-ibm-mono text-[8px] text-[var(--c-accent)] bg-[var(--c-accent)]/10 px-2 py-[2px] tracking-[1px]">
                   {action.priority} PRIORITY
                 </span>
-                <span className="font-ibm-mono text-[7px] text-[var(--c-text-dim)] tracking-[1px]">ACTION REQUIRED</span>
+                <span className="font-ibm-mono text-[8px] text-[var(--c-text-dim)] tracking-[1px]">ACTION REQUIRED</span>
               </div>
-              <span className="font-grotesk text-[14px] font-bold text-[var(--c-text)]">{action.title}</span>
-              <span className="font-ibm-mono text-[9px] text-[var(--c-text-muted)]">{action.desc}</span>
+              <span className="font-grotesk text-[15px] font-bold text-[var(--c-text)]">{action.title}</span>
+              <span className="font-ibm-mono text-[10px] text-[var(--c-text-muted)]">{action.desc}</span>
             </div>
           </div>
           <div className="md:ml-auto shrink-0">
             <Link
               href={action.href}
-              className="inline-flex items-center justify-center px-6 h-[40px] bg-[var(--c-accent)] font-ibm-mono text-[9px] font-bold text-[var(--c-text)] tracking-[1.5px] hover:bg-[var(--c-accent-hover)] transition-colors"
+              className="inline-flex items-center justify-center px-6 h-[40px] bg-[var(--c-accent)] font-ibm-mono text-[10px] font-bold text-[var(--c-text)] tracking-[1.5px] hover:bg-[var(--c-accent-hover)] transition-colors"
             >
               {action.cta}
             </Link>
@@ -121,7 +121,7 @@ export default function CandidateDashboard() {
       <div>
         <div className="flex items-center gap-3 mb-5">
           <div className="w-[3px] h-[14px] bg-[var(--c-accent)] shrink-0" />
-          <span className="font-ibm-mono text-[9px] text-[var(--c-text-sub)] tracking-[2px]">APPLICATION PULSE</span>
+          <span className="font-ibm-mono text-[10px] text-[var(--c-text-sub)] tracking-[2px]">APPLICATION PULSE</span>
         </div>
         <div className="flex flex-col gap-[1px] bg-[var(--c-border-soft)]">
           {applications.map((app) => (
@@ -129,14 +129,14 @@ export default function CandidateDashboard() {
               {/* App header */}
               <div className="flex items-start justify-between gap-4">
                 <div className="flex flex-col gap-[3px]">
-                  <span className="font-grotesk text-[14px] font-bold text-[var(--c-text)]">{app.role}</span>
+                  <span className="font-grotesk text-[15px] font-bold text-[var(--c-text)]">{app.role}</span>
                   <div className="flex items-center gap-3">
-                    <span className="font-ibm-mono text-[8px] text-[var(--c-text-dim)] tracking-[1px]">{app.department}</span>
+                    <span className="font-ibm-mono text-[9px] text-[var(--c-text-dim)] tracking-[1px]">{app.department}</span>
                     <div className="w-[1px] h-[10px] bg-[var(--c-border)]" />
-                    <span className="font-ibm-mono text-[8px] text-[var(--c-text-dim)] tracking-[1px]">APPLIED {app.appliedDate.toUpperCase()}</span>
+                    <span className="font-ibm-mono text-[9px] text-[var(--c-text-dim)] tracking-[1px]">APPLIED {app.appliedDate.toUpperCase()}</span>
                   </div>
                 </div>
-                <span className="font-ibm-mono text-[8px] text-[var(--c-text-faint)] tracking-[1px] shrink-0">{app.id}</span>
+                <span className="font-ibm-mono text-[9px] text-[var(--c-text-faint)] tracking-[1px] shrink-0">{app.id}</span>
               </div>
 
               {/* Timeline steps */}
@@ -159,7 +159,7 @@ export default function CandidateDashboard() {
                         {step.active && <div className="w-[6px] h-[6px] bg-[var(--c-accent)] animate-pulse" />}
                       </div>
                       <span
-                        className="font-ibm-mono text-[6px] text-center tracking-[0.5px] whitespace-nowrap"
+                        className="font-ibm-mono text-[7px] text-center tracking-[0.5px] whitespace-nowrap"
                         style={{ color: step.done ? "var(--c-accent)" : step.active ? "var(--c-accent)" : "var(--c-text-faint)" }}
                       >
                         {step.label}
@@ -181,15 +181,15 @@ export default function CandidateDashboard() {
         <div className="flex items-center gap-3 mb-5">
           <div className="w-[3px] h-[14px] bg-[var(--c-accent)] shrink-0" />
           <div className="flex flex-col gap-[2px]">
-            <span className="font-ibm-mono text-[9px] text-[var(--c-text-sub)] tracking-[2px]">AI SKILL SUMMARY</span>
-            <span className="font-ibm-mono text-[7px] text-[var(--c-text-faint)] tracking-[1px]">WHAT THE SYSTEM SEES IN YOUR PROFILE</span>
+            <span className="font-ibm-mono text-[10px] text-[var(--c-text-sub)] tracking-[2px]">AI SKILL SUMMARY</span>
+            <span className="font-ibm-mono text-[8px] text-[var(--c-text-faint)] tracking-[1px]">WHAT THE SYSTEM SEES IN YOUR PROFILE</span>
           </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-[1px] bg-[var(--c-border-soft)]">
           {/* Tag cloud */}
           <div className="bg-[var(--c-bg-elev)] p-5 flex flex-col gap-4">
-            <span className="font-ibm-mono text-[8px] text-[var(--c-text-dim)] tracking-[1.5px]">EXTRACTED TERMS</span>
+            <span className="font-ibm-mono text-[9px] text-[var(--c-text-dim)] tracking-[1.5px]">EXTRACTED TERMS</span>
             <div className="flex flex-wrap gap-[1px] bg-[var(--c-border-soft)]">
               {skills.map((s) => (
                 <div
@@ -197,7 +197,7 @@ export default function CandidateDashboard() {
                   className="flex items-center gap-2 bg-[var(--c-bg-elev)] px-3 py-2"
                 >
                   <div className="w-[4px] h-[4px] rounded-full shrink-0" style={{ background: categoryColor(s.category) }} />
-                  <span className="font-ibm-mono text-[8px] tracking-[0.5px]" style={{ color: categoryColor(s.category) }}>
+                  <span className="font-ibm-mono text-[9px] tracking-[0.5px]" style={{ color: categoryColor(s.category) }}>
                     {s.term}
                   </span>
                 </div>
@@ -207,7 +207,7 @@ export default function CandidateDashboard() {
               {["Certification", "Technical", "Soft Skill"].map((cat) => (
                 <div key={cat} className="flex items-center gap-[5px]">
                   <div className="w-[6px] h-[6px] rounded-full" style={{ background: categoryColor(cat) }} />
-                  <span className="font-ibm-mono text-[7px] text-[var(--c-text-dim)]">{cat.toUpperCase()}</span>
+                  <span className="font-ibm-mono text-[8px] text-[var(--c-text-dim)]">{cat.toUpperCase()}</span>
                 </div>
               ))}
             </div>
@@ -215,7 +215,7 @@ export default function CandidateDashboard() {
 
           {/* Bar chart of skill weights */}
           <div className="bg-[var(--c-bg-elev)] p-5 flex flex-col gap-4">
-            <span className="font-ibm-mono text-[8px] text-[var(--c-text-dim)] tracking-[1.5px]">TERM RELEVANCE WEIGHTS</span>
+            <span className="font-ibm-mono text-[9px] text-[var(--c-text-dim)] tracking-[1.5px]">TERM RELEVANCE WEIGHTS</span>
             <ResponsiveContainer width="100%" height={200}>
               <BarChart data={skillChartData} layout="vertical" barSize={8} margin={{ left: 0, right: 20 }}>
                 <XAxis type="number" domain={[0, 100]} hide />
@@ -249,10 +249,10 @@ export default function CandidateDashboard() {
             href={link.href}
             className="flex flex-col gap-2 p-5 bg-[var(--c-bg-elev)] hover:bg-[var(--c-bg)] transition-colors group"
           >
-            <span className="font-ibm-mono text-[8px] text-[var(--c-text-muted)] group-hover:text-[var(--c-accent)] tracking-[1.5px] transition-colors">
+            <span className="font-ibm-mono text-[9px] text-[var(--c-text-muted)] group-hover:text-[var(--c-accent)] tracking-[1.5px] transition-colors">
               {link.label} /
             </span>
-            <span className="font-ibm-mono text-[7px] text-[var(--c-text-faint)] tracking-[0.5px]">{link.sub}</span>
+            <span className="font-ibm-mono text-[8px] text-[var(--c-text-faint)] tracking-[0.5px]">{link.sub}</span>
           </Link>
         ))}
       </div>

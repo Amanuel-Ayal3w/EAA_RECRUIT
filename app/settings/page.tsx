@@ -14,7 +14,7 @@ function SaveToast({ visible }: { visible: boolean }) {
   return (
     <div className={`fixed bottom-6 right-6 z-50 flex items-center gap-3 px-5 py-4 bg-[var(--c-bg-elev)] border border-[var(--c-accent)]/40 transition-all duration-300 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"}`}>
       <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="var(--c-accent)" strokeWidth="1.5" strokeLinecap="square" /></svg>
-      <span className="font-ibm-mono text-[9px] text-[var(--c-accent)] tracking-[1.5px]">CHANGES SAVED</span>
+      <span className="font-ibm-mono text-[10px] text-[var(--c-accent)] tracking-[1.5px]">CHANGES SAVED</span>
     </div>
   );
 }
@@ -23,8 +23,8 @@ function SettingRow({ label, desc, children }: { label: string; desc?: string; c
   return (
     <div className="flex items-start justify-between gap-6 py-5 border-b border-[var(--c-border-soft)]">
       <div className="flex flex-col gap-1 min-w-0">
-        <span className="font-ibm-mono text-[10px] font-bold text-[var(--c-text)] tracking-[1px]">{label}</span>
-        {desc && <span className="font-ibm-mono text-[8px] text-[var(--c-text-dim)] tracking-[0.5px] leading-[1.7]">{desc}</span>}
+        <span className="font-ibm-mono text-[11px] font-bold text-[var(--c-text)] tracking-[1px]">{label}</span>
+        {desc && <span className="font-ibm-mono text-[9px] text-[var(--c-text-dim)] tracking-[0.5px] leading-[1.7]">{desc}</span>}
       </div>
       <div className="shrink-0">{children}</div>
     </div>
@@ -117,23 +117,23 @@ export default function SettingsPage() {
 
         {/* Header */}
         <div className="mb-8">
-          <p className="font-ibm-mono text-[9px] text-[var(--c-accent)] tracking-[2px] mb-2">[USER] // ACCOUNT SETTINGS</p>
-          <h1 className="font-grotesk text-[28px] font-bold text-[var(--c-text)] tracking-[-0.5px]">SETTINGS</h1>
-          <p className="font-ibm-mono text-[9px] text-[var(--c-text-dim)] tracking-[1px] mt-1">MANAGE YOUR ACCOUNT, SECURITY, AND PREFERENCES</p>
+          <p className="font-ibm-mono text-[10px] text-[var(--c-accent)] tracking-[2px] mb-2">[USER] // ACCOUNT SETTINGS</p>
+          <h1 className="font-grotesk text-[29px] font-bold text-[var(--c-text)] tracking-[-0.5px]">SETTINGS</h1>
+          <p className="font-ibm-mono text-[10px] text-[var(--c-text-dim)] tracking-[1px] mt-1">MANAGE YOUR ACCOUNT, SECURITY, AND PREFERENCES</p>
         </div>
 
         {/* Role badge */}
         <div className="flex items-center gap-3 mb-8 p-4 border border-[var(--c-border-soft)] bg-[var(--c-bg-elev)]">
           <div className="flex items-center justify-center w-[40px] h-[40px] bg-[var(--c-accent)] shrink-0">
-            <span className="font-ibm-mono text-[9px] font-bold text-[var(--c-text)]">AA</span>
+            <span className="font-ibm-mono text-[10px] font-bold text-[var(--c-text)]">AA</span>
           </div>
           <div>
-            <p className="font-ibm-mono text-[10px] font-bold text-[var(--c-text)] tracking-[1px]">AMANUEL AYALEW</p>
-            <p className="font-ibm-mono text-[8px] text-[var(--c-text-muted)] tracking-[0.5px]">candidate@eaa.et // ROLE: CANDIDATE</p>
+            <p className="font-ibm-mono text-[11px] font-bold text-[var(--c-text)] tracking-[1px]">AMANUEL AYALEW</p>
+            <p className="font-ibm-mono text-[9px] text-[var(--c-text-muted)] tracking-[0.5px]">candidate@eaa.et // ROLE: CANDIDATE</p>
           </div>
           <div className="ml-auto flex items-center gap-2">
             <div className="w-[5px] h-[5px] rounded-full bg-[var(--c-accent)]" />
-            <span className="font-ibm-mono text-[8px] text-[var(--c-accent)] tracking-[1px]">ACTIVE</span>
+            <span className="font-ibm-mono text-[9px] text-[var(--c-accent)] tracking-[1px]">ACTIVE</span>
           </div>
         </div>
 
@@ -143,7 +143,7 @@ export default function SettingsPage() {
             <button
               key={t.key}
               onClick={() => setTab(t.key)}
-              className={`px-5 py-[10px] font-ibm-mono text-[8px] tracking-[1.5px] border-b-2 transition-colors -mb-[1px] ${tab === t.key ? "border-[var(--c-accent)] text-[var(--c-accent)]" : "border-transparent text-[var(--c-text-dim)] hover:text-[var(--c-text)]"}`}
+              className={`px-5 py-[10px] font-ibm-mono text-[9px] tracking-[1.5px] border-b-2 transition-colors -mb-[1px] ${tab === t.key ? "border-[var(--c-accent)] text-[var(--c-accent)]" : "border-transparent text-[var(--c-text-dim)] hover:text-[var(--c-text)]"}`}
             >
               {t.label}
             </button>
@@ -157,12 +157,12 @@ export default function SettingsPage() {
               <input
                 value={fullName}
                 onChange={(e) => setFullName(e.target.value)}
-                className="w-[220px] h-[38px] bg-[var(--c-bg-elev)] border border-[var(--c-border)] px-3 font-ibm-mono text-[10px] text-[var(--c-text)] focus:outline-none focus:border-[var(--c-accent)] transition-colors"
+                className="w-[220px] h-[38px] bg-[var(--c-bg-elev)] border border-[var(--c-border)] px-3 font-ibm-mono text-[11px] text-[var(--c-text)] focus:outline-none focus:border-[var(--c-accent)] transition-colors"
               />
             </SettingRow>
             <SettingRow label="EMAIL ADDRESS" desc="Cannot be changed. Contact admin to update.">
               <div className="flex items-center gap-2 h-[38px] px-3 bg-[var(--c-bg-elev)] border border-[var(--c-border-soft)] w-[220px]">
-                <span className="font-ibm-mono text-[10px] text-[var(--c-text-dim)] truncate">{email}</span>
+                <span className="font-ibm-mono text-[11px] text-[var(--c-text-dim)] truncate">{email}</span>
                 <svg width="10" height="10" viewBox="0 0 10 10" fill="none" className="text-[var(--c-text-faint)] shrink-0"><rect x="1" y="3" width="8" height="6" stroke="currentColor" strokeWidth="1.1" /><path d="M3 3V2a2 2 0 0 1 4 0v1" stroke="currentColor" strokeWidth="1.1" /></svg>
               </div>
             </SettingRow>
@@ -170,12 +170,12 @@ export default function SettingsPage() {
               <input
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
-                className="w-[220px] h-[38px] bg-[var(--c-bg-elev)] border border-[var(--c-border)] px-3 font-ibm-mono text-[10px] text-[var(--c-text)] focus:outline-none focus:border-[var(--c-accent)] transition-colors"
+                className="w-[220px] h-[38px] bg-[var(--c-bg-elev)] border border-[var(--c-border)] px-3 font-ibm-mono text-[11px] text-[var(--c-text)] focus:outline-none focus:border-[var(--c-accent)] transition-colors"
               />
             </SettingRow>
             <div className="pt-6">
               <button onClick={save} className="flex items-center justify-center h-[44px] px-8 bg-[var(--c-accent)] hover:bg-[var(--c-accent-hover)] transition-colors">
-                <span className="font-grotesk text-[11px] font-bold text-[var(--c-text)] tracking-[2px]">SAVE CHANGES</span>
+                <span className="font-grotesk text-[12px] font-bold text-[var(--c-text)] tracking-[2px]">SAVE CHANGES</span>
               </button>
             </div>
           </div>
@@ -186,7 +186,7 @@ export default function SettingsPage() {
           <div className="flex flex-col gap-0">
             {/* Change password */}
             <div className="pb-6 border-b border-[var(--c-border-soft)] mb-6">
-              <h2 className="font-ibm-mono text-[9px] font-bold text-[var(--c-text)] tracking-[1.5px] mb-5">CHANGE PASSWORD</h2>
+              <h2 className="font-ibm-mono text-[10px] font-bold text-[var(--c-text)] tracking-[1.5px] mb-5">CHANGE PASSWORD</h2>
               <form onSubmit={handlePasswordChange} className="flex flex-col gap-4 max-w-[400px]">
                 {[
                   { label: "CURRENT PASSWORD", val: currentPass, set: setCurrentPass },
@@ -194,29 +194,29 @@ export default function SettingsPage() {
                   { label: "CONFIRM NEW PASSWORD", val: confirmPass, set: setConfirmPass },
                 ].map((f) => (
                   <div key={f.label} className="flex flex-col gap-2">
-                    <label className="font-ibm-mono text-[8px] text-[var(--c-text-muted)] tracking-[1.5px]">{f.label}</label>
+                    <label className="font-ibm-mono text-[9px] text-[var(--c-text-muted)] tracking-[1.5px]">{f.label}</label>
                     <input
                       type="password"
                       value={f.val}
                       onChange={(e) => { f.set(e.target.value); setPassError(""); }}
                       placeholder="••••••••••••"
-                      className="h-[42px] bg-[var(--c-bg-elev)] border border-[var(--c-border)] px-3 font-ibm-mono text-[11px] text-[var(--c-text)] placeholder-[var(--c-text-faint)] focus:outline-none focus:border-[var(--c-accent)] transition-colors"
+                      className="h-[42px] bg-[var(--c-bg-elev)] border border-[var(--c-border)] px-3 font-ibm-mono text-[12px] text-[var(--c-text)] placeholder-[var(--c-text-faint)] focus:outline-none focus:border-[var(--c-accent)] transition-colors"
                     />
                   </div>
                 ))}
-                {passError && <span className="font-ibm-mono text-[8px] text-red-400 tracking-[0.5px]">{passError}</span>}
+                {passError && <span className="font-ibm-mono text-[9px] text-red-400 tracking-[0.5px]">{passError}</span>}
                 <button type="submit" className="h-[42px] bg-[var(--c-accent)] hover:bg-[var(--c-accent-hover)] transition-colors flex items-center justify-center mt-1">
-                  <span className="font-grotesk text-[11px] font-bold text-[var(--c-text)] tracking-[2px]">UPDATE PASSWORD</span>
+                  <span className="font-grotesk text-[12px] font-bold text-[var(--c-text)] tracking-[2px]">UPDATE PASSWORD</span>
                 </button>
               </form>
             </div>
 
             {/* 2FA */}
             <div className="flex flex-col gap-5">
-              <h2 className="font-ibm-mono text-[9px] font-bold text-[var(--c-text)] tracking-[1.5px]">TWO-FACTOR AUTHENTICATION (2FA)</h2>
+              <h2 className="font-ibm-mono text-[10px] font-bold text-[var(--c-text)] tracking-[1.5px]">TWO-FACTOR AUTHENTICATION (2FA)</h2>
               <div className="flex items-start gap-3 p-4 border border-[var(--c-accent)]/15 bg-[var(--c-accent)]/04">
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="text-[var(--c-accent)] mt-[1px] shrink-0"><path d="M6 1l5 2.5v3.5c0 2.5-5 5-5 5S1 9.5 1 7V3.5L6 1z" stroke="currentColor" strokeWidth="1.2" /></svg>
-                <p className="font-ibm-mono text-[8px] text-[var(--c-text-muted)] tracking-[0.5px] leading-[1.8]">
+                <p className="font-ibm-mono text-[9px] text-[var(--c-text-muted)] tracking-[0.5px] leading-[1.8]">
                   2FA IS REQUIRED FOR ALL ADMIN AND RECRUITER ACCOUNTS UNDER ETHIOPIAN DATA PROTECTION PROCLAMATION NO. 1329/2023.
                 </p>
               </div>
@@ -227,7 +227,7 @@ export default function SettingsPage() {
                 <SettingRow label="2FA METHOD" desc="How you receive your one-time code.">
                   <div className="flex items-center gap-0 border border-[var(--c-border)]">
                     {(["email", "sms"] as const).map((m) => (
-                      <button key={m} onClick={() => { setTwoFAMethod(m); save(); }} className={`px-4 py-[7px] font-ibm-mono text-[8px] tracking-[1px] transition-colors ${twoFAMethod === m ? "bg-[var(--c-accent)] text-[var(--c-text)] font-bold" : "text-[var(--c-text-muted)] hover:text-[var(--c-text)]"}`}>
+                      <button key={m} onClick={() => { setTwoFAMethod(m); save(); }} className={`px-4 py-[7px] font-ibm-mono text-[9px] tracking-[1px] transition-colors ${twoFAMethod === m ? "bg-[var(--c-accent)] text-[var(--c-text)] font-bold" : "text-[var(--c-text-muted)] hover:text-[var(--c-text)]"}`}>
                         {m.toUpperCase()}
                       </button>
                     ))}
@@ -240,10 +240,10 @@ export default function SettingsPage() {
                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><rect x="1" y="5" width="10" height="7" stroke="var(--c-text-muted)" strokeWidth="1.2" /><path d="M3 5V4a3 3 0 0 1 6 0v1" stroke="var(--c-text-muted)" strokeWidth="1.2" strokeLinecap="square" /></svg>
                   </div>
                   <div>
-                    <p className="font-ibm-mono text-[8px] text-[var(--c-text-muted)] tracking-[0.5px]">SESSION TOKEN</p>
-                    <p className="font-ibm-mono text-[7px] text-[var(--c-text-faint)] tracking-[0.3px] mt-0.5">JWT // EXPIRES IN 8 HRS // DEVICE: CHROME/LINUX</p>
+                    <p className="font-ibm-mono text-[9px] text-[var(--c-text-muted)] tracking-[0.5px]">SESSION TOKEN</p>
+                    <p className="font-ibm-mono text-[8px] text-[var(--c-text-faint)] tracking-[0.3px] mt-0.5">JWT // EXPIRES IN 8 HRS // DEVICE: CHROME/LINUX</p>
                   </div>
-                  <button className="ml-auto font-ibm-mono text-[7px] text-[var(--c-warn)] hover:text-red-400 tracking-[1px] transition-colors">REVOKE</button>
+                  <button className="ml-auto font-ibm-mono text-[8px] text-[var(--c-warn)] hover:text-red-400 tracking-[1px] transition-colors">REVOKE</button>
                 </div>
               </div>
             </div>
@@ -256,7 +256,7 @@ export default function SettingsPage() {
             <SettingRow label="INTERFACE LANGUAGE" desc="Sets the display language across all portals.">
               <div className="flex items-center gap-0 border border-[var(--c-border)]">
                 {(["en", "am"] as const).map((l) => (
-                  <button key={l} onClick={() => { setLang(l); save(); }} className={`px-4 py-[7px] font-ibm-mono text-[9px] tracking-[1.5px] transition-colors ${lang === l ? "bg-[var(--c-accent)] text-[var(--c-text)] font-bold" : "text-[var(--c-text-muted)] hover:text-[var(--c-text)]"}`}>
+                  <button key={l} onClick={() => { setLang(l); save(); }} className={`px-4 py-[7px] font-ibm-mono text-[10px] tracking-[1.5px] transition-colors ${lang === l ? "bg-[var(--c-accent)] text-[var(--c-text)] font-bold" : "text-[var(--c-text-muted)] hover:text-[var(--c-text)]"}`}>
                     {l === "en" ? "EN / ENGLISH" : "አማ / AMHARIC"}
                   </button>
                 ))}
@@ -265,14 +265,14 @@ export default function SettingsPage() {
             <SettingRow label="COLOUR THEME" desc="Visual mode for the interface.">
               <div className="flex items-center gap-0 border border-[var(--c-border)]">
                 {(["dark", "light"] as const).map((t) => (
-                  <button key={t} onClick={() => { applyTheme(t); save(); }} className={`px-4 py-[7px] font-ibm-mono text-[9px] tracking-[1.5px] transition-colors ${theme === t ? "bg-[var(--c-accent)] text-[var(--c-text)] font-bold" : "text-[var(--c-text-muted)] hover:text-[var(--c-text)]"}`}>
+                  <button key={t} onClick={() => { applyTheme(t); save(); }} className={`px-4 py-[7px] font-ibm-mono text-[10px] tracking-[1.5px] transition-colors ${theme === t ? "bg-[var(--c-accent)] text-[var(--c-text)] font-bold" : "text-[var(--c-text-muted)] hover:text-[var(--c-text)]"}`}>
                     {t.toUpperCase()}
                   </button>
                 ))}
               </div>
             </SettingRow>
 
-            <h2 className="font-ibm-mono text-[9px] font-bold text-[var(--c-text)] tracking-[1.5px] pt-6 pb-4 border-t border-[var(--c-border-soft)] mt-2">NOTIFICATION PREFERENCES</h2>
+            <h2 className="font-ibm-mono text-[10px] font-bold text-[var(--c-text)] tracking-[1.5px] pt-6 pb-4 border-t border-[var(--c-border-soft)] mt-2">NOTIFICATION PREFERENCES</h2>
             <SettingRow label="EMAIL NOTIFICATIONS" desc="Receive updates via email.">
               <Toggle checked={notifEmail} onChange={() => { setNotifEmail((v) => !v); save(); }} />
             </SettingRow>
@@ -288,7 +288,7 @@ export default function SettingsPage() {
 
             <div className="pt-6 flex items-start gap-3 p-4 border border-[var(--c-border-soft)] bg-[var(--c-bg-elev)] mt-6">
               <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="text-[var(--c-text-dim)] mt-[1px] shrink-0"><circle cx="6" cy="6" r="5" stroke="currentColor" strokeWidth="1.2" /><path d="M6 5v3M6 3.5v.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="square" /></svg>
-              <p className="font-ibm-mono text-[8px] text-[var(--c-text-dim)] tracking-[0.5px] leading-[1.8]">
+              <p className="font-ibm-mono text-[9px] text-[var(--c-text-dim)] tracking-[0.5px] leading-[1.8]">
                 LANGUAGE, THEME, AND NOTIFICATION CHANGES APPLY IMMEDIATELY.
               </p>
             </div>

@@ -64,10 +64,10 @@ function KPICard({
       style={accent ? { borderColor: "var(--c-accent)", background: "rgba(255,214,0,0.03)" } : {}}
     >
       <div className="flex items-center justify-between">
-        <span className="font-ibm-mono text-[9px] text-[var(--c-text-muted)] tracking-[1.5px]">{label}</span>
+        <span className="font-ibm-mono text-[10px] text-[var(--c-text-muted)] tracking-[1.5px]">{label}</span>
         {trend && (
           <span
-            className="font-ibm-mono text-[8px] px-[6px] py-[2px] tracking-[1px]"
+            className="font-ibm-mono text-[9px] px-[6px] py-[2px] tracking-[1px]"
             style={{
               color: trend.startsWith("+") ? "var(--c-accent)" : "var(--c-warn)",
               background: trend.startsWith("+") ? "rgba(255,214,0,0.08)" : "rgba(255,107,53,0.08)",
@@ -78,12 +78,12 @@ function KPICard({
         )}
       </div>
       <span
-        className="font-grotesk text-[36px] font-bold leading-none tracking-[-1px]"
+        className="font-grotesk text-[37px] font-bold leading-none tracking-[-1px]"
         style={{ color: accent ? "var(--c-accent)" : "var(--c-text)" }}
       >
         {value}
       </span>
-      <span className="font-ibm-mono text-[8px] text-[var(--c-text-dim)] tracking-[0.5px]">{sub}</span>
+      <span className="font-ibm-mono text-[9px] text-[var(--c-text-dim)] tracking-[0.5px]">{sub}</span>
     </div>
   );
 }
@@ -92,7 +92,7 @@ function SectionLabel({ children }: { children: string }) {
   return (
     <div className="flex items-center gap-3 mb-4">
       <div className="w-[3px] h-[14px] bg-[var(--c-accent)] shrink-0" />
-      <span className="font-ibm-mono text-[9px] text-[var(--c-text-sub)] tracking-[2px]">{children}</span>
+      <span className="font-ibm-mono text-[10px] text-[var(--c-text-sub)] tracking-[2px]">{children}</span>
     </div>
   );
 }
@@ -114,11 +114,11 @@ export default function AdminDashboard() {
     <div className="p-6 md:p-8 max-w-[1400px] mx-auto">
       {/* Page header */}
       <div className="flex flex-col gap-1 mb-8">
-        <span className="font-ibm-mono text-[9px] text-[var(--c-text-dim)] tracking-[2px]">[01] // DASHBOARD</span>
-        <h1 className="font-grotesk text-[24px] md:text-[32px] font-bold text-[var(--c-text)] tracking-[-1px]">
+        <span className="font-ibm-mono text-[10px] text-[var(--c-text-dim)] tracking-[2px]">[01] // DASHBOARD</span>
+        <h1 className="font-grotesk text-[25px] md:text-[33px] font-bold text-[var(--c-text)] tracking-[-1px]">
           System Overview
         </h1>
-        <p className="font-ibm-mono text-[10px] text-[var(--c-text-muted)] tracking-[0.5px]">
+        <p className="font-ibm-mono text-[11px] text-[var(--c-text-muted)] tracking-[0.5px]">
           Real-time recruitment pulse — EAA Recruit platform
         </p>
       </div>
@@ -193,11 +193,11 @@ export default function AdminDashboard() {
           <div className="flex items-center gap-4 mb-3">
             <div className="flex items-center gap-[6px]">
               <div className="w-[8px] h-[2px] bg-[var(--c-accent)]" />
-              <span className="font-ibm-mono text-[8px] text-[var(--c-text-muted)]">CPU %</span>
+              <span className="font-ibm-mono text-[9px] text-[var(--c-text-muted)]">CPU %</span>
             </div>
             <div className="flex items-center gap-[6px]">
               <div className="w-[8px] h-[2px] bg-[var(--c-warn)]" />
-              <span className="font-ibm-mono text-[8px] text-[var(--c-text-muted)]">RAM %</span>
+              <span className="font-ibm-mono text-[9px] text-[var(--c-text-muted)]">RAM %</span>
             </div>
           </div>
           <ResponsiveContainer width="100%" height={180}>
@@ -254,9 +254,9 @@ export default function AdminDashboard() {
                 <div key={item.name} className="flex items-center justify-between">
                   <div className="flex items-center gap-[8px]">
                     <div className="w-[6px] h-[6px] shrink-0" style={{ background: REGION_COLORS[i] }} />
-                    <span className="font-ibm-mono text-[8px] text-[var(--c-text-muted)] tracking-[1px]">{item.name}</span>
+                    <span className="font-ibm-mono text-[9px] text-[var(--c-text-muted)] tracking-[1px]">{item.name}</span>
                   </div>
-                  <span className="font-ibm-mono text-[8px] text-[var(--c-text)]">{item.value}%</span>
+                  <span className="font-ibm-mono text-[9px] text-[var(--c-text)]">{item.value}%</span>
                 </div>
               ))}
             </div>
@@ -286,8 +286,8 @@ export default function AdminDashboard() {
               {genderData.map((item, i) => (
                 <div key={item.name} className="flex flex-col gap-[4px]">
                   <div className="flex items-center justify-between">
-                    <span className="font-ibm-mono text-[8px] text-[var(--c-text-muted)] tracking-[1px]">{item.name}</span>
-                    <span className="font-ibm-mono text-[8px] text-[var(--c-text)]">{item.value}%</span>
+                    <span className="font-ibm-mono text-[9px] text-[var(--c-text-muted)] tracking-[1px]">{item.name}</span>
+                    <span className="font-ibm-mono text-[9px] text-[var(--c-text)]">{item.value}%</span>
                   </div>
                   <div className="w-full h-[3px] bg-[var(--c-bg-muted)]">
                     <div
@@ -297,7 +297,7 @@ export default function AdminDashboard() {
                   </div>
                 </div>
               ))}
-              <p className="font-ibm-mono text-[7px] text-[var(--c-text-faint)] tracking-[0.5px] mt-2">
+              <p className="font-ibm-mono text-[8px] text-[var(--c-text-faint)] tracking-[0.5px] mt-2">
                 Monitored for fairness compliance per EEO mandate
               </p>
             </div>

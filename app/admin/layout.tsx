@@ -91,17 +91,17 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           {!collapsed && (
             <div className="flex items-center gap-[8px]">
               <div className="flex items-center justify-center w-[28px] h-[28px] bg-[var(--c-accent)] shrink-0">
-                <span className="font-ibm-mono text-[8px] font-bold text-[var(--c-text)] tracking-[1px]">EAA</span>
+                <span className="font-ibm-mono text-[9px] font-bold text-[var(--c-text)] tracking-[1px]">EAA</span>
               </div>
               <div className="flex flex-col leading-none">
-                <span className="font-ibm-mono text-[9px] font-bold text-[var(--c-text)] tracking-[2px]">ADMIN</span>
-                <span className="font-ibm-mono text-[7px] text-[var(--c-text-muted)] tracking-[1px]">PORTAL</span>
+                <span className="font-ibm-mono text-[10px] font-bold text-[var(--c-text)] tracking-[2px]">ADMIN</span>
+                <span className="font-ibm-mono text-[8px] text-[var(--c-text-muted)] tracking-[1px]">PORTAL</span>
               </div>
             </div>
           )}
           {collapsed && (
             <div className="flex items-center justify-center w-[28px] h-[28px] bg-[var(--c-accent)] mx-auto">
-              <span className="font-ibm-mono text-[7px] font-bold text-[var(--c-text)]">E</span>
+              <span className="font-ibm-mono text-[8px] font-bold text-[var(--c-text)]">E</span>
             </div>
           )}
           <button
@@ -124,7 +124,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           <div className="px-4 pt-4">
             <div className="flex items-center gap-[6px] px-3 py-[6px] bg-[var(--c-accent)]/05 border border-[var(--c-accent)]/15">
               <div className="w-[5px] h-[5px] rounded-full bg-[var(--c-accent)] animate-pulse shrink-0" />
-              <span className="font-ibm-mono text-[8px] text-[var(--c-accent)] tracking-[1px]">SYSTEM ONLINE</span>
+              <span className="font-ibm-mono text-[9px] text-[var(--c-accent)] tracking-[1px]">SYSTEM ONLINE</span>
             </div>
           </div>
         )}
@@ -151,7 +151,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                 )}
                 <span className="shrink-0">{item.icon}</span>
                 {!collapsed && (
-                  <span className="font-ibm-mono text-[9px] tracking-[1.5px] whitespace-nowrap">
+                  <span className="font-ibm-mono text-[10px] tracking-[1.5px] whitespace-nowrap">
                     {item.label}
                   </span>
                 )}
@@ -166,16 +166,16 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             <div className="flex flex-col gap-[6px]">
               <div className="flex items-center gap-[8px]">
                 <div className="w-[26px] h-[26px] bg-[var(--c-bg-muted)] border border-[var(--c-border)] flex items-center justify-center shrink-0">
-                  <span className="font-ibm-mono text-[8px] text-[var(--c-text-sub)]">AD</span>
+                  <span className="font-ibm-mono text-[9px] text-[var(--c-text-sub)]">AD</span>
                 </div>
                 <div className="flex flex-col leading-none min-w-0">
-                  <span className="font-ibm-mono text-[9px] text-[var(--c-text)] tracking-[1px] truncate">ADMIN USER</span>
-                  <span className="font-ibm-mono text-[7px] text-[var(--c-text-dim)] tracking-[0.5px]">admin@eaa.et</span>
+                  <span className="font-ibm-mono text-[10px] text-[var(--c-text)] tracking-[1px] truncate">ADMIN USER</span>
+                  <span className="font-ibm-mono text-[8px] text-[var(--c-text-dim)] tracking-[0.5px]">admin@eaa.et</span>
                 </div>
               </div>
               <Link
                 href="/"
-                className="font-ibm-mono text-[8px] text-[var(--c-text-dim)] hover:text-[var(--c-accent)] tracking-[1px] transition-colors mt-1"
+                className="font-ibm-mono text-[9px] text-[var(--c-text-dim)] hover:text-[var(--c-accent)] tracking-[1px] transition-colors mt-1"
               >
                 BACK TO SITE /
               </Link>
@@ -198,18 +198,18 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                 <path d="M2 4h14M2 9h14M2 14h14" stroke="currentColor" strokeWidth="1.4" strokeLinecap="square" />
               </svg>
             </button>
-            <span className="font-ibm-mono text-[9px] text-[var(--c-text-dim)] tracking-[1.5px]">
+            <span className="font-ibm-mono text-[10px] text-[var(--c-text-dim)] tracking-[1.5px]">
               EAA RECRUIT / ADMIN PORTAL
             </span>
           </div>
           <div className="flex items-center gap-[20px]">
-            <div className="font-ibm-mono text-[8px] text-[var(--c-text-dim)] tracking-[1px]">
+            <div className="font-ibm-mono text-[9px] text-[var(--c-text-dim)] tracking-[1px]">
               {new Date().toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" }).toUpperCase()}
             </div>
             <div className="w-[1px] h-[16px] bg-[var(--c-border-soft)]" />
             <div className="flex items-center gap-[6px]">
               <div className="w-[5px] h-[5px] rounded-full bg-[var(--c-accent)]" />
-              <span className="font-ibm-mono text-[8px] text-[var(--c-accent)] tracking-[1px]">LIVE</span>
+              <span className="font-ibm-mono text-[9px] text-[var(--c-accent)] tracking-[1px]">LIVE</span>
             </div>
           </div>
         </header>

@@ -38,7 +38,7 @@ function SectionLabel({ children }: { children: string }) {
   return (
     <div className="flex items-center gap-3 mb-4">
       <div className="w-[3px] h-[14px] bg-[var(--c-accent)] shrink-0" />
-      <span className="font-ibm-mono text-[9px] text-[var(--c-text-sub)] tracking-[2px]">{children}</span>
+      <span className="font-ibm-mono text-[10px] text-[var(--c-text-sub)] tracking-[2px]">{children}</span>
     </div>
   );
 }
@@ -56,7 +56,7 @@ function FunnelBar({ applicants, shortlisted, examReady }: { applicants: number;
           <div className="w-full h-[4px] bg-[var(--c-bg-muted)] flex-1">
             <div className="h-full transition-all" style={{ width: `${(count / max) * 100}%`, background: color }} />
           </div>
-          <span className="font-ibm-mono text-[7px] text-[var(--c-text-dim)] w-[28px] text-right shrink-0">{count}</span>
+          <span className="font-ibm-mono text-[8px] text-[var(--c-text-dim)] w-[28px] text-right shrink-0">{count}</span>
         </div>
       ))}
     </div>
@@ -86,15 +86,15 @@ export default function JobsPage() {
       {/* Page header */}
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
         <div className="flex flex-col gap-1">
-          <span className="font-ibm-mono text-[9px] text-[var(--c-text-dim)] tracking-[2px]">[03] // JOB OVERSIGHT</span>
-          <h1 className="font-grotesk text-[24px] md:text-[32px] font-bold text-[var(--c-text)] tracking-[-1px]">
+          <span className="font-ibm-mono text-[10px] text-[var(--c-text-dim)] tracking-[2px]">[03] // JOB OVERSIGHT</span>
+          <h1 className="font-grotesk text-[25px] md:text-[33px] font-bold text-[var(--c-text)] tracking-[-1px]">
             Active Vacancies
           </h1>
-          <p className="font-ibm-mono text-[10px] text-[var(--c-text-muted)] tracking-[0.5px]">
+          <p className="font-ibm-mono text-[11px] text-[var(--c-text-muted)] tracking-[0.5px]">
             Monitor all postings, funnel metrics, and cutoff scores
           </p>
         </div>
-        <button className="flex items-center gap-[8px] h-[40px] px-5 bg-[var(--c-accent)] font-ibm-mono text-[9px] font-bold text-[var(--c-text)] tracking-[2px] hover:bg-[var(--c-accent-hover)] transition-colors self-start">
+        <button className="flex items-center gap-[8px] h-[40px] px-5 bg-[var(--c-accent)] font-ibm-mono text-[10px] font-bold text-[var(--c-text)] tracking-[2px] hover:bg-[var(--c-accent-hover)] transition-colors self-start">
           + NEW POSTING
         </button>
       </div>
@@ -108,8 +108,8 @@ export default function JobsPage() {
           { label: "TOTAL APPLICANTS", value: totalApps,   color: "var(--c-text)" },
         ].map(({ label, value, color }) => (
           <div key={label} className="flex flex-col gap-2 p-5 bg-[var(--c-bg-elev)]">
-            <span className="font-ibm-mono text-[8px] text-[var(--c-text-muted)] tracking-[1.5px]">{label}</span>
-            <span className="font-grotesk text-[32px] font-bold leading-none" style={{ color }}>
+            <span className="font-ibm-mono text-[9px] text-[var(--c-text-muted)] tracking-[1.5px]">{label}</span>
+            <span className="font-grotesk text-[33px] font-bold leading-none" style={{ color }}>
               {value.toLocaleString()}
             </span>
           </div>
@@ -123,14 +123,14 @@ export default function JobsPage() {
           placeholder="SEARCH BY TITLE, DEPARTMENT, OR ID..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="flex-1 h-[38px] bg-[var(--c-bg-elev)] border border-[var(--c-border-soft)] px-4 font-ibm-mono text-[10px] text-[var(--c-text)] placeholder-[var(--c-text-faint)] focus:outline-none focus:border-[var(--c-accent)] transition-colors"
+          className="flex-1 h-[38px] bg-[var(--c-bg-elev)] border border-[var(--c-border-soft)] px-4 font-ibm-mono text-[11px] text-[var(--c-text)] placeholder-[var(--c-text-faint)] focus:outline-none focus:border-[var(--c-accent)] transition-colors"
         />
         <div className="flex gap-[2px]">
           {(["ALL", "OPEN", "CLOSED", "DRAFT"] as const).map((s) => (
             <button
               key={s}
               onClick={() => setStatusFilter(s)}
-              className="h-[38px] px-4 font-ibm-mono text-[8px] tracking-[1.5px] transition-colors border border-[var(--c-border-soft)]"
+              className="h-[38px] px-4 font-ibm-mono text-[9px] tracking-[1.5px] transition-colors border border-[var(--c-border-soft)]"
               style={{
                 background: statusFilter === s ? "var(--c-accent)" : "var(--c-bg-elev)",
                 color:      statusFilter === s ? "var(--c-text)" : "var(--c-text-muted)",
@@ -155,12 +155,12 @@ export default function JobsPage() {
                 onClick={() => setExpanded(isExp ? null : job.id)}
               >
                 {/* Role ID */}
-                <span className="font-ibm-mono text-[9px] text-[var(--c-accent)] w-[36px] shrink-0">{job.id}</span>
+                <span className="font-ibm-mono text-[10px] text-[var(--c-accent)] w-[36px] shrink-0">{job.id}</span>
 
                 {/* Title + dept */}
                 <div className="flex flex-col gap-[2px] flex-1 min-w-[160px]">
-                  <span className="font-grotesk text-[14px] font-bold text-[var(--c-text)]">{job.title}</span>
-                  <span className="font-ibm-mono text-[8px] text-[var(--c-text-muted)] tracking-[0.5px]">{job.department}</span>
+                  <span className="font-grotesk text-[15px] font-bold text-[var(--c-text)]">{job.title}</span>
+                  <span className="font-ibm-mono text-[9px] text-[var(--c-text-muted)] tracking-[0.5px]">{job.department}</span>
                 </div>
 
                 {/* Status */}
@@ -169,7 +169,7 @@ export default function JobsPage() {
                   style={{ background: st.bg }}
                 >
                   <div className="w-[5px] h-[5px] rounded-full shrink-0" style={{ background: st.dot }} />
-                  <span className="font-ibm-mono text-[8px] tracking-[1px]" style={{ color: st.text }}>{job.status}</span>
+                  <span className="font-ibm-mono text-[9px] tracking-[1px]" style={{ color: st.text }}>{job.status}</span>
                 </div>
 
                 {/* Funnel mini */}
@@ -179,8 +179,8 @@ export default function JobsPage() {
 
                 {/* Dates */}
                 <div className="flex flex-col gap-[2px] shrink-0 text-right hidden lg:flex">
-                  <span className="font-ibm-mono text-[7px] text-[var(--c-text-faint)] tracking-[0.5px]">DEADLINE</span>
-                  <span className="font-ibm-mono text-[9px] text-[var(--c-text-muted)]">{job.deadline}</span>
+                  <span className="font-ibm-mono text-[8px] text-[var(--c-text-faint)] tracking-[0.5px]">DEADLINE</span>
+                  <span className="font-ibm-mono text-[10px] text-[var(--c-text-muted)]">{job.deadline}</span>
                 </div>
 
                 {/* Chevron */}
@@ -204,24 +204,24 @@ export default function JobsPage() {
                       { label: "CUTOFF SCORE",     value: `${job.cutoff}%` },
                     ].map(({ label, value }) => (
                       <div key={label} className="flex flex-col gap-1">
-                        <span className="font-ibm-mono text-[8px] text-[var(--c-text-dim)] tracking-[1.5px]">{label}</span>
-                        <span className="font-grotesk text-[22px] font-bold text-[var(--c-accent)] leading-none">{value}</span>
+                        <span className="font-ibm-mono text-[9px] text-[var(--c-text-dim)] tracking-[1.5px]">{label}</span>
+                        <span className="font-grotesk text-[23px] font-bold text-[var(--c-accent)] leading-none">{value}</span>
                       </div>
                     ))}
                   </div>
                   <div className="mb-5">
-                    <p className="font-ibm-mono text-[8px] text-[var(--c-text-dim)] tracking-[1.5px] mb-2">APPLICATION FUNNEL</p>
+                    <p className="font-ibm-mono text-[9px] text-[var(--c-text-dim)] tracking-[1.5px] mb-2">APPLICATION FUNNEL</p>
                     <FunnelBar applicants={job.applicants} shortlisted={job.shortlisted} examReady={job.examReady} />
                   </div>
                   <div className="flex items-center gap-3">
-                    <button className="h-[34px] px-4 bg-[var(--c-accent)] font-ibm-mono text-[8px] font-bold text-[var(--c-text)] tracking-[1.5px] hover:bg-[var(--c-accent-hover)] transition-colors">
+                    <button className="h-[34px] px-4 bg-[var(--c-accent)] font-ibm-mono text-[9px] font-bold text-[var(--c-text)] tracking-[1.5px] hover:bg-[var(--c-accent-hover)] transition-colors">
                       VIEW CANDIDATES
                     </button>
-                    <button className="h-[34px] px-4 border border-[var(--c-border)] font-ibm-mono text-[8px] text-[var(--c-text-muted)] hover:text-[var(--c-text)] hover:border-[var(--c-text-muted)] tracking-[1.5px] transition-colors">
+                    <button className="h-[34px] px-4 border border-[var(--c-border)] font-ibm-mono text-[9px] text-[var(--c-text-muted)] hover:text-[var(--c-text)] hover:border-[var(--c-text-muted)] tracking-[1.5px] transition-colors">
                       EDIT POSTING
                     </button>
                     {job.status === "OPEN" && (
-                      <button className="h-[34px] px-4 border border-[#FF5050]/30 font-ibm-mono text-[8px] text-[#FF5050] hover:border-[#FF5050] tracking-[1.5px] transition-colors">
+                      <button className="h-[34px] px-4 border border-[#FF5050]/30 font-ibm-mono text-[9px] text-[#FF5050] hover:border-[#FF5050] tracking-[1.5px] transition-colors">
                         CLOSE ROLE
                       </button>
                     )}
@@ -233,7 +233,7 @@ export default function JobsPage() {
         })}
         {filtered.length === 0 && (
           <div className="flex items-center justify-center py-16 bg-[var(--c-bg-elev)]">
-            <span className="font-ibm-mono text-[10px] text-[var(--c-text-faint)] tracking-[1.5px]">NO JOBS MATCH THIS FILTER</span>
+            <span className="font-ibm-mono text-[11px] text-[var(--c-text-faint)] tracking-[1.5px]">NO JOBS MATCH THIS FILTER</span>
           </div>
         )}
       </div>

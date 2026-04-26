@@ -50,7 +50,7 @@ function MatchBadge({ score }: { score: number }) {
       className="flex items-center justify-center px-2 py-[3px]"
       style={{ background: `${matchColor(score)}12`, border: `1px solid ${matchColor(score)}40` }}
     >
-      <span className="font-ibm-mono text-[8px] font-bold" style={{ color: matchColor(score) }}>
+      <span className="font-ibm-mono text-[9px] font-bold" style={{ color: matchColor(score) }}>
         {score}% MATCH
       </span>
     </div>
@@ -102,10 +102,10 @@ function UploadModal({ job, onClose }: { job: typeof jobs[0]; onClose: () => voi
           <div className="flex flex-col gap-[2px]">
             <div className="flex items-center gap-3">
               <div className="w-[3px] h-[14px] bg-[var(--c-accent)]" />
-              <span className="font-ibm-mono text-[9px] text-[var(--c-text-sub)] tracking-[2px]">SMART CV UPLOADER</span>
+              <span className="font-ibm-mono text-[10px] text-[var(--c-text-sub)] tracking-[2px]">SMART CV UPLOADER</span>
             </div>
-            <span className="font-grotesk text-[16px] font-bold text-[var(--c-text)] pl-[18px]">{job.title}</span>
-            <span className="font-ibm-mono text-[7px] text-[var(--c-text-dim)] pl-[18px]">{job.department} // {job.id}</span>
+            <span className="font-grotesk text-[17px] font-bold text-[var(--c-text)] pl-[18px]">{job.title}</span>
+            <span className="font-ibm-mono text-[8px] text-[var(--c-text-dim)] pl-[18px]">{job.department} // {job.id}</span>
           </div>
           <button
             onClick={onClose}
@@ -136,16 +136,16 @@ function UploadModal({ job, onClose }: { job: typeof jobs[0]; onClose: () => voi
                   <path d="M4 22h20" stroke="currentColor" strokeWidth="1.4" strokeLinecap="square" />
                 </svg>
                 <div className="flex flex-col items-center gap-1">
-                  <span className="font-ibm-mono text-[9px] text-[var(--c-text-muted)] tracking-[1px]">DRAG & DROP YOUR CV HERE</span>
-                  <span className="font-ibm-mono text-[7px] text-[var(--c-text-faint)] tracking-[0.5px]">PDF / DOCX / IMAGE — MAX 10MB</span>
+                  <span className="font-ibm-mono text-[10px] text-[var(--c-text-muted)] tracking-[1px]">DRAG & DROP YOUR CV HERE</span>
+                  <span className="font-ibm-mono text-[8px] text-[var(--c-text-faint)] tracking-[0.5px]">PDF / DOCX / IMAGE — MAX 10MB</span>
                 </div>
-                <button className="px-4 py-[6px] border border-[var(--c-border)] font-ibm-mono text-[8px] text-[var(--c-text-muted)] hover:text-[var(--c-text)] hover:border-[var(--c-text-muted)] tracking-[1px] transition-colors">
+                <button className="px-4 py-[6px] border border-[var(--c-border)] font-ibm-mono text-[9px] text-[var(--c-text-muted)] hover:text-[var(--c-text)] hover:border-[var(--c-text-muted)] tracking-[1px] transition-colors">
                   OR BROWSE FILES /
                 </button>
               </>
             ) : (
               <div className="flex flex-col items-center gap-2">
-                <span className="font-ibm-mono text-[8px] text-[var(--c-text)] tracking-[1px]">{fileName}</span>
+                <span className="font-ibm-mono text-[9px] text-[var(--c-text)] tracking-[1px]">{fileName}</span>
                 {stage !== "done" && (
                   <div className="w-[28px] h-[28px] border-2 border-[var(--c-accent)] border-t-transparent rounded-full animate-spin" />
                 )}
@@ -163,8 +163,8 @@ function UploadModal({ job, onClose }: { job: typeof jobs[0]; onClose: () => voi
           {/* Progress bar */}
           <div className="flex flex-col gap-2">
             <div className="flex items-center justify-between">
-              <span className="font-ibm-mono text-[8px] text-[var(--c-text-muted)] tracking-[1px]">{stageLabel[stage]}</span>
-              <span className="font-ibm-mono text-[8px]" style={{ color: stage === "done" ? "var(--c-accent)" : "var(--c-text-muted)" }}>
+              <span className="font-ibm-mono text-[9px] text-[var(--c-text-muted)] tracking-[1px]">{stageLabel[stage]}</span>
+              <span className="font-ibm-mono text-[9px]" style={{ color: stage === "done" ? "var(--c-accent)" : "var(--c-text-muted)" }}>
                 {stageProgress[stage]}%
               </span>
             </div>
@@ -196,7 +196,7 @@ function UploadModal({ job, onClose }: { job: typeof jobs[0]; onClose: () => voi
                   {step.active && <div className="w-[4px] h-[4px] bg-[var(--c-accent)] animate-pulse" />}
                 </div>
                 <span
-                  className="font-ibm-mono text-[8px] tracking-[1px]"
+                  className="font-ibm-mono text-[9px] tracking-[1px]"
                   style={{ color: step.done ? "var(--c-accent)" : step.active ? "var(--c-text)" : "var(--c-text-faint)" }}
                 >
                   {step.label}
@@ -209,13 +209,13 @@ function UploadModal({ job, onClose }: { job: typeof jobs[0]; onClose: () => voi
           {stage === "done" && (
             <button
               onClick={onClose}
-              className="w-full h-[48px] bg-[var(--c-accent)] font-ibm-mono text-[9px] font-bold text-[var(--c-text)] tracking-[2px] hover:bg-[var(--c-accent-hover)] transition-colors"
+              className="w-full h-[48px] bg-[var(--c-accent)] font-ibm-mono text-[10px] font-bold text-[var(--c-text)] tracking-[2px] hover:bg-[var(--c-accent-hover)] transition-colors"
             >
               SUBMIT APPLICATION /
             </button>
           )}
 
-          <span className="font-ibm-mono text-[7px] text-[var(--c-text-faint)] tracking-[0.5px]">
+          <span className="font-ibm-mono text-[8px] text-[var(--c-text-faint)] tracking-[0.5px]">
             Your data is processed locally and stored on Ethiopian servers — Proclamation 1329/2023 compliant.
           </span>
         </div>
@@ -246,9 +246,9 @@ export default function FindJobsPage() {
 
       {/* Header */}
       <div className="flex flex-col gap-1">
-        <span className="font-ibm-mono text-[9px] text-[var(--c-text-dim)] tracking-[2px]">[02] // FIND JOBS</span>
-        <h1 className="font-grotesk text-[24px] md:text-[32px] font-bold text-[var(--c-text)] tracking-[-1px]">Job Listings</h1>
-        <p className="font-ibm-mono text-[10px] text-[var(--c-text-muted)] tracking-[0.5px]">
+        <span className="font-ibm-mono text-[10px] text-[var(--c-text-dim)] tracking-[2px]">[02] // FIND JOBS</span>
+        <h1 className="font-grotesk text-[25px] md:text-[33px] font-bold text-[var(--c-text)] tracking-[-1px]">Job Listings</h1>
+        <p className="font-ibm-mono text-[11px] text-[var(--c-text-muted)] tracking-[0.5px]">
           Active openings at Ethiopian Airlines and the Ethiopian Aviation Academy. Match scores are based on your uploaded profile.
         </p>
       </div>
@@ -265,7 +265,7 @@ export default function FindJobsPage() {
             placeholder="Search jobs..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full bg-[var(--c-bg-elev)] border border-[var(--c-border)] text-[var(--c-text)] font-ibm-mono text-[10px] pl-8 pr-4 py-3 focus:outline-none focus:border-[var(--c-accent)] placeholder:text-[var(--c-text-faint)] transition-colors tracking-[0.5px]"
+            className="w-full bg-[var(--c-bg-elev)] border border-[var(--c-border)] text-[var(--c-text)] font-ibm-mono text-[11px] pl-8 pr-4 py-3 focus:outline-none focus:border-[var(--c-accent)] placeholder:text-[var(--c-text-faint)] transition-colors tracking-[0.5px]"
           />
         </div>
         <div className="flex items-center gap-[1px] bg-[var(--c-border-soft)] flex-wrap">
@@ -273,7 +273,7 @@ export default function FindJobsPage() {
             <button
               key={d}
               onClick={() => setDeptFilter(d)}
-              className="px-3 py-3 font-ibm-mono text-[7px] tracking-[1px] transition-colors whitespace-nowrap"
+              className="px-3 py-3 font-ibm-mono text-[8px] tracking-[1px] transition-colors whitespace-nowrap"
               style={{ background: deptFilter === d ? "var(--c-accent)" : "var(--c-bg-elev)", color: deptFilter === d ? "var(--c-text)" : "var(--c-text-muted)" }}
             >
               {d}
@@ -288,17 +288,17 @@ export default function FindJobsPage() {
           <div key={job.id} className="bg-[var(--c-bg-elev)] p-5 flex flex-col gap-4 hover:bg-[var(--c-bg)] transition-colors">
             <div className="flex items-start justify-between gap-3">
               <div className="flex flex-col gap-[3px]">
-                <span className="font-grotesk text-[15px] font-bold text-[var(--c-text)]">{job.title}</span>
-                <span className="font-ibm-mono text-[8px] text-[var(--c-text-dim)] tracking-[1px]">{job.department}</span>
+                <span className="font-grotesk text-[16px] font-bold text-[var(--c-text)]">{job.title}</span>
+                <span className="font-ibm-mono text-[9px] text-[var(--c-text-dim)] tracking-[1px]">{job.department}</span>
               </div>
               <MatchBadge score={job.match} />
             </div>
 
-            <p className="font-ibm-mono text-[9px] text-[var(--c-text-muted)] leading-relaxed tracking-[0.3px]">{job.desc}</p>
+            <p className="font-ibm-mono text-[10px] text-[var(--c-text-muted)] leading-relaxed tracking-[0.3px]">{job.desc}</p>
 
             <div className="flex flex-wrap gap-[1px] bg-[var(--c-border-soft)]">
               {job.tags.map((tag) => (
-                <span key={tag} className="font-ibm-mono text-[7px] text-[var(--c-text-sub)] bg-[var(--c-bg-elev)] px-2 py-[4px] tracking-[0.5px]">
+                <span key={tag} className="font-ibm-mono text-[8px] text-[var(--c-text-sub)] bg-[var(--c-bg-elev)] px-2 py-[4px] tracking-[0.5px]">
                   {tag}
                 </span>
               ))}
@@ -307,18 +307,18 @@ export default function FindJobsPage() {
             <div className="flex items-center justify-between pt-1 border-t border-[#111]">
               <div className="flex items-center gap-4">
                 <div className="flex flex-col gap-[1px]">
-                  <span className="font-ibm-mono text-[7px] text-[var(--c-text-faint)] tracking-[0.5px]">OPENINGS</span>
-                  <span className="font-ibm-mono text-[11px] font-bold text-[var(--c-text)]">{job.openings}</span>
+                  <span className="font-ibm-mono text-[8px] text-[var(--c-text-faint)] tracking-[0.5px]">OPENINGS</span>
+                  <span className="font-ibm-mono text-[12px] font-bold text-[var(--c-text)]">{job.openings}</span>
                 </div>
                 <div className="w-[1px] h-[24px] bg-[var(--c-border-soft)]" />
                 <div className="flex flex-col gap-[1px]">
-                  <span className="font-ibm-mono text-[7px] text-[var(--c-text-faint)] tracking-[0.5px]">DEADLINE</span>
-                  <span className="font-ibm-mono text-[9px] text-[var(--c-text-sub)]">{job.deadline}</span>
+                  <span className="font-ibm-mono text-[8px] text-[var(--c-text-faint)] tracking-[0.5px]">DEADLINE</span>
+                  <span className="font-ibm-mono text-[10px] text-[var(--c-text-sub)]">{job.deadline}</span>
                 </div>
               </div>
               <button
                 onClick={() => setApplying(job)}
-                className="px-4 h-[34px] bg-[var(--c-accent)] font-ibm-mono text-[8px] font-bold text-[var(--c-text)] tracking-[1.5px] hover:bg-[var(--c-accent-hover)] transition-colors"
+                className="px-4 h-[34px] bg-[var(--c-accent)] font-ibm-mono text-[9px] font-bold text-[var(--c-text)] tracking-[1.5px] hover:bg-[var(--c-accent-hover)] transition-colors"
               >
                 APPLY /
               </button>
@@ -329,7 +329,7 @@ export default function FindJobsPage() {
 
       {filtered.length === 0 && (
         <div className="flex items-center justify-center py-16 border border-[var(--c-border-soft)]">
-          <span className="font-ibm-mono text-[9px] text-[var(--c-text-faint)] tracking-[1px]">NO JOBS MATCH YOUR SEARCH</span>
+          <span className="font-ibm-mono text-[10px] text-[var(--c-text-faint)] tracking-[1px]">NO JOBS MATCH YOUR SEARCH</span>
         </div>
       )}
     </div>

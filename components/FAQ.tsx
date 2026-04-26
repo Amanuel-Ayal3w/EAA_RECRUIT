@@ -41,7 +41,7 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
-    <section id="faq" className="flex flex-col w-full bg-[#060606] py-16 px-6 md:py-[100px] md:px-[120px]">
+    <section id="faq" className="flex flex-col w-full bg-[var(--c-bg)] py-16 px-6 md:py-[100px] md:px-[120px]">
       <div className="w-full max-w-[520px]">
         <SectionHeader
           label="[05] // FAQ"
@@ -63,18 +63,18 @@ export default function FAQ() {
                 className="flex items-center justify-between w-full py-5 md:h-[72px] text-left gap-4"
                 onClick={() => setOpenIndex(isOpen ? -1 : i)}
               >
-                <span className="font-grotesk text-[14px] md:text-[16px] font-bold text-[var(--c-text)] tracking-[0.5px]">
+                <span className="font-grotesk text-[15px] md:text-[17px] font-bold text-[var(--c-text)] tracking-[0.5px]">
                   {faq.question}
                 </span>
                 <div
                   className="flex items-center justify-center w-[32px] h-[32px] shrink-0"
                   style={{
                     backgroundColor: isOpen ? "var(--c-accent)" : "var(--c-bg-muted)",
-                    border: isOpen ? "none" : "1px solid #3D3D3D",
+                    border: isOpen ? "none" : "1px solid var(--c-border)",
                   }}
                 >
                   <span
-                    className="font-ibm-mono text-[14px] font-bold"
+                    className="font-ibm-mono text-[15px] font-bold"
                     style={{ color: isOpen ? "var(--c-text)" : "var(--c-text-sub)" }}
                   >
                     {isOpen ? "—" : "+"}
@@ -83,7 +83,7 @@ export default function FAQ() {
               </button>
               {isOpen && faq.answer && (
                 <div className="pb-8">
-                  <p className="font-ibm-mono text-[12px] md:text-[13px] text-[var(--c-text-sub)] tracking-[0.5px] leading-[1.7]">
+                  <p className="font-ibm-mono text-[13px] md:text-[14px] text-[var(--c-text-sub)] tracking-[0.5px] leading-[1.7]">
                     {faq.answer}
                   </p>
                 </div>
@@ -95,12 +95,12 @@ export default function FAQ() {
       </div>
 
       <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-[16px] pt-10 md:pt-[48px]">
-        <span className="font-ibm-mono text-[13px] text-[var(--c-text-muted)] tracking-[1px]">
+        <span className="font-ibm-mono text-[14px] text-[var(--c-text-muted)] tracking-[1px]">
           STILL HAVE QUESTIONS?
         </span>
         <a
           href="mailto:support@eaarecruit.et"
-          className="font-ibm-mono text-[13px] font-bold text-[var(--c-accent)] tracking-[1px] hover:underline"
+          className="font-ibm-mono text-[14px] font-bold text-[var(--c-accent)] tracking-[1px] hover:underline"
         >
           CONTACT SUPPORT &gt;
         </a>

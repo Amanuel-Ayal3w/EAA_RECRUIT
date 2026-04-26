@@ -36,14 +36,14 @@ function FeatureCard({
         className="flex items-center justify-center h-[26px] px-[10px] w-fit border"
         style={{ borderColor: accentColor, background: `${accentColor}11` }}
       >
-        <span className="font-ibm-mono text-[10px] tracking-[2px]" style={{ color: accentColor }}>
+        <span className="font-ibm-mono text-[11px] tracking-[2px]" style={{ color: accentColor }}>
           {tag}
         </span>
       </div>
-      <h3 className="font-grotesk text-[18px] font-bold text-[var(--c-text)] tracking-[0.5px] leading-[1.2]">
+      <h3 className="font-grotesk text-[19px] font-bold text-[var(--c-text)] tracking-[0.5px] leading-[1.2]">
         {title}
       </h3>
-      <p className="font-ibm-mono text-[12px] text-[#666666] tracking-[0.5px] leading-[1.6]">
+      <p className="font-ibm-mono text-[13px] text-[#666666] tracking-[0.5px] leading-[1.6]">
         {description}
       </p>
     </div>
@@ -84,7 +84,7 @@ export default function Features() {
           tag="ADAPTIVE EXAMS"
           title="Role-Specific Technical Assessments"
           description="Candidates sit automated examinations tailored to their applied role — Flight Operations, Maintenance, or In-Flight Services. Questions adapt based on prior answers for precise skill measurement."
-          bgColor="#0F0F0F"
+          bgColor="var(--c-bg-soft)"
           borderColor="var(--c-border)"
           icon={
             <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
