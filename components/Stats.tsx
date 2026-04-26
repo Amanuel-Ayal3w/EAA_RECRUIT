@@ -7,8 +7,8 @@ const stats = [
 
 export default function Stats() {
   return (
-    <section className="flex flex-col w-full bg-[#006B3F] py-12 px-6 md:py-[80px] md:px-[120px]">
-      <span className="font-ibm-mono text-[12px] font-bold text-[#F5F5F0]/60 tracking-[3px]">
+    <section className="flex flex-col w-full bg-[#FFD600] py-12 px-6 md:py-[80px] md:px-[120px]">
+      <span className="font-ibm-mono text-[12px] font-bold text-[#0A0A0A]/50 tracking-[3px]">
         [03] // BY THE NUMBERS
       </span>
       <div className="h-8 md:h-[32px]" />
@@ -17,16 +17,16 @@ export default function Stats() {
           <div
             key={stat.label}
             className={`flex flex-col gap-2 items-center justify-center py-6 md:py-0 md:h-[160px] md:flex-1
-              ${stat.border ? "md:border-r-2 md:border-r-[#F5F5F0]/20" : ""}
+              ${stat.border ? "md:border-r-2 md:border-r-[#0A0A0A]/20" : ""}
               ${i === 0 ? "md:pr-[40px]" : i === stats.length - 1 ? "md:pl-[40px]" : "md:px-[40px]"}
-              ${i % 2 === 0 ? "border-r-2 border-r-[#F5F5F0]/20 pr-4 md:border-r-0 md:pr-0" : "pl-4 md:pl-0"}
-              ${i >= 2 ? "border-t-2 border-t-[#F5F5F0]/20 pt-4 md:border-t-0 md:pt-0" : ""}
+              ${i % 2 === 0 ? "border-r-2 border-r-[#0A0A0A]/20 pr-4 md:border-r-0 md:pr-0" : "pl-4 md:pl-0"}
+              ${i >= 2 ? "border-t-2 border-t-[#0A0A0A]/20 pt-4 md:border-t-0 md:pt-0" : ""}
             `}
           >
-            <span className="font-grotesk text-[36px] md:text-[56px] font-bold text-[#FFD600] tracking-[-2px] leading-none">
+            <span className="font-grotesk text-[36px] md:text-[56px] font-bold text-[#0A0A0A] tracking-[-2px] leading-none">
               {stat.value}
             </span>
-            <span className="font-ibm-mono text-[10px] md:text-[11px] font-bold text-[#F5F5F0]/70 tracking-[2px] text-center">
+            <span className="font-ibm-mono text-[10px] md:text-[11px] font-bold text-[#0A0A0A]/60 tracking-[2px] text-center">
               {stat.label}
             </span>
           </div>

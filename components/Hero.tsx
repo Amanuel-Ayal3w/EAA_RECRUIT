@@ -8,33 +8,34 @@ export default function Hero() {
   useEffect(() => setMounted(true), []);
 
   return (
-    <section className="relative flex flex-col items-center w-full min-h-[100svh] overflow-hidden">
-      {/* Background image */}
+    <section className="relative flex flex-col items-center w-full min-h-[100svh] overflow-hidden bg-[#0A0A0A]">
+      {/* Vercel-style grid background */}
       <div className="absolute inset-0 z-0">
-        <img
-          src="/hero-aircraft.jpg"
-          alt="Ethiopian Airlines aircraft in flight"
-          className="w-full h-full object-cover"
-        />
-        {/* Dark overlay */}
-        <div className="absolute inset-0 bg-[#0A0A0A]/75" />
-        {/* Bottom fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#0A0A0A] to-transparent" />
-        {/* Grid overlay */}
+        {/* Fine grid lines */}
         <div
-          className="absolute inset-0 opacity-[0.04]"
+          className="absolute inset-0"
           style={{
             backgroundImage:
-              "linear-gradient(#F5F5F0 1px, transparent 1px), linear-gradient(to right, #F5F5F0 1px, transparent 1px)",
+              "linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(to right, rgba(255,255,255,0.04) 1px, transparent 1px)",
             backgroundSize: "40px 40px",
           }}
         />
+        {/* Subtle radial glow from center — yellow tinted */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(255,214,0,0.07) 0%, transparent 70%)",
+          }}
+        />
+        {/* Bottom fade into page */}
+        <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#0A0A0A] to-transparent" />
       </div>
 
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center w-full px-6 md:px-[120px] pt-[140px] pb-[80px] md:pt-[160px] md:pb-[100px]">
         {/* Badge */}
-        <div className="flex items-center gap-[8px] h-[32px] px-[12px] md:px-[16px] bg-[#006B3F]/80 border-2 border-[#FFD600]">
+        <div className="flex items-center gap-[8px] h-[32px] px-[12px] md:px-[16px] bg-[#FFD600]/10 border-2 border-[#FFD600]">
           <div className="w-[6px] h-[6px] bg-[#FFD600] shrink-0 rounded-full" />
           <span className="font-ibm-mono text-[9px] md:text-[11px] font-bold text-[#FFD600] tracking-[1px] md:tracking-[2px] whitespace-nowrap">
             [AI-POWERED] // ETHIOPIAN AVIATION ACADEMY RECRUITMENT PLATFORM
@@ -77,7 +78,7 @@ export default function Hero() {
           </a>
           <a
             href="#jobs"
-            className="flex items-center justify-center w-full sm:w-[200px] h-[56px] bg-[#0A0A0A]/60 border-2 border-[#3D4D3D] hover:border-[#FFD600] transition-colors"
+            className="flex items-center justify-center w-full sm:w-[200px] h-[56px] bg-[#0A0A0A]/60 border-2 border-[#2D2D2D] hover:border-[#FFD600] transition-colors"
             onClick={(e) => {
               e.preventDefault();
               document.getElementById("jobs")?.scrollIntoView({ behavior: "smooth" });
@@ -99,7 +100,7 @@ export default function Hero() {
 
         {/* Stats strip */}
         <div
-          className="flex flex-col sm:flex-row items-stretch w-full max-w-[860px] border border-[#2D3D2D]"
+          className="flex flex-col sm:flex-row items-stretch w-full max-w-[860px] border border-[#2D2D2D]"
           style={{
             opacity: mounted ? 1 : 0,
             transform: mounted ? "translateY(0)" : "translateY(16px)",
@@ -114,8 +115,15 @@ export default function Hero() {
           ].map((stat, i, arr) => (
             <div
               key={stat.label}
-              className={`flex flex-col items-center justify-center gap-1 py-5 flex-1 ${i < arr.length - 1 ? "border-b sm:border-b-0 sm:border-r border-[#2D3D2D]" : ""}`}
-              style={{ background: i === 0 ? "rgba(0,107,63,0.15)" : "rgba(10,10,10,0.6)" }}
+              className={`flex flex-col items-center justify-center gap-1 py-5 flex-1 ${
+                i < arr.length - 1 ? "border-b sm:border-b-0 sm:border-r border-[#2D2D2D]" : ""
+              }`}
+              style={{
+                background:
+                  i === 0
+                    ? "rgba(255,214,0,0.06)"
+                    : "rgba(10,10,10,0.6)",
+              }}
             >
               <span className="font-grotesk text-[18px] md:text-[22px] font-bold text-[#FFD600] tracking-[-0.5px]">
                 {stat.value}

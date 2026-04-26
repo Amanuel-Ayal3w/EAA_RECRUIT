@@ -6,7 +6,7 @@ export default function FinalCTA() {
   return (
     <section className="flex flex-col items-center w-full bg-[#0A0A0A] py-16 px-6 md:p-[120px] gap-10 md:gap-[48px] border-t-2 border-t-[#FFD600]">
       {/* Badge */}
-      <div className="flex items-center justify-center gap-[8px] h-[32px] px-[16px] bg-[#006B3F]/40 border-2 border-[#FFD600]">
+      <div className="flex items-center justify-center gap-[8px] h-[32px] px-[16px] bg-[#FFD600]/10 border-2 border-[#FFD600]">
         <div className="w-[6px] h-[6px] rounded-full bg-[#FFD600]" />
         <span className="font-ibm-mono text-[11px] font-bold text-[#FFD600] tracking-[2px]">
           <GlitchText text="[READY TO APPLY?]" speed={30} />
@@ -35,7 +35,7 @@ export default function FinalCTA() {
         </a>
         <a
           href="#jobs"
-          className="flex items-center justify-center w-full sm:w-[220px] h-[64px] bg-[#0A0A0A] border-2 border-[#3D4D3D] hover:border-[#FFD600] transition-colors"
+          className="flex items-center justify-center w-full sm:w-[220px] h-[64px] bg-[#0A0A0A] border-2 border-[#2D2D2D] hover:border-[#FFD600] transition-colors"
           onClick={(e) => {
             e.preventDefault();
             document.getElementById("jobs")?.scrollIntoView({ behavior: "smooth" });
@@ -49,7 +49,7 @@ export default function FinalCTA() {
 
       {/* Data sovereignty note */}
       <div className="flex items-center gap-[10px]">
-        <div className="w-[6px] h-[6px] rounded-full bg-[#4ADE80]" />
+        <div className="w-[6px] h-[6px] rounded-full bg-[#FFD600]" />
         <span className="font-ibm-mono text-[10px] text-[#555555] tracking-[1px]">
           YOUR DATA NEVER LEAVES ETHIOPIA
         </span>

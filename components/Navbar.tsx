@@ -57,8 +57,8 @@ export default function Navbar() {
 
         {/* Logo */}
         <a href="#" className="flex items-center gap-[10px] shrink-0 group">
-          <div className="flex items-center justify-center w-[32px] h-[32px] bg-[#006B3F] shrink-0">
-            <span className="font-grotesk text-[10px] font-bold text-[#FFD600] tracking-[1px]">EAA</span>
+          <div className="flex items-center justify-center w-[32px] h-[32px] bg-[#FFD600] shrink-0">
+            <span className="font-grotesk text-[10px] font-bold text-[#0A0A0A] tracking-[1px]">EAA</span>
           </div>
           <div className="flex flex-col leading-none">
             <span className="font-grotesk text-[12px] font-bold text-[#F5F5F0] tracking-[2px]">EAA RECRUIT</span>

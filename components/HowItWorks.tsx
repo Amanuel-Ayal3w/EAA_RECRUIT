@@ -63,15 +63,15 @@ export default function HowItWorks() {
           number="02"
           title="Apply"
           description="Upload your CV in any format — PDF, DOCX, or even a scanned image. Our AI parser extracts your skills, education, and experience automatically."
-          accentColor="#4ADE80"
+          accentColor="#FFD600"
         />
         <StepCard
           number="03"
           title="Assess"
           description="Take your role-specific technical exam from anywhere. Questions adapt to your responses for precise and fair evaluation across all aviation domains."
           bgColor="#111111"
-          borderColor="#1E2A1E"
-          accentColor="#60A5FA"
+          borderColor="#2D2D2D"
+          accentColor="#FFD600"
         />
         <StepCard
           number="04"
@@ -82,7 +82,7 @@ export default function HowItWorks() {
       </div>
 
       {/* Timeline bar */}
-      <div className="flex items-center w-full gap-0 border border-[#1D2D1D] overflow-hidden">
+      <div className="flex items-center w-full gap-0 border border-[#2D2D2D] overflow-hidden">
         {["REGISTER", "APPLY", "ASSESS", "TRACK"].map((step, i) => (
           <div
             key={step}
@@ -90,13 +90,13 @@ export default function HowItWorks() {
             style={{
               background:
                 i === 0
-                  ? "rgba(0,107,63,0.25)"
+                  ? "rgba(255,214,0,0.18)"
                   : i === 1
-                  ? "rgba(0,107,63,0.12)"
+                  ? "rgba(255,214,0,0.08)"
                   : i === 2
-                  ? "rgba(0,107,63,0.07)"
+                  ? "rgba(255,214,0,0.04)"
                   : "rgba(10,10,10,0.5)",
-              borderRight: i < 3 ? "1px solid #1D2D1D" : "none",
+              borderRight: i < 3 ? "1px solid #2D2D2D" : "none",
             }}
           >
             <span className="font-ibm-mono text-[9px] md:text-[11px] tracking-[2px]"

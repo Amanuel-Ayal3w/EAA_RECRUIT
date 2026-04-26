@@ -16,8 +16,8 @@ export default function Footer() {
         {/* Brand */}
         <div className="flex flex-col gap-6 md:w-[300px] md:shrink-0">
           <div className="flex items-center gap-[12px]">
-            <div className="flex items-center justify-center w-[40px] h-[40px] bg-[#006B3F] shrink-0">
-              <span className="font-grotesk text-[11px] font-bold text-[#FFD600] tracking-[1px]">EAA</span>
+            <div className="flex items-center justify-center w-[40px] h-[40px] bg-[#FFD600] shrink-0">
+              <span className="font-grotesk text-[11px] font-bold text-[#0A0A0A] tracking-[1px]">EAA</span>
             </div>
             <div className="flex flex-col leading-none gap-[2px]">
               <span className="font-grotesk text-[14px] font-bold text-[#F5F5F0] tracking-[2px]">
@@ -57,9 +57,9 @@ export default function Footer() {
           </div>
 
           {/* Compliance badge */}
-          <div className="flex items-center gap-[8px] py-2 px-3 border border-[#1E2A1E] bg-[#0A0F0A] w-fit">
-            <div className="w-[5px] h-[5px] rounded-full bg-[#4ADE80] shrink-0" />
-            <span className="font-ibm-mono text-[9px] text-[#4ADE80] tracking-[0.5px]">
+          <div className="flex items-center gap-[8px] py-2 px-3 border border-[#FFD600]/30 bg-[#FFD600]/05 w-fit">
+            <div className="w-[5px] h-[5px] rounded-full bg-[#FFD600] shrink-0" />
+            <span className="font-ibm-mono text-[9px] text-[#FFD600] tracking-[0.5px]">
               PROC. NO. 1329/2023 COMPLIANT
             </span>
           </div>
