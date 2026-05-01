@@ -1,8 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import GlitchText from "@/components/GlitchText";
+import { authClient } from "@/lib/auth-client";
 
 const LANG = {
   en: {
@@ -35,7 +37,14 @@ const LANG = {
   },
 };
 
+const ROLE_HOME: Record<string, string> = {
+  admin: "/admin",
+  recruiter: "/dashboard",
+  candidate: "/candidate",
+};
+
 export default function LoginPage() {
+  const router = useRouter();
   const [lang, setLang] = useState<"en" | "am">("en");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -44,17 +53,25 @@ export default function LoginPage() {
   const [error, setError] = useState(false);
   const t = LANG[lang];
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setLoading(true);
     setError(false);
-    setTimeout(() => {
-      setLoading(false);
-      if (email === "admin@eaa.et") window.location.href = "/admin";
-      else if (email === "recruiter@eaa.et") window.location.href = "/dashboard";
-      else if (email === "candidate@eaa.et") window.location.href = "/candidate";
-      else setError(true);
-    }, 1200);
+
+    const { data, error: signInError } = await authClient.signIn.email({
+      email,
+      password,
+    });
+
+    setLoading(false);
+
+    if (signInError || !data) {
+      setError(true);
+      return;
+    }
+
+    const role = (data.user as { role?: string }).role ?? "candidate";
+    router.push(ROLE_HOME[role] ?? "/candidate");
   }
 
   return (
@@ -253,9 +270,6 @@ export default function LoginPage() {
             <span className="font-ibm-mono text-[10px] text-[var(--c-text-sub)] hover:text-[var(--c-accent)] tracking-[1.5px] transition-colors">{t.register}</span>
           </Link>
 
-          <p className="font-ibm-mono text-[8px] text-[var(--c-text-faint)] tracking-[0.5px] text-center leading-[1.8]">
-            DEMO: USE admin@eaa.et / recruiter@eaa.et / candidate@eaa.et TO ROUTE TO EACH PORTAL
-          </p>
         </div>
       </div>
     </div>

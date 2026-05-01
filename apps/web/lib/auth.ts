@@ -1,0 +1,27 @@
+import { betterAuth } from "better-auth";
+import { drizzleAdapter } from "better-auth/adapters/drizzle";
+import { db } from "@/db";
+import { user, session, account, verification } from "@/db/schema";
+
+export const auth = betterAuth({
+  database: drizzleAdapter(db, {
+    provider: "pg",
+    schema: { user, session, account, verification },
+  }),
+  emailAndPassword: { enabled: true },
+  user: {
+    additionalFields: {
+      role: {
+        type: "string",
+        required: true,
+        defaultValue: "candidate",
+        input: true,
+      },
+    },
+  },
+  session: {
+    cookieCache: { enabled: true, maxAge: 60 * 60 * 24 }, // 24h
+  },
+});
+
+export type Session = typeof auth.$Infer.Session;

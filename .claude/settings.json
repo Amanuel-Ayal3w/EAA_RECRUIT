@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir -p /home/amanuel/Desktop/EAA_RECRUIT/apps/web/app/api/jobs/\\\\[id\\\\])",
+      "Bash(mkdir -p /home/amanuel/Desktop/EAA_RECRUIT/apps/web/app/api/applications/\\\\[id\\\\])",
+      "Bash(mkdir -p /home/amanuel/Desktop/EAA_RECRUIT/apps/web/app/api/users/\\\\[id\\\\])"
+    ]
+  }
+}

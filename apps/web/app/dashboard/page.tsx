@@ -1,19 +1,17 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import {
   FunnelChart, Funnel, LabelList, Tooltip, ResponsiveContainer,
   BarChart, Bar, XAxis, YAxis, Cell,
 } from "recharts";
 
-// ─── Mock data ────────────────────────────────────────────────────────────────
-const funnelData = [
-  { name: "APPLIED",    value: 500, fill: "var(--c-accent)" },
-  { name: "AI SCREENED",value: 100, fill: "var(--c-accent-hover)" },
-  { name: "EXAMINED",   value: 20,  fill: "#B39900" },
-  { name: "INTERVIEWED",value: 5,   fill: "#805E00" },
-];
+type FunnelItem = { name: string; value: number; fill: string };
+type ActiveJob  = { id: string; title: string; dept: string; applied: number; screened: number; ttf: number };
+type Kpis       = { activeCycles: number; totalApplicants: number; avgTtfDays: number };
 
-const ttfData = [
+// TTF weekly chart stays representative until we have historical week-over-week data
+const TTF_DATA = [
   { week: "W1", days: 3 },
   { week: "W2", days: 5 },
   { week: "W3", days: 4 },
@@ -22,57 +20,15 @@ const ttfData = [
   { week: "W6", days: 3 },
 ];
 
-const urgentActions = [
-  {
-    id: 1,
-    type: "TOP MATCH",
-    message: "3 new candidates scored >90% for Senior Pilot role",
-    role: "SENIOR PILOT",
-    time: "2 min ago",
-    priority: "high",
-  },
-  {
-    id: 2,
-    type: "EXAM READY",
-    message: "12 candidates pending exam assignment for Flight Engineer",
-    role: "FLIGHT ENGINEER",
-    time: "18 min ago",
-    priority: "medium",
-  },
-  {
-    id: 3,
-    type: "EXPIRING",
-    message: "Job posting JOB-2024-007 expires in 48 hours",
-    role: "CABIN CREW",
-    time: "1 hr ago",
-    priority: "medium",
-  },
-  {
-    id: 4,
-    type: "SHORTLIST",
-    message: "Shortlist for Maintenance Engineer ready for review",
-    role: "MAINTENANCE ENG.",
-    time: "3 hr ago",
-    priority: "low",
-  },
-];
-
-const activeJobs = [
-  { id: "JOB-2024-012", title: "SENIOR PILOT (B787)", dept: "Flight Operations", applied: 142, screened: 28, ttf: 12 },
-  { id: "JOB-2024-011", title: "FLIGHT ENGINEER", dept: "Flight Operations", applied: 89, screened: 14, ttf: 8 },
-  { id: "JOB-2024-010", title: "CABIN CREW LEAD", dept: "In-Flight Services", applied: 201, screened: 41, ttf: 6 },
-  { id: "JOB-2024-009", title: "AVIONICS TECH.", dept: "Maintenance", applied: 68, screened: 17, ttf: 14 },
+const URGENT_ACTIONS = [
+  { id: 1, type: "EXAM READY",  message: "Check candidate pipeline for exam-ready applicants", role: "ALL ROLES",        time: "live", priority: "medium" },
+  { id: 2, type: "REVIEW",      message: "New applications submitted — review screened pool",  role: "ACTIVE POSTINGS", time: "live", priority: "low"    },
 ];
 
 const TooltipStyle: React.CSSProperties = {
-  background: "var(--c-bg)",
-  border: "1px solid var(--c-border)",
-  borderRadius: 0,
-  padding: "8px 12px",
-  fontFamily: "var(--font-ibm-plex-mono), monospace",
-  fontSize: "9px",
-  color: "var(--c-text)",
-  letterSpacing: "1px",
+  background: "var(--c-bg)", border: "1px solid var(--c-border)", borderRadius: 0,
+  padding: "8px 12px", fontFamily: "var(--font-ibm-plex-mono), monospace",
+  fontSize: "9px", color: "var(--c-text)", letterSpacing: "1px",
 };
 
 function SectionLabel({ index, children }: { index: string; children: string }) {
@@ -92,10 +48,8 @@ function KPICard({ label, value, sub, accent = false }: { label: string; value: 
       style={accent ? { borderColor: "var(--c-accent)", background: "rgba(255,214,0,0.03)" } : {}}
     >
       <span className="font-ibm-mono text-[10px] text-[var(--c-text-muted)] tracking-[1.5px]">{label}</span>
-      <span
-        className="font-grotesk text-[33px] font-bold leading-none tracking-[-1px]"
-        style={{ color: accent ? "var(--c-accent)" : "var(--c-text)" }}
-      >
+      <span className="font-grotesk text-[33px] font-bold leading-none tracking-[-1px]"
+        style={{ color: accent ? "var(--c-accent)" : "var(--c-text)" }}>
         {value}
       </span>
       <span className="font-ibm-mono text-[9px] text-[var(--c-text-dim)] tracking-[0.5px]">{sub}</span>
@@ -104,6 +58,34 @@ function KPICard({ label, value, sub, accent = false }: { label: string; value: 
 }
 
 export default function RecruiterDashboard() {
+  const [kpis, setKpis] = useState<Kpis>({ activeCycles: 0, totalApplicants: 0, avgTtfDays: 0 });
+  const [funnelData, setFunnelData] = useState<FunnelItem[]>([
+    { name: "APPLIED",     value: 0, fill: "var(--c-accent)" },
+    { name: "AI SCREENED", value: 0, fill: "var(--c-accent-hover)" },
+    { name: "INTERVIEWED", value: 0, fill: "#B39900" },
+    { name: "OFFERED",     value: 0, fill: "#805E00" },
+  ]);
+  const [activeJobs, setActiveJobs] = useState<ActiveJob[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch("/api/dashboard/recruiter")
+      .then((r) => r.json())
+      .then((data) => {
+        if (data.kpis)       setKpis(data.kpis);
+        if (data.funnelData) setFunnelData(data.funnelData);
+        if (data.activeJobs) setActiveJobs(data.activeJobs);
+      })
+      .finally(() => setLoading(false));
+  }, []);
+
+  const screenRate = funnelData[0]?.value > 0
+    ? `${Math.round((funnelData[1]?.value / funnelData[0]?.value) * 100)}%` : "—";
+  const examRate = funnelData[1]?.value > 0
+    ? `${Math.round((funnelData[2]?.value / funnelData[1]?.value) * 100)}%` : "—";
+  const hireRate = funnelData[2]?.value > 0
+    ? `${Math.round((funnelData[3]?.value / funnelData[2]?.value) * 100)}%` : "—";
+
   return (
     <div className="p-6 md:p-8 max-w-[1400px] mx-auto">
       {/* Page header */}
@@ -119,10 +101,10 @@ export default function RecruiterDashboard() {
 
       {/* KPI strip */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-[1px] bg-[var(--c-border-soft)] mb-8">
-        <KPICard label="ACTIVE CYCLES" value="4" sub="Open recruitment pipelines" accent />
-        <KPICard label="TOTAL APPLICANTS" value="500" sub="Across all active postings" />
-        <KPICard label="AVG. TIME-TO-FILL" value="12d" sub="Target: under 28 days" />
-        <KPICard label="TOP MATCH ALERTS" value="3" sub="Candidates scored >90%" />
+        <KPICard label="ACTIVE CYCLES"    value={loading ? "…" : String(kpis.activeCycles)}   sub="Open recruitment pipelines" accent />
+        <KPICard label="TOTAL APPLICANTS" value={loading ? "…" : String(kpis.totalApplicants)} sub="Across all active postings" />
+        <KPICard label="AVG. TIME-TO-FILL" value={loading ? "…" : `${kpis.avgTtfDays}d`}      sub="Days since job posted" />
+        <KPICard label="FUNNEL STAGES"    value={loading ? "…" : String(funnelData.length)}    sub="Applied → Screened → Offered" />
       </div>
 
       {/* Funnel + TTF */}
@@ -134,29 +116,18 @@ export default function RecruiterDashboard() {
             <FunnelChart>
               <Tooltip contentStyle={TooltipStyle} />
               <Funnel dataKey="value" data={funnelData} isAnimationActive lastShapeType="rectangle">
-                <LabelList
-                  position="right"
-                  fill="var(--c-text-sub)"
-                  stroke="none"
-                  dataKey="name"
-                  style={{ fontFamily: "var(--font-ibm-plex-mono)", fontSize: 9, letterSpacing: "1px" }}
-                />
-                <LabelList
-                  position="center"
-                  fill="var(--c-text)"
-                  stroke="none"
-                  dataKey="value"
-                  style={{ fontFamily: "var(--font-ibm-plex-mono)", fontSize: 11, fontWeight: "bold", letterSpacing: "1px" }}
-                />
+                <LabelList position="right" fill="var(--c-text-sub)" stroke="none" dataKey="name"
+                  style={{ fontFamily: "var(--font-ibm-plex-mono)", fontSize: 9, letterSpacing: "1px" }} />
+                <LabelList position="center" fill="var(--c-text)" stroke="none" dataKey="value"
+                  style={{ fontFamily: "var(--font-ibm-plex-mono)", fontSize: 11, fontWeight: "bold", letterSpacing: "1px" }} />
               </Funnel>
             </FunnelChart>
           </ResponsiveContainer>
-          {/* Conversion rates */}
           <div className="flex gap-[1px] mt-4 bg-[var(--c-border-soft)]">
             {[
-              { label: "SCREEN RATE", value: "20%" },
-              { label: "EXAM RATE",   value: "20%" },
-              { label: "HIRE RATE",   value: "25%" },
+              { label: "SCREEN RATE", value: screenRate },
+              { label: "EXAM RATE",   value: examRate },
+              { label: "HIRE RATE",   value: hireRate },
             ].map((item) => (
               <div key={item.label} className="flex-1 flex flex-col items-center py-3 bg-[var(--c-bg-elev)] gap-1">
                 <span className="font-grotesk text-[19px] font-bold text-[var(--c-accent)]">{item.value}</span>
@@ -170,23 +141,15 @@ export default function RecruiterDashboard() {
         <div className="p-5 border border-[var(--c-border-soft)] bg-[var(--c-bg-elev)]">
           <SectionLabel index="03">TIME-TO-FILL (DAYS PER WEEK)</SectionLabel>
           <ResponsiveContainer width="100%" height={200}>
-            <BarChart data={ttfData} barSize={28}>
-              <XAxis
-                dataKey="week"
+            <BarChart data={TTF_DATA} barSize={28}>
+              <XAxis dataKey="week"
                 tick={{ fill: "var(--c-text-dim)", fontSize: 8, fontFamily: "var(--font-ibm-plex-mono)", letterSpacing: "1px" }}
-                axisLine={{ stroke: "var(--c-border-soft)" }}
-                tickLine={false}
-              />
-              <YAxis
-                tick={{ fill: "var(--c-text-dim)", fontSize: 8, fontFamily: "var(--font-ibm-plex-mono)" }}
-                axisLine={false}
-                tickLine={false}
-                width={24}
-                unit="d"
-              />
+                axisLine={{ stroke: "var(--c-border-soft)" }} tickLine={false} />
+              <YAxis tick={{ fill: "var(--c-text-dim)", fontSize: 8, fontFamily: "var(--font-ibm-plex-mono)" }}
+                axisLine={false} tickLine={false} width={24} unit="d" />
               <Tooltip contentStyle={TooltipStyle} cursor={{ fill: "rgba(255,214,0,0.04)" }} />
               <Bar dataKey="days" radius={0}>
-                {ttfData.map((entry, i) => (
+                {TTF_DATA.map((entry, i) => (
                   <Cell key={i} fill={entry.days <= 4 ? "var(--c-accent)" : "var(--c-warn)"} />
                 ))}
               </Bar>
@@ -211,29 +174,15 @@ export default function RecruiterDashboard() {
         <div className="p-5 border border-[var(--c-border-soft)] bg-[var(--c-bg-elev)]">
           <SectionLabel index="04">URGENT ACTIONS</SectionLabel>
           <div className="flex flex-col gap-[1px] bg-[var(--c-border-soft)]">
-            {urgentActions.map((action) => (
+            {URGENT_ACTIONS.map((action) => (
               <div key={action.id} className="flex items-start gap-4 p-4 bg-[var(--c-bg-elev)]">
-                <div
-                  className="flex items-center justify-center px-2 py-[3px] shrink-0 mt-[1px]"
+                <div className="flex items-center justify-center px-2 py-[3px] shrink-0 mt-[1px]"
                   style={{
-                    background:
-                      action.priority === "high"
-                        ? "rgba(255,107,53,0.12)"
-                        : action.priority === "medium"
-                        ? "rgba(255,214,0,0.08)"
-                        : "rgba(255,255,255,0.04)",
-                    borderLeft: `2px solid ${
-                      action.priority === "high" ? "var(--c-warn)" : action.priority === "medium" ? "var(--c-accent)" : "var(--c-border)"
-                    }`,
-                  }}
-                >
-                  <span
-                    className="font-ibm-mono text-[8px] tracking-[1px]"
-                    style={{
-                      color:
-                        action.priority === "high" ? "var(--c-warn)" : action.priority === "medium" ? "var(--c-accent)" : "var(--c-text-muted)",
-                    }}
-                  >
+                    background: action.priority === "high" ? "rgba(255,107,53,0.12)" : action.priority === "medium" ? "rgba(255,214,0,0.08)" : "rgba(255,255,255,0.04)",
+                    borderLeft: `2px solid ${action.priority === "high" ? "var(--c-warn)" : action.priority === "medium" ? "var(--c-accent)" : "var(--c-border)"}`,
+                  }}>
+                  <span className="font-ibm-mono text-[8px] tracking-[1px]"
+                    style={{ color: action.priority === "high" ? "var(--c-warn)" : action.priority === "medium" ? "var(--c-accent)" : "var(--c-text-muted)" }}>
                     {action.type}
                   </span>
                 </div>
@@ -253,41 +202,42 @@ export default function RecruiterDashboard() {
           </div>
         </div>
 
-        {/* Active job postings mini-table */}
+        {/* Active job postings */}
         <div className="p-5 border border-[var(--c-border-soft)] bg-[var(--c-bg-elev)]">
           <SectionLabel index="05">ACTIVE JOB CYCLES</SectionLabel>
           <div className="flex flex-col gap-[1px] bg-[var(--c-border-soft)]">
-            {/* Header */}
             <div className="grid grid-cols-[1fr_auto_auto_auto] gap-4 px-4 py-2 bg-[var(--c-bg)] items-center">
               {["ROLE", "APPLIED", "SCREENED", "TTF"].map((h) => (
                 <span key={h} className="font-ibm-mono text-[8px] text-[var(--c-text-dim)] tracking-[1.5px]">{h}</span>
               ))}
             </div>
-            {activeJobs.map((job) => (
-              <div
-                key={job.id}
-                className="grid grid-cols-[1fr_auto_auto_auto] gap-4 px-4 py-3 bg-[var(--c-bg-elev)] items-center hover:bg-[var(--c-bg)] transition-colors group"
-              >
-                <div className="flex flex-col gap-[2px] min-w-0">
-                  <span className="font-ibm-mono text-[10px] text-[var(--c-text)] truncate">{job.title}</span>
-                  <span className="font-ibm-mono text-[8px] text-[var(--c-text-dim)] tracking-[0.5px]">{job.id}</span>
-                </div>
-                <span className="font-grotesk text-[14px] font-bold text-[var(--c-text)]">{job.applied}</span>
-                <span className="font-grotesk text-[14px] font-bold text-[var(--c-accent)]">{job.screened}</span>
-                <div className="flex items-center gap-[4px]">
-                  <span
-                    className="font-ibm-mono text-[10px]"
-                    style={{ color: job.ttf <= 7 ? "var(--c-accent)" : "var(--c-warn)" }}
-                  >
+            {loading ? (
+              <div className="px-4 py-6 bg-[var(--c-bg-elev)]">
+                <span className="font-ibm-mono text-[9px] text-[var(--c-text-faint)] tracking-[1px]">LOADING...</span>
+              </div>
+            ) : activeJobs.length === 0 ? (
+              <div className="px-4 py-6 bg-[var(--c-bg-elev)]">
+                <span className="font-ibm-mono text-[9px] text-[var(--c-text-faint)] tracking-[1px]">NO ACTIVE JOB POSTINGS YET</span>
+              </div>
+            ) : (
+              activeJobs.map((job) => (
+                <div key={job.id} className="grid grid-cols-[1fr_auto_auto_auto] gap-4 px-4 py-3 bg-[var(--c-bg-elev)] items-center hover:bg-[var(--c-bg)] transition-colors">
+                  <div className="flex flex-col gap-[2px] min-w-0">
+                    <span className="font-ibm-mono text-[10px] text-[var(--c-text)] truncate">{job.title}</span>
+                    <span className="font-ibm-mono text-[8px] text-[var(--c-text-dim)] tracking-[0.5px]">{job.dept}</span>
+                  </div>
+                  <span className="font-grotesk text-[14px] font-bold text-[var(--c-text)]">{job.applied}</span>
+                  <span className="font-grotesk text-[14px] font-bold text-[var(--c-accent)]">{job.screened}</span>
+                  <span className="font-ibm-mono text-[10px]" style={{ color: job.ttf <= 7 ? "var(--c-accent)" : "var(--c-warn)" }}>
                     {job.ttf}d
                   </span>
                 </div>
-              </div>
-            ))}
+              ))
+            )}
           </div>
           <div className="mt-4 flex items-center justify-between">
             <span className="font-ibm-mono text-[9px] text-[var(--c-text-faint)] tracking-[0.5px]">
-              Showing 4 of 11 active postings
+              Showing {activeJobs.length} active posting{activeJobs.length !== 1 ? "s" : ""}
             </span>
             <a href="/dashboard/jobs" className="font-ibm-mono text-[9px] text-[var(--c-accent)] hover:underline tracking-[1px]">
               VIEW ALL /

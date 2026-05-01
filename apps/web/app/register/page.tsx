@@ -2,11 +2,10 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { authClient } from "@/lib/auth-client";
 
 type Field = { value: string; error: string; touched: boolean };
 const field = (value = ""): Field => ({ value, error: "", touched: false });
-
-const TAKEN_EMAILS = ["admin@eaa.et", "recruiter@eaa.et", "candidate@eaa.et"];
 
 export default function RegisterPage() {
   const [lang, setLang] = useState<"en" | "am">("en");
@@ -25,7 +24,6 @@ export default function RegisterPage() {
   function validateEmail(val: string): string {
     if (!val) return isEn ? "EMAIL IS REQUIRED" : "ኢሜይል ያስፈልጋል";
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) return isEn ? "INVALID EMAIL FORMAT" : "ትክክለኛ ኢሜይል ያስፈልጋል";
-    if (TAKEN_EMAILS.includes(val.toLowerCase())) return isEn ? "EMAIL ALREADY REGISTERED" : "ኢሜይሉ አስቀድሞ ተመዝግቧል";
     return "";
   }
   function validatePassword(val: string): string {
@@ -46,15 +44,33 @@ export default function RegisterPage() {
     if (!nameErr && !emailErr && !phoneErr) setStep(2);
   }
 
-  function handleStep2(e: React.FormEvent) {
+  async function handleStep2(e: React.FormEvent) {
     e.preventDefault();
     const passErr = validatePassword(password.value);
     const confirmErr = password.value !== confirm.value ? (isEn ? "PASSWORDS DO NOT MATCH" : "የምስጢር ቃሎቹ አይዛመዱም") : "";
     setPassword((f) => ({ ...f, error: passErr, touched: true }));
     setConfirm((f) => ({ ...f, error: confirmErr, touched: true }));
+
     if (!passErr && !confirmErr) {
       setLoading(true);
-      setTimeout(() => { setLoading(false); setSuccess(true); }, 1500);
+      const { error: signUpError } = await authClient.signUp.email({
+        email: email.value,
+        password: password.value,
+        name: fullName.value,
+        // @ts-expect-error — Better Auth additionalFields
+        role: "candidate",
+      });
+      setLoading(false);
+      if (signUpError) {
+        setEmail((f) => ({
+          ...f,
+          error: isEn ? "EMAIL ALREADY REGISTERED" : "ኢሜይሉ አስቀድሞ ተመዝግቧል",
+          touched: true,
+        }));
+        setStep(1);
+        return;
+      }
+      setSuccess(true);
     }
   }
 
